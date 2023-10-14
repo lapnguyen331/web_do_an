@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*::selection {
+    background-color: var(--red-color-main);
+    color: var(--wheat-color);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --red-color-main: #bf1e2e;
+    --red-light-color-main: #bd303d;
+    --red-dark-color-main: #940e11;
+    --gray-color: #d4d4d4;
+    --wheat-color: #f0ad4e;
+    --bisque-color: #e7dccc;
+}
+
