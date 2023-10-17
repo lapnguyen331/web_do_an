@@ -1,3 +1,7 @@
+#about-section .container {
+    background-color: #ffff;
+}
+
 #about-section * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -34,7 +38,10 @@
     font-weight: bold;
 }
 
-#about-section .about-content h1,h2,h3,h4 {
+#about-section .about-content h1,
+#about-section .about-content h2,
+#about-section .about-content h3,
+#about-section .about-content h4 {
     color: #db0000;
     font-weight: bold;
 }

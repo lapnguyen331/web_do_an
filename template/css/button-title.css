@@ -32,6 +32,14 @@
     -webkit-clip-path: var(--path);
 }
 
+.bg-sharp-no-left,
+.bg-sharp-no-left * {
+    --path: polygon(0 0%, calc(100% - 10px) 0%, 100% 10px,
+    100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0% calc(100% - 10px), 0% 10px);
+    clip-path: var(--path);
+    -webkit-clip-path: var(--path);
+}
+
 .bg-rounded,
 .bg-rounded * {
     border-radius: 25px;
