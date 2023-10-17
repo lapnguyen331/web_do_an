@@ -2,25 +2,22 @@
     display: flex;
     flex-direction: column;
     min-height: 500px;
+    border-radius: 8px;
+}
+
+#section-product-filter .filter-header {
+    position: relative;
+}
+
+#section-product-filter .filter-content {
+    padding-bottom: 30px;
+    margin-top: -20px;
+    padding-top: 20px;
     background: url('../image/product-filter-bg-footer.png');
     background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;
     background-color: #e7dccc;
-    position: relative;
-    margin: 30px 0px;
-    padding-top: 20px;
-    border-radius: 8px;
-}
-
-#section-product-filter .filter-header {
-    position: absolute;
-    width: 100%;
-    top: -25px;
-}
-
-#section-product-filter .filter-content {
-    padding-bottom: 30px;
 }
 
 #section-product-filter .filter-content form {
