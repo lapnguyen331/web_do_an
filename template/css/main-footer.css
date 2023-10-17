@@ -58,11 +58,28 @@
 
 
 #main-footer-section .footer-guide .guide-content {
-    min-height: 400px;
+    height: 300px;
     color: white;
     font-family: 'Segoe UI';
     font-weight: 300;
     padding: 20px 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#main-footer-section .footer-guide .guide-content::-webkit-scrollbar {
+    width: 0px;
+}
+
+#main-footer-section .footer-guide .guide-content:hover::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ff9d9d39;
+    border-radius: 10px;
+}
+
+#main-footer-section .footer-guide .guide-content::-webkit-scrollbar-thumb {
+    background-color: var(--red-color-main);
+    border-radius: 10px;
 }
 
 #main-footer-section * .guide-content + .guide-content {
@@ -119,6 +136,7 @@
 #main-footer-section .footer-guide .guide-content .portfolio-product .product-name a {
     color: white;
     text-decoration: none;
+    text-transform: capitalize;
 }
 
 #main-footer-section .footer-guide .guide-content .portfolio-product .product-img {
