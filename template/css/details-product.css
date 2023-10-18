@@ -1,0 +1,224 @@
+/* external css: flickity.css */
+#details-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#details-product .carousel-wrapper {
+    margin: 30px 0;
+}
+
+#details-product .carousel {
+  margin-bottom: 10px;
+  max-width: 400px;
+}
+
+#details-product .carousel-cell {
+    width: 100%;
+    max-height: 400px;
+    margin-right: 10px;
+    padding: 20px 40px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#details-product .carousel-cell img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    transition: linear 0.2s;
+}
+
+#details-product .carousel-nav .carousel-cell {
+    border: 1px solid transparent;
+    width: 25%;
+    opacity: 0.5;
+    padding: 0px;
+}
+
+#details-product .carousel-nav .carousel-cell.is-nav-selected {
+    border-color: gray;
+    opacity: 1;
+    transition: ease-in-out 0.3s;
+    overflow: hidden;
+}
+
+#details-product .carousel-nav .carousel-cell.is-nav-selected img {
+    transform: translateY(-10px);
+}
+
+#details-product .carousel-nav .carousel-cell img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+#details-product .flickity-button {
+    background: transparent;
+    opacity: 0;
+    transition: ease-in-out .3s;
+}
+
+#details-product .carousel:hover .flickity-button {
+    background: transparent;
+    opacity: 1;
+}
+
+#details-product .flickity-button:disabled {
+    display: none;
+}
+
+.carousel.is-fullscreen .carousel-cell {
+    height: 100%;
+}
+
+.rating-stars {
+    position: relative;
+    white-space: nowrap;
+    color: var(--wheat-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating-stars .rating-empty {
+    font-family: 'Font Awesome 6 Free';
+    z-index: 0;
+    position: relative;
+    
+}
+
+.rating-stars .rating-score {
+    display: inline-block;
+    font-family: 'Segoe UI';
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 2px;
+}
+
+.rating-stars .rating-fill {
+    font-weight: bold;
+    z-index: 1;
+    overflow: hidden;
+    columns: var(--wheat-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sold-amount {
+    color: var(--red-color-main);
+    margin-left: 10px;
+}
+
+#details-product .products-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   
+    align-items: center;
+    gap: 10px;
+}
+
+#details-product .products-stats .stat-text {
+    font-weight: 350;
+}
+
+#details-product .text-through {
+    font-weight: 350;
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+}
+
+#details-product .products-stats .stat-label {
+    display: inline-flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+#details-product .products-stats .stat-label::after {
+    content: ":";
+    font-size: inherit;
+}
+
+#details-product .products-stats h4 {
+    padding: 0;
+    margin: 0;
+    color: var(--red-color-main);
+}
+
+#details-product .products-stats .number-field {
+    display: flex;
+    justify-self: start;
+}
+
+#details-product .products-stats .number-field .number-btn span {
+    padding: 5px 15px;
+    background-color: white;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#details-product .products-stats .number-field input {
+    height: 100%;
+    width: 50px;
+    text-align: center;
+    border: 0;
+}
+
+#details-product .products-stats .number-field input:focus-visible {
+    outline: 0;
+}
+
+#details-product .products-stats input::-webkit-outer-spin-button,
+#details-product .products-stats input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#details-product .products-stats .bg-gold:has(input) {
+    padding: 2px 0px;
+}
+
+#details-product .buying-offer {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+#details-product .buying-offer .offer {
+    display: flex;
+    min-height: 50px;
+    background-image: -webkit-linear-gradient(90deg, rgb(254, 246, 235) 0%, rgb(252, 250, 247) 99%);
+    align-items: center;
+    padding: 0px 20px;
+    gap: 10px;
+}
+
+#details-product .buying-offer .offer .icon {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5px;
+}
+
+#details-product .buying-offer .offer .icon i {
+    padding: 10px;
+    background-color: white;
+    border-radius: 50%;
+    display: block;
+    color: var(--red-color-main);
+    font-size: 18px;
+}
+
+#details-product .buying-offer .offer .offer-text {
+    font-weight: 350;
+    color: var(--red-color-main);
+}
