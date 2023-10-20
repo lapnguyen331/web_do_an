@@ -1,6 +1,5 @@
 #home-slider-section {
     display: flex;
-    max-height: 500px;
 }
 
 .custom-bullet {
@@ -26,4 +25,9 @@
     background-color: var(--red-color-main);
     border-radius: 50%;
     position: absolute;
+}
+
+.swiper-wrapper .swiper-slide img {
+    object-fit: cover;
+    height: 500px;
 }
