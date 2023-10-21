@@ -14,6 +14,12 @@
     width: 600px;
 }
 
+#checkout-section .checkout-title {
+    text-transform: uppercase;
+    color: var(--red-color-main);
+    font-weight: bold;
+}
+
 #checkout-section .checkout-cart-wrap .info-checkout > div {
     padding: 10px;
 }
@@ -132,10 +138,67 @@
     padding: 8px 20px;
     font-weight: bold;
     cursor: pointer;
+    border: 0;
 }
 
 #checkout-section .checkout-cart-wrap .info-checkout .call-action .action-btn::before {
     font-family: 'Font Awesome 6 Free';
     content: '\f09d';
     margin-right: 10px;
+}
+
+#checkout-section .checkout-info-wrap .info-form {
+    width: 650px;
+    padding: 0px 10px;
+    background-image: -webkit-linear-gradient(90deg, rgb(254, 246, 235) 0%, rgb(252, 250, 247) 99%);
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+
+#checkout-section .checkout-info-wrap .info-form>div + div {
+    margin-top: 10px;
+}
+
+#checkout-section .checkout-info-wrap .info-form .txt-field label {
+    display: block;
+    font-weight: bold;
+}
+
+#checkout-section .checkout-info-wrap .info-form .txt-field input,
+#checkout-section .checkout-info-wrap .info-form .txt-field textarea {
+    border: 1px dashed var(--red-color-main);
+    background-color: rgba(255,255,255,0.2);
+    padding: 5px 10px;
+    width: 100%;
+}
+
+#checkout-section .checkout-info-wrap .info-form .txt-field textarea:focus-visible,
+#checkout-section .checkout-info-wrap .info-form .txt-field input:focus-visible {
+    outline: 0px;
+}
+
+#checkout-section .checkout-info-wrap .info-form .method-wrap {
+    border: 1px dashed var(--red-color-main);
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#checkout-section .checkout-info-wrap .info-form .method-wrap > div {
+    line-height: 30px;
+}
+
+#checkout-section .checkout-info-wrap .info-form .method-wrap .lb-method {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    gap: 5px;
+}
+
+#checkout-section .checkout-info-wrap .info-form .method-wrap .lb-method img {
+    width: 40px;   
+}
+
+#checkout-section .checkout-info-wrap .info-form .method-wrap .method-description {
+    font-weight: 350;
+    font-size: 14px;
 }
