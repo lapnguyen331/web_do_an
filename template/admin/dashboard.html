@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Thư viện ngoài (Luôn để đầu tiên) -->
+    <link rel="stylesheet" href="../stylesheet/fontawesome.min.css">
+    <link rel="stylesheet" href="../stylesheet/all.min.css">
+    <link rel="stylesheet" href="../libs/mdb-bootstrap-5-pro/css/mdb.min.css">
+
+
+    <link rel="stylesheet" href="../css/main-style.css">
+    <link rel="stylesheet" href="../css/admin/sidebar.css">
+    <link rel="stylesheet" href="../css/admin/navbar.css">
+    <link rel="stylesheet" href="../css/admin/admin-product.css">
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <nav id="sidebar-nav" class="close">
+        <div class="sidebar close">
+            <div class="logo-details">
+                <i class="fa-brands fa-square-js"></i>
+                <span class="logo_name">Admin Sidebar</span>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <span class="link_name">Điều khiển</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Điều khiển</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span class="link_name">Danh mục</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Danh mục</a></li>
+                        <li><a href="#">Thêm danh mục</a></li>
+                        <li><a href="#">Sửa danh mục</a></li>
+                        <li><a href="#">Xóa danh mục</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-box"></i>
+                            <span class="link_name">Sản phẩm</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Sản phẩm</a></li>
+                        <li><a href="#">Thêm sản phẩm</a></li>
+                        <li><a href="#">Sửa sản phẩm</a></li>
+                        <li><a href="#">Xóa sản phẩm</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-book"></i>
+                            <span class="link_name">Bài viết</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Bài viết</a></li>
+                        <li><a href="#">Thêm bài viết</a></li>
+                        <li><a href="#">Sửa bài viết</a></li>
+                        <li><a href="#">Xóa bài viết</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <span class="link_name">Thống kê</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Thống kê</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span class="link_name">Biểu đồ</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Biểu đồ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-plug-circle-bolt"></i>
+                            <span class="link_name">Plugins</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Plugins</a></li>
+                        <li><a href="#">UI Face</a></li>
+                        <li><a href="#">Pigments</a></li>
+                        <li><a href="#">Box Icons</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-headset new-info">
+                            <span>11</span>
+                        </i>
+                        <span class="link_name">Liên hệ</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Liên hệ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span class="link_name">History</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">History</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-gears"></i>
+                        <span class="link_name">Setting</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Setting</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <img src="../icon/ship-toan-quoc.jpg" alt="profileImg">
+                        </div>
+                        <div class="name-job">
+                            <div class="profile_name">Nguyễn Tuấn</div>
+                            <div class="job">IT Student</div>
+                        </div>
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <nav id="navbar-header" class="shadow bg-white close">
+        <div class="left-side">
+            <i class="fa-solid fa-bars" id="menu-sidebar-toggle"></i>
+        </div>
+        <div class="right-side">
+            <div class="avatar-wrap">
+                <img src="../icon/ship-toan-quoc.jpg" alt="">
+                <span class="username">Nguyễn Tuấn</span>
+            </div>
+        </div>
+    </nav>
+    <section id="main-content-section">
+        <div class="main-content">
+            <div class="product-control">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 px-0">
+                            <form action="" class="filter-form">
+                                <div class="action-field">
+                                    <div class="form-title">Bộ lọc</div>
+                                    <button type="submit">Lọc sản phẩm</button>
+                                </div>
+                                <div class="filter-button-field">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <input type="text">
+                                </div>
+                                <div class="filter-radio-field">
+                                    <div class="form-title">Danh mục</div>
+                                    <ul class="field-show">
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="cate1" id="nuoc-hong-sam" />
+                                                <label class="form-check-label" for="nuoc-hong-sam">Nước hồng sâm</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="cate2" id="cao-hong-sam" />
+                                                <label class="form-check-label" for="cao-hong-sam">Cao hồng sâm</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="cate3" id="sam-kho" />
+                                                <label class="form-check-label" for="sam-kho">Sâm khô</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="field-others collapse" id="others">
+                                        <ul>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="cate4" id="sam-mat-ong" />
+                                                    <label class="form-check-label" for="sam-mat-ong">Sâm mật ong</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="cate5" id="hac-sam" />
+                                                    <label class="form-check-label" for="hac-sam">Hắc sâm</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="cate6" id="nhan-sam-tuoi" />
+                                                    <label class="form-check-label" for="nhan-sam-tuoi">Nhân sâm tươi</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="cate7" id="ruou-sam-linh-chi" />
+                                                    <label class="form-check-label" for="ruou-sam-linh-chi">Rượu sâm linh chi</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="cate8" id="tra-hong-sam" />
+                                                    <label class="form-check-label" for="tra-hong-sam">Trà hồng sâm</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="cate9" id="vien-hong-sam" />
+                                                    <label class="form-check-label" for="vien-hong-sam">Viên hồng sâm</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a href="#others" data-mdb-toggle="collapse" aria-expanded="false" class="show-all-toggle">Hiện tất cả...</a>
+                                </div>
+                                <div class="filter-radio-field">
+                                    <div class="form-title">Thương hiệu</div>
+                                    <ul class="field-show">
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="cheongkwangjang" id="cheong-kwang-jang" />
+                                                <label class="form-check-label" for="cheong-kwang-jang">CHEONG KWANG JANG</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="daedong" id="daedong" />
+                                                <label class="form-check-label" for="daedong">DAEDONG</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="kwandaong" id="kwandaong" />
+                                                <label class="form-check-label" for="kwandaong">KWANGDONG</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-8 px-0">
+                            <div id="datatable-product">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/jquery.js"></script>
+    <script src="../libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
+    <script src="../js/admin/sidebar.js"></script>
+    <script src="../js/admin/product.js"></script>
+</body>
+
+</html>
