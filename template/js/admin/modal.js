@@ -82,4 +82,38 @@ const editor = SUNEDITOR.create((document.getElementById('sample')),{
     </script>
     `,
 });
-editor.onSave = function (contents, core) {console.log(contents) };
+
+let preStoredImage = [
+    {id: 1, src: 'https://hongsamkimy.vn/wp-content/uploads/2023/07/Untitled-design-2023-07-13T093015.683-jpg.webp'},
+    {id: 2, src: 'https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-3-768x768.webp'},
+    {id: 3, src: 'https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-2-768x768.webp'},
+    {id: 4, src: 'https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-5-768x768.webp'},
+    {id: 5, src: 'https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-4-768x768.webp'}
+]
+$('.input-images').imageUploader({
+    preloaded: preStoredImage,
+    imagesInputName: 'photos',
+    preloadInputName: 'old-photos',
+    maxFiles: 6
+});
+
+$('#input_price_product').on('change', function() {
+    console.log($(this).val())
+    let value = ($(this).val().replaceAll(',',''));
+    if (!value.match(/^[0-9]+$/)) value = 0;
+    $(this).val(new Intl.NumberFormat('en-US').format(value));
+})
+
+const asyncAutocomplete = document.querySelector('#async-brands');
+const asyncFilter = async (query) => {
+  const url = `https://dummyjson.com/products`;
+  const response = await fetch(url);
+  const data = await response.json();
+  const filter = data.products.filter(({brand}) => brand.indexOf(query) >= 0);
+  return filter;
+};
+
+new mdb.Autocomplete(asyncAutocomplete, {
+  filter: asyncFilter,
+  displayValue: (value) => value.brand
+});
