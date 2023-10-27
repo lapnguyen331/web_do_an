@@ -8,12 +8,17 @@
     <!-- Thư viện ngoài (Luôn để đầu tiên) -->
     <link rel="stylesheet" href="../stylesheet/fontawesome.min.css">
     <link rel="stylesheet" href="../stylesheet/all.min.css">
+    <link rel="stylesheet" href="/template/libs/suneditor-master/dist/css/suneditor.min.css">
     <link rel="stylesheet" href="../libs/mdb-bootstrap-5-pro/css/mdb.min.css">
+    <link rel="stylesheet" href="../libs/flickity/flickity.min.css">
+    <link rel="stylesheet" href="/template/css/admin/details-product-template.css">
 
 
     <link rel="stylesheet" href="../css/main-style.css">
     <link rel="stylesheet" href="../css/admin/sidebar.css">
     <link rel="stylesheet" href="../css/admin/navbar.css">
+    <link rel="stylesheet" href="/template/css/admin/admin-modal.css">
+    <link rel="stylesheet" href="../css/button-title.css">
     <link rel="stylesheet" href="../css/admin/admin-product.css">
     <title>Admin Dashboard</title>
 </head>
@@ -188,19 +193,23 @@
                                     <ul class="field-show">
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="cate1" id="nuoc-hong-sam" />
-                                                <label class="form-check-label" for="nuoc-hong-sam">Nước hồng sâm</label>
+                                                <input class="form-check-input" type="checkbox" value="cate1"
+                                                    id="nuoc-hong-sam" />
+                                                <label class="form-check-label" for="nuoc-hong-sam">Nước hồng
+                                                    sâm</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="cate2" id="cao-hong-sam" />
+                                                <input class="form-check-input" type="checkbox" value="cate2"
+                                                    id="cao-hong-sam" />
                                                 <label class="form-check-label" for="cao-hong-sam">Cao hồng sâm</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="cate3" id="sam-kho" />
+                                                <input class="form-check-input" type="checkbox" value="cate3"
+                                                    id="sam-kho" />
                                                 <label class="form-check-label" for="sam-kho">Sâm khô</label>
                                             </div>
                                         </li>
@@ -209,62 +218,78 @@
                                         <ul>
                                             <li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="cate4" id="sam-mat-ong" />
-                                                    <label class="form-check-label" for="sam-mat-ong">Sâm mật ong</label>
+                                                    <input class="form-check-input" type="checkbox" value="cate4"
+                                                        id="sam-mat-ong" />
+                                                    <label class="form-check-label" for="sam-mat-ong">Sâm mật
+                                                        ong</label>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="cate5" id="hac-sam" />
+                                                    <input class="form-check-input" type="checkbox" value="cate5"
+                                                        id="hac-sam" />
                                                     <label class="form-check-label" for="hac-sam">Hắc sâm</label>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="cate6" id="nhan-sam-tuoi" />
-                                                    <label class="form-check-label" for="nhan-sam-tuoi">Nhân sâm tươi</label>
+                                                    <input class="form-check-input" type="checkbox" value="cate6"
+                                                        id="nhan-sam-tuoi" />
+                                                    <label class="form-check-label" for="nhan-sam-tuoi">Nhân sâm
+                                                        tươi</label>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="cate7" id="ruou-sam-linh-chi" />
-                                                    <label class="form-check-label" for="ruou-sam-linh-chi">Rượu sâm linh chi</label>
+                                                    <input class="form-check-input" type="checkbox" value="cate7"
+                                                        id="ruou-sam-linh-chi" />
+                                                    <label class="form-check-label" for="ruou-sam-linh-chi">Rượu sâm
+                                                        linh chi</label>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="cate8" id="tra-hong-sam" />
-                                                    <label class="form-check-label" for="tra-hong-sam">Trà hồng sâm</label>
+                                                    <input class="form-check-input" type="checkbox" value="cate8"
+                                                        id="tra-hong-sam" />
+                                                    <label class="form-check-label" for="tra-hong-sam">Trà hồng
+                                                        sâm</label>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="cate9" id="vien-hong-sam" />
-                                                    <label class="form-check-label" for="vien-hong-sam">Viên hồng sâm</label>
+                                                    <input class="form-check-input" type="checkbox" value="cate9"
+                                                        id="vien-hong-sam" />
+                                                    <label class="form-check-label" for="vien-hong-sam">Viên hồng
+                                                        sâm</label>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
-                                    <a href="#others" data-mdb-toggle="collapse" aria-expanded="false" class="show-all-toggle">Hiện tất cả...</a>
+                                    <a href="#others" data-mdb-toggle="collapse" aria-expanded="false"
+                                        class="show-all-toggle">Hiện tất cả...</a>
                                 </div>
                                 <div class="filter-radio-field">
                                     <div class="form-title">Thương hiệu</div>
                                     <ul class="field-show">
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="cheongkwangjang" id="cheong-kwang-jang" />
-                                                <label class="form-check-label" for="cheong-kwang-jang">CHEONG KWANG JANG</label>
+                                                <input class="form-check-input" type="checkbox" value="cheongkwangjang"
+                                                    id="cheong-kwang-jang" />
+                                                <label class="form-check-label" for="cheong-kwang-jang">CHEONG KWANG
+                                                    JANG</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="daedong" id="daedong" />
+                                                <input class="form-check-input" type="checkbox" value="daedong"
+                                                    id="daedong" />
                                                 <label class="form-check-label" for="daedong">DAEDONG</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="kwandaong" id="kwandaong" />
+                                                <input class="form-check-input" type="checkbox" value="kwandaong"
+                                                    id="kwandaong" />
                                                 <label class="form-check-label" for="kwandaong">KWANGDONG</label>
                                             </div>
                                         </li>
@@ -272,19 +297,398 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-8 px-0">
-                            <div id="datatable-product">
+                        <div class="col-md-9 px-0">
+                            <div class="product-list">
+                                <div class="product-grid product-list-head">
+                                    <span class="justify-self-center">#</span>
+                                    <span>Hình ảnh</span>
+                                    <span>Mã sản phẩm</span>
+                                    <span>Tên sản phẩm</span>
+                                    <span>Giá bán</span>
+                                    <span>Tồn kho</span>
+                                </div>
+                                <!-- Body -->
+                                <div class="product-list-body">
+                                    <div class="product-grid product-info">
+                                        <input class="form-check-input justify-self-center collapse-toggle"
+                                            type="checkbox">
+                                        <div class="img-product"></div>
+                                        <span class="id-product">CHS013912</span>
+                                        <span>Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</span>
+                                        <span>980.000₫</span>
+                                        <span>15</span>
+                                        <div class="product-more-info collapse">
+                                            <div class="product-wrap">
+                                                <div class="img-product"></div>
+                                                <div class="more-stats">
+                                                    <div class="stat">
+                                                        <label>Tên sản phẩm</label>
+                                                        <span>Cao hồng sâm Hong Seon Gold</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Giá bán</label>
+                                                        <span>980.000₫</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Mã sản phẩm</label>
+                                                        <span>CHS013912</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Quy cách</label>
+                                                        <span>2 lọ 250g</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Tồn kho</label>
+                                                        <span>15</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Thương hiệu</label>
+                                                        <span>Seon Gold</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="action-btns">
+                                            <i class="fa-regular fa-circle-xmark remove-btn"></i>
+                                            <i class="fa-solid fa-expand view-btn"></i>
+                                        </div>
+                                    </div>
+                                    <div class="product-grid product-info">
+                                        <input class="form-check-input justify-self-center collapse-toggle"
+                                            type="checkbox">
+                                        <div class="img-product"></div>
+                                        <span class="id-product">CHS999112</span>
+                                        <span>Cao Hắc Sâm Nguyên Chất 100% – DAEDONG</span>
+                                        <span>3.200.000₫</span>
+                                        <span>21</span>
+                                        <div class="product-more-info collapse">
+                                            <div class="product-wrap">
+                                                <div class="img-product"></div>
+                                                <div class="more-stats">
+                                                    <div class="stat">
+                                                        <label>Tên sản phẩm</label>
+                                                        <span>Cao Hắc Sâm Nguyên Chất 100%</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Giá bán</label>
+                                                        <span>3.200.000₫</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Mã sản phẩm</label>
+                                                        <span>CHS999112</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Quy cách</label>
+                                                        <span>120g / 240g</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Tồn kho</label>
+                                                        <span>21</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Thương hiệu</label>
+                                                        <span>Daedong</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-grid product-info">
+                                        <input class="form-check-input justify-self-center collapse-toggle"
+                                            type="checkbox">
+                                        <div class="img-product"></div>
+                                        <span class="id-product">SMA929138</span>
+                                        <span>Sâm củ tẩm mật ong hộp 300g 8 củ – POCHEON</span>
+                                        <span>1.430.000₫</span>
+                                        <span>07</span>
+                                        <div class="product-more-info collapse">
+                                            <div class="product-wrap">
+                                                <div class="img-product"></div>
+                                                <div class="more-stats">
+                                                    <div class="stat">
+                                                        <label>Tên sản phẩm</label>
+                                                        <span>Sâm củ tẩm mật ong hộp 300g 8 củ</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Giá bán</label>
+                                                        <span>1.430.000₫</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Mã sản phẩm</label>
+                                                        <span>SMA929138</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Quy cách</label>
+                                                        <span>Hộp 300g 8 củ</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Tồn kho</label>
+                                                        <span>07</span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <label>Thương hiệu</label>
+                                                        <span>Pocheon</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="my-modal">
+        </div>
+        <div class="overlay"></div>
+    </section>  
+    <!-- Modal -->
+    <div class="modal fade" id="admin-product-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                <div class="modal-title">
+                    <div class="admin-modal-tabs">
+                        <button class="tab active" data-modal-tab="#mdal-tab-general">
+                            <i class="fa-solid fa-list"></i>
+                            <span>Thông tin sản phẩm</span>
+                        </button>
+                        <button class="tab" data-modal-tab="#mdal-tab-details">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            <span>Bài viết mô tả</span>
+                        </button>
+                        <button class="tab" data-modal-tab="#mdal-tab-setting">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span>Chỉnh sửa</span>
+                        </button>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-content">
+                        <div class="container">
+                            <div class="row tab-content show" id="mdal-tab-general">
+                                <div class="col-md-5">
+                                    <div class="carousel-wrapper">
+                                        <!-- Flickity HTML init -->
+                                        <div class="carousel carousel-main">
+                                            <div class="carousel-cell">
+                                                <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/Untitled-design-2023-07-13T093015.683-jpg.webp" alt="">
+                                            </div>
+                                            <div class="carousel-cell">
+                                                <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-3-768x768.webp" alt="">
+                                            </div>
+                                            <div class="carousel-cell">
+                                                <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-2-768x768.webp" alt="">
+                                            </div>
+                                            <div class="carousel-cell">
+                                                <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-5-768x768.webp" alt="">
+                                            </div>
+                                            <div class="carousel-cell">
+                                                <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-4-768x768.webp" alt="">
+                                            </div>
+                                        </div>
+                            
+                                        <div class="carousel carousel-nav">
+                                            <div class="carousel-cell">
+                                                <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/Untitled-design-2023-07-13T093015.683-jpg.webp" alt="">
+                                            </div>
+                                            <div class="carousel-cell">
+                                                <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-3-768x768.webp" alt="">
+                                            </div>
+                                            <div class="carousel-cell">
+                                                <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-2-768x768.webp" alt="">
+                                            </div>
+                                            <div class="carousel-cell">
+                                                <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-5-768x768.webp" alt="">
+                                            </div>
+                                            <div class="carousel-cell">
+                                                <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-4-768x768.webp" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <h2>Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</h2>
+                                    <div class="rating-stars">
+                                        <span class="rating-score">4.8</span>
+                                        <div class="rating-empty">
+                                            <span>&#xf005;&#xf005;&#xf005;&#xf005;&#xf005;</span>
+                                            <div class="rating-fill" style="width: 50%;">&#xf005;&#xf005;&#xf005;&#xf005;&#xf005;</div>
+                                        </div>
+                                    </div>
+                                    <span class="sold-amount"><b>1.2k</b> Đã bán</span>
+                                    <p>Cao hồng sâm 6 năm tuổi kết hợp bới một số loại thảo dược quý như linh chi, bạch chỉ, xuyên khung,… làm gia tăng những thành phần đặc hiệu và công năng của sản phẩm giúp cho việc hỗ trợ và tăng cường bồi bổ cơ thể, cải thiện sức khỏe đạt hiệu quả tốt nhất…</p>
+                                    <div class="row d-flex align-items-start">
+                                        <div class="col-md-6 pl-0">
+                                            <div class="products-stats">
+                                                <div class="stat-label">Quy cách</div>
+                                                <span class="stat-text">Hộp 2 lọ 250g</span>
+                
+                                                <div class="stat-label">Mã sản phẩm</div>
+                                                <span class="stat-text">8809308650564</span>
+                
+                                                <div class="stat-label">Thương hiệu</div>
+                                                <span class="stat-text">Hong Seon</span>
+                
+                                                <div class="stat-label">Giá thị trường</div>
+                                                <span class="stat-text text-through">1.100.000 ₫</span>
+                
+                                                <div class="stat-label">Giá khuyến mãi</div>
+                                                <h4>980.000₫</h4>
+                
+                                                <div class="stat-label">Số lượng</div>
+                                                <div class="number-field">
+                                                    <div class="number-btn btn-left bg-gold bg-sharp-no-right">
+                                                        <span>-</span>
+                                                    </div>
+                                                    <div class="bg-gold">
+                                                        <input type="number" data-amount="0">
+                                                    </div>
+                                                    <div class="number-btn btn-right bg-gold bg-sharp-no-left">
+                                                        <span>+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="btn-submit bg-gold bg-sharp">
+                                                <a href="#">Mua hàng</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pl-0 d-flex flex-column align-items-center">
+                                            <div class="buying-offer bg-gold bg-sharp-5">
+                                                <div class="offer">
+                                                    <div class="bg-gold icon">
+                                                        <i class="fa-regular fa-thumbs-up"></i>
+                                                    </div>
+                                                    <span class="offer-text">Cam kết hàng chính hãng 100%</span>
+                                                </div>
+                                                <div class="offer">
+                                                    <div class="bg-gold icon">
+                                                        <i class="fa-solid fa-truck-fast"></i>
+                                                    </div>
+                                                    <span class="offer-text">Giao hàng toàn quốc</span>
+                                                </div>
+                                                <div class="offer">
+                                                    <div class="bg-gold icon">
+                                                        <i class="fa-solid fa-money-bill-wave"></i>
+                                                    </div>
+                                                    <span class="offer-text">Miễn phí vận chuyển từ 500k</span>
+                                                </div>
+                                                <div class="offer">
+                                                    <div class="bg-gold icon">
+                                                        <i class="fa-solid fa-handshake-angle"></i>
+                                                    </div>
+                                                    <span class="offer-text">Tư vấn nhiệt tình tận tâm</span>
+                                                </div>
+                                            </div>
+                                            <form action="" class="recall-form bg-gold bg-sharp">
+                                                <input class="bg-sharp-no-right input-field" type="text" placeholder="SĐT yêu cầu gọi lại">
+                                                <input class="bg-sharp-no-left btn-submit" type="submit" value="&#xf2a0;  Tư vấn tôi">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row tab-content" id="mdal-tab-details">
+                                <div class="blog">
+                                    <div id="sample">
+                                        <h4>Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</h4>
+                                        <img src="/template/image/cao-hong-sam-hong-seon-gold-hop-2-lo-250g-1.webp" alt="">
+                                        <h4>Thành phần:</h4>
+                                        <p>15% Hồng sâm cô đặc 6 năm tuổi (Ginsenosides Rg1, Rb1 và Rg3 tổng 4mg/g, chất rắn 70% trở lên), 70% hỗn hợp thực vật cô đặc (táo tàu 9%, rễ bạch chỉ 9%, rễ hoa cúc 9%, ngải cứu, Gujeolcho, Rễ Jihwang (Sukjihwang), lá non Artemisia, rễ hoa cúc, thân rễ sapju, rễ mẫu đơn, rễ xương cựa, hạch nấm bokryeong, nấm linh chi, cam thảo, chất rắn 60% trở lên), isomaltooligosaccharide.</p>
+                                        <h4>Công dụng:</h4>
+                                        <ul>
+                                            <li>Bồi bổ cơ thể, tăng sức lao động trí óc và chân tay, chống mệt mỏi.</li>
+                                            <li>Chống lão hóa, cải thiện chức năng não bộ ở người lớn tuổi, tăng khả năng tập trung trí tuệ, tăng trí nhớ</li>
+                                            <li>Tăng cường khả năng miễn dịch, giúp cơ thể tăng khả năng thích nghi phòng vệ đối với những kích thích có hại</li>
+                                            <li>Điều hòa huyết áp, giúp hồi phục huyết áp ở cơ thể.</li>
+                                            <li>Giảm tác hại của chất phóng xạ, cải thiện và phòng ngừa sự phát triển của các tế bào ung thư.</li>
+                                            <li>Ngăn ngừa nguy cơ phát sinh cholesterol cao, từ đó hạn chế sự hình thành các mảng xơ vữa động mạch</li>
+                                            <li>Thành phần chính Saponin có trong cao sâm có tác dụng loại bỏ chất Alloxan và chất Streptozotocin là nguyên nhân làm tăng đường huyết do đó cao sâm cũng hỗ trợ trong việc giảm đường huyết, tiểu đường</li>
+                                            <li>Saponin trong hồng sâm làm tăng hoạt động enzym liên quan tới sự thoái hóa ethanol và acetaldehyd, do đó đối với người hay uống rượu, để giảm gan tránh được độc tính</li>
+                                        </ul>
+                                        <h4>Đối tượng sử dụng: </h4>
+                                        <ul>
+                                            <li>Người suy kiệt cơ thể hậu điều trị cần tăng cường đề kháng và bồi bổ sức khỏe.</li>
+                                            <li>Người làm việc trí óc hoặc học tập cường độ cao.</li>
+                                            <li>Người bị ung thư, mắc các bệnh về rối loạn chuyển hóa đường trong nước tiểu, mỡ, tim, huyết áp…</li>
+                                            <li>Người già cần bồi bổ sức khỏe, tăng cường trí nhớ.</li>
+                                            <li>Phụ nữ hơn 30 tuổi mong muốn duy trì một cơ thể khỏe mạnh và một làn da tươi trẻ.</li>
+                                        </ul>
+                                        <img src="/template/image/cao-hong-sam-hong-seon-gold-hop-2-lo-250g.webp" alt="">
+                                        <h4>Cách dùng:</h4>
+                                        <ul>
+                                            <li><b>Phòng bệnh:</b> Mỗi ngày uống 2 lần, mỗi lần uống lấy 1 thìa cao nhỏ (có trong hộp)= 5mg, pha với nước ấm rồi uống trước bữa ăn 15-20 phút.</li>
+                                            <li><b>Chữa bệnh:</b> Mỗi ngày uống 3 lần. Mỗi lần uống lấy 2 thìa cao nhỏ, pha với nước ấm, uống trước bữa ăn 15-20 phút.</li>
+                                        </ul>
+                                        <p><b>Quy cách đóng gói:</b> Hộp 2 lọ 250g</p>
+                                        <p><b>Hạn sử dụng:</b> 2 năm kể từ ngày sản xuất</p>
+                                        <p><b>Lưu ý:</b> Thực phẩm không là thuốc, không thay thế thuốc chữa bệnh</p>
+                                        <p><b>Nhà sản xuất:</b> KOREA GINSENG CENTER</p>
+                                        <p><b>Điện thoại:</b> 0934 138 985</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row tab-content" id="mdal-tab-setting">
+                                Chỉnh sửa sản phẩm
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal top fade" id="confirm-modal" tabindex="-1" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="false">
+        <div class="modal-dialog modal-sm  modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Lưu thay đổi</h5>
+            </div>
+            <div class="modal-body">Bạn có chắc muốn lưu thay đổi bài viết?</div>
+            <div class="modal-footer">
+              <button type="button" class="btn-confirm-cancel" data-mdb-dismiss="modal">
+                <i class="fa-solid fa-xmark"></i>
+                <span>Hủy bỏ</span>
+              </button>
+              <button type="button" class="btn-confirm-changed" data-mdb-dismiss="modal">
+                <span>Lưu</span>
+                <i class="fa-solid fa-floppy-disk"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Template Preview Bài viết -->
+    <!-- <section id="details-product">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tabs">
+                        <div class="tablinks tablinks-is-active" data-tab-target="#tab-product-content">Mô tả sản phẩm</div>
+                        <div class="tablinks"> Địa chỉ mua hàng</div>
+                        <div class="tablinks"> Đánh giá sản phẩm</div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="tab-content-wrapper">
+                        <section class="tab-content tab-is-active" id="tab-product-content">
+                            {{contents}}
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
     <script src="../js/jquery.js"></script>
     <script src="../libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
+    <script src="../libs/flickity/flickity.pkgd.min.js"></script>
+    <script src="/template/libs/suneditor-master/dist/suneditor.min.js"></script>
     <script src="../js/admin/sidebar.js"></script>
     <script src="../js/admin/product.js"></script>
+    <script src="/template/js/admin/modal.js"></script>
 </body>
 
 </html>
