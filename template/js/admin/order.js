@@ -26,7 +26,7 @@ const translate = {
 const categories = {
     'cao_hong_sam' : 'Cao Hồng Sâm'
 }
-const data_tables = new DataTable('#product_table', {
+const data_tables = new DataTable('#table_orders', {
     ajax: '/template/admin/orders.txt',
     language: translate,
     dom: 'tip',
