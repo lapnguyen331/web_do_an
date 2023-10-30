@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="/template/css/main-style.css">
     <link rel="stylesheet" href="/template/css/admin/sidebar.css">
     <link rel="stylesheet" href="/template/css/admin/navbar.css">
-    <link rel="stylesheet" href="/template/css/admin/admin-modal.css">
-    <link rel="stylesheet" href="/template/css/admin/admin-orders.css">
+    <link rel="stylesheet" href="/template/css/admin/admin-orders-edit.css">
     <title>Quản lí sản phẩm</title>
 </head>
 
@@ -175,94 +174,136 @@
     </nav>
     <section id="main-content-section">
         <div class="main-content">
-            <div class="product-control">
-                <div class="container rounded-2">
+            <section id="product_edit">
+                <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
-                            <form id="table_filters">
-                                <div class="form-outline input-field">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                    <input type="text" class="form-control" id="filter_input" placeholder="Theo mã đơn hàng, tên khách hàng hoặc tương tự...">
-                                </div>
-                                <div class="form-outline input-field">
-                                    <input type="text" class="form-control" id="date_picker" placeholder="Theo ngày tháng" value="">
-                                </div>
-                                <div class="select-field">
-                                    <select id="status_filter">
-                                        <option value="none" disabled selected>Theo tình trạng</option>
-                                        <option value="pending">Đã được giao</option>
-                                        <option value="success">Đang giao</option>
-                                        <option value="return">Đang trả về</option>
-                                        <option value="cancel">Đã bị hủy</option>
-                                    </select>
-                                    <select id="table_length_filter" class="select">
-                                        <option value="10">Hiển thị 10 dòng</option>
-                                        <option value="20">Hiển thị 20 dòng</option>
-                                        <option value="50">Hiển thị 50 dòng</option>
-                                        <option value="100">Hiển thị 100 dòng</option>
-                                    </select>
-                                </div>
-                                <div class="submit-field">
-                                    <button type="submit">
-                                        <div><i class="fa-solid fa-sliders"></i></div>
-                                        <span>Tìm kiếm</span>
-                                    </button>
-                                </div>
-                            </form>
+                        <div class="col-md-3">
+                            <div class="left-container">CONTENT</div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <nav id="table_tabs">
-                                <ul>
-                                    <li class="active">
-                                        <i class="fa-solid fa-warehouse"></i>
-                                        <span>Tất cả đơn</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa-regular fa-circle-check"></i>
-                                        <span>Đã được giao</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-truck-fast"></i>
-                                        <span>Đang giao</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-right-left"></i>
-                                        <span>Đang trả về</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa-regular fa-circle-xmark"></i>
-                                        <span>Đã bị hủy</span>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table id="product_table" style="width: 100%">
-                                <thead>
-                                    <tr>
-                                        <th>Mã đơn hàng</th>
-                                        <th>Khách hàng</th>
-                                        <th>Tổng thu</th>
-                                        <th>SĐT</th>
-                                        <th>Email</th>
-                                        <th>Tình trạng</th>
-                                        <th>Ngày tạo</th>
-                                        <th>Thao tác</th>
-                                    </tr>
-                                </thead>
-                            </table>
+                        <div class="col-md-9">
+                            <div class="right-container">
+                                <form action="" id="products-form">
+                                    <h4 class="form-title">Lựa chọn sản phẩm</h4>
+                                    <h6 class="form-title">Thêm sản phẩm vào hóa đơn này</h6>
+                                    <div class="products-range">
+                                        <div class="product-card">
+                                            <div class="img-wrap">
+                                                <img src="" alt="">
+                                            </div>
+                                            <div class="info-wrap">
+                                                <div class="product-title">Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</div>
+                                                <div class="product-price">Giá bán: 980.000₫</div>
+                                                <div class="id-wrap">
+                                                    <div class="product-id">Mã SP: CHS013912</div>
+                                                    <div class="number-field">
+                                                        <button class="up">
+                                                            <span>+</span>
+                                                        </button>
+                                                        <input type="text" name="" id="">
+                                                        <button class="down">
+                                                            <span>-</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="remove-btn">
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product-card">
+                                            <div class="img-wrap">
+                                                <img src="" alt="">
+                                            </div>
+                                            <div class="info-wrap">
+                                                <div class="product-title">Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</div>
+                                                <div class="product-price">Giá bán: 980.000₫</div>
+                                                <div class="id-wrap">
+                                                    <div class="product-id">Mã SP: CHS013912</div>
+                                                    <div class="number-field">
+                                                        <button class="up">
+                                                            <span>+</span>
+                                                        </button>
+                                                        <input type="text" name="" id="">
+                                                        <button class="down">
+                                                            <span>-</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="remove-btn">
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product-card">
+                                            <div class="img-wrap">
+                                                <img src="" alt="">
+                                            </div>
+                                            <div class="info-wrap">
+                                                <div class="product-title">Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</div>
+                                                <div class="product-price">Giá bán: 980.000₫</div>
+                                                <div class="id-wrap">
+                                                    <div class="product-id">Mã SP: CHS013912</div>
+                                                    <div class="number-field">
+                                                        <button class="up">
+                                                            <span>+</span>
+                                                        </button>
+                                                        <input type="text" name="" id="">
+                                                        <button class="down">
+                                                            <span>-</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="remove-btn">
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product-card">
+                                            <div class="img-wrap">
+                                                <img src="" alt="">
+                                            </div>
+                                            <div class="info-wrap">
+                                                <div class="product-title">Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</div>
+                                                <div class="product-price">Giá bán: 980.000₫</div>
+                                                <div class="id-wrap">
+                                                    <div class="product-id">Mã SP: CHS013912</div>
+                                                    <div class="number-field">
+                                                        <button class="up">
+                                                            <span>+</span>
+                                                        </button>
+                                                        <input type="text" name="" id="">
+                                                        <button class="down">
+                                                            <span>-</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="remove-btn">
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h4 class="form-title">Tổng tiền: 3.080.000₫</h4>
+                                    <hr class="horizontal">
+                                    <div class="filter-input">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <input type="text" placeholder="Tìm kiếm sản phẩm">
+                                    </div>
+                                    <table id="products_filter_table" class="display" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Sản phẩm</th>
+                                                <th>Tồn kho</th>
+                                            </tr>
+                                    </thead>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-        <div class="my-modal">
-        </div>
-        <div class="overlay"></div>
     </section>
     <script src="/template/js/jquery.js"></script>
     <script src="/template/libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
@@ -270,7 +311,8 @@
     <script src="/template/libs/DataTables/datatables.min.js"></script>
     <script src="/template/libs/daterangepicker-master/moment.min.js"></script>
     <script src="/template/libs/daterangepicker-master/daterangepicker.js"></script>
-    <script src="/template/js/admin/order.js"></script>
+    <script src="/template/libs/DataTables/datatables.min.js"></script>
+    <script src="/template/js/admin/order-edit.js"></script>
 </body>
 
 </html>
