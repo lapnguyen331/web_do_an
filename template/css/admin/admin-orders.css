@@ -95,3 +95,84 @@
 input:focus-visible {
     outline: none;
 }
+
+#table_tabs {
+    display: block;
+    padding: 10px 0px;
+}
+
+#table_tabs ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#table_tabs ul li {
+    display: block;
+    padding: 5px 15px;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition: all .3s ease;
+    font-weight: 500;
+}
+
+#table_tabs ul li:not(.active):hover {
+    color: var(--red-color-main);
+}
+
+#table_tabs ul li.active {
+    color: var(--red-color-main);
+    border-bottom: 1px solid var(--red-color-main);
+}
+
+#table_filters {
+    display: flex;
+    gap: 15px;
+    justify-content: start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #878a99;
+    align-items: start;
+}
+
+#table_filters .input-field {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+}
+
+#filter_input {
+    width: 400px;
+}
+
+#date_picker {
+    width: 250px;
+}
+
+#table_filters .input-field i {
+    margin-left: 10px;
+}
+
+#table_filters .select-field {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+#table_filters .submit-field {
+    display: flex;
+}
+
+#table_filters .submit-field button {
+    display: flex;
+    width: 100%;
+    text-wrap: nowrap;
+    padding: 5px 20px;
+    border: none;
+    background-color: var(--red-color-main);
+    color: var(--wheat-color);
+    border-radius: 5px;
+    font-weight: 500;
+    gap: 10px;
+}

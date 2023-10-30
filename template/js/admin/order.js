@@ -26,9 +26,10 @@ const translate = {
 const categories = {
     'cao_hong_sam' : 'Cao Hồng Sâm'
 }
-new DataTable('#product_table', {
+const data_tables = new DataTable('#product_table', {
     ajax: '/template/admin/orders.txt',
     language: translate,
+    dom: 'tip',
     columns: [
         {
             data: 'id'
@@ -73,43 +74,39 @@ new DataTable('#product_table', {
             }
         },
     ],
-    initComplete: function () {
-        this.api()
-            .columns()
-            .every(function (index) {
-                let column = this;
-                if (index == 5) {
-                    let select = document.createElement('select');
-                    this
-                        .data()
-                        .unique()
-                        .each(function (value, index) {
-                            select.add(new Option(value));
-                        })
-                        column.footer().replaceChildren(select);
-                        select.addEventListener('change', function () {
-                            var val = DataTable.util.escapeRegex(select.value);
-         
-                            column
-                                .search(val ? '^' + val + '$' : '', true, false)
-                                .draw();
-                        });
-                        return;
-                }
-                let title = column.header().textContent;
- 
-                // Create input element
-                let input = document.createElement('input');
-                input.classList.add('filter')
-                input.placeholder = title;
-                column.footer().replaceChildren(input);
-                
-                // Event listener for user input
-                input.addEventListener('keyup', () => {
-                    if (column.search() !== this.value) {
-                        column.search(input.value).draw();
-                    }
-                });
-            });
-    }
 });
+
+
+//init
+(function() {
+    $('#table_tabs').on('click', 'li', function() {
+        const lis = $(this).siblings().filter('li');
+        $(lis).removeClass('active');
+        $(this).addClass('active')
+    })
+    
+    $('#date_picker').daterangepicker({
+        locale: {
+            format: 'DD/MM/YYYY'
+        },
+        linkedCalendars: false,
+        alwaysShowCalendars: true,
+        drop: "auto",
+        autoUpdateInput: false,
+    }, function(start, end, label) {
+      console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+    });
+    
+    $('#date_picker').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+    })
+    
+    $('#date_picker').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+    });
+    
+    new mdb.Select($('#status_filter')[0], {
+        clearButton: true,
+    })
+    $('.select-clear-btn').css({display: 'none'});
+})();
