@@ -92,3 +92,23 @@ const dataTable = new DataTable('#products_filter_table', {
     order: [[1, 'asc']],
 });
 
+$('#txt_date').daterangepicker({
+    "singleDatePicker": true,
+}, function(start, end, label) {
+  console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+});
+
+const basicAutocomplete = document.querySelector('#search-autocomplete');
+const data = ['One', 'Two', 'Three', 'Four', 'Five'];
+const asyncFilter = async (query) => {
+  const url = `https://dummyjson.com/products`;
+  const response = await fetch(url);
+  const data = await response.json();
+  const filter = data.products.filter(({brand}) => brand.indexOf(query) >= 0);
+  return filter;
+};
+
+new mdb.Autocomplete(basicAutocomplete, {
+  filter: asyncFilter,
+  displayValue: (value) => value.brand
+});
