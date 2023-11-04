@@ -1,0 +1,16 @@
+#categories-form {
+    width: 100%;
+}
+
+#categories-form .left-container {
+    width: 100%;
+}
+
+#categories-form .left-container .thumbnail-wrap {
+    width: 100%;
+    padding: 20px;
+}
+
+#categories-form .left-container .thumbnail-wrap .upload-text {
+    font-size: 14px;
+}
