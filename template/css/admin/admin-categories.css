@@ -1,48 +1,65 @@
-.order-control {
+.categories-control {
     width: 100%;
 }
 
-.order-control .container{
+.categories-control .container{
     background-color: white;
 }
 
 /* Style cho table */
-#table_orders {
+#table_categories {
     border-collapse: collapse;
 }
 
-#table_orders tbody tr + tr {
+#table_categories tbody tr + tr {
     border-top: 1px solid rgba(0,0,0,.3);
 }
 
-#table_orders thead tr {
+#table_categories thead tr {
     background-color: #f3f6f9;
     color: #878a99;
     text-transform: uppercase;
     font-size: 13px;
 }
 
+#table_categories .category-wrap .category-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    border: 1.5px rgba(0, 0, 0, 0.5) dashed;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+#table_categories .category-wrap .category-img img {
+    object-fit: cover;
+    width: 100%;
+}
+
 /* Pagination */
-#table_orders_paginate #table_orders_previous,
-#table_orders_paginate #table_orders_next {
+#table_categories_paginate #table_categories_previous,
+#table_categories_paginate #table_categories_next {
     border: 1px solid rgba(0,0,0,.3);
 }
 
-#table_orders_paginate .paginate_button {
+#table_categories_paginate .paginate_button {
     cursor: pointer;
     transition: all .2s ease;
     padding: 4px 1rem;
     background: linear-gradient(to bottom, rgba(230, 230, 230, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%);
 }
 
-#table_orders_paginate .paginate_button:hover {
+#table_categories_paginate .paginate_button:hover {
     background: none;
     background-color: var(--red-color-main);
     color: var(--wheat-color) !important;
 }
 
 
-#table_orders_filter {
+#table_categories_filter {
     display: flex;
     align-items: center;
     border: 1px solid rgba(0,0,0,.3);
@@ -50,11 +67,11 @@
     padding: 0px 10px;
 }
 
-#table_orders_filter label {
+#table_categories_filter label {
     display: inline-block;
 }
 
-#table_orders_filter label::before {
+#table_categories_filter label::before {
     display: inline-block;
     content: '\f002';
     font-family: 'Font Awesome 6 Free';
@@ -62,12 +79,12 @@
     margin-right: 5px;
 }
 
-#table_orders_filter input {
+#table_categories_filter input {
     border: 0;
 }
 
 .action-btns {
-    display: flex;
+    display: inline-flex;
     gap: 15px;
     line-height: 0;
     font-size: 17px;

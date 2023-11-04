@@ -26,40 +26,54 @@ const translate = {
 const categories = {
     'cao_hong_sam' : 'Cao Hồng Sâm'
 }
-const data_tables = new DataTable('#table_orders', {
-    ajax: '/template/admin/orders.txt',
+
+const status_badget = {
+    active: '<span class="badge badge-success">Hoạt động</span>',
+    deactive: '<span class="badge badge-danger">Tạm ngưng</span>',
+}
+const data_tables = new DataTable('#table_categories', {
+    ajax: '/template/admin/categories.txt',
     language: translate,
     dom: 'tip',
+    scrollCollapse: true,
+    scrollY: '400px',
     columns: [
         {
-            data: 'id'
-        },
-        {
-            data: 'customer'
-        },
-        {
-            data: 'price',
-            render: function(data) {
-                return new Intl.NumberFormat('en-US').format(data)
+            data: 'name',
+            render: function(data, type, row) {
+                const html = `
+                    <div class="category-wrap d-flex align-items-center gap-2">
+                        <div class="category-img">
+                            <img src="${row['image']}" alt="">
+                        </div>
+                        <div class="category-info d-flex flex-column justify-content-center">
+                            <div class="fw-semibold">${row['name']}</div>
+                            <div class="fw-light">Mã danh mục: ${row['id']}</div>
+                        </div>
+                    </div>
+                `
+                return html;
             }
-        },
-        {
-            data: 'phone'
-        },
-        {
-            data: 'email'
-        },
-        {
-            data: 'status',
-            render: function(data) {
-                return `<span class="badge badge-warning">${data}</span>`
-            }
-        },
-        {
-            data: 'create'
         },
         {
             data: null,
+            orderable: false,
+            className: 'dt-center',
+            render: function(data) {
+                return status_badget[data['status']]
+            }
+        },
+        {
+            data: 'create',
+            className: 'dt-center',
+            render: function(data) {
+                return `<span>${data}</span>`
+            }
+        },
+        {
+            className: 'dt-right',
+            data: null,
+            orderable: false,
             render: function() {
                 const html = `
                 <div class="action-btns">
