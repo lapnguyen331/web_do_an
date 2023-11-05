@@ -1,0 +1,45 @@
+{
+  "data": 
+  [
+    {
+      "id": "KH0001",
+      "name": "Phạm Nhật Hùng",
+      "email": "pnh21378@yahoo.com",
+      "phone": "093-312-1234",
+      "status": "active",
+      "created": "11/06/2023"
+    },
+    {
+      "id": "KH0001",
+      "name": "Phạm Nhật Hùng",
+      "email": "pnh21378@yahoo.com",
+      "phone": "093-312-1234",
+      "status": "active",
+      "created": "11/06/2023"
+    },
+    {
+      "id": "KH0001",
+      "name": "Phạm Nhật Hùng",
+      "email": "pnh21378@yahoo.com",
+      "phone": "093-312-1234",
+      "status": "active",
+      "created": "11/06/2023"
+    },
+    {
+      "id": "KH0001",
+      "name": "Phạm Nhật Hùng",
+      "email": "pnh21378@yahoo.com",
+      "phone": "093-312-1234",
+      "status": "active",
+      "created": "11/06/2023"
+    },
+    {
+      "id": "KH0001",
+      "name": "Phạm Nhật Hùng",
+      "email": "pnh21378@yahoo.com",
+      "phone": "093-312-1234",
+      "status": "active",
+      "created": "11/06/2023"
+    }
+  ]
+}
