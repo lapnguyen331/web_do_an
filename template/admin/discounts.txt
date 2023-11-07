@@ -1,0 +1,33 @@
+{
+  "data": 
+  [
+    {
+      "id": "GG1234567",
+      "name": "Giảm giá dịp 20/11",
+      "code": "45637ec4-c85f-11ea-87d0-0242ac130003",
+      "start": "19/11/2023",
+      "end": "22/11/2023",
+      "value": 15,
+      "product": {
+        "image": "/template/image/cao-hong-sam-hong-seon-gold-hop-2-lo-250g.webp",
+        "id": "CHSHQ23",
+        "name": "Cao hồng sâm Hong Seon Gold Hộp 2 Lọ 250g"
+      },
+      "status": "active"
+    },
+    {
+      "id": "GG1235671",
+      "name": "Giảm giá cuối năm",
+      "code": "018b2f0a-45a7-778b-88b7-da6933b704a3",
+      "start": "30/11/2022",
+      "end": "29/12/2022",
+      "value": 10,
+      "product": {
+        "image": "/template/image/cao-hong-sam-hong-seon-gold-hop-2-lo-250g.webp",
+        "id": "CHSHQ23",
+        "name": "Cao hồng sâm Hong Seon Gold Hộp 2 Lọ 250g"
+      },
+      "status": "deactive"
+    }
+  ]
+}
