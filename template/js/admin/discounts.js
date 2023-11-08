@@ -34,6 +34,7 @@ const data_tables = new DataTable('#table_customers', {
     scrollY: '400px',
     order: [[1, 'asc']],
     autoWidth: true,
+
     columns: [
         {
             data: 'id'
