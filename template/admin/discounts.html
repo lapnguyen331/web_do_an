@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="/template/css/main-style.css">
     <link rel="stylesheet" href="/template/css/admin/sidebar.css">
-    <link rel="stylesheet" href="/template/css/admin/navbar.css">
+    <link rel="stylesheet" href="/template/css/main-header.css">
     <link rel="stylesheet" href="/template/css/admin/admin-discounts.css">
     <title>Quản lí khách hàng</title>
 </head>
@@ -30,16 +30,16 @@
                 <span class="logo_name">Admin Sidebar</span>
             </div>
             <ul class="nav-links">
-                <li>
+                <li class="nav-link-page">
                     <a href="#">
                         <i class="fa-solid fa-table-cells-large"></i>
                         <span class="link_name">Điều khiển</span>
                     </a>
-                    <ul class="sub-menu blank">
+                    <ul class="sub-menu">
                         <li><a class="link_name" href="#">Điều khiển</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="nav-link-page">
                     <div class="icon-link">
                         <a href="#">
                             <i class="fa-solid fa-layer-group"></i>
@@ -54,7 +54,7 @@
                         <li><a href="#">Xóa danh mục</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="nav-link-page">
                     <div class="icon-link">
                         <a href="#">
                             <i class="fa-solid fa-box"></i>
@@ -69,7 +69,7 @@
                         <li><a href="#">Xóa sản phẩm</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="nav-link-page">
                     <div class="icon-link">
                         <a href="#">
                             <i class="fa-solid fa-book"></i>
@@ -84,25 +84,25 @@
                         <li><a href="#">Xóa bài viết</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="nav-link-page">
                     <a href="#">
                         <i class="fa-solid fa-chart-simple"></i>
                         <span class="link_name">Thống kê</span>
                     </a>
-                    <ul class="sub-menu blank">
+                    <ul class="sub-menu">
                         <li><a class="link_name" href="#">Thống kê</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="nav-link-page">
                     <a href="#">
                         <i class="fa-solid fa-chart-line"></i>
                         <span class="link_name">Biểu đồ</span>
                     </a>
-                    <ul class="sub-menu blank">
+                    <ul class="sub-menu">
                         <li><a class="link_name" href="#">Biểu đồ</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="nav-link-page">
                     <div class="icon-link">
                         <a href="#">
                             <i class="fa-solid fa-plug-circle-bolt"></i>
@@ -117,36 +117,36 @@
                         <li><a href="#">Box Icons</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="nav-link-page">
                     <a href="#">
                         <i class="fa-solid fa-headset new-info">
                             <span>11</span>
                         </i>
                         <span class="link_name">Liên hệ</span>
                     </a>
-                    <ul class="sub-menu blank">
+                    <ul class="sub-menu">
                         <li><a class="link_name" href="#">Liên hệ</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="nav-link-page">
                     <a href="#">
                         <i class="fa-solid fa-clock-rotate-left"></i>
                         <span class="link_name">History</span>
                     </a>
-                    <ul class="sub-menu blank">
+                    <ul class="sub-menu">
                         <li><a class="link_name" href="#">History</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="nav-link-page">
                     <a href="#">
                         <i class="fa-solid fa-gears"></i>
                         <span class="link_name">Setting</span>
                     </a>
-                    <ul class="sub-menu blank">
+                    <ul class="sub-menu">
                         <li><a class="link_name" href="#">Setting</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="nav-link-page">
                     <div class="profile-details">
                         <div class="profile-content">
                             <img src="../icon/ship-toan-quoc.jpg" alt="profileImg">
@@ -159,19 +159,78 @@
                     </div>
                 </li>
             </ul>
-        </div>
-    </nav>
-    <nav id="navbar-header" class="shadow bg-white close">
-        <div class="left-side">
-            <i class="fa-solid fa-bars" id="menu-sidebar-toggle"></i>
-        </div>
-        <div class="right-side">
-            <div class="avatar-wrap">
-                <img src="../icon/ship-toan-quoc.jpg" alt="">
-                <span class="username">Nguyễn Tuấn</span>
+            <div id="btn-toggle-sidebar">
+                <i class="fa-solid fa-angles-right"></i>
             </div>
         </div>
     </nav>
+    <header id="main-header-section">
+        <article id="main-header-top">
+            <div class="logo-wrapper">
+                <img src="/template/icon/logo2.png" alt="">
+            </div>
+            <div class="main-content-wrapper">
+                <ul class="topbar-menu">
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Trang chủ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Giới thiệu</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Liên hệ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Hướng dẫn mua hàng</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Quy định & chính sách chung</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <div class="redirect-link d-flex" href="">
+                            <div class="user-wrap d-flex gap-1 align-items-center">
+                                <div class="avatar-wrap border rounded rounded-circle p-2 d-flex align-items-center justify-content-between overflow-hidden">
+                                    <img src="/template/icon/mien-phi-van-chuyen.jpg" width="20px" alt="">
+                                </div>
+                                <div>nqat0919</div>
+                                <ul class="user-pages">
+                                    <div class="shadow">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-circle-user"></i>
+                                                    <span>Trang cá nhân</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-clipboard-list"></i>
+                                                    <span>Đơn mua</span>   
+                                                </a> 
+                                            </li>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                    <span>Đăng xuất</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="search-input">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
+                        <a class="btn-search" href="">Tìm kiếm</a>
+                    </div>
+                    <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
+                </div>
+            </div>
+        </article>
+    </header>
     <section id="main-content-section">
         <div class="main-content">
             <div class="customers-control">

@@ -48,7 +48,7 @@
 #main-header-section #main-header-top .topbar-menu .topbar-menu-item + .topbar-menu-item::before {
     background-color: var(--red-dark-color-main);
     content: '';
-    width: 1px;
+    width: 0.5px;
     height: 23px;
 }
 

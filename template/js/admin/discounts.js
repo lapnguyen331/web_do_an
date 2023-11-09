@@ -151,12 +151,6 @@ $('#date_picker').on('cancel.daterangepicker', function(ev, picker) {
     $(this).val('');
 });
 
-sidebar.addEventListener('transitionend', function(event) {
-    if (event.propertyName !== 'width') return;
-    console.log(`transtion ended`)
-    data_tables.columns?.adjust();
-})
-
 const customItemAutocomplete = document.querySelector('#customItem');
 const async_data = async (value) => {
     const url = "/template/admin/discounts.txt";

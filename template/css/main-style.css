@@ -35,3 +35,7 @@ body {
 .text-primray-red-color-main {
     color: var(--red-color-main) !important;
 }
+
+.bg-primary-bisque {
+    background-color: #fffcf5 !important;
+}
