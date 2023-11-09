@@ -40,6 +40,40 @@
                     <li class="topbar-menu-item">
                         <a class="redirect-link" href="">Quy định & chính sách chung</a>
                     </li>
+                    <li class="topbar-menu-item">
+                        <div class="redirect-link d-flex" href="">
+                            <div class="user-wrap d-flex gap-1 align-items-center">
+                                <div class="avatar-wrap border rounded rounded-circle p-2 d-flex align-items-center justify-content-between overflow-hidden">
+                                    <img src="/template/icon/mien-phi-van-chuyen.jpg" width="20px" alt="">
+                                </div>
+                                <div>nqat0919</div>
+                                <ul class="user-pages">
+                                    <div class="shadow">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-circle-user"></i>
+                                                    <span>Trang cá nhân</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-clipboard-list"></i>
+                                                    <span>Đơn mua</span>   
+                                                </a> 
+                                            </li>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                    <span>Đăng xuất</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
                 <div class="search-input">
                     <div class="search-input-wrapper">
@@ -91,13 +125,13 @@
                             <h3 class="checkout-title">Thông tin người nhận</h3>
                             <div class="bg-gold bg-sharp">
                                 <div class="info-form ">
-                                    <div class="txt-field last-name-txt-field">
-                                        <label for="txt-last-name">Họ *:</label>
-                                        <input type="text" id="txt-last-name">
+                                    <div class="txt-field full-name-txt-field">
+                                        <label for="txt-full-name">Họ và tên *:</label>
+                                        <input type="text" id="txt-full-name">
                                     </div>
-                                    <div class="txt-field name-txt-field">
-                                        <label for="txt-name">Tên *:</label>
-                                        <input type="text" id="txt-name">
+                                    <div class="txt-field email-txt-field">
+                                        <label for="txt-name">Email *:</label>
+                                        <input type="text" id="txt-email">
                                     </div>
                                     <div class="txt-field phone-txt-field">
                                         <label for="txt-phone">Số điện thoại *:</label>
@@ -111,68 +145,6 @@
                                         <label for="txt-note">Thông tin bổ sung (tùy chọn):</label>
                                         <textarea name="note" id="txt-note" rows="5" placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn"></textarea>
                                     </div>
-                                    <div class="method-choose">
-                                        <div><b>Phương thức thanh toán *:</b></div>
-                                        <div class="method-wrap">
-                                            <div>
-                                                <input id="radio-tien-mat" type="radio" name="method" class="method-radio-btn" data-desc-target="#desc-tien-mat">
-                                                <label for="radio-tien-mat" class="lb-method">
-                                                    <span>Trả tiền mặt khi nhận hàng</span>
-                                                    <img src="icon/thanh-toan-truc-tiep.png">
-                                                </label>
-                                                <div id="desc-tien-mat" class="method-description collapse">Thanh toán với nhân viên giao nhận sau khi lấy hàng</div>
-                                            </div>
-                                            <div>
-                                                <input id="radio-chuyen-khoan" type="radio" name="method" class="method-radio-btn" data-desc-target="#desc-chuyen-khoan">
-                                                <label for="radio-chuyen-khoan" class="lb-method">
-                                                    <span>Chuyển khoản đến tài khoản ngân hàng</span>
-                                                    <img src="icon/chuyen-khoan-qua-ngang-hang.webp" alt="">
-                                                </label>
-                                                <div id="desc-chuyen-khoan" class="method-description collapse">Quý khách vui lòng thanh toán chuyển khoản theo thông tin mã đơn hàng. Kim Y sẽ xác nhận và gửi hàng ngay sau khi bạn hoàn tất thanh toán.</div>
-                                            </div>
-                                            <div>
-                                                <input id="radio-momo" type="radio" name="method" class="method-radio-btn" data-desc-target="#desc-momo">
-                                                <label for="radio-momo" class="lb-method">
-                                                    <span>Thanh toán qua ví Momo</span>
-                                                    <img src="icon/vi-momo.png" alt="">
-                                                </label>
-                                                <div id="desc-momo" class="method-description collapse">Quý khách vui lòng mở ứng dụng Momo và nhấn Đặt Hàng để quét mã thanh toán QR.</div>
-                                            </div>
-                                            <div>
-                                                <input id="radio-paypal" type="radio" name="method" class="method-radio-btn" data-desc-target="#desc-paypal">
-                                                <label for="radio-paypal" class="lb-method">
-                                                    <span>Thanh toán bằng Paypal</span>
-                                                    <img src="icon/paypal.png">
-                                                </label>
-                                                <div id="desc-paypal" class="method-description collapse">
-                                                    <div>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</div>
-                                                    <div>Các giá sẽ được chuyển đổi sang <span style="color: red;">USD</span> ở trên trang của PayPal với tỷ giá <span style="color: red;">USD / VND = 23770</span>.</div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <input id="radio-online-card" type="radio" name="method" class="method-radio-btn" data-desc-target="#desc-online-card">
-                                                <label for="radio-online-card" class="lb-method">
-                                                    <span>Thanh toán trực tuyến bằng thẻ</span>
-                                                    <img src="icon/the-ngan-hang.png" alt="">
-                                                </label>
-                                                <div id="desc-online-card" class="method-description collapse">
-                                                    <b>Chọn một phương thức bên dưới:</b>
-                                                    <div>
-                                                        <input id="radio-online-card-1" type="radio" name="online-method" class="method-radio-btn" checked>
-                                                        <label for="radio-online-card-1"> Thanh toán bằng thẻ quốc tế VISA, MASTERCARD, NAPAS</label>
-                                                    </div>
-                                                    <div>
-                                                        <input id="radio-online-card-2" type="radio" name="online-method" class="method-radio-btn">
-                                                        <label for="radio-online-card-2"> Thanh toán trả góp 0%</label>
-                                                    </div>
-                                                    <div>
-                                                        <input id="radio-online-card-3" type="radio" name="online-method" class="method-radio-btn">
-                                                        <label for="radio-online-card-3"> Thanh toán bằng thẻ nội địa ATM</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -184,13 +156,20 @@
                                         <span class="btn-product-remove"></span>
                                         <div class="product-img">
                                             <img src="image/cao-hong-sam-hong-seon-gold-hop-2-lo-250g-1.webp" alt="">
+                                            <span class="product-discount-badget">- 10%</span>
                                         </div>
                                         <div class="product-info">
                                             <div class="product-name">Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</div>
-                                            <div class="product-specific">
-                                                <div class="checkout-text"><b>Quy cách:</b> 2 lọ x 250g</div>
+                                            <div class="product-discount-code-wrap d-flex gap-2 align-items-center">
+                                                <div class="fw-semibold text-nowrap">Mã giảm giá:</div>
+                                                <div class="discount-box">
+                                                    <input type="text" value="8968b2e8-7f0d-11ee-b962-0242ac120002" readonly class="border-0 fw-semibold text-uppercase fst-italic bg-transparent">
+                                                </div>
                                             </div>
-                                            <div class="product-price"><span>980.000₫</span></div>
+                                            <div class="product-price has-discount">
+                                                <span class="current_price">980.000₫</span>
+                                                <span class="new_price">882.000₫</span>
+                                            </div>
                                         </div>
                                         <div class="product-amount">
                                             <div class="checkout-text"><b>Số lượng</b>: 1</div>
@@ -204,8 +183,9 @@
                                         </div>
                                         <div class="product-info">
                                             <div class="product-name">Cao sâm hũ đôi Arirang hàn quốc</div>
-                                            <div class="product-specific">
-                                                <div class="checkout-text"><b>Quy cách:</b> 2 hũ x 500gr</div>
+                                            <div class="product-discount-code-wrap d-flex gap-2 align-items-center">
+                                                <div class="fw-semibold text-nowrap">Mã giảm giá:</div>
+                                                <div class="fw-normal text-danger">Không có</div>
                                             </div>
                                             <div class="product-price"><span>2.100.000₫</span></div>
                                         </div>
@@ -228,14 +208,19 @@
                                         Thành tiền
                                     </span>
                                     <span class="amount">
-                                        3.080.000₫
+                                        2.982.000₫
                                     </span>
                                 </div>
     
                                 <div class="call-action">
                                     <span class="checkout-text">(Chưa bao gồm VAT)</span>
-                                    <div class="bg-gold bg-sharp">
-                                        <button type="submit" class="action-btn">Hoàn tất thanh toán</button>
+                                    <div class="d-flex gap-2">
+                                        <div class="bg-gold bg-sharp-5">
+                                            <a href="/template/cart.html" type="submit" class="action-btn">Quay lại</a>
+                                        </div>
+                                        <div class="bg-gold bg-sharp-5">
+                                            <button type="submit" class="action-btn">Hoàn tất thanh toán</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -458,6 +443,5 @@
     </script>
     <script src="js/jquery.js"></script>
     <script src="libs/mdb-bootstrap-5/js/mdb.min.js"></script>
-    <script src="js/checkout.js"></script>
 </body>
 </html>

@@ -1,10 +1,8 @@
 #section-product-filter {
     display: flex;
     flex-direction: column;
-    min-height: 500px;
-    border-radius: 8px;
     position: sticky;
-    top: 20px;
+    top: 200px;
     padding-bottom: 80px;
 }
 
@@ -21,6 +19,14 @@
     background-position: bottom;
     background-repeat: no-repeat;
     background-color: #e7dccc;
+    max-height: 400px;
+    overflow-y: scroll;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#section-product-filter .filter-content::-webkit-scrollbar {
+    display: none;
 }
 
 #section-product-filter .filter-content form {
@@ -101,12 +107,12 @@
     cursor: pointer;
 }
 
-#section-product-filter .select-brand {
+#section-product-filter .filter-type-select {
     display: flex;
     padding: 10px;
 }
 
-#section-product-filter .select-brand select {
+#section-product-filter .filter-type-select select {
     width: 100%;
     border-radius: 3px;
     background-color: transparent;
@@ -115,6 +121,6 @@
     padding: 5px 10px;
 }
 
-#section-product-filter .select-brand select:focus-visible {
+#section-product-filter .filter-type-select select:focus-visible {
     outline: 0;
 }

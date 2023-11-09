@@ -40,7 +40,6 @@
 
 #cart-section .product-wrap {
     display: flex;
-    align-items: start;
     gap: 10px;
     padding: 15px;
 }
@@ -104,7 +103,7 @@
     padding: 2px 0px;
 }
 
-#cart-section .number-field input:focus-visible {
+input:focus-visible {
     outline: 0;
 }
 
