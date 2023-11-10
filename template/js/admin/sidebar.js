@@ -7,10 +7,6 @@ for (let i = 0; i < arrow.length; i++) {
   });
 }
 
-let sidebar = document.querySelector(".sidebar");
-let navBar = document.querySelector('#navbar-header');
-let sidebarBtn = document.querySelector("#menu-sidebar-toggle");
-sidebarBtn.addEventListener("click", ()=>{
-  sidebar.classList.toggle("close");
-  navBar.classList.toggle("close");
-});
+$('#btn-toggle-sidebar').on({
+  click: function() {$('.sidebar').toggleClass("close")},
+})

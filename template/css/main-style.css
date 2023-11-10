@@ -24,3 +24,18 @@ body {
     --bisque-color: #e7dccc;
 }
 
+.bg-primary-red-main-color {
+    background-color: var(--red-color-main) !important;
+}
+
+.text-wheat-color {
+    color: var(--wheat-color) !important;
+}
+
+.text-primray-red-color-main {
+    color: var(--red-color-main) !important;
+}
+
+.bg-primary-bisque {
+    background-color: #fffcf5 !important;
+}
