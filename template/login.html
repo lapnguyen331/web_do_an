@@ -15,14 +15,8 @@
   <link rel="stylesheet" href="css/main-footer.css">
   <link rel="stylesheet" href="css/home-slider.css">
   <link rel="stylesheet" href="css/button-title.css">
-  <link rel="stylesheet" href="css/product-card.css">
-  <link rel="stylesheet" href="css/product-filter.css">
-  <link rel="stylesheet" href="css/product-category.css">
-  <link rel="stylesheet" href="css/home-featured-products.css">
-  <link rel="stylesheet" href="css/home-about.css">
-  <link rel="stylesheet" href="css/home-store.css">
   <link rel="stylesheet" href="css/login-style.css">
-  <title>Trang chủ</title>
+  <title>Trang đăng nhập</title>
 </head>
 <body>
 <header id="main-header-section">
@@ -46,6 +40,40 @@
         </li>
         <li class="topbar-menu-item">
           <a class="redirect-link" href="">Quy định & chính sách chung</a>
+        </li>
+        <li class="topbar-menu-item">
+          <div class="redirect-link d-flex" href="">
+            <div class="user-wrap d-flex gap-1 align-items-center">
+              <div class="avatar-wrap border rounded rounded-circle p-2 d-flex align-items-center justify-content-between overflow-hidden">
+                <img src="/template/icon/mien-phi-van-chuyen.jpg" width="20px" alt="">
+              </div>
+              <div>nqat0919</div>
+              <ul class="user-pages">
+                <div class="shadow">
+                  <ul>
+                    <li>
+                      <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span>Trang cá nhân</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <span>Đơn mua</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span>Đăng xuất</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </ul>
+            </div>
+          </div>
         </li>
       </ul>
       <div class="search-input">
@@ -133,43 +161,6 @@
                 <p>Bạn chưa có tài khoản? <a href="#" class="register-link">Đăng ký ngay!</a>
                 </p>
               </div>
-            </form>
-          </div>
-
-          <div class="form-box register">
-            <h2>Đăng ký tài khoản</h2>
-            <form action ="#">
-              <div class="input-box">
-                <span class="icon">
-                  <i class="fa-solid fa-user fa-sm"></i>
-                </span>
-                <input type="text" required>
-                <label>Tài khoản</label>
-              </div>
-              <div class="input-box">
-                <span class="icon">
-                  <i class="fa-solid fa-envelope fa-sm"></i>
-                </span>
-                <input type="text" required>
-                <label>Email</label>
-              </div>
-              <div class="input-box">
-                <span class="icon" id="toggle-register-password">
-                  <i class="fa-solid fa-eye cursor-pointer"></i>
-                  <i class="fa-solid fa-lock fa-sm"></i>
-                </span>
-                <input type="password" id="password1" required>
-                <label>Mật khẩu</label>
-              </div>
-
-              <div class="remember-forgot">
-                <label><input type="checkbox">Tôi đồng ý với các điều khoản sử dụng</label>
-              </div>
-              <button type="submit" class="btn">Đăng ký</button>
-                <div class = "login-register">
-                  <p>Đã có tài khoản? <a href="#" class="login-link">Đăng nhập</a>
-                  </p>
-                </div>
             </form>
           </div>
         </div>
@@ -422,33 +413,6 @@
     }
   });
 
-  document.getElementById('toggle-register-password').addEventListener('click', function() {
-    var passwordField = document.getElementById('password1');
-    var eyeIcon = this.querySelector('i');
-
-    if (passwordField.type === 'password') {
-      passwordField.type = 'text';
-      eyeIcon.classList.remove('fa-eye');
-      eyeIcon.classList.add('fa-eye-slash');
-    } else {
-      passwordField.type = 'password';
-      eyeIcon.classList.remove('fa-eye-slash');
-      eyeIcon.classList.add('fa-eye');
-    }
-  });
-
-
-  const container = document.querySelector('.container')
-  const loginLink = document.querySelector('.login-link')
-  const registerLink = document.querySelector('.register-link')
-
-  registerLink.addEventListener('click', ()=> {
-    container.classList.add('active');
-  });
-
-  loginLink.addEventListener('click', ()=> {
-    container.classList.remove('active');
-  });
 </script>
 </body>
 </html>
