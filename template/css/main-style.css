@@ -23,7 +23,6 @@ body {
     --wheat-color: #f0ad4e;
     --bisque-color: #e7dccc;
 }
-
 .bg-primary-red-main-color {
     background-color: var(--red-color-main) !important;
 }

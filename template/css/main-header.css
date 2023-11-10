@@ -34,6 +34,7 @@
 #main-header-section #main-header-top .topbar-menu {
     display: flex;
     list-style: none;
+
     align-items: center;
     margin-top: 10px;
 }

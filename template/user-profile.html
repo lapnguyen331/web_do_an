@@ -6,6 +6,7 @@
     <!-- Thư viện ngoài (Luôn để đầu tiên) -->
     <link rel="stylesheet" href="stylesheet/fontawesome.min.css">
     <link rel="stylesheet" href="libs/mdb-bootstrap-5/css/mdb.min.css">
+    <link rel="stylesheet" href="stylesheet/all.min.css">
 
     <!-- Style của project -->
     <link rel="stylesheet" href="stylesheet/all.min.css">
@@ -13,12 +14,11 @@
     <link rel="stylesheet" href="css/main-style.css">
     <link rel="stylesheet" href="css/main-footer.css">
     <link rel="stylesheet" href="css/button-title.css">
-    <link rel="stylesheet" href="css/home-about.css">
-
-    <title>Home About</title>
+    <!-- this page -->
+    <link rel="stylesheet" href="css/user-profile/user-profile.css" />
+    <title>Slider</title>
 </head>
-<body style="background-color: #f7f0e6;">
-    <!-- Header -->
+<body>
     <header id="main-header-section">
         <article id="main-header-top">
             <div class="logo-wrapper">
@@ -30,9 +30,6 @@
                         <a class="redirect-link" href="">Trang chủ</a>
                     </li>
                     <li class="topbar-menu-item">
-                        <a class="redirect-link" href="">Giới thiệu</a>
-                    </li>
-                    <li class="topbar-menu-item">
                         <a class="redirect-link" href="">Liên hệ</a>
                     </li>
                     <li class="topbar-menu-item">
@@ -40,6 +37,19 @@
                     </li>
                     <li class="topbar-menu-item">
                         <a class="redirect-link" href="">Quy định & chính sách chung</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <div class="notification-container">
+                            <i class="fa-regular fa-bell"></i>
+                            <span class="redirect-link" href="">Thông báo</span>
+                        </div>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <div class="user-profile-header-container">
+                            <img class="user-avartar-header-img" src="image/user-profile/use-avatar-header-default.jpg" alt="">
+                            <span class="redirect-link" href="">User1</span>
+                        </div>
+                     
                     </li>
                 </ul>
                 <div class="search-input">
@@ -52,118 +62,185 @@
             </div>
         </article>
 
-        <article id="main-header-bot">
-            <nav class="main-nav">
-                <div class="all-items menu-wrapper">
-                    <span>Tất cả sản phẩm</span>
-                    <ul class="menu">
-                        <li class="menu-item"><a href="#">Nước Hồng Sâm Hàn Quốc</a></li>
-                        <li class="menu-item"><a href="#">Cao Hồng Sâm Hàn Quốc</a></li>
-                        <li class="menu-item"><a href="#">Sâm Khô Hàn Quốc</a></li>
-                        <li class="menu-item"><a href="#">Sâm Mật Ong Hàn Quốc</a></li>
-                        <li class="menu-item"><a href="#">Hắc Sâm Hàn Quốc</a></li>
-                        <li class="menu-item"><a href="#">Nhân Sâm Tươi Hàn Quốc</a></li>
-                        <li class="menu-item"><a href="#">Rượu Sâm Linh Chi</a></li>
-                        <li class="menu-item"><a href="#">Trà Hồng Sâm Hàn Quốc Và Bột Sâm</a></li>
-                        <li class="menu-item"><a href="#">Viên Hồng Sâm Hàn Quốc</a></li>
-                        <li class="menu-item"><a href="#">Viên Hồng Sâm Hàn Quốc</a></li>
-                    </ul>
-                </div>
-                <ul class="nav-items-wrapper">
-                    <li class="nav-item menu-wrapper"><a href="#">Nước Hồng Sâm</a></li>
-                    <li class="nav-item menu-wrapper"><a href="#">Cao Hồng Sâm</a></li>
-                    <li class="nav-item menu-wrapper"><a href="#">Sâm Khô</a></li>
-                    <li class="nav-item menu-wrapper"><a href="#">Sâm Mật Ong</a></li>
-                    <li class="nav-item menu-wrapper"><a href="#">Hắc Sâm</a></li>
-                    <li class="nav-item menu-wrapper"><a href="#">Nhân Sâm Tươi</a></li>
-                    <li class="nav-item menu-wrapper"><a href="#">Rượu Sâm Linh Chi</a></li>
-                    <li class="nav-item menu-wrapper"><a href="#">Trà Hồng Sâm</a></li>
-                    <li class="nav-item menu-wrapper"><a href="#">Viên Hồng Sâm</a></li>
-                </ul>
-            </nav>
-        </article>
+       
     </header>
+    <section id="user-profile">
+        <div class="user-profile-container">
+            <div class="left-control">
+                <div class="user-profile">
+                    <a class="user-image" href=""></a> <!--NOTE : Link tới hồ sơ user-->
+                    <div class="user-avatar">
+                        <img class="avrtar-img" src="./image/user-profile/use-avatar-header-default.jpg" alt="">
+                    </div>
+                    <div class="user-account-name">
+                        <div class="account-name">User1</div>
+                        <div>
+                            <a class="user-profile-modify" href="user-profile-edit.html">  <!--NOTE: thiếu link tới profile của user-->
+                                <i class="fa-solid fa-pen"></i>
+                                Sửa Hồ Sơ
+                            </a>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="left-controller-but">
+                    <!-- tài khoản cũa tôi -->
+                    <div class="account-height startdust-dropdown">
+                        <div class="startdust-dropdown-item-header">
+                            <a class="stardust-link" >
+                                <img src="./image/user-profile/account.png" alt="">
+                                <span>Tài khoản của tôi</span>
+                            </a> 
+                        </div>
+                        <div class="startdust-dropdown-item-body">
+                            <div class="slitter">
+                                <a class="body-down" href="">
+                                    <span>Hồ sơ</span>
+                                </a> <!--NOTE : link tới prof-->
+                                <a class="body-down" href="">
+                                    <span>Đổi mật khẩu</span>
+                                </a> 
+                                <a class="body-down" href="">
+                                    <span>Cài đặt thông báo</span>
+                                </a> 
 
-    <!-- Product Featured Section --
-    <section id="about-section">
-        <div class="container">
-            <div class="row border-bottom pb-2">
-                <div class="col-6 ps-0">
-                    <div class="bg-gold bg-sharp-no-left">
-                        <div class="title-primary">
-                            Giới thiệu về Nhân Sâm Hàn Quốc Cheong Kwan Jang
+                            </div>
+                        </div>
+
+                    </div>
+                     <!-- Đơn mua -->
+                     <div class="startdust-dropdown--open">
+                        <div class="startdust-dropdown-item-header">
+                            <a class="stardust-link" href="user-profile-order.html">
+                                <img src="./image/user-profile/donmua-icon.png" alt="">
+                                <span>Đơn Mua</span>
+                            </a> <!--NOTE: link tới profile-->
+                        </div>
+                    </div>
+                     <!-- thông báo-->
+                     <div class="startdust-dropdown--open">
+                        <div class="startdust-dropdown-item-header">
+                            <a class="stardust-link" href="user-profile-notification.html">
+                                <img src="./image/user-profile/thongbao-icon.png" alt="">
+                                <span>Thông Báo</span>
+                            </a> <!--NOTE: link tới profile-->
+                        </div>
+                    </div>
+                       <!-- Khuyến mãi-->
+                       <div class="startdust-dropdown--open">
+                        <div class="startdust-dropdown-item-header">
+                            <a class="stardust-link" href="user-profile-discount.html">
+                                <img src="./image/user-profile/voucher-icon.png" alt="">
+                                <span>Khuyến Mại</span>
+                            </a> <!--NOTE: link tới profile-->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row pt-3 ps-3">
-                <div class="col-md-6">
-                    <div class="img-about bg-gold bg-sharp">
-                        <img src="image/about-img.jpg" alt="">
+            <div class="right-content">
+                <section id="profile">
+                    <div class="profile-wrapper">
+                         <!-- head -->
+                        <div class="profile-header">
+                            <h1>Hồ sơ của tôi</h1>
+                            <div>Quản lí thông tin hồ sơ để bảo mật tài khoản</div>
+                        </div>
+                        <!-- content -->
+                        <div class="profile-infor">
+                            <div class="profile-infor-container">
+                                <div class="profile-left-content">
+                                    <form action="">
+                                        <table class="profile-infor-detail">
+                                            <!-- account -->
+                                            <tr>
+                                                <td class="label">
+                                                    <label>Tên đăng nhập</label>
+                                                </td>
+                                                <td class="content-space">
+                                                    <div class="detail-content">User 1</div>
+                                                </td>
+                                            </tr>
+                                            <!-- tên Kh -->
+                                            <tr>
+                                                <td class="label">
+                                                    <label>Tên Khách Hàng</label>
+                                                </td>
+                                                <td class="content-space">
+                                                    <div class="detail-content">
+                                                       Nguyễn Hoàng Lập
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- email -->
+                                            <tr>
+                                                <td class="label">
+                                                    <label>Email</label>
+                                                </td>
+                                                <td class="content-space">
+                                                    <div class="detail-content">hau**************.com
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- số diện thoại -->
+                                            <tr>
+                                                <td class="label">
+                                                    <label>Số điện thoại</label>
+                                                </td>
+                                                <td class="content-space">
+                                                    <div class="detail-content">0************27
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- giới tính -->
+                                            <tr>
+                                                <td class="label">
+                                                    <label>Giới tính</label>
+                                                </td>
+                                                <td class="content-space">
+                                                    <div class="detail-content">
+                                                    Nam
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- Ngày sinh -->
+                                            <tr>
+                                                <td class="label">
+                                                    <label>Ngày sinh</label>
+                                                </td>
+                                                <td class="content-space">
+                                                   20/03/2023
+                                                </td>
+                                            </tr>
+                                            <!-- Nút lưu -->
+                                            <tr>
+                                                <td class="label">
+                                                    <label></label>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
+                                <div class="profile-right-content">
+                                    <div class="avartar-wrapper">
+                                        <div class="profile-image" >
+                                            <img src="./image/user-profile/use-avatar-header-default.jpg" alt="">
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="about-content">
-                        <h1>Nhân sâm hàn quốc</h1>
-                        <p>Cửa hàng Cheong Kwan Jang chuyên phân phối các loại <a href="">nhân sâm Hàn Quốc</a>, hồng sâm 6 năm tuổi,
-                             nấm linh chi và đông trùng hạ thảo uy tín, giá tốt nhất thị trường.</p>
-                        <p>Chúng tôi chuyên bán buôn và bán lẻ các sản phẩm về thực phẩm chức năng như Sâm Hàn Quốc, Nấm linh chi và đông trùng hạ thảo của Hàn Quốc.</p>
-                        <p>Sản phẩm Cheong Kwan Jang cung cấp có giá cả cạnh tranh, có hóa đơn VAT, có giấy công bố chất lượng….</p>
-                        <p>Với phương châm Đảm bảo vì lợi ích cao nhất cho Quý khách hàng. Chúng tôi có giới thiệu và bán những sản phẩm Nhân Sâm Hàn Quốc chính hiệu, đảm bảo 100% về chất lượng.</p>
-                        <p>Đến với chúng tôi Quý khách hàng có thể lựa chọn cho mình những sản phẩm Nhân Sâm phù hợp nhất, an toàn và đảm bảo nhất.</p>
-                        <h1>Nhân sâm Hàn Quốc là gì</h1>
-                        <p><a href="">Nhân sâm Hàn Quốc</a> là tên gọi một số cây thân thảo có rễ và củ được dùng trong các bài thuốc đông y, thuộc chi Sâm. Nhân sâm là loại củ sâm có hình dáng hao hao giống hình người, có hàm lượng chất dinh dưỡng cao, do đặc thù về khí hậu, thổ nhưỡng. Nhân sâm có vị đắng, không độc, tác dụng bồi bổ sức khỏe, giải độc gan, chống oxi hóa.</p>
-                        <p>Một số sản phẩm từ nhân sâm Hàn Quốc như: rượu nhân sâm, nhân sâm ngâm mật ong, hồng sâm, hắc sâm. Để tìm hiểu xem nhân sâm Hàn Quốc gồm những thành phần gì và có tác dụng như thế nào đến sức khỏe hãy cùng KGIN xem phần tiếp theo nhé!</p>
-                        <h3>1. Thành phần của nhân sâm Hàn Quốc</h3>
-                        <p>Theo như các nghiên cứu của y học hiện đại, <a href="">nhân sâm</a> có các thành phần chính như <strong>Ginsenoside (Saponin trong nhân sâm còn có tên gọi khác là Ginsenoside)</strong>, Glycoside Panaxin, Tinh dầu (làm Nhân sâm có mùi đặc biệt), các vitamin B1 và B2, các acid béo như acid Palmitic, Stearic và Linoleic, các acid amin và hàm lượng Germanium cao. Những thành phần này có tác dụng rất tích cực với cơ thể con người, mang lại hiệu quả cao cho sức khỏe.</p>
-                        <img src="image/about-img-content.webp" alt="" width="100%">
-                        <p>Theo thống kê, trong củ và rễ sâm có tới <strong>32 loại Saponin Triterpen  trong đó có tới 30 loại là Saponin Dammaran</strong>. Trong đó phần <strong>thân rễ nhân sâm chiếm tới 10,75% hàm lượng Saponin</strong>. Một số loại Saponin quan trọng có tác dụng:</p>
-                        <ul>
-                            <li><strong>Saponin Ro</strong> tác dụng giải độc gan, ngăn ngừa tổn thương gan</li>
-                            <li><strong>Saponin Rb1</strong> có công dụng kiềm chế hệ thần kinh trung ương, giúp khống chế các cơn đau, bảo vệ tế bào gan.</li>
-                            <li><strong>Saponin Rb2</strong> có tác dụng chống tiểu đường, chống xơ gan, đẩy nhanh tốc độ hấp thụ của các tế bào gan.</li>
-                            <li><strong>Saponin Rd</strong> có tác dụng tăng cường hoạt động của vỏ tuyến thượng thận.</li>
-                            <li><strong>Saponin Rg1</strong> có tác dụng tăng cường sự tập trung của hệ thần kinh, chống mệt mỏi, căng thẳng.</li>
-                            <li><strong>Saponin Rg2</strong> giúp hạn chế sự kết dính tiểu cầu, ngăn ngừa xơ vữa động mạch.</li>
-                            <li><strong>Saponin Rh2</strong> ngăn ngừa sự hình thành phát triển và di căn của tế bào ung thư.</li>
-                        </ul>
-                        <h3>2. Nhân sâm Hàn Quốc có tác dụng gì?</h3>
-                        <p><a href="#">Nhân sâm Hàn Quốc</a> có tác dụng gì? Và hiệu quả mang lại đối với cơ thể, sức khỏe như thế nào. Hãy cùng KGIN theo dõi một số tác dụng chính mà nhân sâm Hàn Quốc mang lại. </p>
-                        <ul>
-                            <li>Nhân sâm Hàn Quốc chứa hàm lượng Saponin khá lớn nên có thể giúp tăng cường sức đề kháng, phục hồi cơ thể nhanh chóng sau khi khỏi bệnh. </li>
-                            <li>Nhờ thành phần Saponin nên nhân sâm còn giúp làm hạ cholesterol và triglycerid trong máu giúp ngăn được các bệnh về tim mạch, tăng cường tuần hoàn máu. </li>
-                            <li>Đối với người cao tuổi hoặc người làm việc ở môi trường áp lực lớn thì nhân sâm giúp bổ sung lượng canxi và giúp kích thích trí não hoạt động tăng cường, cải thiện trí nhớ.</li>
-                            <li>Thêm vào đó, nhân sâm Hàn Quốc còn có tác dụng chống lão hóa và làm đẹp da ở nữ giới. </li>
-                            <li>Ngoài ra còn giúp cơ thể tránh được sự phát triển của các tế bào độc hại trong cơ thể, hỗ trợ gan tránh được độc tính của rượu và ngăn ngừa một số bệnh hiểm nghèo. </li>
-                        </ul>
-                        <h3>3. Đối tượng sử dụng nhân sâm Hàn Quốc</h3>
-                        <p>Nhân sâm Hàn Quốc là một loại thảo dược vô cùng bổ dưỡng, tuy nhiên có những đối tượng nên sử dụng và không nên sử dụng loại thực phẩm chức năng hảo hạng này. Dưới đây là những người nên dùng và không nên dùng nhân sâm Hàn Quốc: </p>
-                        <h4>3.1 Những người nên sử dụng sâm Hàn Quốc</h4>
-                        <ul>
-                            <li>Người lớn tuổi có sức khỏe yếu, cần bổ sung sức đề kháng.</li>
-                            <li>Bệnh nhân sau phẫu thuật hoặc hóa xạ trị, điều trị kháng sinh lâu dài dẫn đến suy nhược, cần hồi phục sức khỏe nhanh.</li>
-                            <li>Lao động trong môi trường áp lực cao, làm việc căng thẳng, thường xuyên mệt mỏi.</li>
-                            <li>Người có các bệnh về tim mạch, tiểu đường.</li>
-                            <li>Người thường xuyên phải tiếp xúc với bia rượu, chức năng gan suy yếu</li>
-                            <li>Đây là những đối tượng nên sử dụng sâm Hàn Quốc để giúp cơ thể bồi bổ, ngăn ngừa các loại bệnh có hại cho cơ thể.</li>
-                            <li>Ngoài ra, nam giới gặp các vấn đề về sinh lý cũng có thể sử dụng nhân sâm Hàn Quốc để cải thiện tình trạng. </li>
-                            <li>Nữ giới muốn làm đẹp, cải thiện làn da và ngăn ngừa lão hóa.</li>
-                        </ul>
-                        <h4>3.2 Những người không nên sử dụng nhân sâm Hàn Quốc</h4>
-                        <p>Nhân sâm tuy có nhiều công dụng tốt đối với sức khỏe, nhưng nên hạn chế sử dụng với những đối tượng sau:</p>
-                        <ul>
-                            <li>Người có các vấn đề về tiêu hóa, bị bệnh trào ngược dạ dày, xuất huyết dạ dày.</li>
-                            <li>Phụ nữ mang thai và cho con bú không nên dùng vì có thể gây ảnh hưởng tới thai nhi và trẻ nhỏ.</li>
-                            <li>Với trẻ em dưới 15 tuổi, chỉ nên dùng các sản phẩm nhân sâm Hàn Quốc được chiết xuất riêng phù hợp với thể trạng, như hồng sâm baby.</li>
-                            <li>Người bị cảm mạo, phong hàn, ho lao phổi.</li>
-                        </ul>
-                    </div>
-                </div>
+                </section>
+                <section id="adress"></section>
+                <section id="account-password"></section>
+                <section id="notify-modify"></section>
+
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="main-footer-section">
         <div class="footer-guide">
             <div class="guide-title">thông tin liên hệ</div>
@@ -207,7 +284,6 @@
             <div class="guide-content">
                 <div class="portfolio-product">
                     <div class="product-img">
-
                         <img src="image/nuoc-hong-sam.png" alt="">
                     </div>
                     <div class="product-name">
@@ -373,6 +449,7 @@
         </div>
     </footer>
     <div id="fb-root"></div>
+    <script src="js/user-profile/user-profile.js"></script>
     <script async defer crossorigin="anonymous" 
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
     </script>
