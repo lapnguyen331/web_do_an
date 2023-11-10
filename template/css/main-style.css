@@ -11,6 +11,8 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('/template/image/body-background_1.jpg');
+    background-repeat: repeat;
 }
 
 :root {
@@ -21,4 +23,18 @@ body {
     --wheat-color: #f0ad4e;
     --bisque-color: #e7dccc;
 }
+.bg-primary-red-main-color {
+    background-color: var(--red-color-main) !important;
+}
 
+.text-wheat-color {
+    color: var(--wheat-color) !important;
+}
+
+.text-primray-red-color-main {
+    color: var(--red-color-main) !important;
+}
+
+.bg-primary-bisque {
+    background-color: #fffcf5 !important;
+}

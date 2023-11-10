@@ -17,7 +17,7 @@
 }
 
 .bg-sharp-5,
-.bg-sharp-5 * {
+.bg-sharp-5>* {
     --path: polygon(5px 0%, calc(100% - 5px) 0%, 100% 5px, 100% calc(100% - 5px), 
     calc(100% - 5px) 100%, 5px 100%, 0% calc(100% - 5px), 0% 5px);
     clip-path: var(--path);
@@ -25,38 +25,55 @@
 }
 
 .bg-sharp,
-.bg-sharp * {
+.bg-sharp>* {
     --path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% calc(100% - 10px), 
     calc(100% - 10px) 100%, 10px 100%, 0% calc(100% - 10px), 0% 10px);
     clip-path: var(--path);
     -webkit-clip-path: var(--path);
 }
 
+.bg-sharp-no-left,
+.bg-sharp-no-left>* {
+    --path: polygon(0 0%, calc(100% - 10px) 0%, 100% 10px,
+    100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0% calc(100% - 10px), 0% 10px);
+    clip-path: var(--path);
+    -webkit-clip-path: var(--path);
+}
+
+.bg-sharp-no-right,
+.bg-sharp-no-right>* {
+    --path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 0, 100% calc(100% - 10px), 
+    calc(100%) 100%, 10px 100%, 0% calc(100% - 10px), 0% 10px);
+    clip-path: var(--path);
+    -webkit-clip-path: var(--path);
+}
+
 .bg-rounded,
-.bg-rounded * {
+.bg-rounded>* {
     border-radius: 25px;
 }
 
 /* custom button */
 .btn-details,
-.btn-review {
+.btn-store-cart {
     padding: 3px 10px;
     background-color: #fdf8f2;
     border: 0;
-    color: #666666;
+    color: #333333;
     font-size: 15px;
     font-family: 'Segoe UI';
     text-wrap: nowrap;
+    font-weight: 500;
 }
 
-.btn-review::before {
-    content: '\f1d8';
+.btn-store-cart::before {
+    content: '\f217';
     font-family: 'Font Awesome 6 Free';
     font-weight: bold;
 }
 
 .btn-details:hover,
-.btn-review:hover {
+.btn-store-cart:hover {
     color: var(--red-color-main);
 }
 

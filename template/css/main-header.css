@@ -2,13 +2,16 @@
 #main-header-section {
     background-color: #f8f9fa;
     position: relative;
+    z-index: 5;
+    font-size: 15px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.3)!important;
 }
 
 #main-header-section * {
     padding: 0;
     margin: 0;
-    z-index: 2;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Phần Header - phía trên */
@@ -19,7 +22,7 @@
 }
 
 #main-header-section #main-header-top .logo-wrapper img {
-    max-width: 200px;
+    max-width: 150px;
     transition: all 0.3s;
     cursor: pointer;
 }
@@ -31,16 +34,97 @@
 #main-header-section #main-header-top .topbar-menu {
     display: flex;
     list-style: none;
+
+    align-items: center;
+    margin-top: 10px;
 }
 
-#main-header-section #main-header-top .topbar-menu .topbar-menu-item + .topbar-menu-item {
-    border-left: 1px solid var(--gray-color);
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item + .topbar-menu-item::before {
+    background-color: var(--red-dark-color-main);
+    content: '';
+    width: 0.5px;
+    height: 23px;
 }
 
 #main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link {
     text-decoration: none;
     color: var(--red-color-main);
     padding: 0px 13px;
+}
+
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link .user-wrap {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+}
+
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link .user-wrap .user-pages {
+    top: 90%;
+    position: absolute;
+    width: 200px;
+    z-index: 10;
+    border-radius: 5px;
+    color: #333333;
+    padding-top: 10px;
+    background-color: transparent;
+    display: none;
+}
+
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link .user-wrap:hover .user-pages {
+    display: block;
+}
+
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link .user-wrap .user-pages ul {
+    display: inline-flex;
+    flex-flow: column;
+    list-style: none;
+    z-index: 11;
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link .user-wrap .user-pages li {
+    padding: 8px;
+    background-color: white;
+    color: #333333;
+}
+
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link .user-wrap .user-pages li a {
+    color: inherit;
+}
+
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link .user-wrap .user-pages:has(li:first-child:hover)::before,
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link .user-wrap .user-pages li:hover {
+    color: var(--red-color-main);
+    background-color: rgb(249, 249, 249);
+}
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link .user-wrap .user-pages li i {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main-header-section #main-header-top .topbar-menu .topbar-menu-item .redirect-link .user-wrap .user-pages::before {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 8px;
+    left: 50px;
+    content: '';
+    transform: rotate(45deg);
+    background-color: white;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
 
 #main-header-section #main-header-top .search-input .search-input-wrapper {
@@ -94,7 +178,6 @@
     display: flex;
     min-width: fit-content;
     color: #ffff;
-    font-size: 18px;
     padding: 0 20px;
     align-items: stretch;
     height: fit-content;

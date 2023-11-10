@@ -1,0 +1,25 @@
+{
+  "data": 
+  [
+    {
+      "id": "KH0001",
+      "first_name": "Nguyễn",
+      "last_name": "Tuấn",
+      "phone": "093-312-1234",
+      "email": "nqat0919@gmail.com",
+      "created": "11/06/2023 08:12 AM",
+      "status": "active",
+      "note": "Hi Bob,\nWith resrpect, i must disagree with Mr.Zinsser. We all know the most part of important part of any article is the title.Without a compelleing title, your reader won't even get to the first sentence.After the title, however, the first few sentences of your article are certainly the most important part."
+    },
+    {
+      "id": "KH0001",
+      "first_name": "Phạm",
+      "last_name": "Luân",
+      "phone": "093-312-1234",
+      "email": "nqat0919@gmail.com",
+      "created": "11/06/2023 09:12 PM",
+      "status": "deactive",
+      "note": "Jornalists call this critical, introductory section the \"Lede,\" and when bridge properly executed, it's the that carries your reader from an headine try at attention-grabbing to the body of your blog post, if you want to get it right on of these 10 clever ways to omen your next blog posr with a bang."
+    }
+  ]
+}

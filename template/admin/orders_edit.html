@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Thư viện ngoài (Luôn để đầu tiên) -->
+    <link rel="stylesheet" href="/template/stylesheet/fontawesome.min.css">
+    <link rel="stylesheet" href="/template/stylesheet/all.min.css">
+    <link rel="stylesheet" href="/template/libs/mdb-bootstrap-5-pro/css/mdb.min.css">
+    <link rel="stylesheet" href="/template/libs/image-uploader/image-uploader.min.css">
+    <link rel="stylesheet" href="/template/libs/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="/template/libs/daterangepicker-master/daterangepicker.css">
+
+
+    <link rel="stylesheet" href="/template/css/main-style.css">
+    <link rel="stylesheet" href="/template/css/admin/sidebar.css">
+    <link rel="stylesheet" href="/template/css/main-header.css">
+    <link rel="stylesheet" href="/template/css/admin/admin-orders-edit.css">
+    <title>Quản lí sản phẩm</title>
+</head>
+
+<body>
+    <nav id="sidebar-nav" class="close">
+        <div class="sidebar close">
+            <div class="logo-details">
+                <i class="fa-brands fa-square-js"></i>
+                <span class="logo_name">Admin Sidebar</span>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <span class="link_name">Điều khiển</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Điều khiển</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span class="link_name">Danh mục</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Danh mục</a></li>
+                        <li><a href="#">Thêm danh mục</a></li>
+                        <li><a href="#">Sửa danh mục</a></li>
+                        <li><a href="#">Xóa danh mục</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-box"></i>
+                            <span class="link_name">Sản phẩm</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Sản phẩm</a></li>
+                        <li><a href="#">Thêm sản phẩm</a></li>
+                        <li><a href="#">Sửa sản phẩm</a></li>
+                        <li><a href="#">Xóa sản phẩm</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-book"></i>
+                            <span class="link_name">Bài viết</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Bài viết</a></li>
+                        <li><a href="#">Thêm bài viết</a></li>
+                        <li><a href="#">Sửa bài viết</a></li>
+                        <li><a href="#">Xóa bài viết</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <span class="link_name">Thống kê</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Thống kê</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span class="link_name">Biểu đồ</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Biểu đồ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-plug-circle-bolt"></i>
+                            <span class="link_name">Plugins</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Plugins</a></li>
+                        <li><a href="#">UI Face</a></li>
+                        <li><a href="#">Pigments</a></li>
+                        <li><a href="#">Box Icons</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-headset new-info">
+                            <span>11</span>
+                        </i>
+                        <span class="link_name">Liên hệ</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Liên hệ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span class="link_name">History</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">History</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-gears"></i>
+                        <span class="link_name">Setting</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Setting</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <img src="../icon/ship-toan-quoc.jpg" alt="profileImg">
+                        </div>
+                        <div class="name-job">
+                            <div class="profile_name">Nguyễn Tuấn</div>
+                            <div class="job">IT Student</div>
+                        </div>
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                </li>
+            </ul>
+            <div id="btn-toggle-sidebar">
+                <i class="fa-solid fa-angles-right"></i>
+            </div>
+        </div>
+    </nav>
+    <header id="main-header-section">
+        <article id="main-header-top">
+            <div class="logo-wrapper">
+                <img src="/template/icon/logo2.png" alt="">
+            </div>
+            <div class="main-content-wrapper">
+                <ul class="topbar-menu">
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Trang chủ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Giới thiệu</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Liên hệ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Hướng dẫn mua hàng</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Quy định & chính sách chung</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <div class="redirect-link d-flex" href="">
+                            <div class="user-wrap d-flex gap-1 align-items-center">
+                                <div class="avatar-wrap border rounded rounded-circle p-2 d-flex align-items-center justify-content-between overflow-hidden">
+                                    <img src="/template/icon/mien-phi-van-chuyen.jpg" width="20px" alt="">
+                                </div>
+                                <div>nqat0919</div>
+                                <ul class="user-pages">
+                                    <div class="shadow">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-circle-user"></i>
+                                                    <span>Trang cá nhân</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-clipboard-list"></i>
+                                                    <span>Đơn mua</span>   
+                                                </a> 
+                                            </li>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                    <span>Đăng xuất</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="search-input">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
+                        <a class="btn-search" href="">Tìm kiếm</a>
+                    </div>
+                    <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
+                </div>
+            </div>
+        </article>
+    </header>
+    <section id="main-content-section">
+        <div class="main-content">
+            <section id="product_edit">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="left-container">
+                                <section id="order-info">
+                                    <h4 class="form-title pb-3">Thông tin đơn hàng</h4>
+                                    <h6>Mã đơn hàng</h6>
+                                    <h5>#14505</h5>
+                                    <label for="txt_date" class="d-block py-2 fw-semibold">Ngày tạo đơn *</label>
+                                    <div class="form-outline">
+                                        <input type="text" class="form-control" placeholder="Ngày tạo đơn" id="txt_date">
+                                    </div>
+                                    <label for="select_order_date" class="d-block py-2 fw-semibold">Tình trạng đơn hàng</label>
+                                    <select class="select" id="select_order_date">
+                                        <option value="1">Đã được giao</option>
+                                        <option value="2">Đang được giao</option>
+                                        <option value="3">Đang trả về</option>
+                                        <option value="4">Đã bị hủy</option>
+                                      </select>
+                                </section>
+
+                                <section id="order-info">
+                                    <h4 class="form-title pb-3">Thông tin chủ hóa đơn</h4>
+                                    <div class="input-group">
+                                        <div id="search-autocomplete" class="form-outline">
+                                          <input type="search" id="form1" class="form-control" />
+                                          <label class="form-label" for="form1">Mã khách hàng</label>
+                                        </div>
+                                        <button type="button" class="btn btn-primary d-flex align-items-center gap-2 px-2">
+                                            <i class="fa-solid fa-arrows-rotate"></i>
+                                            <span class="text-nowrap">Tải dữ liệu</span>
+                                        </button>
+                                    </div>
+                                    <hr>
+                                    <div class="customer-wrapper">
+                                        <div class="avatar">
+                                            <img src="" alt="">
+                                        </div>
+                                        <div class="customer-info">
+                                            <div class="customer-name fw-semibold">Phạm Nhật Hùng</div>
+                                            <div class="customer-role">Customer</div>
+                                        </div>
+                                    </div>
+                                    <div class="customer-contact">
+                                        <ul>
+                                            <li>
+                                                <i class="fa-regular fa-envelope"></i>
+                                                <span>pnh21378@yahoo.com</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa-solid fa-phone-volume"></i>
+                                                <span>093-312-1234</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="right-container">
+                                <form action="" id="products-form">
+                                    <section id="products-list-section">
+                                        <h4 class="form-title">Lựa chọn sản phẩm</h4>
+                                        <h6 class="form-title">Thêm sản phẩm vào đơn hàng này</h6>
+                                        <div class="products-range">
+                                            <div class="product-card">
+                                                <div class="img-wrap">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="info-wrap">
+                                                    <div class="product-title">Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</div>
+                                                    <div class="product-price">Giá bán: 980.000₫</div>
+                                                    <div class="id-wrap">
+                                                        <div class="product-id">Mã SP: CHS013912</div>
+                                                        <div class="number-field">
+                                                            <button class="up">
+                                                                <span>+</span>
+                                                            </button>
+                                                            <input type="text" name="" id="">
+                                                            <button class="down">
+                                                                <span>-</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="remove-btn">
+                                                    <i class="fa-solid fa-circle-xmark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="product-card">
+                                                <div class="img-wrap">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="info-wrap">
+                                                    <div class="product-title">Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</div>
+                                                    <div class="product-price">Giá bán: 980.000₫</div>
+                                                    <div class="id-wrap">
+                                                        <div class="product-id">Mã SP: CHS013912</div>
+                                                        <div class="number-field">
+                                                            <button class="up">
+                                                                <span>+</span>
+                                                            </button>
+                                                            <input type="text" name="" id="">
+                                                            <button class="down">
+                                                                <span>-</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="remove-btn">
+                                                    <i class="fa-solid fa-circle-xmark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="product-card">
+                                                <div class="img-wrap">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="info-wrap">
+                                                    <div class="product-title">Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</div>
+                                                    <div class="product-price">Giá bán: 980.000₫</div>
+                                                    <div class="id-wrap">
+                                                        <div class="product-id">Mã SP: CHS013912</div>
+                                                        <div class="number-field">
+                                                            <button class="up">
+                                                                <span>+</span>
+                                                            </button>
+                                                            <input type="text" name="" id="">
+                                                            <button class="down">
+                                                                <span>-</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="remove-btn">
+                                                    <i class="fa-solid fa-circle-xmark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="product-card">
+                                                <div class="img-wrap">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div class="info-wrap">
+                                                    <div class="product-title">Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</div>
+                                                    <div class="product-price">Giá bán: 980.000₫</div>
+                                                    <div class="id-wrap">
+                                                        <div class="product-id">Mã SP: CHS013912</div>
+                                                        <div class="number-field">
+                                                            <button class="up">
+                                                                <span>+</span>
+                                                            </button>
+                                                            <input type="text" name="" id="">
+                                                            <button class="down">
+                                                                <span>-</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="remove-btn">
+                                                    <i class="fa-solid fa-circle-xmark"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4 class="form-title">Tổng tiền: 3.080.000₫</h4>
+                                        <hr class="horizontal">
+                                        <div class="filter-input">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                            <input type="text" placeholder="Tìm kiếm sản phẩm">
+                                        </div>
+                                        <table id="products_filter_table" class="display" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Sản phẩm</th>
+                                                    <th>Tồn kho</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </section>
+                                    <section id="order-details-section">
+                                        <h4 class="form-title">Thông tin đơn hàng</h4>
+                                        <h6 class="form-title">Nhập thông tin người nhận vào trường dưới đây</h6>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <label for="txt_fullname">Họ và tên *</label>
+                                                    <input type="text" placeholder="Họ và tên" id="txt_fullname">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <label for="txt_email">Email *</label>
+                                                    <input type="text" placeholder="Email" id="txt_email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <label for="txt_phone">Số điện thoại *</label>
+                                                    <input type="text" placeholder="Số điện thoại" id="txt_phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <label for="txt_address">Địa chỉ nhận hàng *</label>
+                                                    <input type="text" placeholder="Địa chỉ" id="txt_address">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12">
+                                                <div class="input-field">
+                                                    <label for="txtArea_note">Ghi chú (tùy chọn)</label>
+                                                    <textarea name="" id="txtArea_note" rows="5"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="actions-field">
+                            <button class="cancel-btn">Làm mới</button>
+                            <button class="update-btn">Cập nhật thông tin</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <script src="/template/js/jquery.js"></script>
+    <script src="/template/libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
+    <script src="/template/js/admin/sidebar.js"></script>
+    <script src="/template/libs/DataTables/datatables.min.js"></script>
+    <script src="/template/libs/daterangepicker-master/moment.min.js"></script>
+    <script src="/template/libs/daterangepicker-master/daterangepicker.js"></script>
+    <script src="/template/libs/DataTables/datatables.min.js"></script>
+    <script src="/template/js/admin/order-edit.js"></script>
+</body>
+
+</html>

@@ -1,8 +1,6 @@
 #home-slider-section {
     display: flex;
-    max-height: 500px;
 }
-
 .custom-bullet {
     width: 20px;
     height: 20px;
@@ -14,11 +12,9 @@
     justify-content: center;
     align-items: center;
 }
-
 .custom-bullet+.custom-bullet {
     margin-left: 15px;
 }
-
 .custom-bullet-active::after {
     content: "";
     width: 17px;
@@ -26,4 +22,9 @@
     background-color: var(--red-color-main);
     border-radius: 50%;
     position: absolute;
+}
+
+.swiper-wrapper .swiper-slide img {
+    object-fit: cover;
+    height: 500px;
 }

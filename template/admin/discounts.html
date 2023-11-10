@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Thư viện ngoài (Luôn để đầu tiên) -->
+    <link rel="stylesheet" href="/template/stylesheet/fontawesome.min.css">
+    <link rel="stylesheet" href="/template/stylesheet/all.min.css">
+    <link rel="stylesheet" href="/template/libs/mdb-bootstrap-5-pro/css/mdb.min.css">
+    <link rel="stylesheet" href="/template/css/admin/details-product-template.css">
+    <link rel="stylesheet" href="/template/libs/image-uploader/image-uploader.min.css">
+    <link rel="stylesheet" href="/template/libs/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="/template/libs/daterangepicker-master/daterangepicker.css">
+
+
+    <link rel="stylesheet" href="/template/css/main-style.css">
+    <link rel="stylesheet" href="/template/css/admin/sidebar.css">
+    <link rel="stylesheet" href="/template/css/main-header.css">
+    <link rel="stylesheet" href="/template/css/admin/admin-discounts.css">
+    <link rel="stylesheet" href="/template/css/button-title.css">
+    <title>Quản lí khách hàng</title>
+</head>
+
+<body>
+    <nav id="sidebar-nav" class="close">
+        <div class="sidebar close">
+            <div class="logo-details">
+                <i class="fa-brands fa-square-js"></i>
+                <span class="logo_name">Admin Sidebar</span>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <span class="link_name">Điều khiển</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Điều khiển</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span class="link_name">Danh mục</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Danh mục</a></li>
+                        <li><a href="#">Thêm danh mục</a></li>
+                        <li><a href="#">Sửa danh mục</a></li>
+                        <li><a href="#">Xóa danh mục</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-box"></i>
+                            <span class="link_name">Sản phẩm</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Sản phẩm</a></li>
+                        <li><a href="#">Thêm sản phẩm</a></li>
+                        <li><a href="#">Sửa sản phẩm</a></li>
+                        <li><a href="#">Xóa sản phẩm</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-book"></i>
+                            <span class="link_name">Bài viết</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Bài viết</a></li>
+                        <li><a href="#">Thêm bài viết</a></li>
+                        <li><a href="#">Sửa bài viết</a></li>
+                        <li><a href="#">Xóa bài viết</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <span class="link_name">Thống kê</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Thống kê</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span class="link_name">Biểu đồ</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Biểu đồ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class="fa-solid fa-plug-circle-bolt"></i>
+                            <span class="link_name">Plugins</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Plugins</a></li>
+                        <li><a href="#">UI Face</a></li>
+                        <li><a href="#">Pigments</a></li>
+                        <li><a href="#">Box Icons</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-headset new-info">
+                            <span>11</span>
+                        </i>
+                        <span class="link_name">Liên hệ</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Liên hệ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span class="link_name">History</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">History</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-gears"></i>
+                        <span class="link_name">Setting</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Setting</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <img src="../icon/ship-toan-quoc.jpg" alt="profileImg">
+                        </div>
+                        <div class="name-job">
+                            <div class="profile_name">Nguyễn Tuấn</div>
+                            <div class="job">IT Student</div>
+                        </div>
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                </li>
+            </ul>
+            <div id="btn-toggle-sidebar">
+                <i class="fa-solid fa-angles-right"></i>
+            </div>
+        </div>
+    </nav>
+    <header id="main-header-section">
+        <article id="main-header-top">
+            <div class="logo-wrapper">
+                <img src="/template/icon/logo2.png" alt="">
+            </div>
+            <div class="main-content-wrapper">
+                <ul class="topbar-menu">
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Trang chủ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Giới thiệu</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Liên hệ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Hướng dẫn mua hàng</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Quy định & chính sách chung</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <div class="redirect-link d-flex" href="">
+                            <div class="user-wrap d-flex gap-1 align-items-center">
+                                <div class="avatar-wrap border rounded rounded-circle p-2 d-flex align-items-center justify-content-between overflow-hidden">
+                                    <img src="/template/icon/mien-phi-van-chuyen.jpg" width="20px" alt="">
+                                </div>
+                                <div>nqat0919</div>
+                                <ul class="user-pages">
+                                    <div class="shadow">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-circle-user"></i>
+                                                    <span>Trang cá nhân</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-clipboard-list"></i>
+                                                    <span>Đơn mua</span>   
+                                                </a> 
+                                            </li>
+                                            <li>
+                                                <a href="#" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                    <span>Đăng xuất</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="search-input">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
+                        <a class="btn-search" href="">Tìm kiếm</a>
+                    </div>
+                    <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
+                </div>
+            </div>
+        </article>
+    </header>
+    <section id="main-content-section">
+        <div class="main-content">
+            <div class="customers-control">
+                <div class="container rounded-2 pb-3 shadow">
+                    <div class="row">
+                        <div class="row justify-content-between">
+                            <div class="col-auto ps-0">
+                                <div class="bg-gold bg-sharp-no-left">
+                                    <div class="bg-primary-red-main-color px-3 py-1">
+                                        <div class="fw-bold text-wheat-color fs-5 text-center">Quản lí chương trình khuyến mãi</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto p-0 py-2">
+                                <a href="#admin_product_modal" 
+                                class="btn btn-success px-3 py-2" 
+                                data-mdb-ripple-duration="0s">
+                                    <div class="fw-semibold fs-6">
+                                        <span>Thêm khuyến mãi</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="table_filters">
+                                <div class="form-outline input-field">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <input type="text" class="form-control" id="filter_input" placeholder="Theo id, tên chương trình khuyến mãi và tương tự ...">
+                                </div>
+                                <div class="form-outline input-field">
+                                    <input type="text" class="form-control" id="date_picker" placeholder="Theo thời gian diễn ra" value="">
+                                </div>
+                                <div class="select-field">
+                                    <select id="status_filter">
+                                        <option value="none" disabled selected>Theo tình trạng</option>
+                                        <option value="true">Hoạt động</option>
+                                        <option value="false">Vô hiệu</option>
+                                    </select>
+                                    <select id="table_length_filter" class="select">
+                                        <option value="10">Hiển thị 10 dòng</option>
+                                        <option value="20">Hiển thị 20 dòng</option>
+                                        <option value="50">Hiển thị 50 dòng</option>
+                                        <option value="100">Hiển thị 100 dòng</option>
+                                    </select>
+                                </div>
+                                <div class="submit-field bg-gold rounded">
+                                    <button type="submit">
+                                        <div><i class="fa-solid fa-sliders"></i></div>
+                                        <span>Tìm kiếm</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="table_customers" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Tên chương trình khuyến mãi</th>
+                                        <th>Áp dụng cho sản phẩm</th>
+                                        <th>Giá trị</th>
+                                        <th>Thời gian diễn ra</th>
+                                        <th>Tình trạng</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Modal -->
+    <div class="modal fade" id="admin_product_modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg bg-gold bg-sharp">
+            <div class="modal-content overflow-hidden">
+                <div class="modal-header bg-primary-red-main-color text-wheat-color">
+                    <h5 class="modal-title">Cập nhật chương trình giảm giá</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0 w-100">
+                    <form action="" method="post" class="form-product-setting bg-white py-3" enctype="multipart/form-data">
+                        <div class="container d-flex flex-column gap-2">
+                            <div class="row g-2 justify-content-between">
+                                <div class="col-md-3 d-flex flex-column gap-1">
+                                    <div class="fw-semibold">ID </div>
+                                    <div class="form-outline">
+                                        <input type="text" id="input_id_discount" class="form-control" maxlength="10" minlength="10" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 d-flex flex-column gap-1">
+                                    <div class="fw-semibold">Tên chương trình khuyến mãi</div>
+                                    <div class="form-outline">
+                                        <input type="text" id="input_name_discount" class="form-control" placeholder="Nhập tên chương trình"/>
+                                    </div>
+                                </div>
+                                <div class="col-auto d-flex flex-column gap-1">
+                                    <div class="fw-semibold">Giá trị</div>
+                                    <div class="form-outline">
+                                        <i class="fas fa-percent trailing"></i>
+                                        <input type="number" id="input_value_discount" min="1" max="80" value="1" class="form-control form-icon-trailing"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-md-6 d-flex flex-column gap-1">
+                                    <div class="fw-semibold">Danh mục sản phẩm</div>
+                                    <div id="box_category_filter" class="form-outline" data-mdb-list-height="290">
+                                        <input type="text" id="product_filter" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex flex-column gap-1">
+                                    <div class="fw-semibold">Áp dụng cho sản phẩm</div>
+                                    <div id="box_product_filter" class="form-outline" data-mdb-list-height="290">
+                                        <input type="text" id="product_filter" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-md-6 d-flex flex-column gap-1">
+                                    <div class="fw-semibold">Diễn ra trong </div>
+                                    <div class="input-group">
+                                        <div class="form-outline">
+                                            <input type="text" id="input_date_range" placeholder="Thời gian khuyến mãi" class="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex flex-column gap-1">
+                                    <div class="fw-semibold">Tình trạng khởi tạo</div>
+                                    <select class="select">
+                                        <option value="1">Hoạt động</option>
+                                        <option value="2">Vô hiệu</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer bg-white border-0">
+                    <button type="button" class="btn btn-secondary" data-mdb-ripple-duration="0s">Hủy bỏ</button>
+                    <button type="button" class="btn btn-success" data-mdb-ripple-duration="0s">Áp dụng chương trình</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/template/js/jquery.js"></script>
+    <script src="/template/libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
+    <script src="/template/js/admin/sidebar.js"></script>
+    <script src="/template/libs/daterangepicker-master/moment.min.js"></script>
+    <script src="/template/libs/DataTables/datatables.min.js"></script>
+    <script src="/template/libs/daterangepicker-master/daterangepicker.js"></script>
+    <script src="/template/js/admin/discounts.js"></script>
+</body>
+
+</html>
