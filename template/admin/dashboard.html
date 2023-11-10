@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="../libs/flickity/flickity.min.css">
     <link rel="stylesheet" href="../css/admin/details-product-template.css">
     <link rel="stylesheet" href="../libs/image-uploader/image-uploader.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
     <link rel="stylesheet" href="../css/main-style.css">
     <link rel="stylesheet" href="../css/admin/sidebar.css">
     <link rel="stylesheet" href="../css/admin/navbar.css">
@@ -242,29 +241,21 @@
                     <div class="header">
                         <div class="left">
                             <h1>Dashboard</h1>
-                            <ul class="breadcrumb">
-                                <li><a href="#">
-                                    Analytics
-                                </a></li>
-                                /
-                                <li><a href="#" class="active">Shop</a></li>
-                            </ul>
                         </div>
-
                     </div>
 
                     <!-- Insights -->
                     <ul class="insights">
-                        <li>
-                            <i class='bx bx-calendar-check'></i>
+                        <li class="shadow">
+                            <i class="fa-regular fa-calendar-check"></i>
                             <span class="info">
                         <h3>
                             1,074
                         </h3>
                         <p>Đơn hàng đã bán</p>
                     </span>
-                        </li>
-                        <li><i class='bx bx-show-alt'></i>
+                        </li >
+                        <li class="shadow"><i class="fa-regular fa-eye"></i>
                             <span class="info">
                         <h3>
                             3,944
@@ -272,7 +263,7 @@
                         <p>Truy cập trang web</p>
                     </span>
                         </li>
-                        <li><i class='bx bx-line-chart'></i>
+                        <li class="shadow"><i class="fa-regular fa-user fa-sm"></i>
                             <span class="info">
                         <h3>
                             2,721
@@ -280,7 +271,7 @@
                         <p>Người đăng ký</p>
                     </span>
                         </li>
-                        <li><i class='bx bx-dollar-circle'></i>
+                        <li class="shadow"><i class="fa-regular fa-dollar-sign"></i>
                             <span class="info">
                         <h3>
                             $6,742
@@ -294,40 +285,47 @@
                     <div class="bottom-data">
                         <div class="orders">
                             <div class="header">
-                                <i class='bx bx-receipt'></i>
-                                <h3>Recent Orders</h3>
-                                <i class='bx bx-filter'></i>
-                                <i class='bx bx-search'></i>
+                                <i cl   ass="fa-solid fa-file-invoice"></i>
+                                <h3>Đơn hàng gần đây</h3>
+                                <i class="fa-solid fa-filter"></i>
+                                <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
                             <table>
-                                <thead>
+                                <thead>.
                                 <tr>
-                                    <th>User</th>
-                                    <th>Order Date</th>
-                                    <th>Status</th>
+                                    <th>Mã đơn hàng</th>
+                                    <th>Khách hàng</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Tình trạng</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <img src="images/profile-1.jpg">
-                                        <p>John Doe</p>
+                                        <p>VZ120001</p>
+                                    </td>
+                                    <td>
+                                        <p>Phạm Nhật Hùng</p>
                                     </td>
                                     <td>14-08-2023</td>
                                     <td><span class="status completed">Completed</span></td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <img src="images/profile-1.jpg">
-                                        <p>John Doe</p>
+                                        <p>VZ120002</p>
+                                    </td>
+                                    <td>
+                                        <p>Phạm Nhật Hùng</p>
                                     </td>
                                     <td>14-08-2023</td>
                                     <td><span class="status pending">Pending</span></td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <img src="images/profile-1.jpg">
-                                        <p>John Doe</p>
+                                        <p>VZ120003</p>
+                                    </td>
+                                    <td>
+                                        <p>Phạm Nhật Hùng</p>
                                     </td>
                                     <td>14-08-2023</td>
                                     <td><span class="status process">Processing</span></td>
@@ -337,21 +335,17 @@
                         </div>
 
                         <!-- Reminders -->
-                        <div class="reminders">
+                        <div class="chart">
                             <canvas
                                     data-mdb-chart="line"
-                                    data-mdb-dataset-label="Traffic"
-                                    data-mdb-labels="['Monday', 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday ']"
+                                    data-mdb-dataset-label="Doanh thu"
+                                    data-mdb-labels="['Thứ 2', 'Thứ 3' , 'Thứ 4' , 'Thứ 5' , 'Thứ 6' , 'Thứ  7' , 'Chủ nhật ']"
                                     data-mdb-dataset-data="[2112, 2343, 2545, 3423, 2365, 1985, 987]"
                             ></canvas>
                         </div>
-
                     </div>
-
                 </main>
-
             </div>
-
     </div>
 </section>
 <script src="../js/jquery.js"></script>

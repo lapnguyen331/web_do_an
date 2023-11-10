@@ -22,7 +22,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.bx{
+.dashboard main .bottom-data .header .fa-solid {
     font-size: 1.7rem;
 }
 
@@ -91,10 +91,6 @@ body{
     color: var(--dark);
 }
 
-.dashboard nav .bx.bx-menu{
-    cursor: pointer;
-    color: var(--dark);
-}
 
 .dashboard nav form{
     max-width: 400px;
@@ -262,7 +258,7 @@ body{
     cursor: pointer;
 }
 
-.dashboard main .insights li .bx{
+.dashboard main .insights li .fa-regular{
     width: 80px;
     height: 80px;
     border-radius: 10px;
@@ -272,22 +268,22 @@ body{
     justify-content: center;
 }
 
-.dashboard main .insights li:nth-child(1) .bx{
+.dashboard main .insights li:nth-child(1) .fa-regular{
     background: var(--light-primary);
     color: var(--primary);
 }
 
-.dashboard main .insights li:nth-child(2) .bx{
+.dashboard main .insights li:nth-child(2) .fa-regular{
     background: var(--light-warning);
     color: var(--warning);
 }
 
-.dashboard main .insights li:nth-child(3) .bx{
+.dashboard main .insights li:nth-child(3) .fa-regular{
     background: var(--light-success);
     color: var(--success);
 }
 
-.dashboard main .insights li:nth-child(4) .bx{
+.dashboard main .insights li:nth-child(4) .fa-regular{
     background: var(--light-danger);
     color: var(--danger);
 }
@@ -327,17 +323,20 @@ body{
 
 .dashboard main .bottom-data .header h3{
     margin-right: auto;
+    margin-top: 7px;
     font-size: 24px;
     font-weight: 600;
 }
 
-.dashboard main .bottom-data .header .bx{
+.dashboard main .bottom-data .header .fa-solid{
     cursor: pointer;
 }
 
 .dashboard main .bottom-data .orders{
     flex-grow: 1;
     flex-basis: 500px;
+    box-shadow: 0 4px 8px #b1b1b1;
+    transition: box-shadow 0.3s ease;
 }
 
 .dashboard main .bottom-data .orders table{
@@ -395,55 +394,28 @@ body{
     background: var(--primary);
 }
 
+
 .dashboard main .bottom-data .orders table tr td .status.pending{
     background: var(--warning);
 }
 
-.dashboard main .bottom-data .reminders{
+.dashboard main .bottom-data .chart{
     flex-grow: 1;
     flex-basis: 300px;
-}
-
-.dashboard main .bottom-data .reminders .task-list{
-    width: 100%;
-}
-
-.dashboard main .bottom-data .reminders .task-list li{
-    width: 100%;
-    margin-bottom: 16px;
-    background: var(--grey);
-    padding: 14px 10px;
-    border-radius: 10px;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    box-shadow: 0 4px 8px #b1b1b1;
+    transition: box-shadow 0.3s ease;
 }
 
-.dashboard main .bottom-data .reminders .task-list li .task-title{
-    display: flex;
-    align-items: center;
+.dashboard main .bottom-data .chart canvas {
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.dashboard main .bottom-data .reminders .task-list li .task-title p{
-    margin-left: 6px;
-    margin-bottom: 0;
-}
 
-.dashboard main .bottom-data .reminders .task-list li .bx{
-  cursor: pointer;  
-}
-
-.dashboard main .bottom-data .reminders .task-list li.completed{
-    border-left: 10px solid var(--success);
-}
-
-.dashboard main .bottom-data .reminders .task-list li.not-completed{
-    border-left: 10px solid var(--danger);
-}
-
-.dashboard main .bottom-data .reminders .task-list li:last-child{
-   margin-bottom: 0;
-}
 
 @media screen and (max-width: 768px) {
     .sidebar{
@@ -500,7 +472,7 @@ body{
         min-width: 340px;
     }
 
-    .dashboard main .bottom-data .reminders .task-list{
+    .dashboard main .bottom-data .chart .task-list{
         min-width: 340px;
     }
 
