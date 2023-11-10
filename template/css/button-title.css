@@ -55,24 +55,25 @@
 
 /* custom button */
 .btn-details,
-.btn-review {
+.btn-store-cart {
     padding: 3px 10px;
     background-color: #fdf8f2;
     border: 0;
-    color: #666666;
+    color: #333333;
     font-size: 15px;
     font-family: 'Segoe UI';
     text-wrap: nowrap;
+    font-weight: 500;
 }
 
-.btn-review::before {
-    content: '\f1d8';
+.btn-store-cart::before {
+    content: '\f217';
     font-family: 'Font Awesome 6 Free';
     font-weight: bold;
 }
 
 .btn-details:hover,
-.btn-review:hover {
+.btn-store-cart:hover {
     color: var(--red-color-main);
 }
 

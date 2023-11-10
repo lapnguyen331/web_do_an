@@ -11,7 +11,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url('../image/body-background_1.jpg');
+    background-image: url('/template/image/body-background_1.jpg');
     background-repeat: repeat;
 }
 
