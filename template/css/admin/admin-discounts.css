@@ -152,19 +152,23 @@ input:focus-visible {
 
 #table_filters .submit-field {
     display: flex;
+    align-self: stretch;
 }
 
 #table_filters .submit-field button {
     display: flex;
     width: 100%;
     text-wrap: nowrap;
-    padding: 5px 20px;
+    height: 100%;
     border: none;
     background-color: var(--red-color-main);
     color: var(--wheat-color);
     border-radius: 5px;
     font-weight: 500;
     gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
 }
 
 .product-wrap .product-img {
@@ -187,7 +191,7 @@ input:focus-visible {
 .product-wrap .product-info .product-name {
     text-wrap: nowrap;
     text-overflow: ellipsis;
-    max-width: 250px;
+    max-width: 300px;
     overflow: hidden;
 }
 

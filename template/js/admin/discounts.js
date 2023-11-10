@@ -37,29 +37,14 @@ const data_tables = new DataTable('#table_customers', {
 
     columns: [
         {
-            data: 'id'
-        },
-        {
-            data: 'code',
+            data: 'id',
             width: 1,
             className: 'dt-nowrap',
-            render: function(data, type, row) {
-                return `
-                <div class="d-inline-block">
-                    <span style="display: none">${data}</span>
-                    <input type="text" value="${data}" disabled style="width: 200px; cursor: text">
-                </div>
-                `
-            }
         },
         {
-            width: 1,
-            className: 'dt-nowrap',
             data: 'name',
         },
         {
-            width: 1,
-            className: "dt-nowrap",
             data: 'product.name',
             render: function(data, type, row) {
                 const html = `
@@ -151,8 +136,7 @@ $('#date_picker').on('cancel.daterangepicker', function(ev, picker) {
     $(this).val('');
 });
 
-const customItemAutocomplete = document.querySelector('#customItem');
-const async_data = async (value) => {
+const async_data_product = async (value) => {
     const url = "/template/admin/discounts.txt";
     const response = await fetch(url);
     let {data} = await response.json();
@@ -162,8 +146,17 @@ const async_data = async (value) => {
     });
 }
 
-new mdb.Autocomplete(customItem, {
-  filter: async_data,
+const async_data_category = async (value) => {
+    const url = "/template/admin/categories.txt";
+    const response = await fetch(url);
+    let {data} = await response.json();
+    return data.filter(cate => {
+        return cate.name.toLowerCase().startsWith(value.toLowerCase());
+    })
+}
+
+new mdb.Autocomplete($('#box_product_filter')[0], {
+  filter: async_data_product,
   displayValue: (product) => product.id,
   itemContent: (product) => {
     const html = `
@@ -180,14 +173,36 @@ new mdb.Autocomplete(customItem, {
     return html;
   },
 });
+
+new mdb.Autocomplete($('#box_category_filter')[0], {
+    filter: async_data_category,
+    displayValue: (category) => category.id,
+    itemContent: (category) => {
+      const html = `
+          <div class="product-wrap d-flex align-items-center gap-2">
+              <div class="product-img">
+                  <img src="${category.image}" alt="">
+              </div>
+              <div class="product-info d-flex flex-column justify-content-center">
+                  <div class="fw-semibold product-name input">${category.name}</div>
+                  <div class="fw-light">Mã sản phẩm: ${category.id}</div>
+              </div>
+          </div>
+      `
+      return html;
+    },
+  });
+
 const discounts_modal = new mdb.Modal($('#admin_product_modal')[0]);
-$('#table_customers_wrapper').on('click', '.btn-modal', function() {
+$('.customers-control .container').on('click', 'a[href="#admin_product_modal"]', function() {
     discounts_modal.show()
 })
 
 $('#input_date_range').daterangepicker({
     locale: {
-        format: 'DD/MM/YYYY'
+        format: 'DD/MM/YYYY',
+        applyLabel: "Áp dụng",
+        cancelLabel: "Hủy bỏ",
     },
     linkedCalendars: false,
     alwaysShowCalendars: true,

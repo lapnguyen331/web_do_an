@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/template/css/admin/sidebar.css">
     <link rel="stylesheet" href="/template/css/main-header.css">
     <link rel="stylesheet" href="/template/css/admin/admin-discounts.css">
+    <link rel="stylesheet" href="/template/css/button-title.css">
     <title>Quản lí khách hàng</title>
 </head>
 
@@ -234,16 +235,36 @@
     <section id="main-content-section">
         <div class="main-content">
             <div class="customers-control">
-                <div class="container rounded-2">
+                <div class="container rounded-2 pb-3 shadow">
+                    <div class="row">
+                        <div class="row justify-content-between">
+                            <div class="col-auto ps-0">
+                                <div class="bg-gold bg-sharp-no-left">
+                                    <div class="bg-primary-red-main-color px-3 py-1">
+                                        <div class="fw-bold text-wheat-color fs-5 text-center">Quản lí chương trình khuyến mãi</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto p-0 py-2">
+                                <a href="#admin_product_modal" 
+                                class="btn btn-success px-3 py-2" 
+                                data-mdb-ripple-duration="0s">
+                                    <div class="fw-semibold fs-6">
+                                        <span>Thêm khuyến mãi</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <form id="table_filters">
                                 <div class="form-outline input-field">
                                     <i class="fa-solid fa-magnifying-glass"></i>
-                                    <input type="text" class="form-control" id="filter_input" placeholder="Theo id, mã giảm giá, tên mã giảm giá và tương tự ...">
+                                    <input type="text" class="form-control" id="filter_input" placeholder="Theo id, tên chương trình khuyến mãi và tương tự ...">
                                 </div>
                                 <div class="form-outline input-field">
-                                    <input type="text" class="form-control" id="date_picker" placeholder="Theo hạn sử dụng" value="">
+                                    <input type="text" class="form-control" id="date_picker" placeholder="Theo thời gian diễn ra" value="">
                                 </div>
                                 <div class="select-field">
                                     <select id="status_filter">
@@ -258,7 +279,7 @@
                                         <option value="100">Hiển thị 100 dòng</option>
                                     </select>
                                 </div>
-                                <div class="submit-field">
+                                <div class="submit-field bg-gold rounded">
                                     <button type="submit">
                                         <div><i class="fa-solid fa-sliders"></i></div>
                                         <span>Tìm kiếm</span>
@@ -273,11 +294,10 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Mã giảm giá</th>
-                                        <th>Tên</th>
-                                        <th>Cho sản phẩm</th>
+                                        <th>Tên chương trình khuyến mãi</th>
+                                        <th>Áp dụng cho sản phẩm</th>
                                         <th>Giá trị</th>
-                                        <th>Hạn sử dụng</th>
+                                        <th>Thời gian diễn ra</th>
                                         <th>Tình trạng</th>
                                         <th>Thao tác</th>
                                     </tr>
@@ -291,29 +311,29 @@
     </section>
     <!-- Modal -->
     <div class="modal fade" id="admin_product_modal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Cập nhật phiếu giảm giá</h5>
+        <div class="modal-dialog modal-lg bg-gold bg-sharp">
+            <div class="modal-content overflow-hidden">
+                <div class="modal-header bg-primary-red-main-color text-wheat-color">
+                    <h5 class="modal-title">Cập nhật chương trình giảm giá</h5>
                     <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form action="" method="post" class="form-product-setting" enctype="multipart/form-data">
+                <div class="modal-body p-0 w-100">
+                    <form action="" method="post" class="form-product-setting bg-white py-3" enctype="multipart/form-data">
                         <div class="container d-flex flex-column gap-2">
-                            <div class="row g-2">
-                                <div class="col-md-5 d-flex flex-column gap-1">
+                            <div class="row g-2 justify-content-between">
+                                <div class="col-md-3 d-flex flex-column gap-1">
                                     <div class="fw-semibold">ID </div>
                                     <div class="form-outline">
                                         <input type="text" id="input_id_discount" class="form-control" maxlength="10" minlength="10" readonly/>
                                     </div>
                                 </div>
-                                <div class="col-md-6 d-flex flex-column gap-1">
-                                    <div class="fw-semibold">Tên coupon</div>
+                                <div class="col-md-7 d-flex flex-column gap-1">
+                                    <div class="fw-semibold">Tên chương trình khuyến mãi</div>
                                     <div class="form-outline">
-                                        <input type="text" id="input_name_discount" class="form-control" placeholder="Tên coupon giảm giá"/>
+                                        <input type="text" id="input_name_discount" class="form-control" placeholder="Nhập tên chương trình"/>
                                     </div>
                                 </div>
-                                <div class="col-md-1 d-flex flex-column gap-1">
+                                <div class="col-auto d-flex flex-column gap-1">
                                     <div class="fw-semibold">Giá trị</div>
                                     <div class="form-outline">
                                         <i class="fas fa-percent trailing"></i>
@@ -323,29 +343,24 @@
                             </div>
                             <div class="row g-2">
                                 <div class="col-md-6 d-flex flex-column gap-1">
-                                    <div class="fw-semibold">Mã giảm giá </div>
-                                    <div class="input-group">
-                                        <div class="form-outline">
-                                            <input type="text" id="input_id_discount" class="form-control"/>
-                                        </div>
-                                        <button class="btn btn-primary" type="button" data-mdb-ripple-duration="0s" id="btn_uuid">
-                                            <i class="fa-solid fa-repeat"></i>
-                                        </button>
+                                    <div class="fw-semibold">Danh mục sản phẩm</div>
+                                    <div id="box_category_filter" class="form-outline" data-mdb-list-height="290">
+                                        <input type="text" id="product_filter" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 d-flex flex-column gap-1">
-                                    <div class="fw-semibold">Sản phẩm</div>
-                                    <div id="customItem" class="form-outline" data-mdb-list-height="290">
+                                    <div class="fw-semibold">Áp dụng cho sản phẩm</div>
+                                    <div id="box_product_filter" class="form-outline" data-mdb-list-height="290">
                                         <input type="text" id="product_filter" class="form-control" />
                                     </div>
                                 </div>
                             </div>
                             <div class="row g-2">
                                 <div class="col-md-6 d-flex flex-column gap-1">
-                                    <div class="fw-semibold">Hạn sử dụng </div>
+                                    <div class="fw-semibold">Diễn ra trong </div>
                                     <div class="input-group">
                                         <div class="form-outline">
-                                            <input type="text" id="input_date_range" placeholder="Chọn hạn sử dụng" class="form-control"/>
+                                            <input type="text" id="input_date_range" placeholder="Thời gian khuyến mãi" class="form-control"/>
                                         </div>
                                     </div>
                                 </div>
@@ -357,14 +372,12 @@
                                       </select>
                                 </div>
                             </div>
-                            <div class="row mt-md-3">
-                                <div class="col-md-12 d-flex justify-content-end gap-2">
-                                    <button type="button" class="btn btn-secondary" data-mdb-ripple-duration="0s">Hủy bỏ</button>
-                                    <button type="button" class="btn btn-success" data-mdb-ripple-duration="0s">Cập nhập thông tin phiếu giảm giá</button>
-                                </div>
-                            </div>
                         </div>
                     </form>
+                </div>
+                <div class="modal-footer bg-white border-0">
+                    <button type="button" class="btn btn-secondary" data-mdb-ripple-duration="0s">Hủy bỏ</button>
+                    <button type="button" class="btn btn-success" data-mdb-ripple-duration="0s">Áp dụng chương trình</button>
                 </div>
             </div>
         </div>
