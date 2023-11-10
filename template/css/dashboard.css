@@ -327,6 +327,7 @@ body{
 
 .dashboard main .bottom-data .header h3{
     margin-right: auto;
+    margin-top: 7px;
     font-size: 24px;
     font-weight: 600;
 }
@@ -399,51 +400,21 @@ body{
     background: var(--warning);
 }
 
-.dashboard main .bottom-data .reminders{
+.dashboard main .bottom-data .chart{
     flex-grow: 1;
     flex-basis: 300px;
-}
-
-.dashboard main .bottom-data .reminders .task-list{
-    width: 100%;
-}
-
-.dashboard main .bottom-data .reminders .task-list li{
-    width: 100%;
-    margin-bottom: 16px;
-    background: var(--grey);
-    padding: 14px 10px;
-    border-radius: 10px;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-.dashboard main .bottom-data .reminders .task-list li .task-title{
-    display: flex;
-    align-items: center;
+.dashboard main .bottom-data .chart canvas {
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.dashboard main .bottom-data .reminders .task-list li .task-title p{
-    margin-left: 6px;
-    margin-bottom: 0;
-}
 
-.dashboard main .bottom-data .reminders .task-list li .bx{
-  cursor: pointer;  
-}
-
-.dashboard main .bottom-data .reminders .task-list li.completed{
-    border-left: 10px solid var(--success);
-}
-
-.dashboard main .bottom-data .reminders .task-list li.not-completed{
-    border-left: 10px solid var(--danger);
-}
-
-.dashboard main .bottom-data .reminders .task-list li:last-child{
-   margin-bottom: 0;
-}
 
 @media screen and (max-width: 768px) {
     .sidebar{
@@ -500,7 +471,7 @@ body{
         min-width: 340px;
     }
 
-    .dashboard main .bottom-data .reminders .task-list{
+    .dashboard main .bottom-data .chart .task-list{
         min-width: 340px;
     }
 
