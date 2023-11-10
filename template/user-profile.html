@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/main-footer.css">
     <link rel="stylesheet" href="css/button-title.css">
     <!-- this page -->
-    <link rel="stylesheet" href="./css/user-profile.css">
+    <link rel="stylesheet" href="css/user-profile/user-profile.css" />
     <title>Slider</title>
 </head>
 <body>
@@ -75,7 +75,7 @@
                     <div class="user-account-name">
                         <div class="account-name">User1</div>
                         <div>
-                            <a class="user-profile-modify" href="">  <!--NOTE: thiếu link tới profile của user-->
+                            <a class="user-profile-modify" href="user-profile-edit.html">  <!--NOTE: thiếu link tới profile của user-->
                                 <i class="fa-solid fa-pen"></i>
                                 Sửa Hồ Sơ
                             </a>
@@ -98,9 +98,6 @@
                                     <span>Hồ sơ</span>
                                 </a> <!--NOTE : link tới prof-->
                                 <a class="body-down" href="">
-                                    <span>Địa chỉ</span>
-                                </a> <!--NOTE : link-->
-                                <a class="body-down" href="">
                                     <span>Đổi mật khẩu</span>
                                 </a> 
                                 <a class="body-down" href="">
@@ -114,7 +111,7 @@
                      <!-- Đơn mua -->
                      <div class="startdust-dropdown--open">
                         <div class="startdust-dropdown-item-header">
-                            <a class="stardust-link" href="">
+                            <a class="stardust-link" href="user-profile-order.html">
                                 <img src="./image/user-profile/donmua-icon.png" alt="">
                                 <span>Đơn Mua</span>
                             </a> <!--NOTE: link tới profile-->
@@ -123,7 +120,7 @@
                      <!-- thông báo-->
                      <div class="startdust-dropdown--open">
                         <div class="startdust-dropdown-item-header">
-                            <a class="stardust-link" href="">
+                            <a class="stardust-link" href="user-profile-notification.html">
                                 <img src="./image/user-profile/thongbao-icon.png" alt="">
                                 <span>Thông Báo</span>
                             </a> <!--NOTE: link tới profile-->
@@ -132,7 +129,7 @@
                        <!-- Khuyến mãi-->
                        <div class="startdust-dropdown--open">
                         <div class="startdust-dropdown-item-header">
-                            <a class="stardust-link" href="">
+                            <a class="stardust-link" href="user-profile-discount.html">
                                 <img src="./image/user-profile/voucher-icon.png" alt="">
                                 <span>Khuyến Mại</span>
                             </a> <!--NOTE: link tới profile-->
@@ -169,7 +166,9 @@
                                                     <label>Tên Khách Hàng</label>
                                                 </td>
                                                 <td class="content-space">
-                                                    <input type="text" placeholder="" >
+                                                    <div class="detail-content">
+                                                       Nguyễn Hoàng Lập
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <!-- email -->
@@ -178,9 +177,7 @@
                                                     <label>Email</label>
                                                 </td>
                                                 <td class="content-space">
-                                                    <input type="text" placeholder="" >
                                                     <div class="detail-content">hau**************.com
-                                                        <button class="change-content-but">Thay đổi</button>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -190,9 +187,8 @@
                                                     <label>Số điện thoại</label>
                                                 </td>
                                                 <td class="content-space">
-                                                    <input type="text" placeholder="" >
-                                                    <div class="detail-content">0************27</div>
-                                                    <button class="change-content-but">Thay đổi</button>
+                                                    <div class="detail-content">0************27
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <!-- giới tính -->
@@ -201,30 +197,9 @@
                                                     <label>Giới tính</label>
                                                 </td>
                                                 <td class="content-space">
-                                                    <input type="text" placeholder="" >
                                                     <div class="detail-content">
-                                                        <div class="radio-group" role="radiogroup">
-                                                        <div class="radio-check">
-                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                            Nam
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio-check">
-                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                            Nữ
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio-check">
-                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                            Khác
-                                                            </label>
-                                                        </div>
-                                                        </div>
+                                                    Nam
                                                     </div>
-                                                    <button class="change-content-but">Thay đổi</button>
                                                 </td>
                                             </tr>
                                             <!-- Ngày sinh -->
@@ -233,81 +208,13 @@
                                                     <label>Ngày sinh</label>
                                                 </td>
                                                 <td class="content-space">
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                                                        01
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">01</a>
-                                                        <a class="dropdown-item" href="#">02</a>
-                                                        <a class="dropdown-item" href="#">03</a>
-                                                        <a class="dropdown-item" href="#">04</a>
-                                                        <a class="dropdown-item" href="#">05</a>
-                                                        <a class="dropdown-item" href="#">06</a>
-                                                        <a class="dropdown-item" href="#">07</a>
-                                                        <a class="dropdown-item" href="#">09</a>
-                                                        <a class="dropdown-item" href="#">10</a>
-                                                        <a class="dropdown-item" href="#">11</a>
-                                                        <a class="dropdown-item" href="#">12</a>
-                                                        <a class="dropdown-item" href="#">13</a>
-                                                        <a class="dropdown-item" href="#">14</a>
-                                                        <a class="dropdown-item" href="#">15</a>
-                                                        <a class="dropdown-item" href="#">16</a>
-                                                        <a class="dropdown-item" href="#">17</a>
-                                                        <a class="dropdown-item" href="#">18</a>
-                                                        <a class="dropdown-item" href="#">19</a>
-                                                        <a class="dropdown-item" href="#">20</a>
-                                                        <a class="dropdown-item" href="#">21</a>
-                                                        <a class="dropdown-item" href="#">22</a>
-                                                        <a class="dropdown-item" href="#">23</a>
-                                                        <a class="dropdown-item" href="#">24</a>
-                                                        <a class="dropdown-item" href="#">25</a>
-                                                        <a class="dropdown-item" href="#">26</a>
-                                                        <a class="dropdown-item" href="#">27</a>
-                                                        <a class="dropdown-item" href="#">28</a>
-                                                        <a class="dropdown-item" href="#">29</a>
-                                                        <a class="dropdown-item" href="#">30</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                                                        tháng 1
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#">Tháng 1</a>
-                                                            <a class="dropdown-item" href="#">Tháng 2</a>
-                                                            <a class="dropdown-item" href="#">Tháng 3</a>
-                                                            <a class="dropdown-item" href="#">Tháng 4</a>
-                                                            <a class="dropdown-item" href="#">Tháng 5</a>
-                                                            <a class="dropdown-item" href="#">Tháng 6</a>
-                                                            <a class="dropdown-item" href="#">Tháng 7</a>
-                                                            <a class="dropdown-item" href="#">Tháng 9</a>
-                                                            <a class="dropdown-item" href="#">Tháng 10</a>
-                                                            <a class="dropdown-item" href="#">Tháng 11</a>
-                                                            <a class="dropdown-item" href="#">Tháng 12</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                                                        1950
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">1951</a>
-                                                        <a class="dropdown-item" href="#">1952</a>
-                                                        <a class="dropdown-item" href="#">1953</a>
-                                                        <a class="dropdown-item" href="#">1954</a>
-                                                        </div>
-                                                    </div>
-                                                    <button class="change-content-but">Thay đổi</button>
+                                                   20/03/2023
                                                 </td>
                                             </tr>
                                             <!-- Nút lưu -->
                                             <tr>
                                                 <td class="label">
                                                     <label></label>
-                                                </td>
-                                                <td class="content-space">
-                                                    <button class="change-content-but">Lưu</button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -318,13 +225,8 @@
                                         <div class="profile-image" >
                                             <img src="./image/user-profile/use-avatar-header-default.jpg" alt="">
                                         </div>
-                                        <input type="file" id="profile-file-input" accept=".jpg,.JPEG,.png">
-                                        <label for="profile-file-input" class="profile-submit-avartar">Chọn ảnh</label>
                                     </div>
-                                    <div class="profile-avartar-image-rule">
-                                        <div>Dung lượng file tối đa 1 MB</div>
-                                        <div>Định dạng JPEG, PNG</div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -547,7 +449,7 @@
         </div>
     </footer>
     <div id="fb-root"></div>
-    <script src="js/user-profile.js"></script>
+    <script src="js/user-profile/user-profile.js"></script>
     <script async defer crossorigin="anonymous" 
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
     </script>

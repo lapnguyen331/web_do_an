@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Thư viện ngoài (Luôn để đầu tiên) -->
+    <link rel="stylesheet" href="stylesheet/fontawesome.min.css">
+    <link rel="stylesheet" href="stylesheet/all.min.css">
+    <link rel="stylesheet" href="libs/mdb-bootstrap-5/css/mdb.min.css">
+
+    <link rel="stylesheet" href="css/main-header.css">
+    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/main-footer.css">
+    <link rel="stylesheet" href="css/button-title.css">
+    <!-- css this page -->
+    <link rel="stylesheet" href="css/catagogy/catagogy.css">
+    <link rel="stylesheet" href="css/home-featured-products.css">
+    <link rel="stylesheet" href="css/product-card.css">
+    <!-- filter this page -->
+    <link rel="stylesheet" href="css/product-filter.css">
+
+
+    <title>Document</title>
+</head>
+<body style="background-color: #f7f0e6;">
+      <!-- Header -->
+      <header id="main-header-section">
+        <article id="main-header-top">
+            <div class="logo-wrapper">
+                <img src="icon/logo2.png" alt="">
+            </div>
+            <div class="main-content-wrapper">
+                <ul class="topbar-menu">
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Trang chủ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Giới thiệu</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Liên hệ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Hướng dẫn mua hàng</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Quy định & chính sách chung</a>
+                    </li>
+                </ul>
+                <div class="search-input">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
+                        <a class="btn-search" href="">Tìm kiếm</a>
+                    </div>
+                    <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
+                </div>
+            </div>
+        </article>
+
+        <article id="main-header-bot">
+            <nav class="main-nav">
+                <div class="all-items menu-wrapper">
+                    <span>Tất cả sản phẩm</span>
+                    <ul class="menu">
+                        <li class="menu-item"><a href="#">Nước Hồng Sâm Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="#">Cao Hồng Sâm Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="#">Sâm Khô Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="#">Sâm Mật Ong Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="#">Hắc Sâm Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="#">Nhân Sâm Tươi Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="#">Rượu Sâm Linh Chi</a></li>
+                        <li class="menu-item"><a href="#">Trà Hồng Sâm Hàn Quốc Và Bột Sâm</a></li>
+                        <li class="menu-item"><a href="#">Viên Hồng Sâm Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="#">Viên Hồng Sâm Hàn Quốc</a></li>
+                    </ul>
+                </div>
+                <ul class="nav-items-wrapper">
+                    <li class="nav-item menu-wrapper"><a href="#">Nước Hồng Sâm</a></li>
+                    <li class="nav-item menu-wrapper"><a href="#">Cao Hồng Sâm</a></li>
+                    <li class="nav-item menu-wrapper"><a href="#">Sâm Khô</a></li>
+                    <li class="nav-item menu-wrapper"><a href="#">Sâm Mật Ong</a></li>
+                    <li class="nav-item menu-wrapper"><a href="#">Hắc Sâm</a></li>
+                    <li class="nav-item menu-wrapper"><a href="#">Nhân Sâm Tươi</a></li>
+                    <li class="nav-item menu-wrapper"><a href="#">Rượu Sâm Linh Chi</a></li>
+                    <li class="nav-item menu-wrapper"><a href="#">Trà Hồng Sâm</a></li>
+                    <li class="nav-item menu-wrapper"><a href="#">Viên Hồng Sâm</a></li>
+                </ul>
+            </nav>
+        </article>
+    </header>
+    <!-- Sam han quoc-->
+    <!-- breadcrum -->
+    <div class="views-breadcrumb">
+        <div class="breadcrumb p-0">
+            <div class="container">
+                <p id="breadcrumbs">
+                    <span>
+                        <a href="">Trang chủ </a>
+                     » 
+                    </span>
+                    <span>
+                        <a class="breadcrumb_last" aria-current="page">Catagogy</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- content sam han quoc -->
+    <div id="product-page">
+        <div class="product-categogy-container">
+            <div class="row">    
+                <!-- bên trái catagogy -->
+                <div id="fill-product" class="col-lg-3" >
+                    <!-- catagogy -->
+                    <section id="section-product-filter">
+                        <div class="filter-header bg-rounded bg-gold">
+                            <div class="title-primary">Phân loại sản phẩm</div>
+                        </div>
+                        <div class="filter-content">
+                            <form action="">
+                                <p class="filter-title">Lọc theo tên</p>
+                                <ul class="radio-filter">
+                                    <li>
+                                        <label for="price_0-1m">Nước Hồng Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_1-2.5m">Cao Hồng Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_2.5m-5m">Sâm Mật Ong Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_5m-7.5m">Nhân Sâm Tươi Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_7.5m-10m">Trà Hồng Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_7.5m-10m">Kẹo Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_7.5m-10m">Viên Hồng Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_7.5m-10m">Hắc Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_7.5m-10m">Sâm Khô Hàn Quốc</label>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </section>
+                    <!-- Section Product Filter -->
+                    <section id="section-product-filter">
+                        <div class="filter-header bg-rounded bg-gold">
+                            <div class="title-primary">Lọc sản phẩm</div>
+                        </div>
+                        <div class="filter-content">
+                            <form action="">
+                                <p class="filter-title">Lọc theo giá</p>
+                                <ul class="radio-filter">
+                                    <li>
+                                        <input type="radio" name="price-from" value="0-1000000" id="price_0-1m">
+                                        <label for="price_0-1m">< 1 triệu</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="price-from" value="1000000-2500000" id="price_1-2.5m">
+                                        <label for="price_1-2.5m">1 triệu - 2.5 triệu</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="price-from" value="2500000-5000000" id="price_2.5m-5m">
+                                        <label for="price_2.5m-5m">2.5 triệu - 5 triệu</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="price-from" value="5000000-7500000" id="price_5m-7.5m">
+                                        <label for="price_5m-7.5m">5 triệu - 7.5 triệu</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="price-from" value="7500000-10000000" id="price_7.5m-10m">
+                                        <label for="price_7.5m-10m">7.5 triệu - 10 triệu</label>
+                                    </li>
+                                </ul>
+                                <p class="filter-title">Lọc theo thương hiệu</p>
+                                <div class="select-brand">
+                                    <select name="" id="">
+                                        <option value="">Thương hiệu 1</option>
+                                        <option value="">Thương hiệu 2</option>
+                                        <option value="">Thương hiệu 3</option>
+                                        <option value="">Thương hiệu 4</option>
+                                        <option value="">Thương hiệu 5</option>
+                                    </select>
+                                </div>
+                                <p class="filter-title">Lọc theo dạng</p>
+                                <ul class="checkbox-filter">
+                                    <li>
+                                        <input type="checkbox" name="type" value="1" id="type-1">
+                                        <label for="type-1">Dạng khô</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="type" value="2" id="type-2">
+                                        <label for="type-2">Dạng cao</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="type" value="3" id="type-3">
+                                        <label for="type-3">Dạng nước</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="type" value="4" id="type-4">
+                                        <label for="type-4">Dạng viên</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="type" value="5" id="type-5">
+                                        <label for="type-5">Dạng bột</label>
+                                    </li>
+                                </ul>
+                                <input type="submit" value="Tìm kiếm sản phẩm">
+                            </form>
+                        </div>
+                    </section>
+                </div> <!--NOTEME: chưa thêm bộ lọc-->
+                <div class="col-lg-9">
+                    <!-- banner -->
+                    <div id="banner">
+                        <div class="banner-wrapper">
+                            <img src="./image/catagogy/test-banner-product-samhanquoc.html.jpg" alt=""> <!---image banner-->
+                        </div>
+                    </div>
+                    <!-- sec sp 1 catagogy nước hồng sâm-->
+                    <section id="cat-1">
+                        <div class="product-list">
+                        <!-- title -->
+                        <div class="categogy-title">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-12">
+                                    <div class="bg-gold bg-sharp">
+                                        <div class="cata-header d-flex">
+                                            <a href="">Nước Hồng Sâm Hàn Quốc </a> <!---NOTE dẩn link đến danh mục sp-->
+                                            <a href="">Xem tất cả</a> <!--NOTE dẫn link đến ctsp-->
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row justify-content-center"> <!--bọc các product-->
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 row grib-product">
+                                    <!--product 1-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/nuoc-sam-100-anh-dai-dien-1.jpg" alt="Nước Hồng Nhán Sâm Hàn Quốc hộp 30 gói Pocheon">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Nước Hồng Sâm Hàn Quốc hộp 30 gói Pocheon</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-30</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.000.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            1.400.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 2-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/tinh-chat-hac-sam-1-1.jpg" alt="tinh chất hắc sâm Hàn Quốc thượng hạng 6 năm tuổi">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Tinh chất hắc sâm Hàn Quốc thượng hạng 6 năm tuổi</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">4.550.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            3.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 3-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/tinh-chat-everytime-30g-anh-dai-dien.jpg" alt="Tinh Chất Hồng Sâm Thượng Hạng Everytime KGC 30 gói">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Tinh Chất Hồng Sâm Thượng Hạng Everytime KGC 30 gói</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.222.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            5.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                    </div>
+                    </section>
+                    <!-- sec sp 2 catagogy cao hồng sâm-->
+                    <section id="cat-4">
+                        <div class="product-list">
+                        <!-- title -->
+                        <div class="categogy-title">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-12">
+                                    <div class="bg-gold bg-sharp">
+                                        <div class="cata-header d-flex">
+                                            <a href="">Cao hồng sâm </a> <!---NOTE dẩn link đến danh mục sp-->
+                                            <a href="">Xem tất cả</a> <!--NOTE dẫn link đến ctsp-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center"> <!--bọc các product-->
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 row grib-product">
+                                    <!--product 1-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/nuoc-sam-100-anh-dai-dien-1.jpg" alt="Nước Hồng Nhán Sâm Hàn Quốc hộp 30 gói Pocheon">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Cao Hồng Sâm Hàn Quốc hộp 30 gói Pocheon</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-30</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.000.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            1.400.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 2-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/tinh-chat-hac-sam-1-1.jpg" alt="tinh chất hắc sâm Hàn Quốc thượng hạng 6 năm tuổi">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Cao hắc sâm Hàn Quốc thượng hạng 6 năm tuổi</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">4.550.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            3.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 3-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/tinh-chat-everytime-30g-anh-dai-dien.jpg" alt="Tinh Chất Hồng Sâm Thượng Hạng Everytime KGC 30 gói">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Cao Hồng Sâm Thượng Hạng Everytime KGC 30 gói</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.222.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            5.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                         </div>
+                    </section>
+                      <!-- sec sp 3 catagogy sâm mật ong-->
+                      <section id="cat-2">
+                        <div class="product-list">
+                        <!-- title -->
+                        <div class="categogy-title">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-12">
+                                    <div class="bg-gold bg-sharp">
+                                        <div class="cata-header d-flex">
+                                            <a href="">Sâm Mật Ong Hàn Quốc </a> <!---NOTE dẩn link đến danh mục sp-->
+                                            <a href="">Xem tất cả</a> <!--NOTE dẫn link đến ctsp-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center"> <!--bọc các product-->
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 row grib-product">
+                                    <!--product 1-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/sam-kho-150g-anh-dai-dien.jpg" alt="Hồng sâm khô hộp thiếc 300gr Hàn Quốc">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Cao Hồng Sâm Hoàng Đế</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-30</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.000.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            1.400.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 2-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/kgin-hong-sam-kho-lat-main.jpg" alt="Hồng Sâm Lát Khô Cao Cấp 6 Năm Tuổi - Sâm Khô Thái Lát Hàn Quốc Tiện Dụng">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Sâm lát tẩm mật ong</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">4.550.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            3.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 3-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/hac-sam-lat-75g-1.jpg" alt="Hắc Sâm Khô Thái Lát 75GR Thượng Hạng - Hắc Sâm Cắt Lát  6 Năm Tuổi Daedong Hàn Quốc">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Hồng sâm tẩm mật ong Cheon Gyeong</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.222.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            5.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                         </div>
+                    </section>
+                    <!-- sec sp 4 catagogy sâm tươi-->
+                    <section id="cat-2">
+                            <div class="product-list">
+                            <!-- title -->
+                            <div class="categogy-title">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-12">
+                                        <div class="bg-gold bg-sharp">
+                                            <div class="cata-header d-flex">
+                                                <a href="">Nhân Sâm Tươi Hàn Quốc </a> <!---NOTE dẩn link đến danh mục sp-->
+                                                <a href="">Xem tất cả</a> <!--NOTE dẫn link đến ctsp-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center"> <!--bọc các product-->
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 row grib-product">
+                                        <!--product 1-->
+                                        <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                            <div class="product-show-wrap">
+                                                <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                                <div class="thumbnail">
+                                                    <img src="./image/catagogy/sam-kho-150g-anh-dai-dien.jpg" alt="Hồng sâm khô hộp thiếc 300gr Hàn Quốc">
+                                                </div>
+                                                <div class="product-name">
+                                                    <h4 class="h3">SÂM HÀN QUỐC LOẠI 6 CỦ 1 KG</h4>
+                                                </div>
+                                                <div class="row product-infor">
+                                                    <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                        <div class="discount-percent d-flex">
+                                                            <span>-30</span>
+                                                            <span class="symbol">%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                        <div class="price">
+                                                            <del>
+                                                                <span class="woocommerce-Price-amount amount price pr-2">2.000.000
+                                                                    <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                                </span>
+                                                                
+                                                            </del>
+                                                            <bdi>
+                                                                1.400.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </bdi>
+                                                        </div>
+                                                    </div>
+                                                 
+                                                </div>
+                                                <div class="row m-0 pb-3">
+                                                    <div class="col-6 col-md-6 col-lg-6 left">
+                                                        <button class="quick-view mb-0 kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                                <span>Xem nhanh</span>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-6 col-md-6 col-lg-6 right">
+                                                        <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                            <div class="detail-product btn-kgin kgin-sharp-5">
+                                                                <div class="btn-wrap kgin-sharp-5">
+                                                                    <span>Xem chi tiết</span>
+                                                                    <i class="fa-solid fa-angles-right xemicon"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--product 2-->
+                                        <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                            <div class="product-show-wrap">
+                                                <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                                <div class="thumbnail">
+                                                    <img src="./image/catagogy/kgin-hong-sam-kho-lat-main.jpg" alt="Hồng Sâm Lát Khô Cao Cấp 6 Năm Tuổi - Sâm Khô Thái Lát Hàn Quốc Tiện Dụng">
+                                                </div>
+                                                <div class="product-name">
+                                                    <h4 class="h3">Nhân Sâm Tươi Hàn Quốc loại 2</h4>
+                                                </div>
+                                                <div class="row product-infor">
+                                                    <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                        <div class="discount-percent d-flex">
+                                                            <span>-15</span>
+                                                            <span class="symbol">%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                        <div class="price">
+                                                            <del>
+                                                                <span class="woocommerce-Price-amount amount price pr-2">4.550.000
+                                                                    <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                                </span>
+                                                                
+                                                            </del>
+                                                            <bdi>
+                                                                3.850.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </bdi>
+                                                        </div>
+                                                    </div>
+                                                 
+                                                </div>
+                                                <div class="row m-0 pb-3">
+                                                    <div class="col-6 col-md-6 col-lg-6 left">
+                                                        <button class="quick-view mb-0 kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                                <span>Xem nhanh</span>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-6 col-md-6 col-lg-6 right">
+                                                        <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                            <div class="detail-product btn-kgin kgin-sharp-5">
+                                                                <div class="btn-wrap kgin-sharp-5">
+                                                                    <span>Xem chi tiết</span>
+                                                                    <i class="fa-solid fa-angles-right xemicon"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--product 3-->
+                                        <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                            <div class="product-show-wrap">
+                                                <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                                <div class="thumbnail">
+                                                    <img src="./image/catagogy/hac-sam-lat-75g-1.jpg" alt="Hắc Sâm Khô Thái Lát 75GR Thượng Hạng - Hắc Sâm Cắt Lát  6 Năm Tuổi Daedong Hàn Quốc">
+                                                </div>
+                                                <div class="product-name">
+                                                    <h4 class="h3">Sâm Tươi Loại 3</h4>
+                                                </div>
+                                                <div class="row product-infor">
+                                                    <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                        <div class="discount-percent d-flex">
+                                                            <span>-15</span>
+                                                            <span class="symbol">%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                        <div class="price">
+                                                            <del>
+                                                                <span class="woocommerce-Price-amount amount price pr-2">2.222.000
+                                                                    <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                                </span>
+                                                                
+                                                            </del>
+                                                            <bdi>
+                                                                5.850.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </bdi>
+                                                        </div>
+                                                    </div>
+                                                 
+                                                </div>
+                                                <div class="row m-0 pb-3">
+                                                    <div class="col-6 col-md-6 col-lg-6 left">
+                                                        <button class="quick-view mb-0 kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                                <span>Xem nhanh</span>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-6 col-md-6 col-lg-6 right">
+                                                        <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                            <div class="detail-product btn-kgin kgin-sharp-5">
+                                                                <div class="btn-wrap kgin-sharp-5">
+                                                                    <span>Xem chi tiết</span>
+                                                                    <i class="fa-solid fa-angles-right xemicon"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                </div>
+                             </div>
+                    </section>
+                     <!-- sec sp 5 catagogy sâm khô-->
+                    <section id="cat-2">
+                        <div class="product-list">
+                        <!-- title -->
+                        <div class="categogy-title">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-12">
+                                    <div class="bg-gold bg-sharp">
+                                        <div class="cata-header d-flex">
+                                            <a href="">Sâm Khô Hàn Quốc </a> <!---NOTE dẩn link đến danh mục sp-->
+                                            <a href="">Xem tất cả</a> <!--NOTE dẫn link đến ctsp-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center"> <!--bọc các product-->
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 row grib-product">
+                                    <!--product 1-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/sam-kho-150g-anh-dai-dien.jpg" alt="Hồng sâm khô hộp thiếc 300gr Hàn Quốc">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Hồng sâm khô hộp thiếc 300gr Hàn Quốc</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-30</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.000.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            1.400.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 2-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/kgin-hong-sam-kho-lat-main.jpg" alt="Hồng Sâm Lát Khô Cao Cấp 6 Năm Tuổi - Sâm Khô Thái Lát Hàn Quốc Tiện Dụng">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Hồng Sâm Lát Khô Cao Cấp 6 Năm Tuổi - Sâm Khô Thái Lát Hàn Quốc Tiện Dụng</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">4.550.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            3.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 3-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/hac-sam-lat-75g-1.jpg" alt="Hắc Sâm Khô Thái Lát 75GR Thượng Hạng - Hắc Sâm Cắt Lát  6 Năm Tuổi Daedong Hàn Quốc">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Tinh Chất Hồng Sâm Thượng Hạng Everytime KGC 30 gói</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.222.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            5.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                         </div>
+                    </section>
+                     <!-- sec sp 6 catagogy trả hồng sâm-->
+                     <section id="cat-3">
+                        <div class="product-list">
+                        <!-- title -->
+                        <div class="categogy-title">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-12">
+                                    <div class="bg-gold bg-sharp">
+                                        <div class="cata-header d-flex">
+                                            <a href="">Trà Hồng Sâm Hàn Quốc </a> <!---NOTE dẩn link đến danh mục sp-->
+                                            <a href="">Xem tất cả</a> <!--NOTE dẫn link đến ctsp-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center"> <!--bọc các product-->
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 row grib-product">
+                                    <!--product 1-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/cao-sam-hu-doi-5.jpg" alt="Cao Hồng Sâm Hoàng Đế">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">TRÀ HỒNG SÂM HÀN QUỐC CAO CẤP</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-30</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.000.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            1.400.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 2-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/cao-hac-sam-120g-1.jpg" alt="TRÀ HỒNG SÂM CAO CẤP HỘP NHỎ">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">TRÀ HỒNG SÂM CAO CẤP HỘP NHỎ</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">4.550.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            3.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 3-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/cao-sam-hu-doi-1.jpg" alt="Trà Hồng Sâm túi">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Trà Hồng Sâm túi</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.222.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            5.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                         </div>
+                    </section>
+                     <!-- sec sp 4 catagogy-->
+                     <section id="cat-4">
+                        <div class="product-list">
+                        <!-- title -->
+                        <div class="categogy-title">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-12">
+                                    <div class="bg-gold bg-sharp">
+                                        <div class="cata-header d-flex">
+                                            <a href="">Nước Hồng Sâm Hàn Quốc </a> <!---NOTE dẩn link đến danh mục sp-->
+                                            <a href="">Xem tất cả</a> <!--NOTE dẫn link đến ctsp-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center"> <!--bọc các product-->
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 row grib-product">
+                                    <!--product 1-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/nuoc-sam-100-anh-dai-dien-1.jpg" alt="Nước Hồng Nhán Sâm Hàn Quốc hộp 30 gói Pocheon">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Nước Hồng Sâm Hàn Quốc hộp 30 gói Pocheon</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-30</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.000.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            1.400.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 2-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/tinh-chat-hac-sam-1-1.jpg" alt="tinh chất hắc sâm Hàn Quốc thượng hạng 6 năm tuổi">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Tinh chất hắc sâm Hàn Quốc thượng hạng 6 năm tuổi</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">4.550.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            3.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 3-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/tinh-chat-everytime-30g-anh-dai-dien.jpg" alt="Tinh Chất Hồng Sâm Thượng Hạng Everytime KGC 30 gói">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Tinh Chất Hồng Sâm Thượng Hạng Everytime KGC 30 gói</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.222.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            5.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                         </div>
+                    </section>
+                    <!-- sec sp 5 catagogy-->
+                    <section id="cat-4">
+                        <div class="product-list">
+                        <!-- title -->
+                        <div class="categogy-title">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-12">
+                                    <div class="bg-gold bg-sharp">
+                                        <div class="cata-header d-flex">
+                                            <a href="">Cao hồng sâm </a> <!---NOTE dẩn link đến danh mục sp-->
+                                            <a href="">Xem tất cả</a> <!--NOTE dẫn link đến ctsp-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center"> <!--bọc các product-->
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 row grib-product">
+                                    <!--product 1-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/nuoc-sam-100-anh-dai-dien-1.jpg" alt="Nước Hồng Nhán Sâm Hàn Quốc hộp 30 gói Pocheon">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Cao Hồng Sâm Hàn Quốc hộp 30 gói Pocheon</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-30</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.000.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            1.400.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 2-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/tinh-chat-hac-sam-1-1.jpg" alt="tinh chất hắc sâm Hàn Quốc thượng hạng 6 năm tuổi">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Cao hắc sâm Hàn Quốc thượng hạng 6 năm tuổi</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">4.550.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            3.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--product 3-->
+                                    <div class="col-12 col-md-4 col-lg-4 pb-4"> 
+                                        <div class="product-show-wrap">
+                                            <a rel="nofollow" href="" data-wpel-link="internal"></a> <!--NOTE chưa thêm link đến chi tiết sản phẩm này-->
+                                            <div class="thumbnail">
+                                                <img src="./image/catagogy/tinh-chat-everytime-30g-anh-dai-dien.jpg" alt="Tinh Chất Hồng Sâm Thượng Hạng Everytime KGC 30 gói">
+                                            </div>
+                                            <div class="product-name">
+                                                <h4 class="h3">Cao Hồng Sâm Thượng Hạng Everytime KGC 30 gói</h4>
+                                            </div>
+                                            <div class="row product-infor">
+                                                <div class="col-4 col-md-4 pr-0 col-lg-4 discount">
+                                                    <div class="discount-percent d-flex">
+                                                        <span>-15</span>
+                                                        <span class="symbol">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-md-8 col-lg-8 pl-2">
+                                                    <div class="price">
+                                                        <del>
+                                                            <span class="woocommerce-Price-amount amount price pr-2">2.222.000
+                                                                <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                            </span>
+                                                            
+                                                        </del>
+                                                        <bdi>
+                                                            5.850.000
+                                                            <span class="woocommerce-Price-currencySymbol">đ</span>
+                                                        </bdi>
+                                                    </div>
+                                                </div>
+                                             
+                                            </div>
+                                            <div class="row m-0 pb-3">
+                                                <div class="col-6 col-md-6 col-lg-6 left">
+                                                    <button class="quick-view mb-0 kgin-sharp-5">
+                                                        <div class="btn-wrap kgin-sharp-5">
+                                                            <i class="fa-regular fa-paper-plane xemicon" ></i>
+                                                            <span>Xem nhanh</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-6 col-md-6 col-lg-6 right">
+                                                    <a rel="nofollow" href="" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                        <div class="detail-product btn-kgin kgin-sharp-5">
+                                                            <div class="btn-wrap kgin-sharp-5">
+                                                                <span>Xem chi tiết</span>
+                                                                <i class="fa-solid fa-angles-right xemicon"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                         </div>
+                    </section>
+
+
+                    <!-- product -description -->
+                    <div id="description-product">
+                        <div class="description-product-wrapper">
+                            <div class="entry-content customer-scollbar">
+                                <p>
+                                  <em>Cách đây 1000 năm,</em>  
+                                  &nbsp;
+                                  <a href=""> 
+                                    <em> được người Cao Ly chế biến và xem là thảo dược</em>
+                                  </a>
+                                </p0>
+                                <!--NOTE:cần thêm des sp-->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sp bán chạy -fearture product -->
+            <section id="home-featured-products-section">
+                 <div class="container">
+                    <div class="row gy-md-4 pt-3">
+                        <!-- Title -->
+                        <div class="col-12 d-flex justify-content-center head-sec">
+                            <div class="bg-gold bg-sharp">
+                                <div class="title-primary">Sản phẩm bán chạy</div>
+                            </div>
+                        </div>
+                        <!-- Col 1 -->
+                        <div class="col-md-3">
+                            <div class="product-card">
+                                <a href="#">
+                                    <div class="product-img">
+                                        <img src="image/cao-sam-hu-doi-1.jpg" alt="">
+                                    </div>
+
+                                    <div class="product-name">
+                                        <p>Cao Sâm Hũ Đôi Arirang Hàn Quốc</p>
+                                    </div>
+                                </a>
+                                <div class="product-price-wrapper">
+                                    <div class="discount-label">-13</div>
+                                    <div class="price">
+                                        <p class="m-price">2.400.000</p>
+                                        <p class="c-price">2.100.000</p>
+                                    </div>
+                                </div>
+                                <div class="product-button">
+                                    <div class="bg-gold bg-sharp-5">
+                                        <button class="btn-review">
+                                            Xem nhanh
+                                        </button>
+                                    </div>
+                                    <div class="bg-gold bg-sharp-5">
+                                        <button class="btn-details">
+                                            Xem chi tiết
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Col 2 -->
+                        <div class="col-md-3">
+                            <div class="product-card">
+                                <a href="#">
+                                    <div class="product-img">
+                                        <img src="image/cao-sam-hu-doi-1.jpg" alt="">
+                                    </div>
+
+                                    <div class="product-name">
+                                        <p>Cao Sâm Hũ Đôi Arirang Hàn Quốc</p>
+                                    </div>
+                                </a>
+                                <div class="product-price-wrapper">
+                                    <div class="discount-label">-13</div>
+                                    <div class="price">
+                                        <p class="m-price">2.400.000</p>
+                                        <p class="c-price">2.100.000</p>
+                                    </div>
+                                </div>
+                                <div class="product-button">
+                                    <div class="bg-gold bg-sharp-5">
+                                        <button class="btn-review">
+                                            Xem nhanh
+                                        </button>
+                                    </div>
+                                    <div class="bg-gold bg-sharp-5">
+                                        <button class="btn-details">
+                                            Xem chi tiết
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col 3 -->
+                        <div class="col-md-3">
+                            <div class="product-card">
+                                <a href="#">
+                                    <div class="product-img">
+                                        <img src="image/cao-sam-hu-doi-1.jpg" alt="">
+                                    </div>
+
+                                    <div class="product-name">
+                                        <p>Cao Sâm Hũ Đôi Arirang Hàn Quốc</p>
+                                    </div>
+                                </a>
+                                <div class="product-price-wrapper">
+                                    <div class="discount-label">-13</div>
+                                    <div class="price">
+                                        <p class="m-price">2.400.000</p>
+                                        <p class="c-price">2.100.000</p>
+                                    </div>
+                                </div>
+                                <div class="product-button">
+                                    <div class="bg-gold bg-sharp-5">
+                                        <button class="btn-review">
+                                            Xem nhanh
+                                        </button>
+                                    </div>
+                                    <div class="bg-gold bg-sharp-5">
+                                        <button class="btn-details">
+                                            Xem chi tiết
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col 4 -->
+                        <div class="col-md-3">
+                            <div class="product-card">
+                                <a href="#">
+                                    <div class="product-img">
+                                        <img src="image/cao-sam-hu-doi-1.jpg" alt="">
+                                    </div>
+
+                                    <div class="product-name">
+                                        <p>Cao Sâm Hũ Đôi Arirang Hàn Quốc</p>
+                                    </div>
+                                </a>
+                                <div class="product-price-wrapper">
+                                    <div class="discount-label">-13</div>
+                                    <div class="price">
+                                        <p class="m-price">2.400.000</p>
+                                        <p class="c-price">2.100.000</p>
+                                    </div>
+                                </div>
+                                <div class="product-button">
+                                    <div class="bg-gold bg-sharp-5">
+                                        <button class="btn-review">
+                                            Xem nhanh
+                                        </button>
+                                    </div>
+                                    <div class="bg-gold bg-sharp-5">
+                                        <button class="btn-details">
+                                            Xem chi tiết
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+
+       <!-- Footer -->
+       <footer id="main-footer-section">
+        <div class="footer-guide">
+            <div class="guide-title">thông tin liên hệ</div>
+            <div class="guide-title">hệ thống cửa hàng</div>
+            <div class="guide-title">danh mục sản phẩm</div>
+
+            <div class="guide-content">
+                <div class="contact-wrap">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Hotline: 1900.1234</span>
+                </div>
+                <div class="contact-wrap">
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <span>Zalo, Sms: 0936.565.257</span>
+                </div>
+                <div class="contact-wrap">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Email: nqat0919@gmail.com</span>
+                </div>
+                <strong>Mua hàng trực tiếp tại cửa hàng</strong>
+                <div class="contact-wrap">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Thời gian mở cửa: 8h - 21h</span>
+                </div>
+                <strong>Phương thức thanh toán</strong>
+                <img src="image/payment.webp" alt="" style="width: 100%;">
+            </div>
+            <div class="guide-content">
+                <strong>Tại Hà Nội:</strong>
+                <ul class="address-list">
+                    <li class="address">Cửa hàng 1: 21 Tây Sơn - Quan Trung- Đống Đa - Hà Nội</li>
+                    <li class="address">Cửa hàng 2: 121A Phố Huế - Hai Bà Trưng - Hà Nội (Ngã tư Phố Huế - Tuệ Tĩnh)</li>
+                    <li class="address">Cửa hàng 3: 149 Cầu Giấy - Quan Hoa - Cầu Giấy - Hà Nội</li>
+                    <li class="address">Cửa hàng 4: 577 Nguyễn Trãi - Thanh Xuân Nam - Thanh Xuân - Hà Nội ( Đối diện Pico Trung Văn)</li>
+                </ul>
+                <strong>Tại Hồ Chí Minh:</strong>
+                <ul class="address-list">
+                    <li class="address">Cửa hàng 5: 51 Võ Thị Sáu - Phường VTS - Quận 3 - Thành phố Hồ Chí Minh</li>
+                </ul>
+            </div>
+            <div class="guide-content">
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/nuoc-dong-trung-ha-thao.webp" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Nước Đông trùng hạ thảo</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/linh-chi-han-quoc.webp" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Hồng sâm linh chi Hàn Quốc</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/hac-sam-han-quoc.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Hắc sâm</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/linh-chi-hop-go.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Cao linh chi hộp gỗ</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/keo-sam-khong-duong.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Kẹo sâm không đường</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/sam-mat-ong.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Sâm mật ong Hàn Quốc</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/dong-trung-ha-thao-dang-vien.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Đông trùng hạ thảo dạng viên</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/dong-trung-ha-thao.webp" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Đông trùng hạ thảo</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/sam-nguyen-cu.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Sâm tẩm mật ong nguyên củ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <div class="contact-title">
+                <ul class="title-list">
+                    <li class="title-item">Trang chủ</li>
+                    <li class="title-item">Tin tức</li>
+                    <li class="title-item">Liên hệ</li>
+                </ul>
+            </div>
+
+            <div class="contact-title">
+                <strong>Mua sắm tiện lợi</strong>
+            </div>
+
+            <div class="contact-title">
+                <strong>Fanpage Facebook</strong>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info-wrapper">
+                    <div class="img-logo">
+                        <img src="icon/logo.png" alt="">
+                    </div>
+                    <div class="contact-info-content">
+                        <p class="info-text">sâm hàn quốc Cheong Kwan Jang</p>
+                        <div class="contact-wrap">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Hotline: 1900.1234</span>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fa-regular fa-comment-dots"></i>
+                            <span>Zalo, Sms: 0936.565.257</span>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>Email: nqat0919@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-content">
+                <div class="intro-wrapper">
+                    <div class="intro-col">
+                        <div class="contact-wrap">
+                            <i class="fas fa-edit" aria-hidden="true"></i>
+                            <a href="#">Hướng dẫn mua hàng</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-map" aria-hidden="true"></i>
+                            <a href="#">Bản đồ đến showroom</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                            <a href="#">Thông tin tài khoản ngân hàng</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                            <a href="#">Quy định về việc đổi trả hàng</a>
+                        </div>
+                    </div>
+                    <div class="intro-col">
+                        <div class="contact-wrap">
+                            <i class="fas fa-money-bill" aria-hidden="true"></i>
+                            <a href="#">Thanh toán khi nhận hàng</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-truck" aria-hidden="true"></i>
+                            <a href="#">Giao hàng toàn quốc</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-thumbs-up" aria-hidden="true"></i>
+                            <a href="#">Nhân sâm Hàn Quốc uy tín</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                            <a href="#">Dịch vụ CSKH chu đáo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-content">
+                <div class="fb-page" 
+                    data-href="https://www.facebook.com/kcntt.nlu"
+                    data-width="400" 
+                    data-hide-cover="false"
+                    data-show-facepile="false">
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <span>Copyright &copy; 2023 Đồ án lập trình web</span>
+        </div>
+    </footer>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="libs/mdb-bootstrap-5/js/mdb.min.js"></script>
+</body>
+</html>
+</body>
+</html>

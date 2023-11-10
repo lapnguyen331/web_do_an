@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Thư viện ngoài (Luôn để đầu tiên) -->
+    <link rel="stylesheet" href="stylesheet/fontawesome.min.css">
+    <link rel="stylesheet" href="libs/mdb-bootstrap-5/css/mdb.min.css">
+    <link rel="stylesheet" href="stylesheet/all.min.css">
+
+    <!-- Style của project -->
+    <link rel="stylesheet" href="stylesheet/all.min.css">
+    <link rel="stylesheet" href="css/main-header.css">
+    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/main-footer.css">
+    <link rel="stylesheet" href="css/button-title.css">
+    <!-- this page -->
+    <link rel="stylesheet" href="css/user-profile/user-profile.css" />
+    <link rel="stylesheet" href="css/user-profile/user-profile-changePass.css">
+    <title>Slider</title>
+</head>
+<body>
+    <header id="main-header-section">
+        <article id="main-header-top">
+            <div class="logo-wrapper">
+                <img src="icon/logo2.png" alt="">
+            </div>
+            <div class="main-content-wrapper">
+                <ul class="topbar-menu">
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Trang chủ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Liên hệ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Hướng dẫn mua hàng</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="">Quy định & chính sách chung</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <div class="notification-container">
+                            <i class="fa-regular fa-bell"></i>
+                            <span class="redirect-link" href="">Thông báo</span>
+                        </div>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <div class="user-profile-header-container">
+                            <img class="user-avartar-header-img" src="image/user-profile/use-avatar-header-default.jpg" alt="">
+                            <span class="redirect-link" href="">User1</span>
+                        </div>
+                     
+                    </li>
+                </ul>
+                <div class="search-input">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
+                        <a class="btn-search" href="">Tìm kiếm</a>
+                    </div>
+                    <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
+                </div>
+            </div>
+        </article>
+
+       
+    </header>
+    <section id="user-profile">
+        <div class="user-profile-container">
+            <div class="left-control">
+                <div class="user-profile">
+                    <a class="user-image" href=""></a> <!--NOTE : Link tới hồ sơ user-->
+                    <div class="user-avatar">
+                        <img class="avrtar-img" src="./image/user-profile/use-avatar-header-default.jpg" alt="">
+                    </div>
+                    <div class="user-account-name">
+                        <div class="account-name">User1</div>
+                        <div>
+                            <a class="user-profile-modify" href="user-profile-edit.html">  <!--NOTE: thiếu link tới profile của user-->
+                                <i class="fa-solid fa-pen"></i>
+                                Sửa Hồ Sơ
+                            </a>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="left-controller-but">
+                    <!-- tài khoản cũa tôi -->
+                    <div class="account-height startdust-dropdown">
+                        <div class="startdust-dropdown-item-header">
+                            <a class="stardust-link" >
+                                <img src="./image/user-profile/account.png" alt="">
+                                <span>Tài khoản của tôi</span>
+                            </a> 
+                        </div>
+                        <div class="startdust-dropdown-item-body">
+                            <div class="slitter">
+                                <a class="body-down" href="">
+                                    <span>Hồ sơ</span>
+                                </a> <!--NOTE : link tới prof-->
+                                <a class="body-down" href="user-profile-changePass.html">
+                                    <span>Đổi mật khẩu</span>
+                                </a> 
+                                <a class="body-down" href="user-profile-notification-modify.html">
+                                    <span>Cài đặt thông báo</span>
+                                </a> 
+
+                            </div>
+                        </div>
+
+                    </div>
+                     <!-- Đơn mua -->
+                     <div class="startdust-dropdown--open">
+                        <div class="startdust-dropdown-item-header">
+                            <a class="stardust-link" href="user-profile-order.html">
+                                <img src="image/user-profile/donmua-icon.png" alt="">
+                                <span>Đơn Mua</span>
+                            </a> <!--NOTE: link tới profile-->
+                        </div>
+                    </div>
+                     <!-- thông báo-->
+                     <div class="startdust-dropdown--open">
+                        <div class="startdust-dropdown-item-header">
+                            <a class="stardust-link" href="user-profile-notification.html">
+                                <img src="image/user-profile/thongbao-icon.png" alt="">
+                                <span>Thông Báo</span>
+                            </a> <!--NOTE: link tới profile-->
+                        </div>
+                    </div>
+                       <!-- Khuyến mãi-->
+                       <div class="startdust-dropdown--open">
+                        <div class="startdust-dropdown-item-header">
+                            <a class="stardust-link" href="user-profile-discount.html">
+                                <img src="./image/user-profile/voucher-icon.png" alt="">
+                                <span>Khuyến Mại</span>
+                            </a> <!--NOTE: link tới profile-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-content">
+                <section id="profile">
+                    <div class="profile-wrapper">
+                         <!-- head -->
+                        <div class="profile-header">
+                            <h1>Hồ sơ của tôi</h1>
+                            <div>Thay đổi mật khẩu bảo mật tài khoản</div>
+                        </div>
+                        <!-- content -->
+                        <div class="user-profile-change-pass">
+                            <div class="user-profile-change-pass-wrapper">
+                                <div class="user-prfile-change-pass-label-left">
+                                    <label for="">Tên đăng nhập</label>
+                                    <label for="">Mật khẩu</label>
+                                    <label for="">Xác minh Email</label>
+                                </div>
+                                <div class="user-profile-change-pass-input-right">
+                                    <input type="text" >
+                                    <input type="password">
+                                    <input type="submit" value="Xác minh">
+                                   
+                                </div>
+                            </div>
+                            <div class="user-profile-submit-pass">
+                                <input type="submit" value="Lưu">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer-section">
+        <div class="footer-guide">
+            <div class="guide-title">thông tin liên hệ</div>
+            <div class="guide-title">hệ thống cửa hàng</div>
+            <div class="guide-title">danh mục sản phẩm</div>
+
+            <div class="guide-content">
+                <div class="contact-wrap">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Hotline: 1900.1234</span>
+                </div>
+                <div class="contact-wrap">
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <span>Zalo, Sms: 0936.565.257</span>
+                </div>
+                <div class="contact-wrap">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Email: nqat0919@gmail.com</span>
+                </div>
+                <strong>Mua hàng trực tiếp tại cửa hàng</strong>
+                <div class="contact-wrap">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Thời gian mở cửa: 8h - 21h</span>
+                </div>
+                <strong>Phương thức thanh toán</strong>
+                <img src="image/payment.webp" alt="" style="width: 400px;">
+            </div>
+            <div class="guide-content">
+                <strong>Tại Hà Nội:</strong>
+                <ul class="address-list">
+                    <li class="address">Cửa hàng 1: 21 Tây Sơn - Quan Trung- Đống Đa - Hà Nội</li>
+                    <li class="address">Cửa hàng 2: 121A Phố Huế - Hai Bà Trưng - Hà Nội (Ngã tư Phố Huế - Tuệ Tĩnh)</li>
+                    <li class="address">Cửa hàng 3: 149 Cầu Giấy - Quan Hoa - Cầu Giấy - Hà Nội</li>
+                    <li class="address">Cửa hàng 4: 577 Nguyễn Trãi - Thanh Xuân Nam - Thanh Xuân - Hà Nội ( Đối diện Pico Trung Văn)</li>
+                </ul>
+                <strong>Tại Hồ Chí Minh:</strong>
+                <ul class="address-list">
+                    <li class="address">Cửa hàng 5: 51 Võ Thị Sáu - Phường VTS - Quận 3 - Thành phố Hồ Chí Minh</li>
+                </ul>
+            </div>
+            <div class="guide-content">
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/nuoc-hong-sam.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Nước hồng sâm</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/linh-chi-han-quoc.webp" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Cao hồng sâm</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/sam-kho.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Sâm khô</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/sam-mat-ong.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Sâm mật ong</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/hac-sam-han-quoc.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Hắc sâm</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/sam-tuoi.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">nhân sâm tươi</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/ruou-sam.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Rượu sâm Linh Chi</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/tra-sam.webp" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">Trà hồng sâm</a>
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/vien-hong-sam.webp" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">viên hồng sâm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <div class="contact-title">
+                <ul class="title-list">
+                    <li class="title-item">Trang chủ</li>
+                    <li class="title-item">Tin tức</li>
+                    <li class="title-item">Liên hệ</li>
+                </ul>
+            </div>
+
+            <div class="contact-title">
+                <strong>Mua sắm tiện lợi</strong>
+            </div>
+
+            <div class="contact-title">
+                <strong>Fanpage Facebook</strong>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info-wrapper">
+                    <div class="img-logo">
+                        <img src="icon/logo.png" alt="">
+                    </div>
+                    <div class="contact-info-content">
+                        <p class="info-text">sâm hàn quốc Cheong Kwan Jang</p>
+                        <div class="contact-wrap">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Hotline: 1900.1234</span>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fa-regular fa-comment-dots"></i>
+                            <span>Zalo, Sms: 0936.565.257</span>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>Email: nqat0919@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-content">
+                <div class="intro-wrapper">
+                    <div class="intro-col">
+                        <div class="contact-wrap">
+                            <i class="fas fa-edit" aria-hidden="true"></i>
+                            <a href="#">Hướng dẫn mua hàng</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-map" aria-hidden="true"></i>
+                            <a href="#">Bản đồ đến showroom</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                            <a href="#">Thông tin tài khoản ngân hàng</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                            <a href="#">Quy định về việc đổi trả hàng</a>
+                        </div>
+                    </div>
+                    <div class="intro-col">
+                        <div class="contact-wrap">
+                            <i class="fas fa-money-bill" aria-hidden="true"></i>
+                            <a href="#">Thanh toán khi nhận hàng</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-truck" aria-hidden="true"></i>
+                            <a href="#">Giao hàng toàn quốc</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-thumbs-up" aria-hidden="true"></i>
+                            <a href="#">Nhân sâm Hàn Quốc uy tín</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                            <a href="#">Dịch vụ CSKH chu đáo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-content">
+                <div class="fb-page" 
+                    data-href="https://www.facebook.com/kcntt.nlu"
+                    data-width="400" 
+                    data-hide-cover="false"
+                    data-show-facepile="false">
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <span>Copyright &copy; 2023 Đồ án lập trình web</span>
+        </div>
+    </footer>
+    <div id="fb-root"></div>
+    <script src="js/user-profile/user-profile.js"></script>
+    <script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="libs/mdb-bootstrap-5/js/mdb.min.js"></script>
+</body>
+</html>
