@@ -1,0 +1,29 @@
+{
+  "data":
+  [
+    {
+      "id": "1",
+      "name": "CAO SÂM HŨ ĐÔI ARIRANG HÀN QUỐC",
+      "discount": "13",
+      "price": "2400000",
+      "image": "/template/image/products/product-1/thumbnail.png",
+      "category": "1"
+    },
+    {
+      "id": "2",
+      "name": "THẠCH HỒNG SÂM HOA CHUÔNG HÀN QUỐC",
+      "discount": "23",
+      "price": "1280000",
+      "image": "/template/image/products/product-2/thumbnail.png",
+      "category": "1"
+    },
+    {
+      "id": "3",
+      "name": "VIÊN HỒNG SÂM LINH CHI NHUNG HƯƠU",
+      "discount": "12",
+      "price": "1000000",
+      "image": "/template/image/products/product-3/thumbnail.png",
+      "category": "1"
+    }
+  ]
+}
