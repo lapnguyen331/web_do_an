@@ -131,7 +131,7 @@
                                 <tr>
                                     <th>Xóa</th>
                                     <th>Sản phẩm</th>
-                                    <th>Giá</th>
+                                    <th>Giá khuyến mãi</th>
                                     <th>Số lượng</th>
                                     <th>Tạm tính</th>
                                 </tr>
@@ -146,19 +146,25 @@
                                             </div>
                                             <div class="product-info">
                                                 <div class="product-name"><b>Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</b></div>
-                                                <div class="product-specification"><b>Quy cách:</b> 10gr</div>
-                                                <div class="product-discount pb-1 d-flex flex-column gap-1  align-items-start mt-auto">
-                                                    <span class="fw-bold">Nhập mã giảm giá (nếu có):</span>
-                                                    <div class="dis-input-wrap d-flex gap-1">
-                                                        <div class="bg-gold">
-                                                            <input type="text" class="w-100 border-0 px-2">
-                                                        </div>
-                                                        <div class="bg-gold">
-                                                            <button class="bg-primary-red-main-color border-0 text-wheat-color px-2 text-uppercase fw-semibold">
-                                                                <i class="fa-solid fa-repeat"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
+                                                <div class="product-stats">
+                                                    <ul>
+                                                        <li>
+                                                            <span class="fw-semibold">Quy cách:</span>
+                                                            <span>2 lọ 250g</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="fw-semibold">Thương hiệu:</span>
+                                                            <span><a href="/template/search.html?branch=daedong">Daedong</a></span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="fw-semibold">Danh mục:</span>
+                                                            <a href="/template/categogy-detail.html">Hồng Sâm hàn Quốc</a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="fw-semibold">Giá gốc:</span>
+                                                            <span>980.000₫</span>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -188,20 +194,26 @@
                                                 <img src="image/cao-sam-hu-doi-1.jpg" alt="">
                                             </div>
                                             <div class="product-info">
-                                                <div class="product-name"><b>CAO SÂM HŨ ĐÔI ARIRANG HÀN QUỐC</b></div>
-                                                <div class="product-specification"><b>Quy cách:</b> 2 hũ x 500gr</div>
-                                                <div class="product-discount pb-1 d-flex flex-column gap-1  align-items-start mt-auto">
-                                                    <span class="fw-bold">Nhập mã giảm giá (nếu có):</span>
-                                                    <div class="dis-input-wrap d-flex gap-1">
-                                                        <div class="bg-gold">
-                                                            <input type="text" class="w-100 border-0 px-2">
-                                                        </div>
-                                                        <div class="bg-gold">
-                                                            <button class="bg-primary-red-main-color border-0 text-wheat-color px-2 text-uppercase fw-semibold">
-                                                                <i class="fa-solid fa-repeat"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
+                                                <div class="product-name"><b>Cao Sâm Hũ Đôi Arirang Hàn Quốc</b></div>
+                                                <div class="product-stats">
+                                                    <ul>
+                                                        <li>
+                                                            <span class="fw-semibold">Quy cách:</span>
+                                                            <span>2 hũ x 500gr</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="fw-semibold">Thương hiệu:</span>
+                                                            <span><a href="/template/search.html?branch=arirang">Arirang</a></span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="fw-semibold">Danh mục:</span>
+                                                            <a href="/template/categogy-detail.html">Hồng Sâm hàn Quốc</a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="fw-semibold">Giá gốc:</span>
+                                                            <span>2.400.000₫</span>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -235,7 +247,6 @@
                                     <li class="guide">Để tiếp tục mua thêm sản phẩm khác, bạn bấm nút “Tiếp tục mua sắm"</li>
                                     <li class="guide">Để bỏ từng sản phẩm trong danh sách, bấm vào biểu tượng xóa phía bên trái hình sản phẩm</li>
                                     <li class="guide">Để thêm số lượng cho một sản phẩm cần mua, bạn chọn số lượng</li>
-                                    <li class="guide">Nhập mã giảm giá cho sản phẩm nếu có <b>(Mỗi mã chỉ áp dụng cho một loại sản phẩm)</b></li>
                                 </ul>
                             </div>
                             <div class="col text-center">
@@ -246,12 +257,12 @@
                                 <div class="d-flex gap-3 justify-content-center">
                                     <div class="bg-gold bg-sharp">
                                         <div class="title-primary">
-                                            <a href="#" class="continue-buy">Tiếp tục mua sắm</a>
+                                            <a href="/template/home.html" class="continue-buy">Tiếp tục mua sắm</a>
                                         </div>
                                     </div>
                                     <div class="bg-gold bg-sharp">
                                         <div class="title-primary">
-                                            <a class="checkout" href="#">Hoàn tất đơn hàng</a>
+                                            <a class="checkout" href="/template/checkout.html">Hoàn tất đơn hàng</a>
                                         </div>
                                     </div>
                                 </div>

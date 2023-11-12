@@ -74,7 +74,7 @@
     white-space: nowrap;
 }
 
-#checkout-section .checkout-cart-wrap .info-checkout .cart-checkout-content .product .product-info .product-discount-code-wrap .discount-box {
+#checkout-section .checkout-cart-wrap .info-checkout .cart-checkout-content .product .product-info .product-discount-wrap .discount-box {
     border: dashed 2px var(--red-color-main);
     font-size: 13px;
     padding: 0px 5px;

@@ -66,8 +66,31 @@
     align-items: start;
 }
 
+#cart-section .product-wrap .product-stats ul {
+    list-style: none;
+    text-align: start;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    gap: 3px;
+}
+
+#cart-section .product-wrap .product-stats ul li a {
+    color: var(--red-color-main);
+    font-weight: bold;
+}
+
+#cart-section .product-wrap .product-stats ul li::before {
+    font-family: 'Font Awesome 6 Free';
+    content: '\f02c';
+    font-size: 12px;
+    font-weight: bold;
+}
+
 #cart-section .product-wrap .product-info .product-name {
     font-size: 20px;
+    text-transform: capitalize;
 }
 
 #cart-section .number-field {
