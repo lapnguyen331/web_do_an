@@ -1,9 +1,9 @@
 'use strict';
 
 const loadData = async function() {
-    let products = await fetch("/template/products.txt");
+    let products = await fetch("/template/products-2.txt");
     products = await products.json();
-    products = products.data.reduce(function(previous, current) {
+    products = products.data.sort(() => 0.5 - Math.random()).reduce(function(previous, current) {
         if (!previous[current.category]) previous[current.category] = [];
         if (previous[current.category].length != 3) previous[current.category].push(current)
         return previous
@@ -50,7 +50,7 @@ const loadRow = function(product, category) {
             <div class="product-card">
                 <a href="/template/details_product.html">
                     <div class="product-img">
-                        <img src="${p.img}" alt="${p.name}">
+                        <img src="${p.images[0]}" alt="${p.name}">
                     </div>
 
                     <div class="product-name">
@@ -58,7 +58,7 @@ const loadRow = function(product, category) {
                     </div>
                 </a>
                 <div class="product-price-wrapper">
-                    <div class="discount-label">-${p.discount}</div>
+                    <div class="discount-label">-${p.discount}%</div>
                     <div class="price">
                         <p class="m-price">${p.price}</p>
                         <p class="c-price">${p.price}</p>
@@ -72,7 +72,7 @@ const loadRow = function(product, category) {
                     </div>
                     <div class="bg-gold bg-sharp-5">
                         <button class="btn-details">
-                            Xem chi tiết
+                            <a href="/template/categogy-detail.html" class="move-to-details">Xem chi tiết</a>
                         </button>
                     </div>
                 </div>

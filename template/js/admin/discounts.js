@@ -137,11 +137,10 @@ $('#date_picker').on('cancel.daterangepicker', function(ev, picker) {
 });
 
 const async_data_product = async (value) => {
-    const url = "/template/admin/discounts.txt";
+    const url = "/template/products-2.txt";
     const response = await fetch(url);
     let {data} = await response.json();
-    const product_list = data.map(o => o.product);
-    return product_list.filter(product => {
+    return data.filter(product => {
         return product.name.toLowerCase().startsWith(value.toLowerCase());
     });
 }
@@ -162,7 +161,7 @@ new mdb.Autocomplete($('#box_product_filter')[0], {
     const html = `
         <div class="product-wrap d-flex align-items-center gap-2">
             <div class="product-img">
-                <img src="${product.image}" alt="">
+                <img src="${product.images[0]}" alt="">
             </div>
             <div class="product-info d-flex flex-column justify-content-center">
                 <div class="fw-semibold product-name input">${product.name}</div>

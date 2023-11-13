@@ -40,11 +40,12 @@
     font-weight: bold;
     font-family: 'Font Awesome 6 Free';
     display: inline-block !important;
-    position: static !important;
     color: inherit !important;
     opacity: 1 !important;
     margin-left: 10px;
     font-size: 70% !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
 }
 
 .dataTables_scrollHead table thead th.sorting_asc::before {
@@ -67,11 +68,12 @@
     font-weight: bold;
     font-family: 'Font Awesome 6 Free';
     display: inline-block !important;
-    position: static !important;
     color: inherit !important;
     opacity: 1 !important;
     margin-left: 10px;
     font-size: 70% !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
 }
 
 
@@ -91,12 +93,13 @@
     font-weight: bold;
     font-family: 'Font Awesome 6 Free';
     display: inline-block !important;
-    position: static !important;
     color: inherit !important;
     opacity: 0 !important;
     margin-left: 10px;
     font-size: 70% !important;
     transition: all .2s ease !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
 }
 
 .dataTables_scrollHead table thead th.sorting:not(.sorting_desc, .sorting_asc):hover::after {

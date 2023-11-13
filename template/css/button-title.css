@@ -66,6 +66,11 @@
     font-weight: 500;
 }
 
+.btn-details a.move-to-details {
+    color: inherit !important;
+    font-weight: 500 !important;
+}
+
 .btn-store-cart::before {
     content: '\f217';
     font-family: 'Font Awesome 6 Free';

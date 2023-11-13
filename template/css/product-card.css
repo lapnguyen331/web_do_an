@@ -202,15 +202,3 @@
     font-size: 23px;
     font-weight: bold;
 }
-
-.product-price-wrapper .discount-label {
-    font-size: 40px;
-    font-weight: bold;
-    line-height: 0;
-}
-
-.product-price-wrapper .discount-label::after {
-    content: "%";
-    font-size: 60%;
-    color: inherit;
-}
