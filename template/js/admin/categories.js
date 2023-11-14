@@ -74,13 +74,12 @@ const data_tables = new DataTable('#table_categories', {
             className: 'dt-right',
             data: null,
             orderable: false,
-            render: function() {
+            render: function(data) {
                 const html = `
                 <div class="action-btns">
-                    <a href="/template/details_product.html" data-mdb-toggle="tooltip" title="Xem chi tiết đơn hàng">
-                        <i class="fa-solid fa-eye remove-btn"></i>
+                    <a href="/template/details_product.html?category=${data.id}" data-mdb-toggle="tooltip" title="Chỉnh sửa danh mục">
+                        <i class="fa-solid fa-edit view-btn" data-product-id = 'VZ120001'></i>
                     </a>
-                    <i class="fa-solid fa-edit view-btn" data-mdb-toggle="tooltip" title="Chỉnh sửa" data-product-id = 'VZ120001'></i>
                     <i class="fa-solid fa-circle-xmark remove-btn" data-mdb-toggle="tooltip" title="Xóa đơn hàng"></i>
                 </div>
                 `

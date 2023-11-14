@@ -129,20 +129,6 @@
     border-right: 4px solid var(--red-color-main);
 }
 
-#main-content-section .product-list input:checked {
-    background-color: var(--red-color-main);
-    border-color: var(--red-dark-color-main);
-}
-
-#main-content-section .product-list input:checked:focus::before {
-    box-shadow: 0 0 0 13px var(--red-color-main);;
-}
-
-#main-content-section .product-list input:checked::after {
-    border-color: var(--wheat-color);
-}
-
-
 #main-content-section .product-list .product-grid {
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 7fr 2fr 2fr;

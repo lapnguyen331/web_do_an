@@ -30,6 +30,9 @@ const data_tables = new DataTable('#table_orders', {
     ajax: '/template/admin/orders.txt',
     language: translate,
     dom: 'tip',
+    scrollCollapse: true,
+    width: '100%',
+    scrollY: '400px',
     columns: [
         {
             data: 'id'

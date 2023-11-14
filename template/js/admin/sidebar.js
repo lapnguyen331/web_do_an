@@ -1,4 +1,5 @@
-let arrow = document.querySelectorAll(".arrow");
+(function() {
+  let arrow = document.querySelectorAll(".arrow");
 for (let i = 0; i < arrow.length; i++) {
   arrow[i].addEventListener("click", (e)=>{
  let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
@@ -9,3 +10,4 @@ for (let i = 0; i < arrow.length; i++) {
 $('#btn-toggle-sidebar').on({
   click: function() {$('.sidebar').toggleClass("close")},
 })
+})();
