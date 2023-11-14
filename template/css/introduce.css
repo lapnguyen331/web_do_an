@@ -129,6 +129,6 @@
     a {
         color: #bf1e2e;
     }
-    a:hover{
+    .album-item a:hover{
         color:#ff9900;
     }
