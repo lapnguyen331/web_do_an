@@ -126,9 +126,9 @@
         line-height: 1.5;
         text-align: center;
     }
-    a {
+    .album-item a {
         color: #bf1e2e;
     }
-    a:hover{
+    .album-item a:hover{
         color:#ff9900;
     }

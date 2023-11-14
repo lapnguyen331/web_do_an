@@ -15,7 +15,7 @@
     --light-success: #BBF7D0;
 }
 
-*{
+#main-content-section .dashboard h1,.dashboard h3,.dashboard p,.dashboard th{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
