@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Thư viện ngoài (Luôn để đầu tiên) -->
     <link rel="stylesheet" href="stylesheet/fontawesome.min.css" />
-    <link rel="stylesheet" href="libs/mdb-bootstrap-5/css/mdb.min.css" />
+    <link rel="stylesheet" href="libs/mdb-bootstrap-5-pro/css/mdb.min.css" />
     <link rel="stylesheet" href="stylesheet/all.min.css" />
 
     <!-- Style của project -->
@@ -16,8 +16,10 @@
     <link rel="stylesheet" href="css/button-title.css" />
     <!-- this page -->
     <link rel="stylesheet" href="css/user-profile/user-profile.css" />
-    <link rel="stylesheet" href="css/user-profile/user-profile-order.css">
+    <link rel="stylesheet" href="css/user-profile/user-profile-order1.css">
     <link rel="stylesheet" href="css/user-profile/user-profile-order-popup.css">
+    <link rel="stylesheet" href="/template/libs/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="/template/libs/daterangepicker-master/daterangepicker.css">
     <title>Slider</title>
   </head>
   <body>
@@ -193,99 +195,92 @@
               <div class="profile-header">
                 <h1>Đơn hàng của tôi</h1>
               </div>
-              <!-- thanh tab chuyển order -->
-                <ul class="nav nav-tabs mb-3" id="user-profile-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="user-profile-order-tab-all" data-mdb-toggle="tab" data-mdb-target="#user-profile-order-content-all" type="button" role="tab" aria-controls="order-all" aria-selected="true">Tất cả</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="user-profile-order-tab-pending" data-mdb-toggle="tab" data-mdb-target="#user-profile-order-content-pending" type="button" role="tab" aria-controls="oder-pending" aria-selected="false">Chờ nhận hàng</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="user-profile-order-tab-complete" data-mdb-toggle="tab" data-mdb-target="#user-profile-order-content-complete" type="button" role="tab" aria-controls="order-complete" aria-selected="false">Hoàn thành</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="user-profile-order-tab-cancel" data-mdb-toggle="tab" data-mdb-target="#user-profile-order-content-cancel" type="button" role="tab" aria-controls="order-cancel" aria-selected="false">Đã hủy</button>
-                    </li>
-                </ul>
-               <!-- content tab -->
-                <div class="tab-content" id="user-profile-tab-content">
-                    <div class="tab-pane fade show active" id="user-profile-order-content-all" role="tabpanel" aria-labelledby="user-profile-order-tab-all">
-                        <!-- thanh search các order -->
-                        <section id="user-profile-order-search">
-                            <div class="user-profile-order-search-container ">
-                                <i class="fa-solid fa-magnifying-glass user-profile-order-search"></i>
-                                <input class="user-profile-order-search-in" aria-label="" role="search" autocomplete="off" placeholder="Bạn có thể tìm kiếm theo tên Shop, ID đơn hàng hoặc Tên Sản phẩm" value="">
-                            </div>
-                        </section>
-                        <!-- các order -->
-                        <div class="user-profile-order-container">
-                            <div class="user-profile-order-item">
-                                <div class="user-profile-order-content">
-                                    <section id="user-profile-order-item" class="user-order-item-infor">
-                                        <a href=""></a> <!--Note dẫn đến chi tiết order-->
-                                        <div class="order-item1" >
-                                            <div class="order-item1-wrapper">
-                                                <div class="order-item-infor-left">
-                                                    <img src="image/user-profile/user-profile-order/oder-item1.jpg" alt="">
-                                                    <div class="order-item-detail">
-                                                        <div class="order-item-title">
-                                                            <span>CHẤT CHIẾT ĐÔNG TRÙNG HẠ THẢO HÀN QUỐC</span>
-                                                        </div>
-                                                        <div class="order-item-specification">
-                                                            <div class="order-item-specification-head">
-                                                                <span class="order-item-head">Qui cách: </span>
-                                                                <span>20 ống x 20ml</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="order-item-quantity">
-                                                            <span class="order-item-head">Số lượng: </span>
-                                                            <span >x 1</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="order-item-infor-right">
-                                                <div class="order-item-total">
-                                                    <span>1.200.000</span>
-                                                    <span class="curency">đ</span>
-                                                </div>
-                                            </div> 
-                                        </div>       
-                                    </section>
-                                </div>
-                                <div class="user-profileorder-total">
-                                    <i class="fa-solid fa-money-bill"></i>
-                                    <div>
-                                        <span>Thành tiền: </span>
-                                        <span class="total">1.400.000</span>
-                                        <span class="curency">đ</span>
-                                    </div>
-                                </div>
-                                <div class="user-profile-order-item-userfunction">
-                                    <div class="user-profile-rating-quote">
-                                        <span>Mời bạn đánh giá sản phẩm!</span>
-                                    </div>
-                                    <div class="user-profile-bu-container">
-                                        <button data-mdb-toggle="modal" data-mdb-target="#rating-product-order">Đánh giá</button>
-                                        <button  data-mdb-toggle="modal" data-mdb-target="#complaint-product-order">Khiếu nại</button>
-                                        <button href="cart.html">Mua lại</button> <!--Note dẫn qua file mua hàng-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade show " id="user-profile-order-content-pending" role="tabpanel" aria-labelledby="user-profile-order-tab-pending">
-                        Tab 2 content.
-                    </div>
-                    <div class="tab-pane fade show " id="user-profile-order-content-complete" role="tabpanel" aria-labelledby="user-profile-order-tab-complete">
-                        Tab 3 content.
-                    </div>
-                    <div class="tab-pane fade show " id="user-profile-order-content-cancel" role="tabpanel" aria-labelledby="user-profile-order-tab-cancel">
-                        Tab 4 content.
-                    </div>
-                          
-                </div>
+              <!-- quan li order -->
+              <div>
+                <div class="order-control">
+                  <div class="container rounded-2 pb-3 shadow">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <form id="table_filters">
+                                  <div class="form-outline input-field">
+                                      <i class="fa-solid fa-magnifying-glass"></i>
+                                      <input type="text" class="form-control" id="filter_input" placeholder="Theo mã đơn hàng, tên khách hàng hoặc tương tự...">
+                                  </div>
+                                  <div class="form-outline input-field">
+                                      <input type="text" class="form-control" id="date_picker" placeholder="Theo ngày tháng" value="">
+                                  </div>
+                                  <div class="select-field">
+                                      <select id="status_filter">
+                                          <option value="none" disabled selected>Theo tình trạng</option>
+                                          <option value="pending">Đã được giao</option>
+                                          <option value="success">Đang giao</option>
+                                          <option value="return">Đang trả về</option>
+                                          <option value="cancel">Đã bị hủy</option>
+                                      </select>
+                                      <select id="table_length_filter" class="select">
+                                          <option value="10">Hiển thị 10 dòng</option>
+                                          <option value="20">Hiển thị 20 dòng</option>
+                                          <option value="50">Hiển thị 50 dòng</option>
+                                          <option value="100">Hiển thị 100 dòng</option>
+                                      </select>
+                                  </div>
+                                  <div class="submit-field bg-gold rounded align-self-lg-stretch">
+                                      <button type="submit" class="d-flex align-items-center">
+                                          <div><i class="fa-solid fa-sliders"></i></div>
+                                          <span>Tìm kiếm</span>
+                                      </button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                              <nav id="table_tabs">
+                                  <ul>
+                                      <li class="active">
+                                          <i class="fa-solid fa-warehouse"></i>
+                                          <span>Tất cả đơn</span>
+                                      </li>
+                                      <li>
+                                          <i class="fa-regular fa-circle-check"></i>
+                                          <span>Đã được giao</span>
+                                      </li>
+                                      <li>
+                                          <i class="fa-solid fa-truck-fast"></i>
+                                          <span>Đang giao</span>
+                                      </li>
+                                      <li>
+                                          <i class="fa-solid fa-right-left"></i>
+                                          <span>Đang trả về</span>
+                                      </li>
+                                      <li>
+                                          <i class="fa-regular fa-circle-xmark"></i>
+                                          <span>Đã bị hủy</span>
+                                      </li>
+                                  </ul>
+                              </nav>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                              <table id="table_orders" style="width: 100%">
+                                  <thead>
+                                      <tr>
+                                          <th>Mã đơn hàng</th>
+                                          <th>Khách hàng</th>
+                                          <th>Tổng thu</th>
+                                          <th>SĐT</th>
+                                          <th>Email</th>
+                                          <th>Tình trạng</th>
+                                          <th>Ngày tạo</th>
+                                      </tr>
+                                  </thead>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              </div>
             </div>
           </section>
         </div>
@@ -605,7 +600,6 @@
       </div>
     </footer>
     <div id="fb-root"></div>
-    <script src="js/user-profile.js"></script>
     <script
       async
       defer
@@ -614,8 +608,11 @@
       nonce="Qoebijhj"
     ></script>
     <script src="js/jquery.js"></script>
-    <script src="libs/mdb-bootstrap-5/js/mdb.min.js"></script>
+    <script src="libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
     <!-- for this page -->
+    <script src="/template/libs/DataTables/datatables.min.js"></script>
+    <script src="/template/libs/daterangepicker-master/moment.min.js"></script>
+    <script src="/template/libs/daterangepicker-master/daterangepicker.js"></script>
     <script src="js/user-profile/user-profile.js"></script>
     <script src="js/user-profile/user-profile-order.js"></script>
     <script src="js/user-profile/user-profile-order-startRating.js"></script>
