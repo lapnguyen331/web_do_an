@@ -15,15 +15,6 @@
                         <div class="product-price">Giá bán: ${products[i].price}</div>
                         <div class="id-wrap">
                             <div class="product-id">Mã SP: ${products[i].id}</div>
-                            <div class="number-field">
-                                <button class="up">
-                                    <span>+</span>
-                                </button>
-                                <input type="text" name="" id="">
-                                <button class="down">
-                                    <span>-</span>
-                                </button>
-                            </div>
                         </div>
                     </div>
                     <div class="remove-btn">
@@ -97,9 +88,25 @@ const dataTable = new DataTable('#products_filter_table', {
 });
 
 $('#txt_date').daterangepicker({
-    "singleDatePicker": true,
+    locale: {
+        format: 'DD/MM/YYYY',
+        applyLabel: "Áp dụng",
+        cancelLabel: "Hủy bỏ",
+    },
+    linkedCalendars: false,
+    alwaysShowCalendars: true,
+    drop: "auto",
+    autoUpdateInput: false,
 }, function(start, end, label) {
   console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+});
+
+$('#txt_date').on('apply.daterangepicker', function(ev, picker) {
+    $(this).val(picker.startDate.format('DD/MM/YYYY') + ' ~ ' + picker.endDate.format('DD/MM/YYYY'));
+})
+
+$('#txt_date').on('cancel.daterangepicker', function(ev, picker) {
+    $(this).val('');
 });
 
 const basicAutocomplete = document.querySelector('#search-autocomplete');
@@ -111,8 +118,3 @@ const asyncFilter = async (query) => {
   const filter = data.products.filter(({brand}) => brand.indexOf(query) >= 0);
   return filter;
 };
-
-new mdb.Autocomplete(basicAutocomplete, {
-  filter: asyncFilter,
-  displayValue: (value) => value.brand
-});

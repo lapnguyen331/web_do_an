@@ -38,40 +38,18 @@ const data_tables = new DataTable('#table_customers', {
     columns: [
         {
             data: 'id',
-            width: 1,
-            className: 'dt-nowrap',
         },
         {
             data: 'name',
         },
         {
-            data: 'product.name',
-            render: function(data, type, row) {
-                const html = `
-                    <div class="product-wrap d-flex align-items-center gap-2">
-                        <div class="product-img">
-                            <img src="${row.product.image}" alt="">
-                        </div>
-                        <div class="product-info d-flex flex-column justify-content-center">
-                            <div class="fw-semibold product-name">${row.product.name}</div>
-                            <div class="fw-light">Mã sản phẩm: ${row.product.id}</div>
-                        </div>
-                    </div>
-                `
-                return html;
-            }
-        },
-        {
-            className: 'dt-nowrap',
-            width: 10,
+            className: 'dt-center',
             data: 'value',
             render: function(data) {
                 return `<div class="fw-semibold text-primary">- ${data}%</div>`
             }
         },
         {
-            className: "dt-nowrap",
-            width: 10,
             orderable: false,
             render: function(data, type, row) {
                 const html = `
@@ -84,9 +62,8 @@ const data_tables = new DataTable('#table_customers', {
             defaultContent: '10/07/2023 ~ 10/10/2024'
         },
         {
+            className: 'dt-center',
             orderable: false,
-            className: "dt-nowrap",
-            width: 1,
             data: 'status',
             defaultContent: 'tình trạng',
             render: function(data, type, row) {
@@ -94,13 +71,16 @@ const data_tables = new DataTable('#table_customers', {
             }
         },
         {
-            className: 'dt-nowrap dt-right',
+            className: 'dt-nowrap',
             width: 1,
             data: null,
             orderable: false,
             render: function(data) {
                 const html = `
                 <div class="action-btns">
+                    <a href="/template/admin/discounts_edit.html?id=${data.id}">
+                        <i class="fa-solid fa-tags" data-mdb-toggle="tooltip" title="Thêm sản phẩm"></i>
+                    </a>
                     <a href="#admin_product_modal" class="btn-modal" data-discounts-id="${data.id}">
                         <i class="fa-solid fa-edit view-btn" data-mdb-toggle="tooltip" title="Chỉnh sửa"></i>
                     </a>
@@ -190,7 +170,7 @@ new mdb.Autocomplete($('#box_category_filter')[0], {
       `
       return html;
     },
-  });
+});
 
 const discounts_modal = new mdb.Modal($('#admin_product_modal')[0]);
 $('.customers-control .container').on('click', 'a[href="#admin_product_modal"]', function() {

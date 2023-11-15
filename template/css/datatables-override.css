@@ -6,7 +6,6 @@
     border: 1px solid gray;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    padding: 10px;
 }
 
 .dataTables_scrollBody::-webkit-scrollbar {

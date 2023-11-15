@@ -15,9 +15,10 @@
 
 
     <link rel="stylesheet" href="/template/css/main-style.css">
+    <link rel="stylesheet" href="/template/css/button-title.css">
     <link rel="stylesheet" href="/template/css/admin/sidebar.css">
     <link rel="stylesheet" href="/template/css/main-header.css">
-    <link rel="stylesheet" href="/template/css/admin/admin-orders-edit.css">
+    <link rel="stylesheet" href="/template/css/admin/admin-discounts-edit.css">
     <link rel="stylesheet" href="/template/css/bootstrap-override.css">
     <link rel="stylesheet" href="/template/css/datatables-override.css">
     <title>Quản lí sản phẩm</title>
@@ -232,74 +233,47 @@
     </header>
     <section id="main-content-section">
         <div class="main-content">
-            <section id="product_edit">
+            <section id="discount_edit">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="left-container">
-                                <section id="order-info">
-                                    <h4 class="form-title pb-3">Thông tin đơn hàng</h4>
-                                    <h6>Mã đơn hàng</h6>
+                                <section id="discount-info">
+                                    <h4 class="form-title pb-3">Thông tin khuyến mãi</h4>
+                                    <h6>Mã chương trình</h6>
                                     <h5>#14505</h5>
-                                    <label for="txt_date" class="d-block py-2 fw-semibold">Ngày tạo đơn *</label>
+                                    <label for="txt_date" class="d-block py-2 fw-semibold">Thời hạn khuyến mãi *</label>
                                     <div class="form-outline">
-                                        <input type="text" class="form-control" placeholder="Ngày tạo đơn" id="txt_date">
+                                        <input type="text" class="form-control" placeholder="Thời hạn khuyến mãi" id="txt_date">
                                     </div>
-                                    <label for="select_order_date" class="d-block py-2 fw-semibold">Tình trạng đơn hàng</label>
-                                    <select class="select" id="select_order_date">
-                                        <option value="1">Đã được giao</option>
-                                        <option value="2">Đang được giao</option>
-                                        <option value="3">Đang trả về</option>
-                                        <option value="4">Đã bị hủy</option>
-                                      </select>
-                                </section>
-
-                                <section id="order-info">
-                                    <h4 class="form-title pb-3">Thông tin chủ hóa đơn</h4>
-                                    <div class="input-group">
-                                        <div id="search-autocomplete" class="form-outline">
-                                          <input type="search" id="form1" class="form-control" />
-                                          <label class="form-label" for="form1">Mã khách hàng</label>
+                                    <label for="select_discount_rangeDate" class="d-block py-2 fw-semibold">Tình trạng hiện tại</label>
+                                    <select class="select" id="select_discount_rangeDate">
+                                        <option value="1">Hoạt động</option>
+                                        <option value="2">Vô hiệu hóa</option>
+                                    </select>
+                                    <div class="mt-3">
+                                        <label class="form-label fw-semibold fs-4" for="discount-value">Giảm giá</label>
+                                        <div class="range">
+                                            <input type="range" class="form-range" id="discount-value" />
                                         </div>
-                                        <button type="button" class="btn btn-primary d-flex align-items-center gap-2 px-2 text-wheat-color fw-semibold">
-                                            <i class="fa-solid fa-arrows-rotate"></i>
-                                            <span class="text-nowrap">Tải dữ liệu</span>
-                                        </button>
-                                    </div>
-                                    <hr>
-                                    <div class="customer-wrapper">
-                                        <div class="avatar">
-                                            <img src="" alt="">
-                                        </div>
-                                        <div class="customer-info">
-                                            <div class="customer-name fw-semibold">Phạm Nhật Hùng</div>
-                                            <div class="customer-role">Customer</div>
-                                        </div>
-                                    </div>
-                                    <div class="customer-contact">
-                                        <ul>
-                                            <li>
-                                                <i class="fa-regular fa-envelope"></i>
-                                                <span>pnh21378@yahoo.com</span>
-                                            </li>
-                                            <li>
-                                                <i class="fa-solid fa-phone-volume"></i>
-                                                <span>093-312-1234</span>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </section>
                             </div>
                         </div>
                         <div class="col-md-9">
                             <div class="right-container">
-                                <form action="" id="products-form">
-                                    <section id="products-list-section">
+                                <form action="" id="discounts-form">
+                                    <section id="discounts-list-section">
+                                        <div class="bg-gold bg-sharp p-1 shadow">
+                                            <div class="bg-primary-red-main-color text-wheat-color fs-3 fw-semibold text-uppercase text-center">
+                                                giảm giá cuối năm 2023
+                                            </div>
+                                        </div>
+                                        <hr class="divider-horizontal-blurry">
                                         <h4 class="form-title">Lựa chọn sản phẩm</h4>
-                                        <h6 class="form-title">Thêm sản phẩm vào đơn hàng này</h6>
+                                        <h6 class="form-title">Chọn sản phẩm để áp dụng giảm giá</h6>
                                         <div class="products-range">
                                         </div>
-                                        <h4 class="form-title">Tổng tiền: 3.080.000₫</h4>
                                         <hr class="horizontal">
                                         <div class="filter-input">
                                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -314,46 +288,6 @@
                                                 </tr>
                                             </thead>
                                         </table>
-                                    </section>
-                                    <section id="order-details-section">
-                                        <h4 class="form-title">Thông tin đơn hàng</h4>
-                                        <h6 class="form-title">Nhập thông tin người nhận vào trường dưới đây</h6>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="input-field">
-                                                    <label for="txt_fullname">Họ và tên *</label>
-                                                    <input type="text" placeholder="Họ và tên" id="txt_fullname">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="input-field">
-                                                    <label for="txt_email">Email *</label>
-                                                    <input type="text" placeholder="Email" id="txt_email">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-md-6">
-                                                <div class="input-field">
-                                                    <label for="txt_phone">Số điện thoại *</label>
-                                                    <input type="text" placeholder="Số điện thoại" id="txt_phone">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="input-field">
-                                                    <label for="txt_address">Địa chỉ nhận hàng *</label>
-                                                    <input type="text" placeholder="Địa chỉ" id="txt_address">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-md-12">
-                                                <div class="input-field">
-                                                    <label for="txtArea_note">Ghi chú (tùy chọn)</label>
-                                                    <textarea name="" id="txtArea_note" rows="5"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </section>
                                 </form>
                             </div>
@@ -376,7 +310,7 @@
     <script src="/template/libs/daterangepicker-master/moment.min.js"></script>
     <script src="/template/libs/daterangepicker-master/daterangepicker.js"></script>
     <script src="/template/libs/DataTables/datatables.min.js"></script>
-    <script src="/template/js/admin/order-edit.js"></script>
+    <script src="/template/js/admin/discounts-edit.js"></script>
 </body>
 
 </html>
