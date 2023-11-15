@@ -52,6 +52,9 @@
     height: 100%;
     padding: 15px 0 150px 0;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #sidebar-nav .sidebar.close .nav-links {
@@ -100,7 +103,7 @@
     position: absolute;
     top: 0;
     left: 10px;
-    font-size: 8px;
+    font-size: 10px;
     width: 20px;
     height: 20px;
     letter-spacing: 1.5px;
@@ -112,7 +115,6 @@
     background-color: #37b24d;
     border-radius: 5px;
     color: white;
-    font-family: 'Font Awesome 6 Free'
 }
 
 
@@ -131,8 +133,8 @@
 }
 
 #sidebar-nav .sidebar .nav-links li a .link_name {
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 500;
     color: var(--wheat-color);
     white-space: nowrap;
 }
@@ -290,7 +292,7 @@
 }
 
 #sidebar-nav .sidebar .profile-details .profile_name,
-#sidebar-nav .sidebar .profile-details .job {
+#sidebar-nav .sidebar .profile-details .greeting {
     color: #fff;
     font-size: 18px;
     font-weight: 500;
@@ -299,11 +301,11 @@
 
 #sidebar-nav .sidebar.close .profile-details i,
 #sidebar-nav .sidebar.close .profile-details .profile_name,
-#sidebar-nav .sidebar.close .profile-details .job {
+#sidebar-nav .sidebar.close .profile-details .greeting {
     display: none;
 }
 
-#sidebar-nav .sidebar .profile-details .job {
+#sidebar-nav .sidebar .profile-details .greeting {
     font-size: 12px;
 }
 
