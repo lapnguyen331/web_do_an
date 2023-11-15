@@ -8,6 +8,8 @@
     --mdb-autocomplete-label-color: var(--red-color-main) !important;
     --mdb-btn-disabled-bg: var(--red-color-main) !important;
     --mdb-btn-disabled-border-color: var(--red-color-main) !important;
+    --mdb-nav-tabs-link-active-color: var(--red-color-main) !important;
+    --mdb-nav-tabs-link-active-border-color: var(--red-color-main) !important;
 }
 
 .btn-primary {
@@ -58,6 +60,17 @@
 .form-outline .form-control:focus~.form-notch .form-notch-trailing {
     border-color: var(--red-color-main);
     box-shadow: 1px 0 0 0 var(--red-color-main), 0 -1px 0 0 var(--red-color-main), 0 1px 0 0 var(--red-color-main);
+}
+
+.input-group>.form-control:focus {
+    border-color: var(--red-color-main);
+    box-shadow: inset 0 0 0 1px var(--red-color-main);
+}
+
+.nav-tabs .nav-link {
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: 500;
 }
 
 .form-outline .form-control:focus~.form-label {
