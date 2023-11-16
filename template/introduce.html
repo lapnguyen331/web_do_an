@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="stylesheet/fontawesome.min.css">
     <link rel="stylesheet" href="libs/swiper/swiper-bundle-min.css"/>
     <link rel="stylesheet" href="libs/mdb-bootstrap-5/css/mdb.min.css">
+    <link rel="stylesheet" href="libs/mdb-bootstrap-5-pro/css/mdb.min.css">
 
     <!-- Style của project -->
+    <link rel="stylesheet" href="css/fixed-buttons.css">
+
     <link rel="stylesheet" href="stylesheet/all.min.css">
     <link rel="stylesheet" href="css/main-header.css">
     <link rel="stylesheet" href="css/main-style.css">
@@ -22,10 +25,101 @@
     <link rel="stylesheet" href="css/home-about.css">
     <link rel="stylesheet" href="css/home-store.css">
     <link rel="stylesheet" href="css/introduce.css">
+
     <title>Trang giới thiệu</title>
 </head>
 <body>
+    <div id="fixed-btns">
+        <div class="cart-btn" type="button" data-mdb-toggle="modal" data-mdb-target="#my-cart">
+            <i class="fa-solid fa-cart-plus d-inline-block pt-1 pe-none"></i>
+        </div>
+    </div>
+    <div class="modal fade right" id="my-cart" tabindex="-1">
+        <div class="modal-dialog modal-side modal-top-right">
+            <div class="modal-content bg-gold">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <div class="fw-semibold fs-5 text-up">
+                            <span>Giỏ hàng của tôi</span>
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="cart-products d-flex flex-column">
+                        <div class="product-wrap d-flex align-items-center gap-2">
+                            <div class="btn-product-remove">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </div>
+                            <div class="img-wrap border rounded d-flex align-items-center justify-content-center">
+                                <img src="/template/image/cao-hong-sam-hong-seon-gold-hop-2-lo-250g-1.webp" width="100%">
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                                <div class="product-name">
+                                    Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g
+                                </div>
+                                <div class="text-primray-red-color-main fw-bold">
+                                    980.000₫
+                                </div>
+                            </div>
+                            <div class="amount-btns">
+                                <div class="bg-primary-red-main-color text-wheat-color d-flex align-items-center arrow-wrap">
+                                    <div class="arrow arrow-down"></div>
+                                </div>
+                                <input type="text">
+                                <div class="bg-primary-red-main-color text-wheat-color d-flex align-items-center arrow-wrap">
+                                    <div class="arrow arrow-up"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-wrap d-flex align-items-center gap-2">
+                            <div class="btn-product-remove">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </div>
+                            <div class="img-wrap border rounded d-flex align-items-center justify-content-center">
+                                <img src="/template/image/cao-sam-hu-doi-1.jpg" width="100%">
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                                <div class="product-name">
+                                    Cao Sâm Hũ Đôi Arirang Hàn Quốc
+                                </div>
+                                <div class="text-primray-red-color-main fw-bold">
+                                    2.100.000₫
+                                </div>
+                            </div>
+                            <div class="amount-btns">
+                                <div class="bg-primary-red-main-color text-wheat-color d-flex align-items-center arrow-wrap">
+                                    <div class="arrow arrow-down"></div>
+                                </div>
+                                <input type="text">
+                                <div class="bg-primary-red-main-color text-wheat-color d-flex align-items-center arrow-wrap">
+                                    <div class="arrow arrow-up"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="bg-gold bg-sharp-5">
+                        <button class="btn-moveTo" >
+                            <a href="cart.html" >
+                                <span >Xem chi tiết giỏ hàng</span>
+                            </a>
+                        </button>
+                    </div>
+
+                    <div class="bg-gold bg-sharp-5">
+                        <button class="btn-closeModal" type="button" data-mdb-dismiss="modal">
+                            <span>Hủy bỏ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <header id="main-header-section">
+    
     <article id="main-header-top">
         <div class="logo-wrapper">
             <img src="icon/logo2.png" alt="">
@@ -501,7 +595,7 @@
                     <img src="image/nuoc-hong-sam.png" alt="">
                 </div>
                 <div class="product-name">
-                    <a href="#">Nước hồng sâm</a>
+                    <a href="categogy-detail.html">Nước hồng sâm</a> <!---Note sửa lại href-->
                 </div>
             </div>
             <div class="portfolio-product">
@@ -509,7 +603,7 @@
                     <img src="image/linh-chi-han-quoc.webp" alt="">
                 </div>
                 <div class="product-name">
-                    <a href="#">Cao hồng sâm</a>
+                    <a href="categogy-detail.html">Cao hồng sâm</a> <!---Note sửa lại href-->
                 </div>
             </div>
             <div class="portfolio-product">
@@ -517,7 +611,7 @@
                     <img src="image/sam-kho.png" alt="">
                 </div>
                 <div class="product-name">
-                    <a href="#">Sâm khô</a>
+                    <a href="categogy-detail.html">Sâm khô</a> <!---Note sửa lại href-->
                 </div>
             </div>
             <div class="portfolio-product">
@@ -525,7 +619,7 @@
                     <img src="image/sam-mat-ong.png" alt="">
                 </div>
                 <div class="product-name">
-                    <a href="#">Sâm mật ong</a>
+                    <a href="categogy-detail.html">Sâm mật ong</a> <!---Note sửa lại href-->
                 </div>
             </div>
             <div class="portfolio-product">
@@ -533,7 +627,7 @@
                     <img src="image/hac-sam-han-quoc.png" alt="">
                 </div>
                 <div class="product-name">
-                    <a href="#">Hắc sâm</a>
+                    <a href="categogy-detail.html">Hắc sâm</a> <!---Note sửa lại href-->
                 </div>
             </div>
             <div class="portfolio-product">
@@ -541,7 +635,7 @@
                     <img src="image/sam-tuoi.png" alt="">
                 </div>
                 <div class="product-name">
-                    <a href="#">nhân sâm tươi</a>
+                    <a href="categogy-detail.html">nhân sâm tươi</a> <!---Note sửa lại href-->
                 </div>
             </div>
             <div class="portfolio-product">
@@ -549,7 +643,7 @@
                     <img src="image/ruou-sam.png" alt="">
                 </div>
                 <div class="product-name">
-                    <a href="#">Rượu sâm Linh Chi</a>
+                    <a href="categogy-detail.html">Rượu sâm Linh Chi</a> <!---Note sửa lại href-->
                 </div>
             </div>
             <div class="portfolio-product">
@@ -557,7 +651,7 @@
                     <img src="image/tra-sam.webp" alt="">
                 </div>
                 <div class="product-name">
-                    <a href="#">Trà hồng sâm</a>
+                    <a href="categogy-detail.html">Trà hồng sâm</a> <!---Note sửa lại href-->
                 </div>
             </div>
             <div class="portfolio-product">
@@ -565,7 +659,7 @@
                     <img src="image/vien-hong-sam.webp" alt="">
                 </div>
                 <div class="product-name">
-                    <a href="#">viên hồng sâm</a>
+                    <a href="categogy-detail.html">viên hồng sâm</a> <!---Note sửa lại href-->
                 </div>
             </div>
         </div>
@@ -589,7 +683,7 @@
 
         <div class="contact-content">
             <div class="contact-info-wrapper">
-                <div class="img-logo">
+                <div class="img-logo" >
                     <img src="icon/logo.png" alt="">
                 </div>
                 <div class="contact-info-content">
@@ -622,17 +716,17 @@
                     </div>
                     <div class="contact-wrap">
                         <i class="fab fa-cc-visa" aria-hidden="true"></i>
-                        <a href="#">Thông tin tài khoản ngân hàng</a>
+                        <a href="details_product.html">Thông tin hàng hóa chi tiết</a>
                     </div>
                     <div class="contact-wrap">
                         <i class="fas fa-calendar-check" aria-hidden="true"></i>
-                        <a href="#">Quy định về việc đổi trả hàng</a>
+                        <a href="privacy.html#chinh_sach_bao_hanh_doi_tra_va_hoan_tien">Quy định về việc đổi trả hàng</a>
                     </div>
                 </div>
                 <div class="intro-col">
                     <div class="contact-wrap">
                         <i class="fas fa-money-bill" aria-hidden="true"></i>
-                        <a href="#">Thanh toán khi nhận hàng</a>
+                        <a href="privacy.html">Thanh toán khi nhận hàng</a>
                     </div>
                     <div class="contact-wrap">
                         <i class="fas fa-truck" aria-hidden="true"></i>
@@ -650,11 +744,11 @@
             </div>
         </div>
         <div class="contact-content">
-            <div class="fb-page"
-                 data-href="https://www.facebook.com/kcntt.nlu"
-                 data-width="400"
-                 data-hide-cover="false"
-                 data-show-facepile="false">
+            <div class="fb-page" 
+                data-href="https://www.facebook.com/kcntt.nlu"
+                data-width="400" 
+                data-hide-cover="false"
+                data-show-facepile="false">
             </div>
         </div>
     </div>
@@ -666,7 +760,10 @@
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
 </script>
+
 <script src="js/jquery.js"></script>
+<script src="libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
+
 <script src="libs/swiper/swiper-bundle.min.js"></script>
 <script>
     const swiper = new Swiper('.swiper', {

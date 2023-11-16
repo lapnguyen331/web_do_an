@@ -49,6 +49,9 @@
     padding: 5px 10px;
     font-weight: 500;
 }
+#my-cart a{
+    color: var(--wheat-color);
+}
 #my-cart .btn-moveTo::before {
     font-family: 'Font Awesome 6 Free';
     content: '\f09d';
