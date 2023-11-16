@@ -26,6 +26,10 @@ const status_badget = {
     active: '<span class="badge badge-success">Hoạt động</span>',
     deactive: '<span class="badge badge-danger">Tạm ngưng</span>',
 }
+const verify_badget = {
+    1: '<span class="badge badge-success">Đã Xác minh</span>',
+    0: '<span class="badge badge-danger">Chưa xác minh</span>',
+}
 const data_tables = new DataTable('#table_customers', {
     ajax: '/template/admin/customers.txt',
     language: translate,
@@ -43,6 +47,9 @@ const data_tables = new DataTable('#table_customers', {
         },
         {
             data: 'email',
+            render: function(data, type, row) {
+                return `<div class="d-flex justify-content-start w-100 gap-2"><span>${row.email}</span>${verify_badget[row.verified]}</div>`
+            }
         },
         {
             data: 'phone',
@@ -64,11 +71,10 @@ const data_tables = new DataTable('#table_customers', {
             render: function() {
                 const html = `
                 <div class="action-btns">
-                    <a href="/template/details_product.html" data-mdb-toggle="tooltip" title="Xem chi tiết đơn hàng">
-                        <i class="fa-solid fa-eye remove-btn"></i>
+                    <a href="/template/admin/customers_edit.html" data-mdb-toggle="tooltip">
+                        <i class="fa-solid fa-edit view-btn" data-mdb-toggle="tooltip" title="Chỉnh sửa"></i>
                     </a>
-                    <i class="fa-solid fa-edit view-btn" data-mdb-toggle="tooltip" title="Chỉnh sửa" data-product-id = 'VZ120001'></i>
-                    <i class="fa-solid fa-circle-xmark remove-btn" data-mdb-toggle="tooltip" title="Xóa đơn hàng"></i>
+                    <i class="fa-solid fa-circle-xmark remove-btn" data-mdb-toggle="tooltip" title="Xóa khách hàng"></i>
                 </div>
                 `
                 return html;

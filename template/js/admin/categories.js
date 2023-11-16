@@ -77,7 +77,7 @@ const data_tables = new DataTable('#table_categories', {
             render: function(data) {
                 const html = `
                 <div class="action-btns">
-                    <a href="/template/details_product.html?category=${data.id}" data-mdb-toggle="tooltip" title="Chỉnh sửa danh mục">
+                    <a href="/template/admin/categories_edit.html" data-mdb-toggle="tooltip" title="Chỉnh sửa danh mục">
                         <i class="fa-solid fa-edit view-btn" data-product-id = 'VZ120001'></i>
                     </a>
                     <i class="fa-solid fa-circle-xmark remove-btn" data-mdb-toggle="tooltip" title="Xóa đơn hàng"></i>

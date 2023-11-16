@@ -183,3 +183,7 @@ input:focus-visible {
     font-weight: 500;
     gap: 10px;
 }
+
+.input-group .btn {
+    z-index: 0;
+}
