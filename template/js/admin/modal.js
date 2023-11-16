@@ -1,4 +1,4 @@
-$('.view-btn').on('click', function() {
+$('.product-list-body',).on('click', '.view-btn', function() {
     const id = this.dataset.productId;
     loadModal(id);
     product_details_modal.show();
