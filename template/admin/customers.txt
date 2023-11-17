@@ -1,0 +1,32 @@
+{
+  "data": 
+  [
+    {
+      "id": "pnHung1709z",
+      "name": "Phạm Nhật Hùng",
+      "email": "pnh21378@yahoo.com",
+      "phone": "093-312-1234",
+      "status": "active",
+      "created": "11/06/2023",
+      "verified": "1"
+    },
+    {
+      "id": "thanhbui2002",
+      "name": "Bùi Thành Tâm",
+      "email": "chuot09124@gmail.com",
+      "phone": "0833-432-1234",
+      "status": "active",
+      "created": "10/06/2023",
+      "verified": "0"
+    },
+    {
+      "id": "ngChi192",
+      "name": "Lê Thị Hồng Ngọc",
+      "email": "ngocruby123@gmail.com",
+      "phone": "093-111-5701",
+      "status": "deactive",
+      "created": "10/06/2022",
+      "verified": "0"
+    }
+  ]
+}

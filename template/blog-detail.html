@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Thư viện ngoài (Luôn để đầu tiên) -->
+    <link rel="stylesheet" href="stylesheet/fontawesome.min.css">
+    <link rel="stylesheet" href="stylesheet/all.min.css">
+    <link rel="stylesheet" href="libs/mdb-bootstrap-5/css/mdb.min.css">
+    <link rel="stylesheet" href="libs/mdb-bootstrap-5-pro/css/mdb.min.css">
+
+    <link rel="stylesheet" href="css/main-header.css">
+    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/main-footer.css">
+    <link rel="stylesheet" href="css/button-title.css">
+   
+    <!-- css this page -->
+    <link rel="stylesheet" href="css/blog/blog.css">
+    <link rel="stylesheet" href="css/blog/blog-item.css">
+    <link rel="stylesheet" href="css/blog/blog-cate-filter.css">
+    <link rel="stylesheet" href="css/blog/blog-detail.css">
+    <link rel="stylesheet" href="/template/css/breadcrumbs.css">
+    <link rel="stylesheet" href="css/fixed-buttons.css">
+
+    <title>Document</title>
+</head>
+<body style="background-color: #f7f0e6;">
+    <div id="fixed-btns">
+        <div class="cart-btn" type="button" data-mdb-toggle="modal" data-mdb-target="#my-cart">
+            <i class="fa-solid fa-cart-plus d-inline-block pt-1 pe-none"></i>
+        </div>
+    </div>
+    <div class="modal fade right" id="my-cart" tabindex="-1">
+        <div class="modal-dialog modal-side modal-top-right">
+            <div class="modal-content bg-gold">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <div class="fw-semibold fs-5 text-up">
+                            <span>Giỏ hàng của tôi</span>
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="cart-products d-flex flex-column">
+                        <div class="product-wrap d-flex align-items-center gap-2">
+                            <div class="btn-product-remove">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </div>
+                            <div class="img-wrap border rounded d-flex align-items-center justify-content-center">
+                                <img src="/template/image/cao-hong-sam-hong-seon-gold-hop-2-lo-250g-1.webp" width="100%">
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                                <div class="product-name">
+                                    Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g
+                                </div>
+                                <div class="text-primray-red-color-main fw-bold">
+                                    980.000₫
+                                </div>
+                            </div>
+                            <div class="amount-btns">
+                                <div class="bg-primary-red-main-color text-wheat-color d-flex align-items-center arrow-wrap">
+                                    <div class="arrow arrow-down"></div>
+                                </div>
+                                <input type="text">
+                                <div class="bg-primary-red-main-color text-wheat-color d-flex align-items-center arrow-wrap">
+                                    <div class="arrow arrow-up"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-wrap d-flex align-items-center gap-2">
+                            <div class="btn-product-remove">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </div>
+                            <div class="img-wrap border rounded d-flex align-items-center justify-content-center">
+                                <img src="/template/image/cao-sam-hu-doi-1.jpg" width="100%">
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                                <div class="product-name">
+                                    Cao Sâm Hũ Đôi Arirang Hàn Quốc
+                                </div>
+                                <div class="text-primray-red-color-main fw-bold">
+                                    2.100.000₫
+                                </div>
+                            </div>
+                            <div class="amount-btns">
+                                <div class="bg-primary-red-main-color text-wheat-color d-flex align-items-center arrow-wrap">
+                                    <div class="arrow arrow-down"></div>
+                                </div>
+                                <input type="text">
+                                <div class="bg-primary-red-main-color text-wheat-color d-flex align-items-center arrow-wrap">
+                                    <div class="arrow arrow-up"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="bg-gold bg-sharp-5">
+                        <button class="btn-moveTo" >
+                            <a href="cart.html" >
+                                <span >Xem chi tiết giỏ hàng</span>
+                            </a>
+                        </button>
+                    </div>
+
+                    <div class="bg-gold bg-sharp-5">
+                        <button class="btn-closeModal" type="button" data-mdb-dismiss="modal">
+                            <span>Hủy bỏ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header id="main-header-section">
+        <article id="main-header-top">
+            <div class="logo-wrapper">
+                <img src="icon/logo2.png" alt="">
+            </div>
+            <div class="main-content-wrapper">
+                <ul class="topbar-menu">
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="home.html">Trang chủ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="introduce.html">Giới thiệu</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="contact.html">Liên hệ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="privacy.html">Quy định & chính sách chung</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <div class="redirect-link d-flex" >
+                            <div class="user-wrap d-flex gap-1 align-items-center">
+                                <div class="avatar-wrap border rounded rounded-circle p-2 d-flex align-items-center justify-content-between overflow-hidden">
+                                    <img src="/template/icon/mien-phi-van-chuyen.jpg" width="20px" alt="">
+                                </div>
+                                <div>nqat0919</div>
+                                <ul class="user-pages">
+                                    <div class="shadow">
+                                        <ul>
+                                            <li>
+                                                <a href="user-profile.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-circle-user"></i>
+                                                    <span>Trang cá nhân</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="user-profile-order.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-clipboard-list"></i>
+                                                    <span>Đơn mua</span>   
+                                                </a> 
+                                            </li>
+                                            <li>
+                                                <a href="login.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                    <span>Đăng xuất</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="search-input">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
+                        <a class="btn-search" href="search.html">Tìm kiếm</a>
+                    </div>
+                    <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
+                </div>
+            </div>
+        </article>
+
+        <article id="main-header-bot">
+            <nav class="main-nav">
+                <div class="all-items menu-wrapper">
+                    <span>Tất cả sản phẩm</span>
+                    <ul class="menu">
+                        <li class="menu-item"><a href="categogy-detail.html">Nước Hồng Sâm Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="categogy-detail.html">Cao Hồng Sâm Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="categogy-detail.html">Sâm Khô Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="categogy-detail.html">Sâm Mật Ong Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="categogy-detail.html">Hắc Sâm Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="categogy-detail.html">Nhân Sâm Tươi Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="categogy-detail.html">Rượu Sâm Linh Chi</a></li>
+                        <li class="menu-item"><a href="categogy-detail.html">Trà Hồng Sâm Hàn Quốc Và Bột Sâm</a></li>
+                        <li class="menu-item"><a href="categogy-detail.html">Viên Hồng Sâm Hàn Quốc</a></li>
+                        <li class="menu-item"><a href="categogy-detail.html">Viên Hồng Sâm Hàn Quốc</a></li>
+                    </ul>
+                </div>
+                <ul class="nav-items-wrapper">
+                    <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Nước Hồng Sâm</a></li>
+                    <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Cao Hồng Sâm</a></li>
+                    <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Sâm Khô</a></li>
+                    <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Sâm Mật Ong</a></li>
+                    <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Hắc Sâm</a></li>
+                    <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Nhân Sâm Tươi</a></li>
+                    <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Rượu Sâm Linh Chi</a></li>
+                    <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Trà Hồng Sâm</a></li>
+                    <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Viên Hồng Sâm</a></li>
+                </ul>
+            </nav>
+        </article>
+    </header>
+    <!-- Sam han quoc-->
+    <!-- breadcrum -->
+    <div class="breadcrumbs-wrap">
+        <ul class="breadcrumbs">
+            <li><a href="/template/blog.html">Tin tức </a></li>
+            <li><a href="/template/blog-detail.html">Chi tiết blog </a></li>
+
+        </ul>
+    </div>
+    <!-- content sam han quoc -->
+    <div id="blog-page">
+        <div class="blog-categogy-container">
+            <div class="row">    
+                <!-- bên trái catagogy -->
+                <div id="fill-product" class="col-lg-3" >
+                    <!-- catagogy -->
+                    <section id="section-product-filter">
+                        <div class="filter-header bg-rounded bg-gold">
+                            <div class="title-primary">Phân loại sản phẩm</div>
+                        </div>
+                        <div class="filter-content">
+                            <form action="">
+                                <p class="filter-title">Lọc theo tên</p>
+                                <ul class="radio-filter">
+                                    <li>
+                                        <label for="price_0-1m">Nước Hồng Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_1-2.5m">Cao Hồng Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_2.5m-5m">Sâm Mật Ong Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_5m-7.5m">Nhân Sâm Tươi Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_7.5m-10m">Trà Hồng Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_7.5m-10m">Kẹo Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_7.5m-10m">Viên Hồng Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_7.5m-10m">Hắc Sâm Hàn Quốc</label>
+                                    </li>
+                                    <li>
+                                        <label for="price_7.5m-10m">Sâm Khô Hàn Quốc</label>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </section>
+                </div> <!--NOTEME: chưa thêm bộ lọc-->
+                <div class="col-lg-9">
+                    
+                    <!-- sec blog  -->
+                   <section id="blog-detail">
+                        <div class="blog-detail-container">
+                            <div class="col-md-12">
+                                <div class="tab-content-wrapper">
+                                    <section class="tab-content tab-is-active" id="tab-product-content">
+                                        <h1 style="padding-bottom: 10px;">Tại Sao Ăn Nhân Sâm Lại Chảy Máu Mũi? Lưu Ý Gì Khi Dùng?</h1>
+                                        <h4>Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</h4><div class="se-component se-image-container __se__float-none"><figure><img src="/template/image/cao-hong-sam-hong-seon-gold-hop-2-lo-250g-1.webp" alt="" data-proportion="true" data-align="none" data-file-name="cao-hong-sam-hong-seon-gold-hop-2-lo-250g-1.webp" data-file-size="0" data-origin="," data-size="," data-rotate="" data-percentage="auto,auto" style=""></figure></div><h4>Thành phần:</h4><p>15% Hồng sâm cô đặc 6 năm tuổi (Ginsenosides Rg1, Rb1 và Rg3 tổng 4mg/g, chất rắn 70% trở lên), 70% hỗn hợp thực vật cô đặc (táo tàu 9%, rễ bạch chỉ 9%, rễ hoa cúc 9%, ngải cứu, Gujeolcho, Rễ Jihwang (Sukjihwang), lá non Artemisia, rễ hoa cúc, thân rễ sapju, rễ mẫu đơn, rễ xương cựa, hạch nấm bokryeong, nấm linh chi, cam thảo, chất rắn 60% trở lên), isomaltooligosaccharide.</p><h4>Công dụng:</h4><ul><li>Bồi bổ cơ thể, tăng sức lao động trí óc và chân tay, chống mệt mỏi.</li><li>Chống lão hóa, cải thiện chức năng não bộ ở người lớn tuổi, tăng khả năng tập trung trí tuệ, tăng trí nhớ</li><li>Tăng cường khả năng miễn dịch, giúp cơ thể tăng khả năng thích nghi phòng vệ đối với những kích thích có hại</li><li>Điều hòa huyết áp, giúp hồi phục huyết áp ở cơ thể.</li><li>Giảm tác hại của chất phóng xạ, cải thiện và phòng ngừa sự phát triển của các tế bào ung thư.</li><li>Ngăn ngừa nguy cơ phát sinh cholesterol cao, từ đó hạn chế sự hình thành các mảng xơ vữa động mạch</li><li>Thành phần chính Saponin có trong cao sâm có tác dụng loại bỏ chất Alloxan và chất Streptozotocin là nguyên nhân làm tăng đường huyết do đó cao sâm cũng hỗ trợ trong việc giảm đường huyết, tiểu đường</li><li>Saponin trong hồng sâm làm tăng hoạt động enzym liên quan tới sự thoái hóa ethanol và acetaldehyd, do đó đối với người hay uống rượu, để giảm gan tránh được độc tính</li></ul><h4>Đối tượng sử dụng: </h4><ul><li>Người suy kiệt cơ thể hậu điều trị cần tăng cường đề kháng và bồi bổ sức khỏe.</li><li>Người làm việc trí óc hoặc học tập cường độ cao.</li><li>Người bị ung thư, mắc các bệnh về rối loạn chuyển hóa đường trong nước tiểu, mỡ, tim, huyết áp…</li><li>Người già cần bồi bổ sức khỏe, tăng cường trí nhớ.</li><li>Phụ nữ hơn 30 tuổi mong muốn duy trì một cơ thể khỏe mạnh và một làn da tươi trẻ.</li></ul><div class="se-component se-image-container __se__float-none"><figure><img src="/template/image/cao-hong-sam-hong-seon-gold-hop-2-lo-250g.webp" alt="" data-proportion="true" data-align="none" data-file-name="cao-hong-sam-hong-seon-gold-hop-2-lo-250g.webp" data-file-size="0" data-origin="," data-size="," data-rotate="" data-percentage="auto,auto" style=""></figure></div><h4>Cách dùng:</h4><ul><li><strong>Phòng bệnh:</strong> Mỗi ngày uống 2 lần, mỗi lần uống lấy 1 thìa cao nhỏ (có trong hộp)= 5mg, pha với nước ấm rồi uống trước bữa ăn 15-20 phút.</li><li><strong>Chữa bệnh:</strong> Mỗi ngày uống 3 lần. Mỗi lần uống lấy 2 thìa cao nhỏ, pha với nước ấm, uống trước bữa ăn 15-20 phút.</li></ul><p><strong>Quy cách đóng gói:</strong> Hộp 2 lọ 250g</p><p><strong>Hạn sử dụng:</strong> 2 năm kể từ ngày sản xuất</p><p><strong>Lưu ý:</strong> Thực phẩm không là thuốc, không thay thế thuốc chữa bệnh</p><p><strong>Nhà sản xuất:</strong> KOREA GINSENG CENTER</p><p><strong>Điện thoại:</strong> 0934 138 985</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                   </section>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+       <!-- Footer -->
+       <footer id="main-footer-section">
+        <div class="footer-guide">
+            <div class="guide-title">thông tin liên hệ</div>
+            <div class="guide-title">hệ thống cửa hàng</div>
+            <div class="guide-title">danh mục sản phẩm</div>
+
+            <div class="guide-content">
+                <div class="contact-wrap">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Hotline: 1900.1234</span>
+                </div>
+                <div class="contact-wrap">
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <span>Zalo, Sms: 0936.565.257</span>
+                </div>
+                <div class="contact-wrap">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Email: nqat0919@gmail.com</span>
+                </div>
+                <strong>Mua hàng trực tiếp tại cửa hàng</strong>
+                <div class="contact-wrap">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Thời gian mở cửa: 8h - 21h</span>
+                </div>
+                <strong>Phương thức thanh toán</strong>
+                <img src="image/payment.webp" alt="" style="width: 400px;">
+            </div>
+            <div class="guide-content">
+                <strong>Tại Hà Nội:</strong>
+                <ul class="address-list">
+                    <li class="address">Cửa hàng 1: 21 Tây Sơn - Quan Trung- Đống Đa - Hà Nội</li>
+                    <li class="address">Cửa hàng 2: 121A Phố Huế - Hai Bà Trưng - Hà Nội (Ngã tư Phố Huế - Tuệ Tĩnh)</li>
+                    <li class="address">Cửa hàng 3: 149 Cầu Giấy - Quan Hoa - Cầu Giấy - Hà Nội</li>
+                    <li class="address">Cửa hàng 4: 577 Nguyễn Trãi - Thanh Xuân Nam - Thanh Xuân - Hà Nội ( Đối diện Pico Trung Văn)</li>
+                </ul>
+                <strong>Tại Hồ Chí Minh:</strong>
+                <ul class="address-list">
+                    <li class="address">Cửa hàng 5: 51 Võ Thị Sáu - Phường VTS - Quận 3 - Thành phố Hồ Chí Minh</li>
+                </ul>
+            </div>
+            <div class="guide-content">
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/nuoc-hong-sam.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="categogy-detail.html">Nước hồng sâm</a> <!---Note sửa lại href-->
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/linh-chi-han-quoc.webp" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="categogy-detail.html">Cao hồng sâm</a> <!---Note sửa lại href-->
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/sam-kho.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="categogy-detail.html">Sâm khô</a> <!---Note sửa lại href-->
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/sam-mat-ong.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="categogy-detail.html">Sâm mật ong</a> <!---Note sửa lại href-->
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/hac-sam-han-quoc.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="categogy-detail.html">Hắc sâm</a> <!---Note sửa lại href-->
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/sam-tuoi.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="categogy-detail.html">nhân sâm tươi</a> <!---Note sửa lại href-->
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/ruou-sam.png" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="categogy-detail.html">Rượu sâm Linh Chi</a> <!---Note sửa lại href-->
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/tra-sam.webp" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="categogy-detail.html">Trà hồng sâm</a> <!---Note sửa lại href-->
+                    </div>
+                </div>
+                <div class="portfolio-product">
+                    <div class="product-img">
+                        <img src="image/vien-hong-sam.webp" alt="">
+                    </div>
+                    <div class="product-name">
+                        <a href="categogy-detail.html">viên hồng sâm</a> <!---Note sửa lại href-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <div class="contact-title">
+                <ul class="title-list">
+                    <li class="title-item">Trang chủ</li>
+                    <li class="title-item">Tin tức</li>
+                    <li class="title-item">Liên hệ</li>
+                </ul>
+            </div>
+
+            <div class="contact-title">
+                <strong>Mua sắm tiện lợi</strong>
+            </div>
+
+            <div class="contact-title">
+                <strong>Fanpage Facebook</strong>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info-wrapper">
+                    <div class="img-logo" >
+                        <img src="icon/logo.png" alt="">
+                    </div>
+                    <div class="contact-info-content">
+                        <p class="info-text">sâm hàn quốc Cheong Kwan Jang</p>
+                        <div class="contact-wrap">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Hotline: 1900.1234</span>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fa-regular fa-comment-dots"></i>
+                            <span>Zalo, Sms: 0936.565.257</span>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>Email: nqat0919@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-content">
+                <div class="intro-wrapper">
+                    <div class="intro-col">
+                        <div class="contact-wrap">
+                            <i class="fas fa-edit" aria-hidden="true"></i>
+                            <a href="#">Hướng dẫn mua hàng</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-map" aria-hidden="true"></i>
+                            <a href="#">Bản đồ đến showroom</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                            <a href="details_product.html">Thông tin hàng hóa chi tiết</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                            <a href="privacy.html#chinh_sach_bao_hanh_doi_tra_va_hoan_tien">Quy định về việc đổi trả hàng</a>
+                        </div>
+                    </div>
+                    <div class="intro-col">
+                        <div class="contact-wrap">
+                            <i class="fas fa-money-bill" aria-hidden="true"></i>
+                            <a href="privacy.html">Thanh toán khi nhận hàng</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-truck" aria-hidden="true"></i>
+                            <a href="#">Giao hàng toàn quốc</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-thumbs-up" aria-hidden="true"></i>
+                            <a href="#">Nhân sâm Hàn Quốc uy tín</a>
+                        </div>
+                        <div class="contact-wrap">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                            <a href="#">Dịch vụ CSKH chu đáo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-content">
+                <div class="fb-page" 
+                    data-href="https://www.facebook.com/kcntt.nlu"
+                    data-width="400" 
+                    data-hide-cover="false"
+                    data-show-facepile="false">
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <span>Copyright &copy; 2023 Đồ án lập trình web</span>
+        </div>
+    </footer>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="libs/mdb-bootstrap-5/js/mdb.min.js"></script>
+    <script src="js/load_featured_products_home.js"></script>
+</body>
+</html>
+</body>
+</html>

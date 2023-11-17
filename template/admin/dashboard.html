@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Thư viện ngoài (Luôn để đầu tiên) -->
+    <link rel="stylesheet" href="../stylesheet/fontawesome.min.css">
+    <link rel="stylesheet" href="../stylesheet/all.min.css">
+    <link rel="stylesheet" href="../libs/suneditor-master/dist/css/suneditor.min.css">
+    <link rel="stylesheet" href="../libs/mdb-bootstrap-5-pro/css/mdb.min.css">
+    <link rel="stylesheet" href="../libs/flickity/flickity.min.css">
+    <link rel="stylesheet" href="../css/admin/details-product-template.css">
+    <link rel="stylesheet" href="../libs/image-uploader/image-uploader.min.css">
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="../css/main-style.css">
+    <link rel="stylesheet" href="../css/admin/sidebar.css">
+    <link rel="stylesheet" href="../css/admin/navbar.css">
+    <link rel="stylesheet" href="../css/admin/admin-modal.css">
+    <link rel="stylesheet" href="../css/button-title.css">
+    <link rel="stylesheet" href="../css/admin/admin-product.css">
+    <link rel="stylesheet" href="../css/admin/sidebar.css">
+    <link rel="stylesheet" href="../css/main-header.css">
+    <title>DashBoard</title>
+</head>
+
+<body>
+    <nav id="sidebar-nav" class="close">
+        <div class="sidebar close">
+            <div class="logo-details">
+                <i class="fa-brands fa-shopify"></i>
+                <span class="logo_name">Thanh quản lý</span>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-link-page">
+                    <a href="/template/admin/dashboard.html">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <span class="link_name">Điều khiển</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/dashboard.html">Điều khiển</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/categories.html">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span class="link_name">Danh mục</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/categories.html">Danh mục</a></li>
+                        <li><a href="/template/admin/categories_edit.html">Thêm danh mục</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/products.html">
+                            <i class="fa-solid fa-box"></i>
+                            <span class="link_name">Sản phẩm</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/products.html">Sản phẩm</a></li>
+                        <li><a href="/template/admin/products_edit.html">Thêm sản phẩm</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/discounts.html">
+                            <i class="fa-solid fa-tags"></i>
+                            <span class="link_name">Khuyến mãi</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/discounts.html">Khuyến mãi</a></li>
+                        <li><a href="/template/admin/discounts.html">Thêm khuyến mãi</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/customers.html">
+                            <i class="fa-solid fa-user-group"></i>
+                            <span class="link_name">Khách hàng</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/customers.html">Khách hàng</a></li>
+                        <li><a href="/template/admin/customers_edit.html">Thêm khách hàng</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/producers.html">
+                            <i class="fa-solid fa-warehouse"></i>
+                            <span class="link_name">Nhà cung cấp</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/producers.html">Nhà cung cấp</a></li>
+                        <li><a href="/template/admin/producers_edit.html">Thêm nhà cung cấp</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/blogs.html">
+                            <i class="fa-solid fa-book"></i>
+                            <span class="link_name">Bài viết</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/blogs.html">Bài viết</a></li>
+                        <li><a href="/template/admin/blog-edit.html">Thêm bài viết</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/orders.html">
+                            <i class="fa-solid fa-clipboard"></i>
+                            <span class="link_name">Đơn hàng</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/orders.html">Đơn hàng</a></li>
+                        <li><a href="/template/admin/orders_edit.html">Thêm đơn hàng</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="/template/admin/contacts.html">
+                        <i class="fa-solid fa-headset new-info">
+                            <span>1</span>
+                        </i>
+                        <span class="link_name">Liên hệ</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/contacts.html">Liên hệ</a></li>
+                    </ul>
+                    
+                </li>
+                <!-- <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="link_name">Thông báo</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Thông báo</a></li>
+                    </ul>
+                </li> -->
+                <li class="nav-link-page">
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <img src="/template/icon/ship-toan-quoc.jpg" alt="profileImg">
+                        </div>
+                        <div class="name-job">
+                            <div class="greeting">Xin chào Admin</div>
+                            <div class="profile_name">Nguyễn Tuấn</div>
+                        </div>
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                </li>
+            </ul>
+            <div id="btn-toggle-sidebar">
+                <i class="fa-solid fa-angles-right"></i>
+            </div>
+        </div>
+    </nav>
+<header id="main-header-section">
+    <article id="main-header-top">
+        <div class="logo-wrapper">
+            <img src="/template/icon/logo2.png" alt="">
+        </div>
+        <div class="main-content-wrapper">
+            <ul class="topbar-menu">
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="/template/home.html">Trang chủ</a>
+                </li>
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="/template/introduce.html">Giới thiệu</a>
+                </li>
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="/template/contact.html">Liên hệ</a>
+                </li>
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="/template/blog.html">Blog</a>
+                </li>
+               
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="/template/privacy.html">Quy định & chính sách chung</a>
+                </li>
+                <li class="topbar-menu-item">
+                    <div class="redirect-link d-flex" href="">
+                        <div class="user-wrap d-flex gap-1 align-items-center">
+                            <div class="avatar-wrap border rounded rounded-circle p-2 d-flex align-items-center justify-content-between overflow-hidden">
+                                <img src="/template/icon/mien-phi-van-chuyen.jpg" width="20px" alt="">
+                            </div>
+                            <div>nqat0919</div>
+                            <ul class="user-pages">
+                                <div class="shadow">
+                                    <ul>
+                                        <li>
+                                            <a href="/template/user-profile.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                <i class="fa-solid fa-circle-user"></i>
+                                                <span>Trang cá nhân</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                              <a href="/template/user-profile-order.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                <i class="fa-solid fa-clipboard-list"></i>
+                                                <span>Đơn mua</span>   
+                                            </a> 
+                                        </li>
+                                        <li>
+                                            <a href="/template/login.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                <span>Đăng xuất</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="search-input">
+                <div class="search-input-wrapper">
+                    <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
+                    <a class="btn-search" href="/template/search.html">Tìm kiếm</a>
+                </div>
+                <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
+            </div>
+        </div>
+    </article>
+</header>
+<section id="main-content-section">
+    <div class="main-content">
+            <div class="dashboard">
+                <main>
+                    <div class="header">
+                        <div class="left">
+                            <h1>Dashboard</h1>
+                        </div>
+                    </div>
+
+                    <!-- Insights -->
+                    <ul class="insights">
+                        <li class="shadow">
+                            <i class="fa-regular fa-calendar-check"></i>
+                            <span class="info">
+                        <h3>
+                            1,074
+                        </h3>
+                        <p>Đơn hàng đã bán</p>
+                    </span>
+                        </li >
+                        <li class="shadow"><i class="fa-regular fa-eye"></i>
+                            <span class="info">
+                        <h3>
+                            3,944
+                        </h3>
+                        <p>Truy cập trang web</p>
+                    </span>
+                        </li>
+                        <li class="shadow"><i class="fa-regular fa-user fa-sm"></i>
+                            <span class="info">
+                        <h3>
+                            2,721
+                        </h3>
+                        <p>Người đăng ký</p>
+                    </span>
+                        </li>
+                        <li class="shadow"><i class="fa-regular fa-dollar-sign"></i>
+                            <span class="info">
+                        <h3>
+                            $6,742
+                        </h3>
+                        <p>Tổng doanh thu</p>
+                    </span>
+                        </li>
+                    </ul>
+                    <!-- End of Insights -->
+
+                    <div class="bottom-data">
+                        <div class="orders">
+                            <div class="header">
+                                <i cl   ass="fa-solid fa-file-invoice"></i>
+                                <h3>Đơn hàng gần đây</h3>
+                                <i class="fa-solid fa-filter"></i>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <table>
+                                <thead>.
+                                <tr>
+                                    <th>Mã đơn hàng</th>
+                                    <th>Khách hàng</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Tình trạng</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <p>VZ120001</p>
+                                    </td>
+                                    <td>
+                                        <p>Phạm Nhật Hùng</p>
+                                    </td>
+                                    <td>14-08-2023</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>VZ120002</p>
+                                    </td>
+                                    <td>
+                                        <p>Phạm Nhật Hùng</p>
+                                    </td>
+                                    <td>14-08-2023</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>VZ120003</p>
+                                    </td>
+                                    <td>
+                                        <p>Phạm Nhật Hùng</p>
+                                    </td>
+                                    <td>14-08-2023</td>
+                                    <td><span class="status process">Processing</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Reminders -->
+                        <div class="chart">
+                            <canvas
+                                    data-mdb-chart="line"
+                                    data-mdb-dataset-label="Doanh thu"
+                                    data-mdb-labels="['Thứ 2', 'Thứ 3' , 'Thứ 4' , 'Thứ 5' , 'Thứ 6' , 'Thứ  7' , 'Chủ nhật ']"
+                                    data-mdb-dataset-data="[2112, 2343, 2545, 3423, 2365, 1985, 987]"
+                            ></canvas>
+                        </div>
+                    </div>
+                </main>
+            </div>
+    </div>
+</section>
+<script src="../js/jquery.js"></script>
+<script src="../libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
+<script src="../libs/flickity/flickity.pkgd.min.js"></script>
+<script src="../libs/suneditor-master/dist/suneditor.min.js"></script>
+<script src="../libs/image-uploader/image-uploader.js"></script>
+<script src="../js/admin/sidebar.js"></script>
+<script src="../js/admin/modal.js"></script>
+</body>
+
+</html>

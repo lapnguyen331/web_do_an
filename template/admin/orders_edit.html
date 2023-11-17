@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Thư viện ngoài (Luôn để đầu tiên) -->
+    <link rel="stylesheet" href="/template/stylesheet/fontawesome.min.css">
+    <link rel="stylesheet" href="/template/stylesheet/all.min.css">
+    <link rel="stylesheet" href="/template/libs/mdb-bootstrap-5-pro/css/mdb.min.css">
+    <link rel="stylesheet" href="/template/libs/image-uploader/image-uploader.min.css">
+    <link rel="stylesheet" href="/template/libs/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="/template/libs/daterangepicker-master/daterangepicker.css">
+
+
+    <link rel="stylesheet" href="/template/css/main-style.css">
+    <link rel="stylesheet" href="/template/css/admin/sidebar.css">
+    <link rel="stylesheet" href="/template/css/main-header.css">
+    <link rel="stylesheet" href="/template/css/admin/admin-orders-edit.css">
+    <link rel="stylesheet" href="/template/css/bootstrap-override.css">
+    <link rel="stylesheet" href="/template/css/datatables-override.css">
+    <title>Quản lí sản phẩm</title>
+</head>
+
+<body>
+    <nav id="sidebar-nav" class="close">
+        <div class="sidebar close">
+            <div class="logo-details">
+                <i class="fa-brands fa-shopify"></i>
+                <span class="logo_name">Thanh quản lý</span>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-link-page">
+                    <a href="/template/admin/dashboard.html">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <span class="link_name">Điều khiển</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/dashboard.html">Điều khiển</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/categories.html">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span class="link_name">Danh mục</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/categories.html">Danh mục</a></li>
+                        <li><a href="/template/admin/categories_edit.html">Thêm danh mục</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/products.html">
+                            <i class="fa-solid fa-box"></i>
+                            <span class="link_name">Sản phẩm</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/products.html">Sản phẩm</a></li>
+                        <li><a href="/template/admin/products_edit.html">Thêm sản phẩm</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/discounts.html">
+                            <i class="fa-solid fa-tags"></i>
+                            <span class="link_name">Khuyến mãi</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/discounts.html">Khuyến mãi</a></li>
+                        <li><a href="/template/admin/discounts.html">Thêm khuyến mãi</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/customers.html">
+                            <i class="fa-solid fa-user-group"></i>
+                            <span class="link_name">Khách hàng</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/customers.html">Khách hàng</a></li>
+                        <li><a href="/template/admin/customers_edit.html">Thêm khách hàng</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/producers.html">
+                            <i class="fa-solid fa-warehouse"></i>
+                            <span class="link_name">Nhà cung cấp</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/producers.html">Nhà cung cấp</a></li>
+                        <li><a href="/template/admin/producers_edit.html">Thêm nhà cung cấp</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/blogs.html">
+                            <i class="fa-solid fa-book"></i>
+                            <span class="link_name">Bài viết</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/blogs.html">Bài viết</a></li>
+                        <li><a href="/template/admin/blog-edit.html">Thêm bài viết</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <div class="icon-link">
+                        <a href="/template/admin/orders.html">
+                            <i class="fa-solid fa-clipboard"></i>
+                            <span class="link_name">Đơn hàng</span>
+                        </a>
+                        <i class="fa-solid fa-angle-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/orders.html">Đơn hàng</a></li>
+                        <li><a href="/template/admin/orders_edit.html">Thêm đơn hàng</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-page">
+                    <a href="/template/admin/contacts.html">
+                        <i class="fa-solid fa-headset new-info">
+                            <span>1</span>
+                        </i>
+                        <span class="link_name">Liên hệ</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="/template/admin/contacts.html">Liên hệ</a></li>
+                    </ul>
+                    
+                </li>
+                <!-- <li class="nav-link-page">
+                    <a href="#">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="link_name">Thông báo</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Thông báo</a></li>
+                    </ul>
+                </li> -->
+                <li class="nav-link-page">
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <img src="/template/icon/ship-toan-quoc.jpg" alt="profileImg">
+                        </div>
+                        <div class="name-job">
+                            <div class="greeting">Xin chào Admin</div>
+                            <div class="profile_name">Nguyễn Tuấn</div>
+                        </div>
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                </li>
+            </ul>
+            <div id="btn-toggle-sidebar">
+                <i class="fa-solid fa-angles-right"></i>
+            </div>
+        </div>
+    </nav>
+    <header id="main-header-section">
+        <article id="main-header-top">
+            <div class="logo-wrapper">
+                <img src="/template/icon/logo2.png" alt="">
+            </div>
+            <div class="main-content-wrapper">
+                <ul class="topbar-menu">
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="/template/home.html">Trang chủ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="/template/introduce.html">Giới thiệu</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="/template/contact.html">Liên hệ</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="/template/blog.html">Blog</a>
+                    </li>
+                   
+                    <li class="topbar-menu-item">
+                        <a class="redirect-link" href="/template/privacy.html">Quy định & chính sách chung</a>
+                    </li>
+                    <li class="topbar-menu-item">
+                        <div class="redirect-link d-flex" href="">
+                            <div class="user-wrap d-flex gap-1 align-items-center">
+                                <div class="avatar-wrap border rounded rounded-circle p-2 d-flex align-items-center justify-content-between overflow-hidden">
+                                    <img src="/template/icon/mien-phi-van-chuyen.jpg" width="20px" alt="">
+                                </div>
+                                <div>nqat0919</div>
+                                <ul class="user-pages">
+                                    <div class="shadow">
+                                        <ul>
+                                            <li>
+                                                <a href="/template/user-profile.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-circle-user"></i>
+                                                    <span>Trang cá nhân</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                  <a href="/template/user-profile-order.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-clipboard-list"></i>
+                                                    <span>Đơn mua</span>   
+                                                </a> 
+                                            </li>
+                                            <li>
+                                                <a href="/template/login.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                    <span>Đăng xuất</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="search-input">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
+                        <a class="btn-search" href="/template/search.html">Tìm kiếm</a>
+                    </div>
+                    <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
+                </div>
+            </div>
+        </article>
+    </header>
+    <section id="main-content-section">
+        <div class="main-content">
+            <section id="product_edit">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="left-container">
+                                <section id="order-info">
+                                    <h4 class="form-title pb-3">Thông tin đơn hàng</h4>
+                                    <h6>Mã đơn hàng</h6>
+                                    <h5>#14505</h5>
+                                    <label for="txt_date" class="d-block py-2 fw-semibold">Ngày tạo đơn *</label>
+                                    <div class="form-outline">
+                                        <input type="text" class="form-control" placeholder="Ngày tạo đơn" id="txt_date">
+                                    </div>
+                                    <label for="select_order_date" class="d-block py-2 fw-semibold">Tình trạng đơn hàng</label>
+                                    <select class="select" id="select_order_date">
+                                        <option value="1">Đã được giao</option>
+                                        <option value="2">Đang được giao</option>
+                                        <option value="3">Đang trả về</option>
+                                        <option value="4">Đã bị hủy</option>
+                                      </select>
+                                </section>
+
+                                <section id="order-info">
+                                    <h4 class="form-title pb-3">Thông tin chủ hóa đơn</h4>
+                                    <div class="input-group">
+                                        <div id="search-autocomplete" class="form-outline">
+                                          <input type="search" id="form1" class="form-control" />
+                                          <label class="form-label" for="form1">Mã khách hàng</label>
+                                        </div>
+                                        <button type="button" class="btn btn-primary d-flex align-items-center gap-2 px-2 text-wheat-color fw-semibold">
+                                            <i class="fa-solid fa-arrows-rotate"></i>
+                                            <span class="text-nowrap">Tải dữ liệu</span>
+                                        </button>
+                                    </div>
+                                    <hr>
+                                    <div class="customer-wrapper">
+                                        <div class="avatar">
+                                            <img src="" alt="">
+                                        </div>
+                                        <div class="customer-info">
+                                            <div class="customer-name fw-semibold">Phạm Nhật Hùng</div>
+                                            <div class="customer-role">Customer</div>
+                                        </div>
+                                    </div>
+                                    <div class="customer-contact">
+                                        <ul>
+                                            <li>
+                                                <i class="fa-regular fa-envelope"></i>
+                                                <span>pnh21378@yahoo.com</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa-solid fa-phone-volume"></i>
+                                                <span>093-312-1234</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="right-container">
+                                <form action="" id="products-form">
+                                    <section id="products-list-section">
+                                        <h4 class="form-title">Lựa chọn sản phẩm</h4>
+                                        <h6 class="form-title">Thêm sản phẩm vào đơn hàng này</h6>
+                                        <div class="products-range">
+                                        </div>
+                                        <h4 class="form-title">Tổng tiền: 3.080.000₫</h4>
+                                        <hr class="horizontal">
+                                        <div class="filter-input">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                            <input type="text" placeholder="Tìm kiếm sản phẩm">
+                                        </div>
+                                        <table id="products_filter_table" class="display" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Sản phẩm</th>
+                                                    <th>Tồn kho</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </section>
+                                    <section id="order-details-section">
+                                        <h4 class="form-title">Thông tin đơn hàng</h4>
+                                        <h6 class="form-title">Nhập thông tin người nhận vào trường dưới đây</h6>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <label for="txt_fullname">Họ và tên *</label>
+                                                    <input type="text" placeholder="Họ và tên" id="txt_fullname">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <label for="txt_email">Email *</label>
+                                                    <input type="text" placeholder="Email" id="txt_email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <label for="txt_phone">Số điện thoại *</label>
+                                                    <input type="text" placeholder="Số điện thoại" id="txt_phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-field">
+                                                    <label for="txt_address">Địa chỉ nhận hàng *</label>
+                                                    <input type="text" placeholder="Địa chỉ" id="txt_address">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12">
+                                                <div class="input-field">
+                                                    <label for="txtArea_note">Ghi chú (tùy chọn)</label>
+                                                    <textarea name="" id="txtArea_note" rows="5"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="actions-field">
+                            <button class="cancel-btn">Làm mới</button>
+                            <button class="update-btn">Cập nhật thông tin</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <script src="/template/js/jquery.js"></script>
+    <script src="/template/libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
+    <script src="/template/js/admin/sidebar.js"></script>
+    <script src="/template/libs/DataTables/datatables.min.js"></script>
+    <script src="/template/libs/daterangepicker-master/moment.min.js"></script>
+    <script src="/template/libs/daterangepicker-master/daterangepicker.js"></script>
+    <script src="/template/libs/DataTables/datatables.min.js"></script>
+    <script src="/template/js/admin/order-edit.js"></script>
+</body>
+
+</html>

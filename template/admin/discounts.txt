@@ -1,0 +1,21 @@
+{
+  "data": 
+  [
+    {
+      "id": "GG1234567",
+      "name": "Giảm giá dịp ngày nhà giáo việt nam 20/11",
+      "start": "19/11/2023",
+      "end": "22/11/2023",
+      "value": 15,
+      "status": "active"
+    },
+    {
+      "id": "GG1235671",
+      "name": "Giảm giá cuối năm 2023, đại hạ giá sốc chào đón xuân về",
+      "start": "30/11/2022",
+      "end": "29/12/2022",
+      "value": 10,
+      "status": "deactive"
+    }
+  ]
+}

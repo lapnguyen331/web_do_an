@@ -1,0 +1,29 @@
+{
+  "data":
+  [
+    {
+      "id": "NSX001",
+      "name": "Korea Ginseng Corp",
+      "email": "contact@kgc.co.kr",
+      "phone": "012-345-6789",
+      "status": "active",
+      "tax_code": "N1N2 N3N4N5N6N7N8N9 N10 – N11N12N13"
+    },
+    {
+      "id": "NSX002",
+      "name": "Dajung Korea Ginseng",
+      "email": "contact@kgc.co.kr",
+      "phone": "012-345-6789",
+      "status": "active",
+      "tax_code": "N1N2 N3N4N5N6N7N8N9 N10 – N11N12N13"
+    },
+    {
+      "id": "NSX003",
+      "name": "Daedong Korea Ginseng",
+      "email": "contact@kgc.co.kr",
+      "phone": "012-345-6789",
+      "status": "active",
+      "tax_code": "N1N2 N3N4N5N6N7N8N9 N10 – N11N12N13"
+    }
+  ]
+}
