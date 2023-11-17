@@ -26,6 +26,13 @@ const translate = {
 const categories = {
     'cao_hong_sam' : 'Cao Hồng Sâm'
 }
+const badget_status = [
+    '<span class="badge badge-danger">Đã bị hủy</span>',
+    '<span class="badge badge-success">Đã được giao</span>',
+    '<span class="badge badge-info">Đang xử lí</span>',
+    '<span class="badge badge-primary">Đang giao</span>',
+    '<span class="badge badge-warning">Đang trả về</span>',
+]
 const data_tables = new DataTable('#table_orders', {
     ajax: '/template/admin/orders.txt',
     language: translate,
@@ -55,7 +62,7 @@ const data_tables = new DataTable('#table_orders', {
         {
             data: 'status',
             render: function(data) {
-                return `<span class="badge badge-warning">${data}</span>`
+                return badget_status[data]
             }
         },
         {
@@ -66,10 +73,9 @@ const data_tables = new DataTable('#table_orders', {
             render: function() {
                 const html = `
                 <div class="action-btns">
-                    <a href="/template/details_product.html" data-mdb-toggle="tooltip" title="Xem chi tiết đơn hàng">
-                        <i class="fa-solid fa-eye remove-btn"></i>
+                    <a href="/template/admin/orders_edit.html" data-mdb-toggle="tooltip">
+                    <i class="fa-solid fa-edit view-btn" data-mdb-toggle="tooltip" title="Chỉnh sửa"></i>
                     </a>
-                    <i class="fa-solid fa-edit view-btn" data-mdb-toggle="tooltip" title="Chỉnh sửa" data-product-id = 'VZ120001'></i>
                     <i class="fa-solid fa-circle-xmark remove-btn" data-mdb-toggle="tooltip" title="Xóa đơn hàng"></i>
                 </div>
                 `

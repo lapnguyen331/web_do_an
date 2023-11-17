@@ -7,19 +7,48 @@
     "name": "Phạm Quốc Trị",
     "phone": "093-312-1234",
     "email": "pnh21378@yahoo.com",
-    "status": "pending",
+    "status": "0",
+    "create": "27/10/2023" 
+  },
+  {
+    "id": "VZ121231",
+    "customer": "Nguyễn Thị Hồng Ngọc",
+    "price": "1180000",
+    "name": "Phạm Hoàng Tính",
+    "phone": "091-969-1234",
+    "email": "pht1023@edu.vn",
+    "status": "1",
     "create": "27/10/2023" 
   },
     {
-    "id": "VZ120001",
+    "id": "VZ582301",
+    "customer": "Phạm Nhật Hùng",
+    "price": "3000000",
+    "name": "Phạm Quốc Trị",
+    "phone": "093-312-1234",
+    "email": "pnh21378@yahoo.com",
+    "status": "3",
+    "create": "27/10/2023" 
+  },
+  {
+    "id": "VR126666",
+    "customer": "Đặng Thông Thái",
+    "price": "7400000",
+    "name": "Bùi Minh ngọc",
+    "phone": "0123-312-1234",
+    "email": "myruneslayer@yahoo.com",
+    "status": "2",
+    "create": "27/10/2023" 
+  },
+  {
+    "id": "VZ169691",
     "customer": "Phạm Nhật Hùng",
     "price": "3080000",
     "name": "Phạm Quốc Trị",
     "phone": "093-312-1234",
     "email": "pnh21378@yahoo.com",
-    "status": "pending",
+    "status": "4",
     "create": "27/10/2023" 
   }
-
   ]
 }
