@@ -1,6 +1,6 @@
 'use strict';
 (async function() {
-    let products = await fetch("/template/products-2.txt");
+    let products = await fetch(`${window.contextPath}/js/fake_data/products-2.txt`);
     products = await products.json();
     products.data.sort(() => 0.5 - Math.random());
     for (let i = 0; i < 4; i++) {

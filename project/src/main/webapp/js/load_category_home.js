@@ -1,14 +1,14 @@
 'use strict';
 
 const loadData = async function() {
-    let products = await fetch("/template/products-2.txt");
+    let products = await fetch(`${window.contextPath}/js/fake_data/products-2.txt`);
     products = await products.json();
     products = products.data.sort(() => 0.5 - Math.random()).reduce(function(previous, current) {
         if (!previous[current.category]) previous[current.category] = [];
         if (previous[current.category].length != 3) previous[current.category].push(current)
         return previous
     }, {});
-    let categories = await fetch("/template/categories.txt");
+    let categories = await fetch(`${window.contextPath}/js/fake_data/categories.txt`);
     categories = await categories.json();
     categories = categories.data.reduce(function(previous, current) {
         if (!previous[current.id]) previous[current.id] = current;
@@ -27,7 +27,7 @@ const loadRow = function(product, category) {
                 <div class="col-12">
                     <div class="banner-wrap bg-gold bg-sharp p-1">
                         <div class="img-wrap">
-                            <img src="/template/image/footer-bg.jpg" alt="">
+                            <img src="${window.contextPath}/inventory/images/footer-bg.jpg" alt="">
                         </div>
                         <div class="banner-title">
                             <h3>${category.name}</h3>
