@@ -23,4 +23,26 @@
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
+
+<!--    Mapping URL trang chi tiết sản phẩm-->
+    <servlet>
+        <servlet-name>DetailsProduct</servlet-name>
+        <jsp-file>/WEB-INF/view/details_product.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DetailsProduct</servlet-name>
+        <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+
+<!--        Mapping URL trang chi tiết giỏ hàng-->
+    <servlet>
+        <servlet-name>DetailsCart</servlet-name>
+        <jsp-file>/WEB-INF/view/details_cart.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DetailsCart</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
 </web-app>
