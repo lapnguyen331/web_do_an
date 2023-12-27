@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-header.css">
@@ -25,12 +26,49 @@
                 <li class="topbar-menu-item">
                     <a class="redirect-link" href="blog.html">Blog</a>
                 </li>
-
                 <li class="topbar-menu-item">
                     <a class="redirect-link" href="privacy.html">Quy định & chính sách chung</a>
                 </li>
                 <li class="topbar-menu-item">
-                    <a class="redirect-link" href="login.html">Đăng nhập</a>
+                    <c:choose>
+                        <c:when test="${not empty requestScope.user}">
+                            <div class="redirect-link d-flex">
+                                <div class="user-wrap d-flex gap-1 align-items-center">
+                                    <div class="avatar-wrap border rounded rounded-circle p-2 d-flex align-items-center justify-content-between overflow-hidden">
+                                        <img src="${user.avatar.url}" width="20px" alt="">
+                                    </div>
+                                    <div>${user.username}</div>
+                                    <ul class="user-pages">
+                                        <div class="shadow">
+                                            <ul>
+                                                <li>
+                                                    <a href="user-profile.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                        <i class="fa-solid fa-circle-user"></i>
+                                                        <span>Trang cá nhân</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="user-profile-order.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                        <i class="fa-solid fa-clipboard-list"></i>
+                                                        <span>Đơn mua</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="d-flex text-decoration-none align-items-baseline gap-2 log-out-btn">
+                                                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                        <span>Đăng xuất</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="redirect-link" href="login">Đăng nhập</a>
+                        </c:otherwise>
+                    </c:choose>
                 </li>
             </ul>
             <div class="search-input">
@@ -47,31 +85,26 @@
             <div class="all-items menu-wrapper">
                 <span>Tất cả sản phẩm</span>
                 <ul class="menu">
-                    <li class="menu-item"><a href="categogy-detail.html">Nước Hồng Sâm Hàn Quốc</a></li>
-                    <li class="menu-item"><a href="categogy-detail.html">Cao Hồng Sâm Hàn Quốc</a></li>
-                    <li class="menu-item"><a href="categogy-detail.html">Sâm Khô Hàn Quốc</a></li>
-                    <li class="menu-item"><a href="categogy-detail.html">Sâm Mật Ong Hàn Quốc</a></li>
-                    <li class="menu-item"><a href="categogy-detail.html">Hắc Sâm Hàn Quốc</a></li>
-                    <li class="menu-item"><a href="categogy-detail.html">Nhân Sâm Tươi Hàn Quốc</a></li>
-                    <li class="menu-item"><a href="categogy-detail.html">Rượu Sâm Linh Chi</a></li>
-                    <li class="menu-item"><a href="categogy-detail.html">Trà Hồng Sâm Hàn Quốc Và Bột Sâm</a></li>
-                    <li class="menu-item"><a href="categogy-detail.html">Viên Hồng Sâm Hàn Quốc</a></li>
-                    <li class="menu-item"><a href="categogy-detail.html">Viên Hồng Sâm Hàn Quốc</a></li>
+                    <c:if test="${not empty requestScope.categories}">
+                        <c:forEach var="category" items="${requestScope.categories}">
+                            <li class="menu-item"><a href="categogy-detail.html">${category.name}</a></li>
+                        </c:forEach>
+                    </c:if>
                 </ul>
             </div>
             <ul class="nav-items-wrapper">
-                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Nước Hồng Sâm</a></li>
-                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Cao Hồng Sâm</a></li>
-                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Sâm Khô</a></li>
-                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Sâm Mật Ong</a></li>
-                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Hắc Sâm</a></li>
-                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Nhân Sâm Tươi</a></li>
-                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Rượu Sâm Linh Chi</a></li>
-                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Trà Hồng Sâm</a></li>
-                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Viên Hồng Sâm</a></li>
+                <c:if test="${not empty requestScope.categories}">
+                    <c:forEach var="category" items="${requestScope.categories}">
+                        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">${category.name}</a></li>
+                    </c:forEach>
+                </c:if>
             </ul>
         </nav>
     </article>
 </header>
 </body>
 </html>
+<script>
+    var context = "${pageContext.request.contextPath}";
+</script>
+<script src="${pageContext.request.contextPath}/js/header_v01.js" defer></script>

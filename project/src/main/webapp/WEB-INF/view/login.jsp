@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ADMIN
-  Date: 11/29/2023
-  Time: 5:15 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,17 +19,17 @@
     <title>Trang đăng nhập</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/view/shared/header.jsp"></jsp:include>
+<%@include file="/WEB-INF/view/shared/header.jsp" %>
 <section id="login">
     <div class="container">
         <div class="form-box login">
             <h2>Đăng nhập</h2>
-            <form action ="#">
+            <form id="login-form" method="post">
                 <div class="input-box">
                 <span class="icon">
                   <i class="fa-solid fa-user fa-sm"></i>
                 </span>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username">
                     <label>Tài khoản hoặc Email</label>
                 </div>
 
@@ -44,7 +38,7 @@
                   <i class="fa-solid fa-eye cursor-pointer"></i>
                   <i class="fa-solid fa-lock fa-sm"></i>
                 </span>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password">
                     <label>Mật khẩu</label>
                 </div>
 
@@ -52,7 +46,12 @@
                     <label><input type="checkbox">Lưu mật khẩu</label>
                     <a href="forgot_password.html">Quên mật khẩu?</a>
                 </div>
-                <button type="submit" class="btn">Đăng nhập</button>
+                <button type="submit" class="btn d-flex align-items-center justify-content-center gap-2">
+                    <span>Đăng nhập</span>
+                </button>
+                <div class="d-flex justify-content-center" id="login-status">
+                    <div class="text-danger fw-light"></div>
+                </div>
                 <div class="icons">
                     <p>Hoặc đăng nhập với:</p>
                     <a href="#" class="icons-btn">
@@ -75,44 +74,45 @@
 </section>
 <jsp:include page="/WEB-INF/view/shared/footer.jsp"></jsp:include>
 <div id="fb-root"></div>
+<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
 </script>
-<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/js/login-page_v06.js"></script>
 <script src="${pageContext.request.contextPath}/libs/swiper/swiper-bundle.min.js"></script>
 <script>
-    const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
+    $(document).ready(function() {
+        let swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
 
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            bulletActiveClass: 'custom-bullet-active',
-            bulletClass: 'custom-bullet'
-        },
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                bulletActiveClass: 'custom-bullet-active',
+                bulletClass: 'custom-bullet'
+            },
+            autoheight: true,
+            grabCursor: true,
+        });
 
-        autoheight: true,
-        grabCursor: true,
+        document.getElementById('toggle-login-password').addEventListener('click', function() {
+            var passwordField = document.getElementById('password');
+            var eyeIcon = this.querySelector('i');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        });
     });
-
-    document.getElementById('toggle-login-password').addEventListener('click', function() {
-        var passwordField = document.getElementById('password');
-        var eyeIcon = this.querySelector('i');
-
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            eyeIcon.classList.remove('fa-eye');
-            eyeIcon.classList.add('fa-eye-slash');
-        } else {
-            passwordField.type = 'password';
-            eyeIcon.classList.remove('fa-eye-slash');
-            eyeIcon.classList.add('fa-eye');
-        }
-    });
-
 </script>
 </body>
 </html>

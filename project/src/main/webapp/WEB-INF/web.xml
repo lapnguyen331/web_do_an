@@ -3,27 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <jsp-file>/WEB-INF/view/login.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-
-    <!--Mapping URL Home-->
-    <servlet>
-        <servlet-name>HomeServlet</servlet-name>
-        <jsp-file>/WEB-INF/view/home.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>HomeServlet</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-
 <!--    Mapping URL trang chi tiết sản phẩm-->
     <servlet>
         <servlet-name>DetailsProduct</servlet-name>
@@ -42,7 +21,26 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>DetailsCart</servlet-name>
-        <url-pattern>/cart</url-pattern>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/upload</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <jsp-file>/WEB-INF/view/upload.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DetailsCart</servlet-name>
+        <url-pattern>/cart_v01</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>AUTHENTICATION_PROPERTIES_FILE_LOCATION</param-name>
+        <param-value>/WEB-INF/authentication.properties</param-value>
+    </context-param>
+    
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
 </web-app>

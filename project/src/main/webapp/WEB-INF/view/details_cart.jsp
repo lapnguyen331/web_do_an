@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/cart.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fixed-buttons.css">
 
-
     <title>Chi tiết giỏ hàng</title>
 </head>
 <body>
