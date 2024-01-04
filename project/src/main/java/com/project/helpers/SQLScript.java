@@ -8,6 +8,10 @@ import com.project.models.*;
 import org.jdbi.v3.core.Handle;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
 import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -56,6 +60,18 @@ public class SQLScript {
         bis.close();
         bos.close();
         System.out.println("Đã tải xong file: "+fileName);
+    }
+    private void formatBlogContent(String fileName) throws IOException {
+        Document d = Jsoup.parse(new File(fileName));
+        Elements imgs =  d.getElementsByTag("img");
+//        imgs.forEach(img -> {
+//            var newImg = d.createElement("img");
+//            newImg.attr("src", img.attr("src"));
+//            newImg.attr("width", img.attr("width"));
+//            newImg.attr("height", img.attr("height"));
+//            img.after(newImg).remove();
+//        });
+        System.out.println(d.body().html());
     }
     private void writeBlogContent(String content, String fileName) throws IOException {
         String dest = String.format(DEST_BLOGS+"\\%s\\%s", month, day);
@@ -175,5 +191,6 @@ public class SQLScript {
 //        SQLScript.get().insertFromJSON("product_category_5.txt");
 //        SQLScript.get().insertFromJSON("product_category_7.txt");
 //        SQLScript.get().insertFromJSON("product_category_8.txt");
+        SQLScript.get().formatBlogContent("C:\\Users\\ADMIN\\Desktop\\test\\blogs\\12\\27\\0ae039cf646648ac85c900d88813c443.txt");
     }
 }

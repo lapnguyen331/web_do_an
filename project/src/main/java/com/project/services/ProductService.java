@@ -1,7 +1,10 @@
 package com.project.services;
 
+import com.project.dao.IProductDAO;
+import com.project.dao.implement.FactoryDAO;
 import com.project.dao.implement.ImageDAO;
 import com.project.dao.implement.ProductDAO;
+import com.project.models.Category;
 import com.project.models.Image;
 import com.project.models.Product;
 
@@ -9,8 +12,7 @@ import java.util.List;
 
 public class ProductService {
     private static ProductService instance;
-    private ProductDAO product_dao;
-    private ImageDAO image_dao;
+    private IProductDAO productDAO;
 
     public static ProductService getInstance() {
         if (instance == null) instance = new ProductService();
@@ -18,25 +20,22 @@ public class ProductService {
     }
 
     private ProductService() {
-
+        var handle = FactoryDAO.createConnection();
+        this.productDAO = FactoryDAO.getDAO(handle, FactoryDAO.DAO_PRODUCT);
     }
 
     public List<Product> getAll() {
-        return product_dao.selectAll_short_details();
+        return productDAO.selectAll_shortDetails();
     }
 
-    public Product getById(int id) {
-        return product_dao.findOne(id);
+    public List<Product> getALlOf(Category c) {
+        return productDAO.selectTop3ProductsOf_shortDetails(c);
     }
-
-    public List<Image> getGallery(Product p) {
-        int id = p.getId();
-        if (!product_dao.checkExists(id)) return null;
-        return image_dao.selectGallery(p);
+    public List<Product> getTop4() {
+        return productDAO.selectTop4_shortDetails();
     }
-
     public static void main(String[] args) {
-        var product = getInstance().getById(1);
-        System.out.println(getInstance().getGallery(product));
+        var c = new Category(1);
+        System.out.println(getInstance().productDAO.selectTop3ProductsOf_shortDetails(c));
     }
 }

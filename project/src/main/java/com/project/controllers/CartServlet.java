@@ -43,23 +43,23 @@ public class CartServlet extends HttpServlet {
             }
             break;
             case "add": {
-                int id = Integer.parseInt(request.getParameter("productId"));
-                var product  = productService.getById(id);
-                cart.put(product);
-                json.put("status", HttpServletResponse.SC_OK);
-                json.put("msg", "Thêm thành công sản phẩm vào giỏ hàng!");
-                out.print(json);
-                out.flush();
+//                int id = Integer.parseInt(request.getParameter("productId"));
+//                var product  = productService.getById(id);
+//                cart.put(product);
+//                json.put("status", HttpServletResponse.SC_OK);
+//                json.put("msg", "Thêm thành công sản phẩm vào giỏ hàng!");
+//                out.print(json);
+//                out.flush();
             }
             break;
             case "remove": {
-                int id = Integer.parseInt(request.getParameter("productId"));
-                var product  = productService.getById(id);
-                cart.remove(product);
-                json.put("status", HttpServletResponse.SC_OK);
-                json.put("msg", "Đã xóa thành công sản phẩm ra khỏi giỏ hàng!");
-                out.print(json);
-                out.flush();
+//                int id = Integer.parseInt(request.getParameter("productId"));
+//                var product  = productService.getById(id);
+//                cart.remove(product);
+//                json.put("status", HttpServletResponse.SC_OK);
+//                json.put("msg", "Đã xóa thành công sản phẩm ra khỏi giỏ hàng!");
+//                out.print(json);
+//                out.flush();
             }
             break;
             case "increase": {

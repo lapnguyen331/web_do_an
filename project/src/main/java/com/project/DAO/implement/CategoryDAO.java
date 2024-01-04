@@ -11,7 +11,6 @@ import org.jdbi.v3.core.Handle;
 import java.util.List;
 
 public class CategoryDAO extends AbstractDAO<Category> implements ICategoryDAO {
-
     public CategoryDAO(Handle handle) {
         super(handle);
     }
@@ -19,16 +18,12 @@ public class CategoryDAO extends AbstractDAO<Category> implements ICategoryDAO {
     @Override
     public List<Category> selectAll() {
         final String SELECT_ALL_CATEGORIES = "SELECT * FROM <table1> c" +
-                " LEFT JOIN <table2> t ON <col1> = <col2>" +
-                " LEFT JOIN <table3> b ON <col3> = <col4>";
+                " LEFT JOIN <table2> t ON c.thumbnail = t.id" +
+                " LEFT JOIN <table3> b ON c.blogId = b.id";
         return query(SELECT_ALL_CATEGORIES, Category.class, (query) -> {
             query.define("table1", "categories")
                     .define("table2", "images")
-                    .define("table3", "blogs")
-                    .define("col1", "c.thumbnail")
-                    .define("col2", "t.id")
-                    .define("col3", "c.blogId")
-                    .define("col4", "b.id");
+                    .define("table3", "blogs");
         }, new CategoryRowMapper("c"), new ImageRowMapper("t"), new BlogRowMapper("b"));
     }
 

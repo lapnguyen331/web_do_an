@@ -1,6 +1,7 @@
 package com.project.dao.implement;
 
 import com.project.dao.IBlogDAO;
+import com.project.dao.ICategoryDAO;
 import com.project.dao.IImageDAO;
 import com.project.dao.IProductDAO;
 import com.project.db.JDBIConnector;
@@ -10,6 +11,7 @@ public abstract class FactoryDAO {
     public static final Class<IProductDAO> DAO_PRODUCT = IProductDAO.class;
     public static final Class<IImageDAO> DAO_IMAGE = IImageDAO.class;
     public static final Class<IBlogDAO> DAO_BLOG = IBlogDAO.class;
+    public static final Class<ICategoryDAO> DAO_CATEGORY = ICategoryDAO.class;
     public static Handle createConnection() {
         return JDBIConnector.get().open();
     }
@@ -17,6 +19,7 @@ public abstract class FactoryDAO {
         if (clazz == DAO_PRODUCT) return (T) new ProductDAO(handle);
         else if (clazz == DAO_IMAGE) return (T) new ImageDAO(handle);
         else if (clazz == DAO_BLOG) return (T) new BlogDAO(handle);
+        else if (clazz == DAO_CATEGORY) return (T) new CategoryDAO(handle);
         return null;
     }
 }

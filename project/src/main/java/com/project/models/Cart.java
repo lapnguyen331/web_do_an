@@ -10,7 +10,6 @@ public class Cart {
 
     public Cart() {
         this.products = new HashMap<>();
-        ProductService.getInstance().getAll().forEach(p -> this.put(p));
     }
 
     public Map<Integer, CartItem> getProducts() {

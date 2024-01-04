@@ -3,6 +3,7 @@ package com.project.dao.implement;
 import com.project.dao.AbstractDAO;
 import com.project.dao.IImageDAO;
 import com.project.mappers.ImageRowMapper;
+import com.project.models.Blog;
 import com.project.models.Image;
 import com.project.models.Product;
 import org.jdbi.v3.core.Handle;
@@ -32,6 +33,17 @@ public class ImageDAO extends AbstractDAO<Image> implements IImageDAO {
         }, new ImageRowMapper("img"));
         if (result.isEmpty()) return null;
         return result.get(0);
+    }
+
+    @Override
+    public Image selectByPath(String path) {
+        final String SELECT_IMG_BY_PATH = "SELECT * FROM <table> img WHERE img.path = :path";
+        var rs = query(SELECT_IMG_BY_PATH, Image.class, (query) -> {
+            query.define("table", "images")
+                    .bind("path", path);
+        }, new ImageRowMapper("img"));
+        if (rs.isEmpty()) return null;
+        return rs.get(0);
     }
 
     public String getPathById(int id) {
@@ -78,6 +90,17 @@ public class ImageDAO extends AbstractDAO<Image> implements IImageDAO {
         return insert(INSERT, update -> {
             update.define("table", "product_galleries")
                     .defineList("columns", "productId", "imageId")
+                    .bindList("values", values);
+        });
+    }
+
+    @Override
+    public int insertToGalleryOf(Blog b, Image image) throws Exception {
+        var values = Arrays.asList(b.getId(), image.getId());
+        final String INSERT = "INSERT INTO <table> (<columns>) VALUES (<values>)";
+        return insert(INSERT, update -> {
+            update.define("table", "blog_galleries")
+                    .defineList("columns", "blogId, imageId")
                     .bindList("values", values);
         });
     }

@@ -85,16 +85,16 @@
             <div class="all-items menu-wrapper">
                 <span>Tất cả sản phẩm</span>
                 <ul class="menu">
-                    <c:if test="${not empty requestScope.categories}">
-                        <c:forEach var="category" items="${requestScope.categories}">
+                    <c:if test="${not empty sessionScope.categories}">
+                        <c:forEach var="category" items="${sessionScope.categories}">
                             <li class="menu-item"><a href="categogy-detail.html">${category.name}</a></li>
                         </c:forEach>
                     </c:if>
                 </ul>
             </div>
             <ul class="nav-items-wrapper">
-                <c:if test="${not empty requestScope.categories}">
-                    <c:forEach var="category" items="${requestScope.categories}">
+                <c:if test="${not empty sessionScope.categories}">
+                    <c:forEach var="category" items="${sessionScope.categories}">
                         <li class="nav-item menu-wrapper"><a href="categogy-detail.html">${category.name}</a></li>
                     </c:forEach>
                 </c:if>

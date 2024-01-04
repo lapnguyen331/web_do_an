@@ -3,15 +3,12 @@ package com.project.dao.implement;
 import com.project.dao.AbstractDAO;
 import com.project.dao.IProductDAO;
 import com.project.mappers.*;
+import com.project.models.Category;
 import com.project.models.Product;
 import org.jdbi.v3.core.Handle;
-
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     public ProductDAO(Handle handle) {
@@ -19,7 +16,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     }
 
     @Override
-    public List<Product> selectAll_full_details() {
+    public List<Product> selectAll_fullDetails() {
         String SELECT_ALL = "SELECT * FROM <table1> p" +
                 " LEFT JOIN <table2> t ON p.thumbnail = t.id" +
                 " LEFT JOIN <table3> pr ON p.producerId = pr.id" +
@@ -42,16 +39,52 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     }
 
     @Override
-    public List<Product> selectAll_short_details() {
-        String SELECT_ALL = "SELECT <columns> FROM <table1> p" +
+    public List<Product> selectAll_shortDetails() {
+        String SELECT = "SELECT <columns> FROM <table1> p" +
                 " LEFT JOIN <table2> t ON p.thumbnail = t.id" +
                 " LEFT JOIN <table3> d ON p.discountId = d.id";
-        return query(SELECT_ALL, Product.class, (query -> {
-            query.define("table1", "products");
-            query.define("table2", "images");
-            query.define("table3", "discounts");
-            query.defineList("columns", "p.name, p.description, t.path, d.discountPercent");
-        }), new ProductRowMapper("p"), new ImageRowMapper("t"), new DiscountRowMapper("d"));
+        return query(SELECT, Product.class,
+                (query) -> {
+                    query.define("table1", "products");
+                    query.define("table2", "images");
+                    query.define("table3", "discounts");
+                    query.defineList("columns", "p.name, p.description, t.path, d.discountPercent");
+                },
+                new ProductRowMapper("p"), new ImageRowMapper("t"), new DiscountRowMapper("d"));
+    }
+
+    @Override
+    public List<Product> selectTop4_shortDetails() {
+        String SELECT = "SELECT <columns> FROM <table1> p" +
+                " LEFT JOIN <table2> t ON p.thumbnail = t.id" +
+                " LEFT JOIN <table3> d ON p.discountId = d.id" +
+                " ORDER BY p.name DESC LIMIT 4";
+        return query(SELECT, Product.class,
+                (query) -> {
+                    query.define("table1", "products");
+                    query.define("table2", "images");
+                    query.define("table3", "discounts");
+                    query.defineList("columns", "p.name, p.price, p.description, t.path, d.discountPercent");
+                },
+                new ProductRowMapper("p"), new ImageRowMapper("t"), new DiscountRowMapper("d"));
+    }
+
+    @Override
+    public List<Product> selectTop3ProductsOf_shortDetails(Category category) {
+        String SELECT = "SELECT <columns> FROM <table1> p" +
+                " LEFT JOIN <table2> t ON p.thumbnail = t.id" +
+                " LEFT JOIN <table3> d ON p.discountId = d.id" +
+                " WHERE p.categoryId = :c.id" +
+                " ORDER BY p.name DESC LIMIT 3";
+        return query(SELECT, Product.class,
+                (query) -> {
+                    query.define("table1", "products")
+                            .define("table2", "images")
+                            .define("table3", "discounts")
+                            .defineList("columns", "p.name, p.price, p.description, t.path, d.discountPercent")
+                            .bindBean("c", category);
+                },
+                new ProductRowMapper("p"), new ImageRowMapper("t"), new DiscountRowMapper("d"));
     }
 
     @Override

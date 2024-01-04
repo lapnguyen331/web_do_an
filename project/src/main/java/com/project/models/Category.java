@@ -1,8 +1,10 @@
 package com.project.models;
 
+import javax.annotation.ManagedBean;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@ManagedBean
 public class Category implements Serializable {
     private int id;
     private String name;

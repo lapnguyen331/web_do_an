@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ADMIN
@@ -52,78 +53,18 @@
             </ul>
         </div>
         <div class="guide-content">
-            <div class="portfolio-product">
-                <div class="product-img">
-                    <img src="${pageContext.request.contextPath}/inventory/images/nuoc-hong-sam.png" alt="">
-                </div>
-                <div class="product-name">
-                    <a href="categogy-detail.html">Nước hồng sâm</a> <!---Note sửa lại href-->
-                </div>
-            </div>
-            <div class="portfolio-product">
-                <div class="product-img">
-                    <img src="${pageContext.request.contextPath}/inventory/images/linh-chi-han-quoc.webp" alt="">
-                </div>
-                <div class="product-name">
-                    <a href="categogy-detail.html">Cao hồng sâm</a> <!---Note sửa lại href-->
-                </div>
-            </div>
-            <div class="portfolio-product">
-                <div class="product-img">
-                    <img src="${pageContext.request.contextPath}/inventory/images/sam-kho.png" alt="">
-                </div>
-                <div class="product-name">
-                    <a href="categogy-detail.html">Sâm khô</a> <!---Note sửa lại href-->
-                </div>
-            </div>
-            <div class="portfolio-product">
-                <div class="product-img">
-                    <img src="${pageContext.request.contextPath}/inventory/images/sam-mat-ong.png" alt="">
-                </div>
-                <div class="product-name">
-                    <a href="categogy-detail.html">Sâm mật ong</a> <!---Note sửa lại href-->
-                </div>
-            </div>
-            <div class="portfolio-product">
-                <div class="product-img">
-                    <img src="${pageContext.request.contextPath}/inventory/images/hac-sam-han-quoc.png" alt="">
-                </div>
-                <div class="product-name">
-                    <a href="categogy-detail.html">Hắc sâm</a> <!---Note sửa lại href-->
-                </div>
-            </div>
-            <div class="portfolio-product">
-                <div class="product-img">
-                    <img src="${pageContext.request.contextPath}/inventory/images/sam-tuoi.png" alt="">
-                </div>
-                <div class="product-name">
-                    <a href="categogy-detail.html">nhân sâm tươi</a> <!---Note sửa lại href-->
-                </div>
-            </div>
-            <div class="portfolio-product">
-                <div class="product-img">
-                    <img src="${pageContext.request.contextPath}/inventory/images/ruou-sam.png" alt="">
-                </div>
-                <div class="product-name">
-                    <a href="categogy-detail.html">Rượu sâm Linh Chi</a> <!---Note sửa lại href-->
-                </div>
-            </div>
-            <div class="portfolio-product">
-                <div class="product-img">
-                    <img src="${pageContext.request.contextPath}/inventory/images/tra-sam.webp" alt="">
-                </div>
-                <div class="product-name">
-                    <a href="categogy-detail.html">Trà hồng sâm</a> <!---Note sửa lại href-->
-                </div>
-            </div>
-            <div class="portfolio-product">
-                <div class="product-img">
-                    <img src="${pageContext.request.contextPath}/inventory/images/vien-hong-sam.webp" alt="">
-                </div>
-                <div class="product-name">
-                    <a href="categogy-detail.html">viên hồng sâm</a> <!---Note sửa lại href-->
-                </div>
-            </div>
+            <c:if test="${not empty sessionScope.categories}">
+                <c:forEach var="category" items="${sessionScope.categories}">
+                    <div class="portfolio-product">
+                        <div class="product-img">
+                            <img src="${pageContext.request.contextPath}/files/${category.thumbnail.path}" alt="${category.thumbnail.uuid}">
+                        </div>
+                        <div class="product-name">
+                            <a href="categogy-detail.html">${category.name}</a> <!---Note sửa lại href-->
+                        </div>
+                    </div>
+                </c:forEach>
+            </c:if>
         </div>
     </div>
     <div class="footer-contact">
