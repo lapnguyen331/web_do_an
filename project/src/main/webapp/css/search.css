@@ -83,7 +83,7 @@
 #section-category-sidebar .filter-content {
     margin-top: -20px;
     padding-top: 20px;
-    background: url('/template/image/footer-bg.jpg');
+    background: url('../inventory/images/footer-bg.jpg');
     background-size: cover;
     background-repeat: repeat;
     max-height: 400px;

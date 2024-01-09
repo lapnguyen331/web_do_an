@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +31,8 @@
     <ul class="breadcrumbs">
         <li><a href="">Trang chủ</a></li>
         <li><a href="">Hồng sâm Hàn Quốc</a></li>
-        <li><a href="">Cao Hồng Sâm</a></li>
-        <li><a href="">Cao Hồng Sâm Hong Seon Gold Hộp 2 Lọ 250G</a></li>
+        <li><a href="">${requestScope.product.category.name}</a></li>
+        <li><a href="">${requestScope.product.name}</a></li>
     </ul>
 </div>
 <section id="details-product">
@@ -41,45 +42,25 @@
                 <div class="carousel-wrapper">
                     <!-- Flickity HTML init -->
                     <div class="carousel carousel-main" data-flickity='{"pageDots": false, "contain": true, "fullscreen": true, "wrapAround": true}'>
-                        <div class="carousel-cell">
-                            <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/Untitled-design-2023-07-13T093015.683-jpg.webp" alt="">
-                        </div>
-                        <div class="carousel-cell">
-                            <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-3-768x768.webp" alt="">
-                        </div>
-                        <div class="carousel-cell">
-                            <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-2-768x768.webp" alt="">
-                        </div>
-                        <div class="carousel-cell">
-                            <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-5-768x768.webp" alt="">
-                        </div>
-                        <div class="carousel-cell">
-                            <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-4-768x768.webp" alt="">
-                        </div>
+                        <c:forEach var="image" items="${requestScope.galleries}">
+                            <div class="carousel-cell">
+                                <img src="${pageContext.request.contextPath}/files/${image.path}" alt="">
+                            </div>
+                        </c:forEach>
                     </div>
 
                     <div class="carousel carousel-nav"
                          data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false, "contain": true}'>
-                        <div class="carousel-cell">
-                            <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/Untitled-design-2023-07-13T093015.683-jpg.webp" alt="">
-                        </div>
-                        <div class="carousel-cell">
-                            <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-3-768x768.webp" alt="">
-                        </div>
-                        <div class="carousel-cell">
-                            <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-2-768x768.webp" alt="">
-                        </div>
-                        <div class="carousel-cell">
-                            <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-5-768x768.webp" alt="">
-                        </div>
-                        <div class="carousel-cell">
-                            <img src="https://hongsamkimy.vn/wp-content/uploads/2023/07/cao-hong-sam-hong-seon-gold-4-768x768.webp" alt="">
-                        </div>
+                        <c:forEach var="image" items="${requestScope.galleries}">
+                            <div class="carousel-cell">
+                                <img src="${pageContext.request.contextPath}/files/${image.path}" alt="">
+                            </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
             <div class="col-md-7">
-                <h2>Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</h2>
+                <h2>${requestScope.product.name}</h2>
                 <div class="rating-stars">
                     <span class="rating-score">4.8</span>
                     <div class="rating-empty">
@@ -88,24 +69,26 @@
                     </div>
                 </div>
                 <span class="sold-amount"><b>1.2k</b> Đã bán</span>
-                <p>Cao hồng sâm 6 năm tuổi kết hợp bới một số loại thảo dược quý như linh chi, bạch chỉ, xuyên khung,… làm gia tăng những thành phần đặc hiệu và công năng của sản phẩm giúp cho việc hỗ trợ và tăng cường bồi bổ cơ thể, cải thiện sức khỏe đạt hiệu quả tốt nhất…</p>
+                <p>${requestScope.product.description}</p>
                 <div class="row d-flex align-items-start">
                     <div class="col-md-6 pl-0">
                         <div class="products-stats">
                             <div class="stat-label">Quy cách</div>
-                            <span class="stat-text">Hộp 2 lọ 250g</span>
+                            <span class="stat-text">${requestScope.product.specification}</span>
 
                             <div class="stat-label">Mã sản phẩm</div>
-                            <span class="stat-text">8809308650564</span>
+                            <span class="stat-text">${requestScope.product.id}</span>
 
                             <div class="stat-label">Thương hiệu</div>
-                            <span class="stat-text">Hong Seon</span>
-
-                            <div class="stat-label">Giá thị trường</div>
-                            <span class="stat-text text-through">1.100.000 ₫</span>
-
+                            <span class="stat-text">${requestScope.product.brand}</span>
+                            <c:set var="price" value="${product.price}"></c:set>
+                            <c:set var="discountPrice" value="${(100 - product.discount.discountPercent) * product.price / 100}"></c:set>
+                            <div class="stat-label">Giá gốc</div>
+                            <span class="stat-text text-through">${product['getStringPrice'](price)}</span>
+                            <div class="stat-label">Chương trình:</div>
+                            <div>${requestScope.product.discount.name}</div>
                             <div class="stat-label">Giá khuyến mãi</div>
-                            <h4>980.000₫</h4>
+                            <h4>${product['getStringPrice'](discountPrice)}</h4>
 
                             <div class="stat-label">Số lượng</div>
                             <div class="number-field">
@@ -173,40 +156,7 @@
             <div class="col-md-12">
                 <div class="tab-content-wrapper">
                     <section class="tab-content tab-is-active" id="tab-product-content">
-                        <h4>Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</h4>
-                        <img src="${pageContext.request.contextPath}/inventory/images/cao-hong-sam-hong-seon-gold-hop-2-lo-250g.webp" alt="">
-                        <h4>Thành phần:</h4>
-                        <p>15% Hồng sâm cô đặc 6 năm tuổi (Ginsenosides Rg1, Rb1 và Rg3 tổng 4mg/g, chất rắn 70% trở lên), 70% hỗn hợp thực vật cô đặc (táo tàu 9%, rễ bạch chỉ 9%, rễ hoa cúc 9%, ngải cứu, Gujeolcho, Rễ Jihwang (Sukjihwang), lá non Artemisia, rễ hoa cúc, thân rễ sapju, rễ mẫu đơn, rễ xương cựa, hạch nấm bokryeong, nấm linh chi, cam thảo, chất rắn 60% trở lên), isomaltooligosaccharide.</p>
-                        <h4>Công dụng:</h4>
-                        <ul>
-                            <li>Bồi bổ cơ thể, tăng sức lao động trí óc và chân tay, chống mệt mỏi.</li>
-                            <li>Chống lão hóa, cải thiện chức năng não bộ ở người lớn tuổi, tăng khả năng tập trung trí tuệ, tăng trí nhớ</li>
-                            <li>Tăng cường khả năng miễn dịch, giúp cơ thể tăng khả năng thích nghi phòng vệ đối với những kích thích có hại</li>
-                            <li>Điều hòa huyết áp, giúp hồi phục huyết áp ở cơ thể.</li>
-                            <li>Giảm tác hại của chất phóng xạ, cải thiện và phòng ngừa sự phát triển của các tế bào ung thư.</li>
-                            <li>Ngăn ngừa nguy cơ phát sinh cholesterol cao, từ đó hạn chế sự hình thành các mảng xơ vữa động mạch</li>
-                            <li>Thành phần chính Saponin có trong cao sâm có tác dụng loại bỏ chất Alloxan và chất Streptozotocin là nguyên nhân làm tăng đường huyết do đó cao sâm cũng hỗ trợ trong việc giảm đường huyết, tiểu đường</li>
-                            <li>Saponin trong hồng sâm làm tăng hoạt động enzym liên quan tới sự thoái hóa ethanol và acetaldehyd, do đó đối với người hay uống rượu, để giảm gan tránh được độc tính</li>
-                        </ul>
-                        <h4>Đối tượng sử dụng: </h4>
-                        <ul>
-                            <li>Người suy kiệt cơ thể hậu điều trị cần tăng cường đề kháng và bồi bổ sức khỏe.</li>
-                            <li>Người làm việc trí óc hoặc học tập cường độ cao.</li>
-                            <li>Người bị ung thư, mắc các bệnh về rối loạn chuyển hóa đường trong nước tiểu, mỡ, tim, huyết áp…</li>
-                            <li>Người già cần bồi bổ sức khỏe, tăng cường trí nhớ.</li>
-                            <li>Phụ nữ hơn 30 tuổi mong muốn duy trì một cơ thể khỏe mạnh và một làn da tươi trẻ.</li>
-                        </ul>
-                        <img src="${pageContext.request.contextPath}/inventory/images/cao-hong-sam-hong-seon-gold-hop-2-lo-250g-1.webp" alt="">
-                        <h4>Cách dùng:</h4>
-                        <ul>
-                            <li><b>Phòng bệnh:</b> Mỗi ngày uống 2 lần, mỗi lần uống lấy 1 thìa cao nhỏ (có trong hộp)= 5mg, pha với nước ấm rồi uống trước bữa ăn 15-20 phút.</li>
-                            <li><b>Chữa bệnh:</b> Mỗi ngày uống 3 lần. Mỗi lần uống lấy 2 thìa cao nhỏ, pha với nước ấm, uống trước bữa ăn 15-20 phút.</li>
-                        </ul>
-                        <p><b>Quy cách đóng gói:</b> Hộp 2 lọ 250g</p>
-                        <p><b>Hạn sử dụng:</b> 2 năm kể từ ngày sản xuất</p>
-                        <p><b>Lưu ý:</b> Thực phẩm không là thuốc, không thay thế thuốc chữa bệnh</p>
-                        <p><b>Nhà sản xuất:</b> KOREA GINSENG CENTER</p>
-                        <p><b>Điện thoại:</b> 0934 138 985</p>
+                        <c:out value="${requestScope.blog}" escapeXml="false"/>
                     </section>
                     <section class="tab-content" id="tab-product-guide">
                         <div class="container">
@@ -357,141 +307,42 @@
     </div>
     <div class="container bg-transparent">
         <div class="row">
-            <!-- Col 1 -->
-            <div class="col-md-3">
-                <div class="product-card">
-                    <a href="#">
-                        <div class="product-img">
-                            <img src="${pageContext.request.contextPath}/inventory/images/cao-sam-hu-doi-1.jpg" alt="">
-                        </div>
+            <c:forEach var="product" items="${requestScope.related}">
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <a href="#">
+                            <div class="product-img">
+                                <img src="${pageContext.request.contextPath}/files/${product.thumbnail.path}" alt="">
+                            </div>
 
-                        <div class="product-name">
-                            <p>Cao Sâm Hũ Đôi Arirang Hàn Quốc</p>
+                            <div class="product-name">
+                                <p>${product.name}</p>
+                            </div>
+                        </a>
+                        <div class="product-price-wrapper">
+                            <div class="discount-label">-${product.discount.discountPercent}%</div>
+                            <div class="price">
+                                <c:set var="price" value="${product.price}"></c:set>
+                                <c:set var="discountPrice" value="${(100 - product.discount.discountPercent) * product.price / 100}"></c:set>
+                                <p class="m-price">${product['getStringPrice'](price)}</p>
+                                <p class="c-price">${product['getStringPrice'](discountPrice)}</p>
+                            </div>
                         </div>
-                    </a>
-                    <div class="product-price-wrapper">
-                        <div class="discount-label">-13</div>
-                        <div class="price">
-                            <p class="m-price">2.400.000</p>
-                            <p class="c-price">2.100.000</p>
-                        </div>
-                    </div>
-                    <div class="product-button">
-                        <div class="bg-gold bg-sharp-5">
-                            <button class="btn-review">
-                                Xem nhanh
-                            </button>
-                        </div>
-                        <div class="bg-gold bg-sharp-5">
-                            <button class="btn-details">
-                                Xem chi tiết
-                            </button>
+                        <div class="product-button">
+                            <div class="bg-gold bg-sharp-5">
+                                <button class="btn-store-cart" data-cart-product="true" data-cart-action="add" data-cart-id="${product.id}">
+                                    Thêm vào giỏ
+                                </button>
+                            </div>
+                            <div class="bg-gold bg-sharp-5">
+                                <button class="btn-details">
+                                    <a href="${pageContext.request.contextPath}/product?id=${product.id}" class="move-to-details">Xem chi tiết</a>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Col 2 -->
-            <div class="col-md-3">
-                <div class="product-card">
-                    <a href="#">
-                        <div class="product-img">
-                            <img src="${pageContext.request.contextPath}/inventory/images/cao-sam-hu-doi-1.jpg" alt="">
-                        </div>
-
-                        <div class="product-name">
-                            <p>Cao Sâm Hũ Đôi Arirang Hàn Quốc</p>
-                        </div>
-                    </a>
-                    <div class="product-price-wrapper">
-                        <div class="discount-label">-13</div>
-                        <div class="price">
-                            <p class="m-price">2.400.000</p>
-                            <p class="c-price">2.100.000</p>
-                        </div>
-                    </div>
-                    <div class="product-button">
-                        <div class="bg-gold bg-sharp-5">
-                            <button class="btn-review">
-                                Xem nhanh
-                            </button>
-                        </div>
-                        <div class="bg-gold bg-sharp-5">
-                            <button class="btn-details">
-                                Xem chi tiết
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Col 3 -->
-            <div class="col-md-3">
-                <div class="product-card">
-                    <a href="#">
-                        <div class="product-img">
-                            <img src="${pageContext.request.contextPath}/inventory/images/cao-sam-hu-doi-1.jpg" alt="">
-                        </div>
-
-                        <div class="product-name">
-                            <p>Cao Sâm Hũ Đôi Arirang Hàn Quốc</p>
-                        </div>
-                    </a>
-                    <div class="product-price-wrapper">
-                        <div class="discount-label">-13</div>
-                        <div class="price">
-                            <p class="m-price">2.400.000</p>
-                            <p class="c-price">2.100.000</p>
-                        </div>
-                    </div>
-                    <div class="product-button">
-                        <div class="bg-gold bg-sharp-5">
-                            <button class="btn-review">
-                                Xem nhanh
-                            </button>
-                        </div>
-                        <div class="bg-gold bg-sharp-5">
-                            <button class="btn-details">
-                                Xem chi tiết
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Col 4 -->
-            <div class="col-md-3">
-                <div class="product-card">
-                    <a href="#">
-                        <div class="product-img">
-                            <img src="${pageContext.request.contextPath}/inventory/images/cao-sam-hu-doi-1.jpg" alt="">
-                        </div>
-
-                        <div class="product-name">
-                            <p>Cao Sâm Hũ Đôi Arirang Hàn Quốc</p>
-                        </div>
-                    </a>
-                    <div class="product-price-wrapper">
-                        <div class="discount-label">-13</div>
-                        <div class="price">
-                            <p class="m-price">2.400.000</p>
-                            <p class="c-price">2.100.000</p>
-                        </div>
-                    </div>
-                    <div class="product-button">
-                        <div class="bg-gold bg-sharp-5">
-                            <button class="btn-review">
-                                Xem nhanh
-                            </button>
-                        </div>
-                        <div class="bg-gold bg-sharp-5">
-                            <button class="btn-details">
-                                Xem chi tiết
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </section>

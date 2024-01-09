@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public interface IUserDAO extends IDAO<User> {
+public interface IUserDAO {
     List<User> selectAll();
     boolean checkExist(int id, String username);
     User getByUsername(String username);

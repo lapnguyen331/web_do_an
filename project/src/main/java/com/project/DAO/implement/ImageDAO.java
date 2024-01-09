@@ -57,7 +57,7 @@ public class ImageDAO extends AbstractDAO<Image> implements IImageDAO {
     }
 
     @Override
-    public List<Image> selectGallery(Product product) {
+    public List<Image> selectGalleryOf(Product product) {
         final String SELECT_GALLERY_BY_PRODUCT =
                 "SELECT <columns> FROM <table1> img " +
                 "JOIN <table2> g ON img.id = g.imageId " +

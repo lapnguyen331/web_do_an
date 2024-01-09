@@ -23,13 +23,13 @@ public class CategoryRowMapper extends ARowMapper<Category> {
     public Category map(ResultSet rs, StatementContext ctx) {
         Category category;
         try {
-            int id = rs.getInt(this.alias+"id");
-            String name = rs.getString(this.alias+"name");
-            Image thumbnail = ctx.findRowMapperFor(Image.class).get().map(rs, ctx);
-            boolean status = rs.getBoolean(this.alias+"status");
-            Blog blog = ctx.findRowMapperFor(Blog.class).get().map(rs, ctx);
-            LocalDateTime createAt = ctx.findColumnMapperFor(LocalDateTime.class).get().map(rs, "createAt", ctx);
-            LocalDateTime updateAt = ctx.findColumnMapperFor(LocalDateTime.class).get().map(rs, "updateAt", ctx);
+            int id = getValueAt(rs, this.alias+"id", ctx, Integer.class);
+            String name = getValueAt(rs, this.alias+"name", ctx, String.class);
+            Image thumbnail = mapToIfPresent(Image.class, rs, ctx);
+            boolean status = getValueAt(rs, this.alias+"status", ctx, Boolean.class);
+            Blog blog = mapToIfPresent(Blog.class, rs, ctx);
+            LocalDateTime createAt = getValueAt(rs, this.alias+"createAt", ctx, LocalDateTime.class);
+            LocalDateTime updateAt = getValueAt(rs, this.alias+"updateAt", ctx, LocalDateTime.class);
             category = new Category(id, name, thumbnail, status, blog, createAt, updateAt);
         } catch (SQLException e) {
             e.printStackTrace();

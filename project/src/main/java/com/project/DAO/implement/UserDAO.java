@@ -43,17 +43,6 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     public User getByUsername(String username) {
         return null;
     }
-
-    @Override
-    public int insert(User user) {
-        return 0;
-    }
-
-    @Override
-    public boolean update(User user) {
-        return false;
-    }
-
     public static void main(String[] args) {
     }
 }

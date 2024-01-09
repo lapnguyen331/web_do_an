@@ -37,6 +37,7 @@ public abstract class AbstractDAO<T> implements GenericDAO<T> {
             callback.accept(query);
             Arrays.stream(mappers).forEach(m -> query.registerRowMapper(m));
             list = query.mapTo(tClass).list();
+//            System.out.println(query.getContext().getStatement());
             query.close();
         } catch (Exception e) {
             throw e;

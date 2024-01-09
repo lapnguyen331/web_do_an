@@ -25,9 +25,4 @@ public class UserService {
         user = dao.getByUsername(username);
         return user;
     }
-
-    public boolean add(User user) {
-        if (dao.checkExist(user.getId(), user.getUsername())) return false;
-        return dao.insert(user) > 0;
-    }
 }

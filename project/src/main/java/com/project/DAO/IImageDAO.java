@@ -11,7 +11,7 @@ public interface IImageDAO extends GenericDAO<Image>{
     List<Image> selectAll();
     Image selectById(int id);
     Image selectByPath(String path);
-    List<Image> selectGallery(Product p);
+    List<Image> selectGalleryOf(Product p);
     int insert(Image image) throws Exception;
     int insertToGalleryOf(Product p, Image image) throws Exception;
     int insertToGalleryOf(Blog b, Image image) throws Exception;

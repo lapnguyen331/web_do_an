@@ -9,7 +9,7 @@ import java.util.Properties;
 
 @WebServlet(name = "FileController", urlPatterns = {"/files/*"})
 public class FileController extends HttpServlet {
-    private static Properties prop = PropertiesFileHelper.getProperties("external.properties");
+    private static final Properties prop = PropertiesFileHelper.getProperties("external.properties");
     private static final int DEFAULT_BUFFER_SIZE = 102400;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {

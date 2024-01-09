@@ -3,8 +3,11 @@ import com.project.dao.IBlogDAO;
 import com.project.dao.IProductDAO;
 import com.project.dao.implement.FactoryDAO;
 import com.project.dao.implement.ImageDAO;
+import com.project.db.JDBIConnector;
 import com.project.db.JDBIConnector2;
 import com.project.models.*;
+import com.project.services.BlogService;
+import com.project.services.ImageService;
 import org.jdbi.v3.core.Handle;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,6 +31,7 @@ public class SQLScript {
     int day;
     String DEST_IMAGES;
     String DEST_BLOGS;
+    String DEST;
     IBlogDAO blogDAO;
     ImageDAO imageDAO;
     IProductDAO productDAO;
@@ -38,8 +42,9 @@ public class SQLScript {
         this.day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
         this.DEST_IMAGES = prop.getProperty("external.path.images");
         this.DEST_BLOGS = prop.getProperty("external.path.blogs");
+        this.DEST = prop.getProperty("external.path");
+        this.handle = JDBIConnector.get().open();
 
-        this.handle = FactoryDAO.createConnection();
         this.blogDAO = FactoryDAO.getDAO(handle, FactoryDAO.DAO_BLOG);
         this.imageDAO = FactoryDAO.getDAO(handle, FactoryDAO.DAO_IMAGE);
         this.productDAO = FactoryDAO.getDAO(handle, FactoryDAO.DAO_PRODUCT);
@@ -61,18 +66,6 @@ public class SQLScript {
         bos.close();
         System.out.println("Đã tải xong file: "+fileName);
     }
-    private void formatBlogContent(String fileName) throws IOException {
-        Document d = Jsoup.parse(new File(fileName));
-        Elements imgs =  d.getElementsByTag("img");
-//        imgs.forEach(img -> {
-//            var newImg = d.createElement("img");
-//            newImg.attr("src", img.attr("src"));
-//            newImg.attr("width", img.attr("width"));
-//            newImg.attr("height", img.attr("height"));
-//            img.after(newImg).remove();
-//        });
-        System.out.println(d.body().html());
-    }
     private void writeBlogContent(String content, String fileName) throws IOException {
         String dest = String.format(DEST_BLOGS+"\\%s\\%s", month, day);
         Files.createDirectories(Paths.get(dest));
@@ -82,29 +75,6 @@ public class SQLScript {
         writer.close();
         reader.close();
         System.out.println("Viết xong file: "+fileName);
-    }
-    private Image download_N_insertImage (String url) throws Exception {
-        String uuid = UUID.randomUUID().toString().replaceAll("-","");
-//        String fileName = Paths.get(new URI(url).getPath()).getFileName().toString();
-        String extension = url.substring(url.lastIndexOf("."));
-        String fileName = uuid+extension;
-        Image image = new Image();
-        image.setUuid(uuid);
-        image.setPath(String.format("images/%s/%s/%s", month, day, fileName));
-        downloadImage(url, fileName);
-        int id = -1;
-//            insert ảnh
-        id = imageDAO.insert(image);
-        image.setId(id);
-        System.out.println("Insert ảnh " +fileName +" vào database");
-        return image;
-    }
-    private void insertProductGalleries(Product product, JSONArray jsonArray) throws Exception {
-        for (int i = 0; i < jsonArray.length(); i++) {
-            String link = jsonArray.getString(i);
-            Image inserted = download_N_insertImage(link);
-            imageDAO.insertToGalleryOf(product, inserted);
-        }
     }
     private Blog insertBlog(JSONObject json) throws Exception {
         String INSERT = "INSERT INTO blogs (title, description, path) VALUES (:title, :description, :path)";
@@ -158,13 +128,24 @@ public class SQLScript {
         String message = null;
         try {
             handle.begin();
+            ImageService imageService = new ImageService(handle);
+            BlogService blogService = new BlogService(handle);
             for (int i = 0; i < array.length(); i++) {
                 var json = array.getJSONObject(i);
 //            Download và Insert ảnh vào database
-                json.put("thumbnail", download_N_insertImage(json.getString("thumbnail")).getId());
-                json.put("blogId", insertBlog(json).getId());
+                json.put("thumbnail", imageService.downloadAndInsert(json.getString("thumbnail"), DEST));
+                String blogContent = json.getString("blog");
+                String title = json.getString("name");
+                String description = json.getString("description");
+                int blogId = blogService.insertBlog("", DEST, null, title, true, description, blogContent, null, null, null);
+                json.put("blogId", blogId);
                 var product = insertProduct(json);
-                insertProductGalleries(product, json.getJSONArray("galleries"));
+                var jsonArray = json.getJSONArray("galleries");
+                for (int j = 0; j < jsonArray.length(); j++) {
+                    String link = jsonArray.getString(j);
+                    int imgId = imageService.downloadAndInsert(link, DEST);
+                    imageDAO.insertToGalleryOf(product, new Image(imgId));
+                }
             }
             handle.commit();
             message = String.format("Đã insert xong toàn bộ dữ liệu trong file %s", jsonFile);
@@ -191,6 +172,6 @@ public class SQLScript {
 //        SQLScript.get().insertFromJSON("product_category_5.txt");
 //        SQLScript.get().insertFromJSON("product_category_7.txt");
 //        SQLScript.get().insertFromJSON("product_category_8.txt");
-        SQLScript.get().formatBlogContent("C:\\Users\\ADMIN\\Desktop\\test\\blogs\\12\\27\\0ae039cf646648ac85c900d88813c443.txt");
+//        SQLScript.get().insertFromJSON("product_category_9.txt");
     }
 }

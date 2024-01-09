@@ -42,7 +42,7 @@ const loadProducts = async function() {
             weight: generateRandomFloat(5.8),
             discountId: generateRandomInteger(8),
             producerId: generateRandomInteger(8),
-            categoryId: 8,
+            categoryId: 9,
             galleries: galleries,
         }
     }))

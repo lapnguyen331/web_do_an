@@ -16,7 +16,7 @@ public class RequestFilter implements Filter {
     CategoryService cService;
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        this.cService = CategoryService.getInstance();
+        this.cService = new CategoryService();
     }
 
     @Override

@@ -6,29 +6,36 @@ import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Calendar;
 import java.util.Properties;
 
 public class IOService {
     static Properties prop = PropertiesFileHelper.getProperties("external.properties");
-    private static IOService instance;
 
-    private IOService() {
-    }
+    private IOService() {}
 
     public static IOService getInstance() {
-        if (instance == null) return new IOService();
-        return instance;
+        return new IOService();
     }
 
     public String readTxtFile(File file) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        String rs = "";
+        StringBuilder rs = new StringBuilder();
         String line = null;
         while ((line = reader.readLine()) != null) {
-            rs += line +"\n";
+            rs.append(line).append("\n");
         }
-        return rs;
+        return rs.toString();
+    }
+
+    public String readText(String url) throws IOException {
+        URL connect = new URL(url);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(connect.openStream()));
+        StringBuilder rs = new StringBuilder();
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            rs.append(line).append("\n");
+        }
+        return rs.toString();
     }
 
     public File downloadImageFromURL(String url, String dest, String fileName) throws IOException {

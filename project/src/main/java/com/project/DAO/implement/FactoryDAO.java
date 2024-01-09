@@ -12,9 +12,6 @@ public abstract class FactoryDAO {
     public static final Class<IImageDAO> DAO_IMAGE = IImageDAO.class;
     public static final Class<IBlogDAO> DAO_BLOG = IBlogDAO.class;
     public static final Class<ICategoryDAO> DAO_CATEGORY = ICategoryDAO.class;
-    public static Handle createConnection() {
-        return JDBIConnector.get().open();
-    }
     public static <T> T getDAO(Handle handle, Class<?> clazz) {
         if (clazz == DAO_PRODUCT) return (T) new ProductDAO(handle);
         else if (clazz == DAO_IMAGE) return (T) new ImageDAO(handle);

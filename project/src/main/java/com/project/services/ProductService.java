@@ -2,25 +2,21 @@ package com.project.services;
 
 import com.project.dao.IProductDAO;
 import com.project.dao.implement.FactoryDAO;
-import com.project.dao.implement.ImageDAO;
-import com.project.dao.implement.ProductDAO;
 import com.project.models.Category;
-import com.project.models.Image;
 import com.project.models.Product;
+import org.jdbi.v3.core.Handle;
 
 import java.util.List;
 
-public class ProductService {
-    private static ProductService instance;
-    private IProductDAO productDAO;
+public class ProductService extends AbstractService {
+    private final IProductDAO productDAO;
 
-    public static ProductService getInstance() {
-        if (instance == null) instance = new ProductService();
-        return instance;
+    public ProductService() {
+        this.productDAO = FactoryDAO.getDAO(handle, FactoryDAO.DAO_PRODUCT);
     }
 
-    private ProductService() {
-        var handle = FactoryDAO.createConnection();
+    public ProductService(Handle handle) {
+        super(handle);
         this.productDAO = FactoryDAO.getDAO(handle, FactoryDAO.DAO_PRODUCT);
     }
 
@@ -34,8 +30,23 @@ public class ProductService {
     public List<Product> getTop4() {
         return productDAO.selectTop4_shortDetails();
     }
+    public List<Product> getTopOf(Category c, int n) {
+        return productDAO.selectTopProductsOf_shortDetails(c, n);
+    }
+    public Product getById(int id) {
+        return productDAO.selectOne_fullDetails(id);
+    }
+
+    public List<String> getBrands() {
+        return productDAO.selectAllBrands();
+    }
+
+    public List<Product> search(String name, int categoryId, String brand, String minPrice, String maxPrice) {
+        return productDAO.searchProduct(name, categoryId, brand, minPrice, maxPrice);
+    }
+
     public static void main(String[] args) {
-        var c = new Category(1);
-        System.out.println(getInstance().productDAO.selectTop3ProductsOf_shortDetails(c));
+        var service = new ProductService();
+        service.search("sâm", 1, null, null, null).forEach(System.out::println);
     }
 }

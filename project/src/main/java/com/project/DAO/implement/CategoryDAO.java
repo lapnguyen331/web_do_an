@@ -16,7 +16,7 @@ public class CategoryDAO extends AbstractDAO<Category> implements ICategoryDAO {
     }
 
     @Override
-    public List<Category> selectAll() {
+    public List<Category> getAll_fullDetails() {
         final String SELECT_ALL_CATEGORIES = "SELECT * FROM <table1> c" +
                 " LEFT JOIN <table2> t ON c.thumbnail = t.id" +
                 " LEFT JOIN <table3> b ON c.blogId = b.id";
@@ -28,13 +28,12 @@ public class CategoryDAO extends AbstractDAO<Category> implements ICategoryDAO {
     }
 
     @Override
-    public int insert(Category category) {
-        return 0;
-    }
-
-    @Override
-    public boolean update(Category category) {
-        return false;
+    public List<Category> getAll_shortDetails() {
+        final String SELECT_ALL = "SELECT <columns> FROM <table>";
+        return query(SELECT_ALL, Category.class, (query) -> {
+            query.define("table", "categories")
+                    .defineList("columns", "id, name");
+        }, new CategoryRowMapper());
     }
 
     @Override
