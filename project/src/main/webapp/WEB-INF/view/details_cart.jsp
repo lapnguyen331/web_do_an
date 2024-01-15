@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,103 +44,93 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td><span class="delete-product"></span></td>
-                            <td>
-                                <div class="product-wrap">
-                                    <div class="product-img">
-                                        <img src="${pageContext.request.contextPath}/inventory/images/cao-hong-sam-hong-seon-gold-hop-2-lo-250g.webp" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <div class="product-name"><b>Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</b></div>
-                                        <div class="product-stats">
-                                            <ul>
-                                                <li>
-                                                    <span class="fw-semibold">Quy cách:</span>
-                                                    <span>2 lọ 250g</span>
-                                                </li>
-                                                <li>
-                                                    <span class="fw-semibold">Thương hiệu:</span>
-                                                    <span><a href="/template/search.html?branch=daedong">Daedong</a></span>
-                                                </li>
-                                                <li>
-                                                    <span class="fw-semibold">Danh mục:</span>
-                                                    <a href="/template/categogy-detail.html">Hồng Sâm hàn Quốc</a>
-                                                </li>
-                                                <li>
-                                                    <span class="fw-semibold">Giá gốc:</span>
-                                                    <span>980.000₫</span>
-                                                </li>
-                                            </ul>
+                        <c:set var="total" value="${0}"/>
+                        <c:choose>
+                            <c:when test="${empty requestScope.items}">
+                                <tr>
+                                    <td colspan="5">
+                                        <div class="fw-semibold text-danger py-3">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                            <span>Giỏ hàng của bạn hiện đang trống ...</span>
                                         </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><div class="price">980.000₫</div></td>
-                            <td>
-                                <div class="number-field">
-                                    <div class="number-btn btn-left bg-gold bg-sharp-no-right">
-                                        <span>&#xf068;</span>
-                                    </div>
-                                    <div class="bg-gold">
-                                        <input type="number" data-amount="0">
-                                    </div>
-                                    <div class="number-btn btn-right bg-gold bg-sharp-no-left">
-                                        <span>&#x2b;</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><div class="price">980.000₫</div></td>
-                        </tr>
-
-                        <tr>
-                            <td><span class="delete-product"></span></td>
-                            <td>
-                                <div class="product-wrap">
-                                    <div class="product-img">
-                                        <img src="${pageContext.request.contextPath}/inventory/images/cao-sam-hu-doi-1.jpg" alt="">
-                                    </div>
-                                    <div class="product-info">
-                                        <div class="product-name"><b>Cao Sâm Hũ Đôi Arirang Hàn Quốc</b></div>
-                                        <div class="product-stats">
-                                            <ul>
-                                                <li>
-                                                    <span class="fw-semibold">Quy cách:</span>
-                                                    <span>2 hũ x 500gr</span>
-                                                </li>
-                                                <li>
-                                                    <span class="fw-semibold">Thương hiệu:</span>
-                                                    <span><a href="/template/search.html?branch=arirang">Arirang</a></span>
-                                                </li>
-                                                <li>
-                                                    <span class="fw-semibold">Danh mục:</span>
-                                                    <a href="/template/categogy-detail.html">Hồng Sâm hàn Quốc</a>
-                                                </li>
-                                                <li>
-                                                    <span class="fw-semibold">Giá gốc:</span>
-                                                    <span>2.400.000₫</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><div class="price">2.100.000₫</div></td>
-                            <td>
-                                <div class="number-field">
-                                    <div class="number-btn btn-left bg-gold bg-sharp-no-right">
-                                        <span>&#xf068;</span>
-                                    </div>
-                                    <div class="bg-gold">
-                                        <input type="number" data-amount="0">
-                                    </div>
-                                    <div class="number-btn btn-right bg-gold bg-sharp-no-left">
-                                        <span>&#x2b;</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><div class="price">2.100.000₫</div></td>
-                        </tr>
+                                    </td>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <c:set var="instance" value="${requestScope.items[0].product}"/>
+                                <c:forEach items="${requestScope.items}" var="item">
+                                    <c:set var="product" value="${item.product}"/>
+                                    <c:set var="quantity" value="${item.quantity}"/>
+                                    <tr>
+                                        <td>
+                                            <a href="${pageContext.request.contextPath}/cart?action=remove&id=${product.id}&quantity=${quantity}">
+                                                <span class="delete-product"></span>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <div class="product-wrap">
+                                                <div class="product-img">
+                                                    <img src="${pageContext.request.contextPath}/files/${product.thumbnail.path}" alt="">
+                                                </div>
+                                                <div class="product-info">
+                                                    <div class="product-name"><b>${product.name}</b></div>
+                                                    <div class="product-stats">
+                                                        <ul>
+                                                            <li>
+                                                                <span class="fw-semibold">Quy cách:</span>
+                                                                <span>${product.specification}</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="fw-semibold">Thương hiệu:</span>
+                                                                <span><a href="${pageContext.request.contextPath}/search?branch=${product.brand}">${product.brand}</a></span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="fw-semibold">Danh mục:</span>
+                                                                <a href="${pageContext.request.contextPath}/search?category=${product.category.id}">${product.category.name}</a>
+                                                            </li>
+                                                            <li>
+                                                                <span class="fw-semibold">Giá gốc:</span>
+                                                                <c:set var="price" value="${product.price}"/>
+                                                                <span>${product['getStringPrice'](price)}₫</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <c:set var="discountPrice" value="${(100 - product.discount.discountPercent) * product.price / 100}"/>
+                                        <c:set var="total" value="${total + discountPrice * quantity}" />
+                                        <td>
+                                            <div class="price">
+                                                <span>${product['getStringPrice'](discountPrice)}₫</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="number-field">
+                                                <div class="number-btn btn-left bg-gold bg-sharp-no-right">
+                                                    <a href="${pageContext.request.contextPath}/cart?action=remove&id=${product.id}&quantity=1">
+                                                        <span class="text-dark">&#xf068;</span>
+                                                    </a>
+                                                </div>
+                                                <div class="bg-gold">
+                                                    <input type="number" value="${quantity}" data-amount="${quantity}">
+                                                </div>
+                                                <div class="number-btn btn-right bg-gold bg-sharp-no-left">
+                                                    <a href="${pageContext.request.contextPath}/cart?action=add&id=${product.id}&quantity=1">
+                                                        <span class="text-dark">&#x2b;</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="price">
+                                                <span>${product['getStringPrice'](quantity * discountPrice)}₫</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
                         </tbody>
                     </table>
                 </div>
@@ -157,7 +149,12 @@
                         <div class="col text-center">
                             <div class="total-price d-inline-block">
                                 <span>Tổng tiền</span>
-                                <span class="price">3.080.000₫</span>
+                                <c:if test="${not empty instance}">
+                                    <span class="price">${instance['getStringPrice'](total)}₫</span>
+                                </c:if>
+                                <c:if test="${empty instance}">
+                                    <span class="price">0₫</span>
+                                </c:if>
                             </div>
                             <div class="d-flex gap-3 justify-content-center">
                                 <div class="bg-gold bg-sharp">

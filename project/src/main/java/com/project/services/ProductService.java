@@ -36,6 +36,9 @@ public class ProductService extends AbstractService {
     public Product getById(int id) {
         return productDAO.selectOne_fullDetails(id);
     }
+    public Product getById_short(int id) {
+        return productDAO.selectOne_shortDetails(id);
+    }
 
     public List<String> getBrands() {
         return productDAO.selectAllBrands();
@@ -47,6 +50,7 @@ public class ProductService extends AbstractService {
 
     public static void main(String[] args) {
         var service = new ProductService();
-        service.search("sâm", 1, null, null, null).forEach(System.out::println);
+//        service.search("sâm", 1, null, null, null).forEach(System.out::println);
+        System.out.println(service.getById_short(239));;
     }
 }

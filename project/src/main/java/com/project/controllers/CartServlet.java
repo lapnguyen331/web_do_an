@@ -1,5 +1,7 @@
 package com.project.controllers;
 import com.project.models.Cart;
+import com.project.models.CartItem;
+import com.project.models.Product;
 import com.project.services.ProductService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,13 +11,45 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-@WebServlet(name = "CartAction", urlPatterns = {"/cartAction"})
+@WebServlet(name = "CartAction", urlPatterns = {"/cartAction", "/cart"})
 public class CartServlet extends HttpServlet {
-    private ProductService productService = new ProductService();
+    private ProductService productService;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        this.productService = new ProductService();
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Cart cart = (Cart) request.getSession(false).getAttribute("cart");
+        String action = request.getParameter("action");
+        if (action != null) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            var product  = productService.getById(id);
+            switch (action) {
+                case "add":
+                    cart.putIn(product, quantity);
+                    break;
+                case "remove":
+                    cart.putOut(product, quantity);
+                    break;
+            }
+            response.sendRedirect(getServletContext().getContextPath()+"/cart");
+            return;
+        }
+        List<CartItem> list = new ArrayList<>();
+        for (var entry : cart.getProducts().entrySet()) {
+            Product product = productService.getById_short(entry.getKey());
+            int quantity = entry.getValue().getQuantity();
+            list.add(new CartItem(product, quantity));
+        }
+        if (!list.isEmpty()) request.setAttribute("items", list);
         request.getRequestDispatcher("/WEB-INF/view/details_cart.jsp").forward(request, response);
     }
 
@@ -26,7 +60,6 @@ public class CartServlet extends HttpServlet {
         JSONObject json = new JSONObject();
         String action = request.getParameter("action");
         Cart cart = (Cart) request.getSession(false).getAttribute("cart");
-
         switch (action) {
             case "get": {
                 var set = cart.getProducts().entrySet();
@@ -43,41 +76,23 @@ public class CartServlet extends HttpServlet {
             }
             break;
             case "add": {
-//                int id = Integer.parseInt(request.getParameter("productId"));
-//                var product  = productService.getById(id);
-//                cart.put(product);
-//                json.put("status", HttpServletResponse.SC_OK);
-//                json.put("msg", "Thêm thành công sản phẩm vào giỏ hàng!");
-//                out.print(json);
-//                out.flush();
-            }
-            break;
-            case "remove": {
-//                int id = Integer.parseInt(request.getParameter("productId"));
-//                var product  = productService.getById(id);
-//                cart.remove(product);
-//                json.put("status", HttpServletResponse.SC_OK);
-//                json.put("msg", "Đã xóa thành công sản phẩm ra khỏi giỏ hàng!");
-//                out.print(json);
-//                out.flush();
-            }
-            break;
-            case "increase": {
                 int id = Integer.parseInt(request.getParameter("productId"));
-                var item = cart.getItem(id);
-                item.increase();
+                int quantity = Integer.parseInt(request.getParameter("quantity"));
+                var product  = productService.getById(id);
+                cart.putIn(product, quantity);
                 json.put("status", HttpServletResponse.SC_OK);
-                json.put("msg", "Đã cập nhật số lượng sản phẩm!");
+                json.put("msg", "Đã cập nhật thay đổi giỏ hàng!");
                 out.print(json);
                 out.flush();
             }
             break;
-            case "decrease": {
+            case "remove": {
                 int id = Integer.parseInt(request.getParameter("productId"));
-                var item = cart.getItem(id);
-                item.decrease();
+                int quantity = Integer.parseInt(request.getParameter("quantity"));
+                var product  = productService.getById(id);
+                cart.putOut(product, quantity);
                 json.put("status", HttpServletResponse.SC_OK);
-                json.put("msg", "Đã cập nhật số lượng sản phẩm!");
+                json.put("msg", "Đã cập nhật thay đổi giỏ hàng!");
                 out.print(json);
                 out.flush();
             }

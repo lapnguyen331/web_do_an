@@ -5,10 +5,6 @@
          version="5.0">
 
 <!--        Mapping URL trang chi tiết giỏ hàng-->
-    <servlet>
-        <servlet-name>DetailsCart</servlet-name>
-        <jsp-file>/WEB-INF/view/details_cart.jsp</jsp-file>
-    </servlet>
 
     <servlet-mapping>
         <servlet-name>UploadServlet</servlet-name>
@@ -19,11 +15,6 @@
         <servlet-name>UploadServlet</servlet-name>
         <jsp-file>/WEB-INF/view/upload.jsp</jsp-file>
     </servlet>
-
-    <servlet-mapping>
-        <servlet-name>DetailsCart</servlet-name>
-        <url-pattern>/cart</url-pattern>
-    </servlet-mapping>
 
     <context-param>
         <param-name>AUTHENTICATION_PROPERTIES_FILE_LOCATION</param-name>

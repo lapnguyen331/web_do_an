@@ -18,22 +18,15 @@ public class ProducerRowMapper extends ARowMapper<Producer> {
 
     @Override
     public Producer map(ResultSet rs, StatementContext ctx) throws SQLException {
-        Producer producer;
-        try {
-            int id = rs.getInt(this.alias+"id");
-            String name = rs.getString(this.alias+"name");
-            boolean status = rs.getBoolean(this.alias+"status");
-            String address = rs.getString(this.alias+"address");
-            String email = rs.getString(this.alias+"email");
-            String phone = rs.getString(this.alias+"phone");
-            String taxCode = rs.getString(this.alias+"taxCode");
-            var createAt = ctx.findColumnMapperFor(LocalDateTime.class).get().map(rs, this.alias+"createAt", ctx);
-            var updateAt = ctx.findColumnMapperFor(LocalDateTime.class).get().map(rs, this.alias+"updateAt", ctx);
-            producer = new Producer(id, name, status, address, email, phone, taxCode, createAt, updateAt);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            producer = null;
-        }
-        return producer;
+        int id = getValueAt(rs, this.alias+"id", ctx, int.class);
+        String name = getValueAt(rs, this.alias+"name", ctx, String.class);
+        boolean status = getValueAt(rs, this.alias+"status", ctx, boolean.class);
+        String address = getValueAt(rs, this.alias+"address", ctx, String.class);
+        String email = getValueAt(rs, this.alias+"email", ctx, String.class);
+        String phone = getValueAt(rs, this.alias+"phone", ctx, String.class);
+        String taxCode = getValueAt(rs, this.alias+"taxCode", ctx, String.class);
+        var createAt = getValueAt(rs, this.alias+"createAt", ctx, LocalDateTime.class);
+        var updateAt = getValueAt(rs, this.alias+"updateAt", ctx, LocalDateTime.class);
+        return new Producer(id, name, status, address, email, phone, taxCode, createAt, updateAt);
     }
 }

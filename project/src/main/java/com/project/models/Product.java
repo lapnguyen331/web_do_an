@@ -212,4 +212,8 @@ public class Product implements Serializable {
                 ", updateAt=" + updateAt +
                 '}';
     }
+
+    public static void main(String[] args) {
+        System.out.println(new Product().getStringPrice(9188000f));
+    }
 }

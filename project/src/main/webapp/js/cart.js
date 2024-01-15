@@ -18,6 +18,7 @@ $(document).ready(function() {
     }
     $(document).on('click', '*[data-cart-product=true]', function(e) {
         const id = this.dataset.cartId;
+        const quantity = this.dataset.cartAmount;
         switch (this.dataset.cartAction) {
             case "add":
                 $.ajax({
@@ -26,6 +27,7 @@ $(document).ready(function() {
                     data: {
                         action: 'add',
                         productId: id,
+                        quantity: quantity,
                     },
                     success: ({status, msg}) => {
                         announce("Thông báo", msg)
@@ -40,34 +42,7 @@ $(document).ready(function() {
                     data: {
                         action: 'remove',
                         productId: id,
-                    },
-                    success: ({status, msg}) => {
-                        announce("Thông báo", msg)
-                        loadData();
-                    }
-                })
-                break;
-            case "increase":
-                $.ajax({
-                    url: `${window.context}/cartAction`,
-                    method: 'POST',
-                    data: {
-                        action: 'increase',
-                        productId: id,
-                    },
-                    success: ({status, msg}) => {
-                        announce("Thông báo", msg)
-                        loadData();
-                    }
-                })
-                break;
-            case "decrease":
-                $.ajax({
-                    url: `${window.context}/cartAction`,
-                    method: 'POST',
-                    data: {
-                        action: 'decrease',
-                        productId: id,
+                        quantity: quantity,
                     },
                     success: ({status, msg}) => {
                         announce("Thông báo", msg)
@@ -96,11 +71,11 @@ $(document).ready(function() {
             console.log(product)
             const html = `
           <div class="product-wrap d-flex align-items-center gap-2">
-            <div class="btn-product-remove" data-cart-product="true" data-cart-action="remove" data-cart-id="${product.id}">
+            <div class="btn-product-remove" data-cart-product="true" data-cart-action="remove" data-cart-id="${product.id}" data-cart-amount="${element.item.quantity}">
                 <i class="fa-regular fa-trash-can"></i>
             </div>
             <div class="img-wrap border rounded d-flex align-items-center justify-content-center">
-                <img src="${product.avatar.url}" width="100%">
+                <img src="${window.contextPath}/files/${product.thumbnail.path}" width="100%">
             </div>
             <div class="d-flex flex-column justify-content-center">
                 <div class="product-name">
@@ -112,11 +87,11 @@ $(document).ready(function() {
             </div>
             <div class="amount-btns">
                 <div class="bg-primary-red-main-color text-wheat-color d-flex align-items-center arrow-wrap">
-                    <div class="arrow arrow-down" data-cart-product="true" data-cart-action="decrease" data-cart-id="${product.id}"></div>
+                    <div class="arrow arrow-down" data-cart-product="true" data-cart-action="remove" data-cart-id="${product.id}" data-cart-amount="1"></div>
                 </div>
                 <input type="text" class="text-center" disabled value="${element.item.quantity}">
                 <div class="bg-primary-red-main-color text-wheat-color d-flex align-items-center arrow-wrap">
-                    <div class="arrow arrow-up" data-cart-product="true" data-cart-action="increase" data-cart-id="${product.id}"></div>
+                    <div class="arrow arrow-up" data-cart-product="true" data-cart-action="add" data-cart-id="${product.id}" data-cart-amount="1"></div>
                 </div>
             </div>
         </div>
