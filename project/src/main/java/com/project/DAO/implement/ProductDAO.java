@@ -230,4 +230,28 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
                 new BlogRowMapper("b"));
         return result.isEmpty() ? null : result.get(0);
     }
+
+    @Override
+    public Product selectOne_shortDetails(int id) {
+        String SELECT = "SELECT <values> FROM <table1> p" +
+                " LEFT JOIN <table2> t ON p.thumbnail = t.id" +
+                " LEFT JOIN <table3> pr ON p.producerId = pr.id" +
+                " LEFT JOIN <table4> c ON p.categoryId = c.id" +
+                " LEFT JOIN <table5> d ON p.discountId = d.id" +
+                " WHERE p.id = :id";
+        var result =  query(SELECT, Product.class, (query) -> {
+                    query.define("table1", "products")
+                            .define("table2", "images")
+                            .define("table3", "producers")
+                            .define("table4", "categories")
+                            .define("table5", "discounts")
+                            .define("values", "p.*, t.path, d.discountPercent, c.name")
+                            .bind("id", id);
+                }, new ProductRowMapper("p"),
+                new ImageRowMapper("t"),
+                new ProducerRowMapper("pr"),
+                new CategoryRowMapper("c"),
+                new DiscountRowMapper("d"));
+        return result.isEmpty() ? null : result.get(0);
+    }
 }

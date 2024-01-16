@@ -8,6 +8,8 @@ import java.util.List;
 public interface IProductDAO {
     boolean checkExists(int id);
     Product selectOne_fullDetails(int id);
+
+    Product selectOne_shortDetails(int id);
     List<Product> selectAll_fullDetails();
     List<Product> selectAll_shortDetails();
     List<Product> selectTop4_shortDetails();
