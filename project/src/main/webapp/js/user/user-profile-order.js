@@ -27,7 +27,7 @@ const categories = {
     'cao_hong_sam' : 'Cao Hồng Sâm'
 }
 const data_tables = new DataTable('#table_orders', {
-    ajax: '/template/user-profile-orders.txt',
+    ajax: 'user-profile-orders.txt',
     language: translate,
     dom: 'tip',
     createdRow: function( row, data, dataIndex ) {
