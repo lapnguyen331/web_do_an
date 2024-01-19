@@ -26,7 +26,6 @@ public class AbstractService {
     public void rollback() {
         if (!isPassed) handle.rollback();
     }
-
     public void close() {
         if (!isPassed) handle.close();
     }

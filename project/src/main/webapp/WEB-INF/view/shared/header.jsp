@@ -31,13 +31,13 @@
                 </li>
                 <li class="topbar-menu-item">
                     <c:choose>
-                        <c:when test="${not empty requestScope.user}">
+                        <c:when test="${not empty sessionScope.user}">
                             <div class="redirect-link d-flex">
                                 <div class="user-wrap d-flex gap-1 align-items-center">
                                     <div class="avatar-wrap border rounded rounded-circle p-2 d-flex align-items-center justify-content-between overflow-hidden">
-                                        <img src="${user.avatar.url}" width="20px" alt="">
+                                        <img src="${pageContext.request.contextPath}/files/${sessionScope.user.avatar.path}" width="20px" alt="">
                                     </div>
-                                    <div>${user.username}</div>
+                                    <div>${sessionScope.user.username}</div>
                                     <ul class="user-pages">
                                         <div class="shadow">
                                             <ul>

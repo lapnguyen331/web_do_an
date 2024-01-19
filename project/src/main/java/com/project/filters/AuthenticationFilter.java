@@ -39,8 +39,8 @@ public class AuthenticationFilter implements Filter {
         Properties authProperties = (Properties) context.getAttribute("AUTHENTICATION_LIST");
 //        Check resource authentication
         String rule = authProperties.getProperty(resource);
-        System.out.printf("permission of %s = %s\n", httpRequest.getRequestURI(), rule);
-        if (rule != null && !rule.equals("any")) {
+//        System.out.printf("permission of %s = %s\n", httpRequest.getRequestURI(), rule);
+        if (rule != null) {
             if ((session == null) || !(rule.equals(session.getAttribute("role")))) {
                 httpRequest.getRequestDispatcher("login").forward(httpRequest, httpResponse);
                 return;

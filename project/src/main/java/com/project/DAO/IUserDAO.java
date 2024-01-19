@@ -6,7 +6,6 @@ import org.json.JSONObject;
 import java.util.List;
 
 public interface IUserDAO {
-    List<User> selectAll();
-    boolean checkExist(int id, String username);
-    User getByUsername(String username);
+    public List<User> getAll();
+    public User getLoginInfo(String username);
 }

@@ -1,11 +1,13 @@
 package com.project.controllers;
 import com.project.models.Cart;
+import com.project.models.User;
 import com.project.services.UserService;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
@@ -20,7 +22,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forwardURL = (String) request.getAttribute(RequestDispatcher.FORWARD_REQUEST_URI);
-        System.out.println("forwardURL in doGet = "+forwardURL);
+//        System.out.println("forwardURL in doGet = "+forwardURL);
         HttpSession session = request.getSession(false);
 //        CASE: Người dùng này đã đăng nhập trước đó, forward sang trang khác
         if (session.getAttribute("role") != null) {
@@ -41,7 +43,7 @@ public class LoginServlet extends HttpServlet {
         JSONObject json = new JSONObject();
         String msg = "";
         HttpSession session = request.getSession(false);
-        String action = request.getParameter("loginAction")+"";
+        String action = request.getParameter("loginAction");
         switch (action) {
             case "login": {
 //        Lấy parameter
@@ -51,22 +53,33 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("password = "+password);
 
 //         Kiểm tra đăng nhập...
-                var user = userService.getByUsername(username);
+                User user = userService.getUserByName(username);
                 if (user == null) {
                     json.put("status", HttpServletResponse.SC_BAD_REQUEST);
                     msg = (username == null || username.trim().isEmpty()) ? "Tên đăng nhập không để trống!"
                             : (password == null || password.trim().isEmpty()) ? "Mật khẩu không để trống!"
                             : "Không tìm thấy tài khoản trong hệ thống!";
                 }
-                else if (!user.getPassword().equals(password)) {
-                    json.put("status", HttpServletResponse.SC_UNAUTHORIZED);
-                    msg = "Mật khẩu đăng nhập không đúng!";
-                }
                 else {
-                    session.setAttribute("user", user);
-                    session.setAttribute("role", "user");
-                    json.put("status", HttpServletResponse.SC_OK);
-                    msg = "Đăng nhập thành công!";
+                    String hashPassword = null;
+                    try {
+                        hashPassword = User.hashPassword(password);
+                    } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
+                        json.put("status", HttpServletResponse.SC_UNAUTHORIZED);
+                        msg = "Xảy ra lỗi, thử lại sau...";
+                        break;
+                    }
+                    if (user.getPassword().equals(hashPassword)) {
+                        session.setAttribute("user", user);
+                        session.setAttribute("role", user.getLevelAccess()+"");
+                        json.put("status", HttpServletResponse.SC_OK);
+                        msg = "Đăng nhập thành công!";
+                    }
+                    else {
+                        json.put("status", HttpServletResponse.SC_UNAUTHORIZED);
+                        msg = "Mật khẩu đăng nhập không đúng!";
+                    }
                 }
             }
             break;

@@ -6,43 +6,37 @@ import com.project.mappers.ImageRowMapper;
 import com.project.mappers.UserRowMapper;
 import com.project.models.User;
 import org.jdbi.v3.core.Handle;
-import org.json.JSONObject;
 
 import java.util.List;
 
 public class UserDAO extends AbstractDAO<User> implements IUserDAO {
-
     public UserDAO(Handle handle) {
         super(handle);
     }
 
     @Override
-    public List<User> selectAll() {
-        String SELECT_ALL_USERS = "SELECT * FROM <table1> JOIN <table2> ON <x1> = <x2>";
-        return query(SELECT_ALL_USERS, new UserRowMapper(), (query) -> {
-            query.registerRowMapper(new ImageRowMapper());
-            query.define("table1", "users")
+    public List<User> getAll() {
+        final String SELECT = "SELECT <columns> FROM <table1> u LEFT JOIN <table2> i" +
+                " ON u.avatar = i.id";
+        return query(SELECT, User.class, (query -> {
+           query.define("columns", "u.*, i.path")
+                   .define("table1", "users")
+                   .define("table2", "images");
+        }), new UserRowMapper("u"), new ImageRowMapper("i"));
+    }
+
+    @Override
+    public User getLoginInfo(String username) {
+        final String SELECT = "SELECT <columns> FROM <table1> u LEFT JOIN <table2> i" +
+                " ON u.avatar = i.id" +
+                " WHERE u.username = :username";
+        var rs = query(SELECT, User.class, (query -> {
+            query.define("columns", "u.username, u.password, i.path")
+                    .define("table1", "users")
                     .define("table2", "images")
-                    .define("x1", "users.avatarId")
-                    .define("x2", "images.id");
-        });
-    }
-
-    @Override
-    public boolean checkExist(int id, String username) {
-        String CHECK_EXISTS = "SELECT id FROM <table> WHERE id = :id OR username = :username";
-        return check(CHECK_EXISTS, (query) ->  {
-            query.define("table", "users")
-                    .bind("id", id)
                     .bind("username", username);
-            return query.mapTo(Integer.class).findOne().isPresent();
-        });
-    }
-
-    @Override
-    public User getByUsername(String username) {
-        return null;
-    }
-    public static void main(String[] args) {
+        }), new UserRowMapper("u"), new ImageRowMapper("i"));
+        if (rs.isEmpty()) return null;
+        return rs.get(0);
     }
 }
