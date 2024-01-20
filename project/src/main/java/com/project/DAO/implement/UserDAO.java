@@ -31,7 +31,7 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
                 " ON u.avatar = i.id" +
                 " WHERE u.username = :username";
         var rs = query(SELECT, User.class, (query -> {
-            query.define("columns", "u.username, u.password, i.path")
+            query.define("columns", "u.id, u.username, u.password, i.path")
                     .define("table1", "users")
                     .define("table2", "images")
                     .bind("username", username);
