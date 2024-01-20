@@ -189,7 +189,9 @@ public class Product implements Serializable {
         r = r.replaceAll("(?<=\\d)(?=(\\d{3})+(?!\\d))", ".");
         return r;
     }
-
+    public String getRoundPrice(float price){
+        return String.valueOf((int)price);
+    }
     @Override
     public String toString() {
         return "Product{" +

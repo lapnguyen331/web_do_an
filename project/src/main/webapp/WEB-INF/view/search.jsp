@@ -51,39 +51,39 @@
                         </div>
                         <div class="filter-content shadow">
                             <ul class="categories-wrap">
-                                <a href="${pageContext.request.contextPath}/categogy-detail.html">
+                                <a href="${pageContext.request.contextPath}/categogy?id=1">
                                     <li>Nước hồng sâm</li>
                                 </a>
-                                <a href="${pageContext.request.contextPath}/categogy-detail.html">
+                                <a href="${pageContext.request.contextPath}/categogy?id=2">
                                     <li>Cao Hồng Sâm</li>
                                 </a>
-                                <a href="${pageContext.request.contextPath}/categogy-detail.html">
+                                <a href="${pageContext.request.contextPath}/categogy?id=3">
                                     <li>Sâm Khô</li>
                                 </a>
-                                <a href="${pageContext.request.contextPath}/categogy-detail.html">
+                                <a href="${pageContext.request.contextPath}/categogy?id=4">
                                     <li>Sâm Mật Ong</li>
                                 </a>
-                                <a href="${pageContext.request.contextPath}/categogy-detail.html">
+                                <a href="${pageContext.request.contextPath}/categogy?id=5">
                                     <li>
                                         Hắc Sâm
                                     </li>
                                 </a>
-                                <a href="${pageContext.request.contextPath}/categogy-detail.html">
+                                <a href="${pageContext.request.contextPath}/categogy?id-6">
                                     <li>
                                         Nhân Sâm Tươi
                                     </li>
                                 </a>
-                                <a href="${pageContext.request.contextPath}/categogy-detail.html">
+                                <a href="${pageContext.request.contextPath}/categogy?id=7">
                                     <li>
                                         Rượu Sâm Linh Chi
                                     </li>
                                 </a>
-                                <a href="${pageContext.request.contextPath}/categogy-detail.html">
+                                <a href="${pageContext.request.contextPath}/categogy?id=8">
                                     <li>
                                         Trà Hồng Sâm
                                     </li>
                                 </a>
-                                <a href="${pageContext.request.contextPath}/categogy-detail.html">
+                                <a href="${pageContext.request.contextPath}/categogy?id=9">
                                     <li>
                                         Viên Hồng Sâm
                                     </li>

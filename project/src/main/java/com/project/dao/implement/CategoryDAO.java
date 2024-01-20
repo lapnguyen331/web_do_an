@@ -5,7 +5,9 @@ import com.project.dao.ICategoryDAO;
 import com.project.mappers.BlogRowMapper;
 import com.project.mappers.CategoryRowMapper;
 import com.project.mappers.ImageRowMapper;
+import com.project.mappers.ProductRowMapper;
 import com.project.models.Category;
+import com.project.models.Product;
 import org.jdbi.v3.core.Handle;
 
 import java.util.List;
@@ -35,6 +37,8 @@ public class CategoryDAO extends AbstractDAO<Category> implements ICategoryDAO {
                     .defineList("columns", "id, name");
         }, new CategoryRowMapper());
     }
+
+
 
     @Override
     public Category findOneById(int id) {

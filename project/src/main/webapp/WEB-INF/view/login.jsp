@@ -44,7 +44,7 @@
 
                 <div class="remember-forgot">
                     <label><input type="checkbox">Lưu mật khẩu</label>
-                    <a href="forgot_password.html">Quên mật khẩu?</a>
+                    <a href="${pageContext.request.contextPath}/forgotpassword">Quên mật khẩu?</a>
                 </div>
                 <button type="submit" class="btn d-flex align-items-center justify-content-center gap-2">
                     <span>Đăng nhập</span>

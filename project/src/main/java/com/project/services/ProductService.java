@@ -27,6 +27,7 @@ public class ProductService extends AbstractService {
     public List<Product> getALlOf(Category c) {
         return productDAO.selectTop3ProductsOf_shortDetails(c);
     }
+
     public List<Product> getTop4() {
         return productDAO.selectTop4_shortDetails();
     }
@@ -47,10 +48,13 @@ public class ProductService extends AbstractService {
     public List<Product> search(String name, int categoryId, String brand, String minPrice, String maxPrice) {
         return productDAO.searchProduct(name, categoryId, brand, minPrice, maxPrice);
     }
-
+    public List<Product> getAllProductOffCate(Category c){
+        return productDAO.selectALLProductsOfCate_shortDetails(c);
+    }
     public static void main(String[] args) {
         var service = new ProductService();
 //        service.search("sâm", 1, null, null, null).forEach(System.out::println);
-        System.out.println(service.getById_short(239));;
+//        System.out.println(service.getById_short(239));;
+        service.getAllProductOffCate(new Category(1)).forEach(System.out::println);
     }
 }

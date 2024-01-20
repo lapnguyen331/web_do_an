@@ -10,24 +10,27 @@
     <header id="main-header-section">
     <article id="main-header-top">
         <div class="logo-wrapper">
-            <img src="${pageContext.request.contextPath}/inventory/icons/logo2.png" alt="">
+            <a href="${pageContext.request.contextPath}/home">
+        <img src="${pageContext.request.contextPath}/inventory/icons/logo2.png" alt="">
+
+        </a>
         </div>
         <div class="main-content-wrapper">
             <ul class="topbar-menu">
                 <li class="topbar-menu-item">
-                    <a class="redirect-link" href="home.html">Trang chủ</a>
+                    <a class="redirect-link" href="${pageContext.request.contextPath}/home">Trang chủ</a>
                 </li>
                 <li class="topbar-menu-item">
-                    <a class="redirect-link" href="introduce.html">Giới thiệu</a>
+                    <a class="redirect-link" href="${pageContext.request.contextPath}/introduce">Giới thiệu</a>
                 </li>
                 <li class="topbar-menu-item">
-                    <a class="redirect-link" href="contact.html">Liên hệ</a>
+                    <a class="redirect-link" href="${pageContext.request.contextPath}/contact">Liên hệ</a>
                 </li>
                 <li class="topbar-menu-item">
-                    <a class="redirect-link" href="blog.html">Blog</a>
+                    <a class="redirect-link" href="${pageContext.request.contextPath}/blog">Blog</a>
                 </li>
                 <li class="topbar-menu-item">
-                    <a class="redirect-link" href="privacy.html">Quy định & chính sách chung</a>
+                    <a class="redirect-link" href="${pageContext.request.contextPath}/privacy">Quy định & chính sách chung</a>
                 </li>
                 <li class="topbar-menu-item">
                     <c:choose>
@@ -71,13 +74,15 @@
                     </c:choose>
                 </li>
             </ul>
-            <div class="search-input">
-                <div class="search-input-wrapper">
-                    <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
-                    <a class="btn-search" href="search.html">Tìm kiếm</a> <!--Note link tới trang tìm kiếm-->
+
+                <div class="search-input">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
+                        <a class="btn-search" href="${pageContext.request.contextPath}/search">Tìm kiếm</a> <!--Note link tới trang tìm kiếm-->
+                    </div>
+                    <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
                 </div>
-                <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
-            </div>
+
         </div>
     </article>
     <article id="main-header-bot">
@@ -87,7 +92,7 @@
                 <ul class="menu">
                     <c:if test="${not empty sessionScope.categories}">
                         <c:forEach var="category" items="${sessionScope.categories}">
-                            <li class="menu-item"><a href="categogy-detail.html">${category.name}</a></li>
+                            <li class="menu-item"><a href="${pageContext.request.contextPath}/categogy-detail?id=${category.id}">${category.name}</a></li>
                         </c:forEach>
                     </c:if>
                 </ul>
@@ -95,7 +100,7 @@
             <ul class="nav-items-wrapper">
                 <c:if test="${not empty sessionScope.categories}">
                     <c:forEach var="category" items="${sessionScope.categories}">
-                        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">${category.name}</a></li>
+                        <li class="nav-item menu-wrapper"><a href="${pageContext.request.contextPath}/categogy-detail?id=${category.id}">${category.name}</a></li>
                     </c:forEach>
                 </c:if>
             </ul>

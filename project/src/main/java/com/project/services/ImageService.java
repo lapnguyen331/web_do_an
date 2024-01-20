@@ -70,4 +70,11 @@ public class ImageService extends AbstractService{
         return imageDAO.selectAll();
     }
 
+    public static void main(String[] args) {
+//       ImageService em =  new ImageService();
+//       Product p = new Product();
+//       p.setId(1);
+//       em.getGalleriesOf(p).forEach(System.out::println);
+    }
+
 }

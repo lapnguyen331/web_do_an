@@ -29,7 +29,6 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
-        var cart = session.getAttribute("cart");
         List<Category> categories = categoryService.getAll_ID_name();
         Map<String, List<Product>> products1 = new HashMap<>();
         categories.forEach(c -> {
@@ -41,10 +40,6 @@ public class HomeServlet extends HttpServlet {
         request.setAttribute("products2", productService.getTop4());
         request.setAttribute("brands", productService.getBrands());
         request.setAttribute("categories", categories);
-        if (cart == null) {
-            cart = new Cart();
-            session.setAttribute("cart", cart);
-        }
         request.getRequestDispatcher("/WEB-INF/view/home.jsp").forward(request, response);
     }
 
