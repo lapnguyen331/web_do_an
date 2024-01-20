@@ -2,6 +2,7 @@ package com.project.services;
 
 import com.project.dao.IProductDAO;
 import com.project.dao.implement.FactoryDAO;
+import com.project.exceptions.NotFoundProductException;
 import com.project.models.Category;
 import com.project.models.Product;
 import org.jdbi.v3.core.Handle;
@@ -47,10 +48,16 @@ public class ProductService extends AbstractService {
     public List<Product> search(String name, int categoryId, String brand, String minPrice, String maxPrice) {
         return productDAO.searchProduct(name, categoryId, brand, minPrice, maxPrice);
     }
+    public int updateProduct(Product p) throws NotFoundProductException {
+        if (productDAO.selectOne_shortDetails(p.getId()) == null) throw new NotFoundProductException("Không tìm thấy sản phẩm có id tương ứng");
+        return productDAO.update(p);
+    }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         var service = new ProductService();
-//        service.search("sâm", 1, null, null, null).forEach(System.out::println);
-        System.out.println(service.getById_short(239));;
+        var product = service.getById(238);
+        product.setName("Tuấn");
+        product.setQuantity(0);
+        System.out.println(service.updateProduct(product));;
     }
 }

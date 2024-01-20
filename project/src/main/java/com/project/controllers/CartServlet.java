@@ -60,6 +60,10 @@ public class CartServlet extends HttpServlet {
         JSONObject json = new JSONObject();
         String action = request.getParameter("action");
         Cart cart = (Cart) request.getSession(false).getAttribute("cart");
+        if (action == null) {
+            doGet(request, response);
+            return;
+        }
         switch (action) {
             case "get": {
                 var set = cart.getProducts().entrySet();

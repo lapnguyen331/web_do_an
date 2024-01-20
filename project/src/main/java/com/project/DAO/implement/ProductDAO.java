@@ -151,7 +151,7 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
 
 
     @Override
-    public int insert(Product p) throws Exception {
+    public int insert(Product p) {
         var values = Arrays.asList(
                 p.getName(),
                 p.getPrice(),
@@ -194,6 +194,56 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
                     .defineList("columns", columns)
                     .bindList("values", values);
         }).mapTo(int.class).one();
+    }
+
+    @Override
+    public int update(Product p) {
+        var values = Arrays.asList(
+                p.getName(),
+                p.getPrice(),
+                p.getQuantity(),
+                p.getMinAge(),
+                p.getThumbnail() == null ? null : p.getThumbnail().getId(),
+                p.getSpecification(),
+                p.getWeight(),
+                p.isStatus() ? 1 : 0,
+                p.getBrand(),
+                p.getDescription(),
+                p.getProducer() == null ? null : p.getProducer().getId(),
+                p.getCategory() == null ? null : p.getCategory().getId(),
+                p.getDiscount() == null ? null : p.getDiscount().getId(),
+                p.getBlog() == null ? null : p.getBlog().getId(),
+                p.getCreateAt() == null ? LocalDateTime.now().toString() : p.getCreateAt().toString(),
+                p.getUpdateAt() == null ? LocalDateTime.now().toString() : p.getUpdateAt().toString()
+        );
+        var columns = Arrays.asList(
+                "name",
+                "price",
+                "quantity",
+                "minAge",
+                "thumbnail",
+                "specification",
+                "weight",
+                "status",
+                "brand",
+                "description",
+                "producerId",
+                "categoryId",
+                "discountId",
+                "blogId",
+                "createAt",
+                "updateAt"
+        );
+        var updates = new ArrayList<String>();
+        for (int i = 0; i < columns.size(); i++) {
+            updates.add(String.format("%s = '%s'", columns.get(i), values.get(i)));
+        }
+        String INSERT = "UPDATE <table> SET <updates> WHERE id = :product.id";
+        return update(INSERT, update -> {
+            update.define("table", "products")
+                    .define("updates", String.join(", ", updates))
+                    .bindBean("product", p);
+        });
     }
 
     @Override

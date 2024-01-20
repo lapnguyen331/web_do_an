@@ -74,12 +74,27 @@ public abstract class AbstractDAO<T> implements GenericDAO<T> {
         return result;
     }
 
-    public ResultBearing insertAndReturnGeneratedKeys(String sql, String column, Consumer<Update> callback) throws Exception {
+    public int update(String sql, Consumer<Update> callback) {
+        int result = 0;
+        try {
+            var update = handle.createUpdate(sql);
+            callback.accept(update);
+            result = update.execute();
+//            System.out.println(update.getContext().getStatement());
+            update.close();
+        } catch (Exception e) {
+            throw e;
+        }
+        return result;
+    }
+
+    public ResultBearing insertAndReturnGeneratedKeys(String sql, String column, Consumer<Update> callback) {
         ResultBearing result = null;
         try {
             var update = handle.createUpdate(sql);
             callback.accept(update);
             result = update.executeAndReturnGeneratedKeys(column);
+//            System.out.println(update.getContext().getStatement());
             update.close();
         } catch (Exception e) {
             throw e;

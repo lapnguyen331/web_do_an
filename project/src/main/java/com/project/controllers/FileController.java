@@ -14,12 +14,12 @@ public class FileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String requestedFile = request.getPathInfo();
-        System.out.println("requestedFile = "+requestedFile);
+//        System.out.println("requestedFile = "+requestedFile);
         File file = new File(request.getServletContext().getRealPath(requestedFile));
         if (!file.exists()) {
             String file_folder = prop.getProperty("external.path");
             String path = file_folder+requestedFile;
-            System.out.println("path = "+path);
+//            System.out.println("path = "+path);
             file = new File(path);
             if (!file.exists()) return;
             // Get content type by filename.
@@ -27,7 +27,7 @@ public class FileController extends HttpServlet {
             if (contentType == null) {
                 contentType = "application/octet-stream";
             }
-            System.out.println("contentType = "+contentType);
+//            System.out.println("contentType = "+contentType);
             // Init servlet response.
             response.reset();
             response.setBufferSize(DEFAULT_BUFFER_SIZE);

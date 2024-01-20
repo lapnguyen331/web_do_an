@@ -190,6 +190,10 @@ public class Product implements Serializable {
         return r;
     }
 
+    public float getDiscountPrice() {
+        return this.price / 100 * (100 - this.discount.getDiscountPercent());
+    }
+
     @Override
     public String toString() {
         return "Product{" +

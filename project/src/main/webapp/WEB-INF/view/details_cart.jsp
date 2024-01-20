@@ -134,6 +134,11 @@
                         </tbody>
                     </table>
                 </div>
+                <c:if test="${not empty requestScope.result}">
+                    <div class="pt-2 col-md-12 fw-semibold text-info text-center">
+                            ${requestScope.result}
+                    </div>
+                </c:if>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -159,12 +164,12 @@
                             <div class="d-flex gap-3 justify-content-center">
                                 <div class="bg-gold bg-sharp">
                                     <div class="title-primary">
-                                        <a href="/template/home.html" class="continue-buy">Tiếp tục mua sắm</a>
+                                        <a href="${pageContext.request.contextPath}/home" class="continue-buy">Tiếp tục mua sắm</a>
                                     </div>
                                 </div>
                                 <div class="bg-gold bg-sharp">
                                     <div class="title-primary">
-                                        <a class="checkout" href="/template/checkout.html">Hoàn tất đơn hàng</a>
+                                        <a class="checkout" href="${pageContext.request.contextPath}/checkout">Hoàn tất đơn hàng</a>
                                     </div>
                                 </div>
                             </div>
