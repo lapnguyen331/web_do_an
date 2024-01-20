@@ -53,11 +53,7 @@ public class ProductService extends AbstractService {
         return productDAO.update(p);
     }
 
-    public static void main(String[] args) throws Exception {
-        var service = new ProductService();
-        var product = service.getById(238);
-        product.setName("Tuấn");
-        product.setQuantity(0);
-        System.out.println(service.updateProduct(product));;
+    public List<Product> getAllProductOffCate(Category c){
+        return productDAO.selectALLProductsOfCate_shortDetails(c);
     }
 }

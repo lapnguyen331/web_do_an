@@ -19,4 +19,5 @@ public interface IProductDAO {
     List<Product> searchProduct(String name, int categoryId, String brand, String minPrice, String maxPrice);
     int insert(Product p);
     int update(Product p);
+    List<Product> selectALLProductsOfCate_shortDetails(Category category) ;
 }

@@ -104,6 +104,22 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
                 },
                 new ProductRowMapper("p"), new ImageRowMapper("t"), new DiscountRowMapper("d"));
     }
+    @Override
+    public List<Product> selectALLProductsOfCate_shortDetails(Category category) {
+        String SELECT = "SELECT <columns> FROM <table1> p" +
+                " LEFT JOIN <table2> t ON p.thumbnail = t.id" +
+                " LEFT JOIN <table3> d ON p.discountId = d.id" +
+                " WHERE p.categoryId = :c.id" ;
+        return query(SELECT, Product.class,
+                (query) -> {
+                    query.define("table1", "products")
+                            .define("table2", "images")
+                            .define("table3", "discounts")
+                            .defineList("columns", "p.id, p.name, p.price, p.description, p.specification,t.path, d.discountPercent")
+                            .bindBean("c", category);
+                },
+                new ProductRowMapper("p"), new ImageRowMapper("t"), new DiscountRowMapper("d"));
+    }
 
     @Override
     public List<String> selectAllBrands() {
