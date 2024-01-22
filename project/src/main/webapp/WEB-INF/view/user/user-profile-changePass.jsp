@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,12 +31,12 @@
                 <div class="user-profile">
                     <a class="user-image" href="user-profile.jsp"></a> <!--NOTE : Link tới hồ sơ user-->
                     <div class="user-avatar">
-                        <img class="avrtar-img" src="${pageContext.request.contextPath}/inventory/images/user-profile/use-avatar-header-default.jpg" alt="">
+                        <img class="avrtar-img" src="${pageContext.request.contextPath}/${userifor.avatar.path}" alt="">
                     </div>
                     <div class="user-account-name">
-                        <div class="account-name">User1</div>
+                        <div class="account-name">${userifor.username}</div>
                         <div>
-                            <a class="user-profile-modify" href="user-profile-edit.jsp">  <!--NOTE: thiếu link tới profile của user-->
+                            <a class="user-profile-modify" href="${pageContext.request.contextPath}/user-profile-edit">  <!--NOTE: thiếu link tới profile của user-->
                                 <i class="fa-solid fa-pen"></i>
                                 Sửa Hồ Sơ
                             </a>
@@ -54,13 +55,13 @@
                         </div>
                         <div class="startdust-dropdown-item-body">
                             <div class="slitter">
-                                <a class="body-down" href="user-profile.jsp">
+                                <a class="body-down" href="${pageContext.request.contextPath}/user-profile">
                                     <span>Hồ sơ</span>
                                 </a> <!--NOTE : link tới prof-->
-                                <a class="body-down" href="user-profile-changePass.html">
+                                <a class="body-down" href="${pageContext.request.contextPath}/user-profile-changePass">
                                     <span>Đổi mật khẩu</span>
                                 </a> 
-                                <a class="body-down" href="user-profile-notification-modify.jsp">
+                                <a class="body-down" href="${pageContext.request.contextPath}/user-profile-notification-modify">
                                     <span>Cài đặt thông báo</span>
                                 </a> 
 
@@ -71,7 +72,7 @@
                      <!-- Đơn mua -->
                      <div class="startdust-dropdown--open">
                         <div class="startdust-dropdown-item-header">
-                            <a class="stardust-link" href="user-profile-order.jsp">
+                            <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-order">
                                 <img src="${pageContext.request.contextPath}/inventory/images/user-profile/donmua-icon.png" alt="">
                                 <span>Đơn Mua</span>
                             </a> <!--NOTE: link tới profile-->
@@ -80,7 +81,7 @@
                      <!-- thông báo-->
                      <div class="startdust-dropdown--open">
                         <div class="startdust-dropdown-item-header">
-                            <a class="stardust-link" href="user-profile-notification.jsp">
+                            <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-notification">
                                 <img src="${pageContext.request.contextPath}/inventory/images/user-profile/thongbao-icon.png" alt="">
                                 <span>Thông Báo</span>
                             </a> <!--NOTE: link tới profile-->
@@ -89,7 +90,7 @@
                        <!-- Khuyến mãi-->
                        <div class="startdust-dropdown--open">
                         <div class="startdust-dropdown-item-header">
-                            <a class="stardust-link" href="user-profile-discount.html">
+                            <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-discount">
                                 <img src="${pageContext.request.contextPath}/inventory/images/user-profile/voucher-icon.png" alt="">
                                 <span>Khuyến Mại</span>
                             </a> <!--NOTE: link tới profile-->
@@ -106,24 +107,26 @@
                             <div>Thay đổi mật khẩu bảo mật tài khoản</div>
                         </div>
                         <!-- content -->
+                        <c:if test="${not empty requestScope.message}">
+                            <h3 style="color: red">${requestScope.message}</h3>
+                        </c:if>
+                        <form action="user-profile-changePass" method="post">
                         <div class="user-profile-change-pass">
                             <div class="user-profile-change-pass-wrapper">
                                 <div class="user-prfile-change-pass-label-left">
                                     <label for="#em">Tên đăng nhập</label>
                                     <label for="#e">Mật khẩu</label>
-                                    <label for="#e">Xác minh Email</label>
                                 </div>
                                 <div class="user-profile-change-pass-input-right">
-                                    <input type="text" >
-                                    <input type="password">
-                                    <input type="submit" value="Xác minh">
-                                   
+                                        <input type="text" name="cusername" >
+                                        <input type="password" name="cpassword">
                                 </div>
                             </div>
                             <div class="user-profile-submit-pass">
                                 <input type="submit" value="Lưu">
                             </div>
                         </div>
+                        </form>
                     </div>
                 </section>
             </div>

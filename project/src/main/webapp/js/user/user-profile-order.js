@@ -27,42 +27,55 @@ const categories = {
     'cao_hong_sam' : 'Cao Hồng Sâm'
 }
 const data_tables = new DataTable('#table_orders', {
-    ajax: '/template/user-profile-orders.txt',
+    ajax: `${window.context}/api/user-profile-orderapi`,
     language: translate,
     dom: 'tip',
-    createdRow: function( row, data, dataIndex ) {
-            $(row).addClass('abc')
-    },
+
+    // createdRow1: function (row,data,dataIndex){
+    //
+    // },
     columns: [
         {
             data: 'id'
         },
+
         {
-            data: 'customer'
-        },
-        {
-            data: 'price',
+            data: 'totalprice',
             render: function(data) {
                 return new Intl.NumberFormat('en-US').format(data)
             }
         },
         {
-            data: 'phone'
-        },
-        {
-            data: 'email'
-        },
-        {
             data: 'status',
             render: function(data) {
-                return `<span class="badge badge-warning">${data}</span>`
+
+                var em;
+                switch (data) {
+                    case 1:
+                        em="đã được giao";
+                        break;
+                    case 2:
+                        em="đang giao";
+                        break;
+                    case 3:
+                        em="đang trả về";
+                        break;
+                    case 0:
+                        em="đã bị hủy";
+                        break;
+                }
+                return `<span class="statuscom${data} badge badge-warning">${em}</span>`
             }
         },
         {
             data: 'create'
         },
+
        
     ],
+    createdRow: function( row, data, dataIndex ) {
+        $(row).addClass('abc');
+    },
 });
 
 
@@ -71,7 +84,38 @@ const data_tables = new DataTable('#table_orders', {
     $('#table_tabs').on('click', 'li', function() {
         const lis = $(this).siblings().filter('li');
         $(lis).removeClass('active');
-        $(this).addClass('active')
+        $(this).addClass('active');
+        var firstClass = $(this).attr('class').replace(/^(\S*).*/, '$1');
+        var all = $(".abc").map(function() {
+            this.style.display='none'; //hide element rồi show lại
+        }).get();
+
+
+        switch(firstClass) { //show lại
+            case 'order-complete':
+                document.querySelector(".statuscom1").parentNode.parentNode.style.display=null;
+                break;
+            case 'order-pending':
+                console.log(2);
+                document.querySelector(".statuscom2").parentNode.parentNode.style.display=null;
+
+                break;
+            case 'order-return':
+                document.querySelector(".statuscom3").parentNode.parentNode.style.display=null;
+                break;
+            case 'order-cancel':
+                console.log(4);
+                document.querySelector(".statuscom0").parentNode.parentNode.style.display=null;
+                break;
+            default:
+                console.log(0);
+                document.querySelector(".statuscom1").parentNode.parentNode.style.display=null;
+                document.querySelector(".statuscom2").parentNode.parentNode.style.display=null;
+                document.querySelector(".statuscom3").parentNode.parentNode.style.display=null;
+                document.querySelector(".statuscom0").parentNode.parentNode.style.display=null;
+            break;
+
+        }
     })
     
     $('#date_picker').daterangepicker({
@@ -100,7 +144,22 @@ const data_tables = new DataTable('#table_orders', {
     $('.select-clear-btn').css({display: 'none'});
 
 })();
+//search nhiều dòng
+// $('#intrestTable1').DataTable( {});
+// oTable.column(5).search("caod|bullet",true,false).draw();
+
+
+
 // direct order-detail
 $('#table_orders').on('click', 'tbody tr', function() {
-        
+        var orderid =$(this).children('.sorting_1').text(); //string
+    $(this).attr("href",`${window.context}/user-order-detail?${orderid}`);
+    const protocol = window.location.protocol;
+    const host = window.location.host;
+    const pathname = window.location.pathname;
+    const search = window.location.search;
+    const hash = window.location.hash;
+    window.location.replace(protocol+"//"+host+pathname+"-detail"+`?orderdes=${orderid}`);
+
+        // console.log( orderid);
 })

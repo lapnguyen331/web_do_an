@@ -33,15 +33,14 @@
             <!--NOTE : Link tới hồ sơ user-->
             <div class="user-avatar">
               <img
-                class="avrtar-img"
-                src="${pageContext.request.contextPath}/inventory/images/user-profile/use-avatar-header-default.jpg"
+                class="avrtar-img" src="${pageContext.request.contextPath}/${userifor.avatar.path}"
                 alt=""
               />
             </div>
             <div class="user-account-name">
-              <div class="account-name">User1</div>
+              <div class="account-name">${userifor.username}</div>
               <div>
-                <a class="user-profile-modify" href="user-profile-edit.jsp">
+                <a class="user-profile-modify" href="${pageContext.request.contextPath}/user-profile-edit">
                   <!--NOTE: thiếu link tới profile của user-->
                   <i class="fa-solid fa-pen"></i>
                   Sửa Hồ Sơ
@@ -60,13 +59,13 @@
                 </div>
                 <div class="startdust-dropdown-item-body">
                     <div class="slitter">
-                        <a class="body-down" href="user-profile.jsp">
+                        <a class="body-down" href="${pageContext.request.contextPath}/user-profile">
                             <span>Hồ sơ</span>
                         </a> <!--NOTE : link tới prof-->
-                        <a class="body-down" href="user-profile-changePass.jsp">
+                        <a class="body-down" href="${pageContext.request.contextPath}/user-profile-changePass">
                             <span>Đổi mật khẩu</span>
                         </a> 
-                        <a class="body-down" href="user-profile-notification-modify.jsp">
+                        <a class="body-down" href="${pageContext.request.contextPath}/user-profile-notification-modify">
                             <span>Cài đặt thông báo</span>
                         </a> 
 
@@ -77,7 +76,7 @@
              <!-- Đơn mua -->
              <div class="startdust-dropdown--open">
                 <div class="startdust-dropdown-item-header">
-                    <a class="stardust-link" href="user-profile-order.html">
+                    <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-order">
                         <img src="${pageContext.request.contextPath}/inventory/images/user-profile/donmua-icon.png" alt="">
                         <span>Đơn Mua</span>
                     </a> <!--NOTE: link tới profile-->
@@ -86,7 +85,7 @@
              <!-- thông báo-->
              <div class="startdust-dropdown--open">
                 <div class="startdust-dropdown-item-header">
-                    <a class="stardust-link" href="user-profile-notification.jsp">
+                    <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-notification">
                         <img src="${pageContext.request.contextPath}/inventory/images/user-profile/thongbao-icon.png" alt="">
                         <span>Thông Báo</span>
                     </a> <!--NOTE: link tới profile-->
@@ -143,23 +142,23 @@
                           <div class="col-md-12">
                               <nav id="table_tabs">
                                   <ul>
-                                      <li class="active">
+                                      <li class="order-all1 active">
                                           <i class="fa-solid fa-warehouse"></i>
-                                          <span>Tất cả đơn</span>
+                                          <span >Tất cả đơn</span>
                                       </li>
-                                      <li>
+                                      <li class="order-complete">
                                           <i class="fa-regular fa-circle-check"></i>
-                                          <span>Đã được giao</span>
+                                          <span >Đã được giao</span>
                                       </li>
-                                      <li>
+                                      <li class="order-pending">
                                           <i class="fa-solid fa-truck-fast"></i>
-                                          <span>Đang giao</span>
+                                          <span >Đang giao</span>
                                       </li>
-                                      <li>
+                                      <li class="order-return">
                                           <i class="fa-solid fa-right-left"></i>
-                                          <span>Đang trả về</span>
+                                          <span class="order-return">Đang trả về</span>
                                       </li>
-                                      <li>
+                                      <li class="order-cancel">
                                           <i class="fa-regular fa-circle-xmark"></i>
                                           <span>Đã bị hủy</span>
                                       </li>
@@ -173,10 +172,10 @@
                                   <thead>
                                       <tr>
                                           <th>Mã đơn hàng</th>
-                                          <th>Khách hàng</th>
+<%--                                          <th>Khách hàng</th>--%>
                                           <th>Tổng thu</th>
-                                          <th>SĐT</th>
-                                          <th>Email</th>
+<%--                                          <th>SĐT</th>--%>
+<%--                                          <th>Email</th>--%>
                                           <th>Tình trạng</th>
                                           <th>Ngày tạo</th>
                                       </tr>
@@ -292,14 +291,14 @@
       src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0"
       nonce="Qoebijhj"
     ></script>
-    <script src="js/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
     <script src="libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
     <!-- for this page -->
-    <script src="libs/DataTables/datatables.min.js"></script>
-    <script src="libs/daterangepicker-master/moment.min.js"></script>
-    <script src="libs/daterangepicker-master/daterangepicker.js"></script>
-    <script src="js/user/user-profile.js"></script>
-    <script src="js/user/user-profile-order.js"></script>
-    <script src="js/user/user-profile-order-startRating.js"></script>
+    <script src="${pageContext.request.contextPath}/libs/DataTables/datatables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/libs/daterangepicker-master/moment.min.js"></script>
+    <script src="${pageContext.request.contextPath}/libs/daterangepicker-master/daterangepicker.js"></script>
+    <script src="${pageContext.request.contextPath}/js/user/user-profile.js"></script>
+    <script src="${pageContext.request.contextPath}/js/user/user-profile-order.js"></script>
+    <script src="${pageContext.request.contextPath}/js/user/user-profile-order-startRating.js"></script>
   </body>
 </html>

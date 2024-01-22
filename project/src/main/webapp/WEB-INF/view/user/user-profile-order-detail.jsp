@@ -5,9 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Thư viện ngoài (Luôn để đầu tiên) -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheet/fontawesome.min.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/libs/mdb-bootstrap-5/css/mdb.min.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheet/all.min.css" />
+<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheet/fontawesome.min.css" />--%>
+<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/libs/mdb-bootstrap-5/css/mdb.min.css" />--%>
+<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheet/all.min.css" />--%>
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheet/fontawesome.min.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/libs/mdb-bootstrap-5-pro/css/mdb.min.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheet/all.min.css">
 
     <!-- Style của project -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheet/all.min.css" />
@@ -16,9 +19,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-footer.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/button-title.css" />
     <!-- this page -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user-profile/user-profile.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user-profile/user-profile-order-detail.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user-profile/user-profile-order-popup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user-profile.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user-profile-order-detail.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user-profile-order-popup.css">
     <title>Slider</title>
   </head>
   <body>
@@ -316,7 +319,6 @@
 <jsp:include page="/WEB-INF/view/shared/footer.jsp" />
 <%--footer--%>
 <div id="fb-root"></div>
-    <script src="js/user-profile.js"></script>
     <script
       async
       defer
@@ -324,11 +326,14 @@
       src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0"
       nonce="Qoebijhj"
     ></script>
-    <script src="js/jquery.js"></script>
-    <script src="libs/mdb-bootstrap-5/js/mdb.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<%--    <script src="${pageContext.request.contextPath}/libs/mdb-bootstrap-5/js/mdb.min.js"></script>--%>
+    <script src="${pageContext.request.contextPath}/libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
+
     <!-- for this page -->
-    <script src="js/user-profile/user-profile.js"></script>
-    <script src="js/user-profile/user-profile-order.js"></script>
-    <script src="js/user-profile/user-profile-order-startRating.js"></script>
+    <script src="${pageContext.request.contextPath}/js/user/user-profile.js"></script>
+<%--    <script src="${pageContext.request.contextPath}/js/user/user-profile-order.js"></script>--%>
+    <script src="${pageContext.request.contextPath}/js/user/user-profile-order-startRating.js"></script>
+
   </body>
 </html>

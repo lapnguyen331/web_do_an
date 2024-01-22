@@ -30,12 +30,12 @@
                 <div class="user-profile">
                     <a class="user-image" href="user-profile.jsp"></a> <!--NOTE : Link tới hồ sơ user-->
                     <div class="user-avatar">
-                        <img class="avrtar-img" src="${pageContext.request.contextPath}/inventory/images/user-profile/use-avatar-header-default.jpg" alt="">
+                        <img class="avrtar-img" src="${pageContext.request.contextPath}/${userifor.avatar.path}" alt="">
                     </div>
                     <div class="user-account-name">
-                        <div class="account-name">User1</div>
+                        <div class="account-name">Xin chào ${userifor.lastName} ${userifor.firstName} !!</div>
                         <div>
-                            <a class="user-profile-modify" href="user-profile-edit.jsp">  <!--NOTE: thiếu link tới profile của user-->
+                            <a class="user-profile-modify" href="${pageContext.request.contextPath}/user-profile-edit">  <!--NOTE: thiếu link tới profile của user-->
                                 <i class="fa-solid fa-pen"></i>
                                 Sửa Hồ Sơ
                             </a>
@@ -54,13 +54,13 @@
                         </div>
                         <div class="startdust-dropdown-item-body">
                             <div class="slitter">
-                                <a class="body-down" href="user-profile.jsp">
+                                <a class="body-down" href="${pageContext.request.contextPath}/user-profile">
                                     <span>Hồ sơ</span>
                                 </a> <!--NOTE : link tới prof-->
-                                <a class="body-down" href="user-profile-changePass.jsp">
+                                <a class="body-down" href="${pageContext.request.contextPath}/user-profile-changePass">
                                     <span>Đổi mật khẩu</span>
                                 </a> 
-                                <a class="body-down" href="user-profile-notification-modify.jsp">
+                                <a class="body-down" href="${pageContext.request.contextPath}/user-profile-notification-modify">
                                     <span>Cài đặt thông báo</span>
                                 </a> 
 
@@ -70,7 +70,7 @@
                      <!-- Đơn mua -->
                      <div class="startdust-dropdown--open">
                         <div class="startdust-dropdown-item-header">
-                            <a class="stardust-link" href="user-profile-order.jsp">
+                            <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-order">
                                 <img src="${pageContext.request.contextPath}/inventory/images/user-profile/donmua-icon.png" alt="">
                                 <span>Đơn Mua</span>
                             </a> <!--NOTE: link tới profile-->
@@ -79,7 +79,7 @@
                      <!-- thông báo-->
                      <div class="startdust-dropdown--open">
                         <div class="startdust-dropdown-item-header">
-                            <a class="stardust-link" href="user-profile-notification.jsp">
+                            <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-notification">
                                 <img src="${pageContext.request.contextPath}/inventory/images/user-profile/thongbao-icon.png" alt="">
                                 <span>Thông Báo</span>
                             </a> <!--NOTE: link tới profile-->
@@ -107,7 +107,7 @@
                                                     <label>Tên đăng nhập</label>
                                                 </td>
                                                 <td class="content-space">
-                                                    <div class="detail-content">User 1</div>
+                                                    <div class="detail-content">${userifor.username}</div>
                                                 </td>
                                             </tr>
                                             <!-- tên Kh -->
@@ -116,9 +116,7 @@
                                                     <label>Tên Khách Hàng</label>
                                                 </td>
                                                 <td class="content-space">
-                                                    <div class="detail-content">
-                                                       Nguyễn Hoàng Lập
-                                                    </div>
+                                                    <div class="detail-content">${userifor['getFullName'](userifor.lastName,userifor.firstName)}</div>
                                                 </td>
                                             </tr>
                                             <!-- email -->
@@ -127,7 +125,7 @@
                                                     <label>Email</label>
                                                 </td>
                                                 <td class="content-space">
-                                                    <div class="detail-content">hau**************.com
+                                                    <div class="detail-content">${userifor.email == null?"":userifor['hiddenInfor'](userifor.email)}
                                                     </div>
                                                 </td>
                                             </tr>
@@ -137,7 +135,7 @@
                                                     <label>Số điện thoại</label>
                                                 </td>
                                                 <td class="content-space">
-                                                    <div class="detail-content">0************27
+                                                    <div class="detail-content">${userifor['hiddenInfor'](userifor.phone)}
                                                     </div>
                                                 </td>
                                             </tr>
@@ -148,7 +146,7 @@
                                                 </td>
                                                 <td class="content-space">
                                                     <div class="detail-content">
-                                                    Nam
+                                                    ${userifor.gender == true ?"Nam":"Nữ"}
                                                     </div>
                                                 </td>
                                             </tr>
@@ -157,9 +155,7 @@
                                                 <td class="label">
                                                     <label>Ngày sinh</label>
                                                 </td>
-                                                <td class="content-space">
-                                                   20/03/2023
-                                                </td>
+                                                <td class="content-space">${userifor.birthDate == null ? "":userifor['toDateString'](userifor.birthDate)}</td>
                                             </tr>
                                             <!-- Nút lưu -->
                                             <tr>
@@ -173,7 +169,7 @@
                                 <div class="profile-right-content">
                                     <div class="avartar-wrapper">
                                         <div class="profile-image" >
-                                            <img src="${pageContext.request.contextPath}/inventory/images/user-profile/use-avatar-header-default.jpg" alt="">
+                                            <img src="${pageContext.request.contextPath}/${userifor.avatar.path}" alt="">
                                         </div>
                                     </div>
                                    

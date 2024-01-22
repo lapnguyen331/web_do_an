@@ -45,13 +45,13 @@
                                         <div class="shadow">
                                             <ul>
                                                 <li>
-                                                    <a href="user-profile.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <a href="${pageContext.request.contextPath}/user-profile" class="d-flex text-decoration-none align-items-baseline gap-2">
                                                         <i class="fa-solid fa-circle-user"></i>
                                                         <span>Trang cá nhân</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="user-profile-order.html" class="d-flex text-decoration-none align-items-baseline gap-2">
+                                                    <a href="${pageContext.request.contextPath}/user-profile-order" class="d-flex text-decoration-none align-items-baseline gap-2">
                                                         <i class="fa-solid fa-clipboard-list"></i>
                                                         <span>Đơn mua</span>
                                                     </a>
@@ -78,7 +78,7 @@
                 <div class="search-input">
                     <div class="search-input-wrapper">
                         <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
-                        <a class="btn-search" href="${pageContext.request.contextPath}/search">Tìm kiếm</a> <!--Note link tới trang tìm kiếm-->
+                        <a class="btn-search" href="search">Tìm kiếm</a> <!--Note link tới trang tìm kiếm-->
                     </div>
                     <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
                 </div>

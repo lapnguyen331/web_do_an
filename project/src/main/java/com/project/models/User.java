@@ -175,7 +175,21 @@ public class User {
     public void setUpdateAt(LocalDateTime updateAt) {
         this.updateAt = updateAt;
     }
-
+    //ẩn bớt thông tin mail + phone
+    public String hiddenInfor(String in){
+        char[] em = in.toCharArray();
+        for (int i = 3; i < em.length -3; i++) {
+            em[i]='*';
+        }
+        return String.valueOf(em);
+    }
+    public String toDateString(Date date){
+        return String.valueOf(date.getDay()) + String.valueOf(date.getMonth()) + String.valueOf(date.getYear());
+    }
+    public String getFullName(String last, String first){
+        if(last.isEmpty() && first.isEmpty()) return "";
+        return last+first;
+    }
     @Override
     public String toString() {
         return "User{" +
@@ -205,6 +219,7 @@ public class User {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        System.out.println(User.hashPassword("0919"));;
+//        System.out.println(User.hashPassword("0919"));
+//        System.out.println(new User().hiddenInfor("haudau124@gmail.com"));
     }
 }

@@ -1,6 +1,11 @@
 package com.project.models;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Formatter;
 import java.util.List;
 
 public class Order {
@@ -106,6 +111,10 @@ public class Order {
 
     public void setUpdateAt(LocalDateTime updateAt) {
         this.updateAt = updateAt;
+    }
+    public String  getDateOnly(LocalDateTime in){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("DD/MM/YYYY");
+        return in.format(formatter);
     }
 
     @Override

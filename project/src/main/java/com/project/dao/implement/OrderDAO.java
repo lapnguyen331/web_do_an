@@ -2,9 +2,11 @@ package com.project.dao.implement;
 
 import com.project.dao.AbstractDAO;
 import com.project.dao.IOrderDAO;
+import com.project.mappers.OrderItemRowMapper;
 import com.project.mappers.OrderRowMapper;
 import com.project.mappers.UserRowMapper;
 import com.project.models.Order;
+import com.project.models.User;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.statement.Update;
 
@@ -83,5 +85,16 @@ public class OrderDAO extends AbstractDAO<Order> implements IOrderDAO {
                     .define("values", String.join(", ", values))
                     .bindBean("order", order);
         }));
+    }
+    @Override
+    public List<Order> getAllUserOrder(User user) {
+        final String SELECT = "SELECT <columns> FROM <table1> od" +
+                " left join <table3> c on od.userId = c.id where c.id = <col1> ";
+        return query(SELECT, Order.class, query -> {
+            query.define("table1", "orders")
+                    .define("table3","users")
+                    .define("col1",user.getId())
+                    .define("columns", "od.*, c.id,c.username");
+        }, new OrderRowMapper("od"), new UserRowMapper("c"));
     }
 }

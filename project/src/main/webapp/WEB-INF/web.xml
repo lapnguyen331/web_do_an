@@ -3,60 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
-    <!--    cho user profile-->
-    <servlet>
-        <servlet-name>UserProfileServlet</servlet-name>
-        <jsp-file>/WEB-INF/view/user/user-profile.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UserProfileServlet</servlet-name>
-        <url-pattern>/user-profile</url-pattern>
-    </servlet-mapping>
-    <!--    cho user profile change pass-->
-    <servlet>
-        <servlet-name>UserProfileChangePassServlet</servlet-name>
-        <jsp-file>/WEB-INF/view/user/user-profile-changePass.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UserProfileChangePassServlet</servlet-name>
-        <url-pattern>/user-profile-changePass</url-pattern>
-    </servlet-mapping>
-    <!--    cho user profile change pass-->
-    <servlet>
-        <servlet-name>UserProfileEditServlet</servlet-name>
-        <jsp-file>/WEB-INF/view/user/user-profile-edit.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UserProfileEditServlet</servlet-name>
-        <url-pattern>/user-profile-edit</url-pattern>
-    </servlet-mapping>
-    <!--    cho user profile notification-->
-    <servlet>
-        <servlet-name>UserProfileNotiServlet</servlet-name>
-        <jsp-file>/WEB-INF/view/user/user-profile-notification.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UserProfileNotiServlet</servlet-name>
-        <url-pattern>/user-profile-notification</url-pattern>
-    </servlet-mapping>
-    <!--    cho user profile notification-modify-->
-    <servlet>
-        <servlet-name>UserProfileNotiMoServlet</servlet-name>
-        <jsp-file>/WEB-INF/view/user/user-profile-notification-modify.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UserProfileNotiMoServlet</servlet-name>
-        <url-pattern>/user-profile-notification-modify</url-pattern>
-    </servlet-mapping>
-    <!--    cho user profile order-->
-    <servlet>
-        <servlet-name>UserProfileOrderServlet</servlet-name>
-        <jsp-file>/WEB-INF/view/user/user-profile-order.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UserProfileOrderServlet</servlet-name>
-        <url-pattern>/user-profile-order</url-pattern>
-    </servlet-mapping>
+
+
 <!--    signup-->
     <servlet>
         <servlet-name>Signup</servlet-name>
