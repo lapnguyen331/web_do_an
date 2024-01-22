@@ -3,17 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
-
-
-<!--    signup-->
-    <servlet>
-        <servlet-name>Signup</servlet-name>
-        <jsp-file>/WEB-INF/view/signup.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Signup</servlet-name>
-        <url-pattern>/signup</url-pattern>
-    </servlet-mapping>
     <context-param>
         <param-name>AUTHENTICATION_PROPERTIES_FILE_LOCATION</param-name>
         <param-value>/WEB-INF/authentication.properties</param-value>

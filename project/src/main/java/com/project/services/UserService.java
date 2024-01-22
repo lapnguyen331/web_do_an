@@ -4,6 +4,7 @@ import com.project.dao.IUserDAO;
 import com.project.dao.implement.FactoryDAO;
 import com.project.dao.implement.UserDAO;
 import com.project.db.JDBIConnector;
+import com.project.exceptions.DuplicateInfoUserException;
 import com.project.models.User;
 import org.jdbi.v3.core.Handle;
 
@@ -35,6 +36,12 @@ public class UserService extends AbstractService {
     }
     public int changePass(int id,String username,String password){
         return userDAO.updateAccount(id,username,password);
+    }
+    public int insert(User user) throws DuplicateInfoUserException {
+        String username = user.getUsername();
+        if (userDAO.getLoginInfo(username) != null)
+            throw new DuplicateInfoUserException("Đã tồn tại username này trong hệ thống!");
+        return userDAO.insert(user);
     }
     public static void main(String[] args) {
         var service = new UserService();

@@ -6,8 +6,9 @@ import org.json.JSONObject;
 import java.util.List;
 
 public interface IUserDAO {
-    public List<User> getAll();
-    public User getLoginInfo(String username);
+    List<User> getAll();
+    User getLoginInfo(String username);
     User getInforUserById(int id);
+    int insert(User user);
     int updateAccount(int id,String username,String password );
 }

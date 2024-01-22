@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.*;
 
-@WebServlet(name = "SearchServlet", value = "/search")
+@WebServlet(name = "FilterServlet", urlPatterns = {"/search"})
 public class SearchServlet extends HttpServlet {
     private ProductService productService;
 

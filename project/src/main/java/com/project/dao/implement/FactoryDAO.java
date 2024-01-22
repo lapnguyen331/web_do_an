@@ -12,7 +12,8 @@ public abstract class FactoryDAO {
     public static final Class<IUserDAO> DAO_USER = IUserDAO.class;
     public static final Class<IOrderDAO> DAO_ORDER = IOrderDAO.class;
     public static final Class<IOrderItemDAO> DAO_ORDER_ITEM = IOrderItemDAO.class;
-    public static <T> T getDAO(Handle handle, Class<?> clazz) {
+    public static final Class<IRatingDAO> DAO_RATING = IRatingDAO.class;
+    public static <T> T getDAO(Handle handle, Class<T> clazz) {
         if (clazz == DAO_PRODUCT) return (T) new ProductDAO(handle);
         else if (clazz == DAO_IMAGE) return (T) new ImageDAO(handle);
         else if (clazz == DAO_BLOG) return (T) new BlogDAO(handle);
@@ -20,6 +21,7 @@ public abstract class FactoryDAO {
         else if (clazz == DAO_USER) return (T) new UserDAO(handle);
         else if (clazz == DAO_ORDER) return (T) new OrderDAO(handle);
         else if (clazz == DAO_ORDER_ITEM) return (T) new OrderItemDAO(handle);
+        else if (clazz == DAO_RATING) return (T) new RatingDAO(handle);
         return null;
     }
 }

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -150,7 +151,7 @@
                 <div class="tabs">
                     <div class="tablinks tablinks-is-active" data-tab-target="#tab-product-content">Mô tả sản phẩm</div>
                     <div class="tablinks" data-tab-target="#tab-product-guide">Địa chỉ mua hàng</div>
-                    <div class="tablinks" data-tab-target="#tab-product-review">Đánh giá sản phẩm (3)</div>
+                    <div class="tablinks" data-tab-target="#tab-product-review">Đánh giá sản phẩm (${fn:length(requestScope.comments)})</div>
                 </div>
             </div>
             <div class="col-md-12">
@@ -217,81 +218,67 @@
                             <div class="row">
                                 <div class="col-7">
                                     <div class="review-comments">
-                                        <h4>4 đánh giá cho Cao hồng sâm Hong Seon Gold hộp 2 lọ 250g</h4>
+                                        <h4>Đánh giá cho ${requestScope.product.name}</h4>
                                         <div class="comments">
-                                            <div class="comment-field">
-                                                <p class="comment-author"><b>Lê Hoàng</b> - 19/10/2023</p>
-                                                <div class="rating-stars">
-                                                    <span class="rating-score">4.0</span>
-                                                    <div class="rating-empty">
-                                                        <span></span>
-                                                        <div class="rating-fill" style="width: 80%;"></div>
+                                            <c:if test="${not empty requestScope.comments}">
+                                                <c:forEach var="rating" items="${requestScope.comments}">
+                                                    <div class="comment-field">
+                                                        <p class="comment-author"><b>${rating.user.firstName} ${rating.user.lastName}</b> - ${rating['dateTimeToString'](rating.updateAt)}</p>
+                                                        <div class="rating-stars">
+                                                            <span class="rating-score">${rating.star}</span>
+                                                            <div class="rating-empty">
+                                                                <span></span>
+                                                                <div class="rating-fill" style="width: ${rating.star * 20}%;"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="comment-content">"${rating.content}"</p>
                                                     </div>
+                                                </c:forEach>
+                                            </c:if>
+                                            <c:if test="${empty requestScope.comments}">
+                                                <div class="fw-semibold text-center text-success">
+                                                    Sản phẩm này chưa có đánh giá nào...
                                                 </div>
-                                                <p class="comment-content">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita culpa quae reprehenderit velit accusamus nemo soluta obcaecati rerum, id totam, dolor nisi voluptatem excepturi earum inventore cum mollitia corrupti! Exercitationem!"</p>
-                                            </div>
-                                            <div class="comment-field">
-                                                <p class="comment-author"><b>Bình quang</b> - 19/10/2023</p>
-                                                <div class="rating-stars">
-                                                    <span class="rating-score">5.0</span>
-                                                    <div class="rating-empty">
-                                                        <span></span>
-                                                        <div class="rating-fill" style="width: 100%;"></div>
-                                                    </div>
-                                                </div>
-                                                <p class="comment-content">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita culpa quae reprehenderit velit accusamus nemo soluta obcaecati rerum, id totam, dolor nisi voluptatem excepturi earum inventore cum mollitia corrupti! Exercitationem!"</p>
-                                            </div>
-                                            <div class="comment-field">
-                                                <p class="comment-author"><b>Trần Anh Sơn</b> - 19/10/2023</p>
-                                                <div class="rating-stars">
-                                                    <span class="rating-score">5.0</span>
-                                                    <div class="rating-empty">
-                                                        <span></span>
-                                                        <div class="rating-fill" style="width: 100%;"></div>
-                                                    </div>
-                                                </div>
-                                                <p class="comment-content">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita culpa quae reprehenderit velit accusamus nemo soluta obcaecati rerum, id totam, dolor nisi voluptatem excepturi earum inventore cum mollitia corrupti! Exercitationem!"</p>
-                                            </div>
-                                            <div class="comment-field">
-                                                <p class="comment-author"><b>Phạm Hoàng Việt</b> - 18/10/2023</p>
-                                                <div class="rating-stars">
-                                                    <span class="rating-score">3.0</span>
-                                                    <div class="rating-empty">
-                                                        <span></span>
-                                                        <div class="rating-fill" style="width: 60%;"></div>
-                                                    </div>
-                                                </div>
-                                                <p class="comment-content">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita culpa quae reprehenderit velit accusamus nemo soluta obcaecati rerum, id totam, dolor nisi voluptatem excepturi earum inventore cum mollitia corrupti! Exercitationem!"</p>
-                                            </div>
+                                            </c:if>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-5 bg-gold bg-sharp-5 align-self-start">
-                                    <form action="" class="review-product-form">
-                                        <div class="form-title">Thêm đánh giá sản phẩm</div>
-                                        <p class="title-field">Đánh giá của bạn *</p>
-                                        <div class="rating-field">
-                                            <input type="radio" id="star5" name="rating" value="5" />
-                                            <label class = "radio-star" for="star5" title="Awesome - 5 stars"></label>
+                                    <c:if test="${empty sessionScope.user}">
+                                        <form action="rating" class="review-product-form" method="post">
+                                            <div class="text-center txt-danger fw-semibold">
+                                                Xin lỗi, bạn cần <a href="${pageContext.request.contextPath}/login">Đăng nhập</a> để đánh giá sản phẩm...
+                                            </div>
+                                        </form>
+                                    </c:if>
+                                    <c:if test="${not empty sessionScope.user}">
+                                        <form action="rating" class="review-product-form" method="post">
+                                            <div class="form-title">Thêm đánh giá sản phẩm</div>
+                                            <p class="title-field">Đánh giá của bạn *</p>
+                                            <div class="rating-field">
+                                                <input type="hidden" name="product" value="${requestScope.product.id}">
+                                                <input type="radio" id="star5" name="rating" value="5" />
+                                                <label class = "radio-star" for="star5" title="Awesome - 5 stars"></label>
 
-                                            <input type="radio" id="star4" name="rating" value="4" />
-                                            <label class = "radio-star" for="star4" title="Pretty good - 4 stars"></label>
+                                                <input type="radio" id="star4" name="rating" value="4" />
+                                                <label class = "radio-star" for="star4" title="Pretty good - 4 stars"></label>
 
-                                            <input type="radio" id="star3" name="rating" value="3" />
-                                            <label class = "radio-star" for="star3" title="Meh - 3 stars"></label>
+                                                <input type="radio" id="star3" name="rating" value="3" />
+                                                <label class = "radio-star" for="star3" title="Meh - 3 stars"></label>
 
-                                            <input type="radio" id="star2" name="rating" value="2" />
-                                            <label class = "radio-star" for="star2" title="Kinda bad - 2 stars"></label>
+                                                <input type="radio" id="star2" name="rating" value="2" />
+                                                <label class = "radio-star" for="star2" title="Kinda bad - 2 stars"></label>
 
-                                            <input type="radio" id="star1" name="rating" value="1" />
-                                            <label class = "radio-star" for="star1" title="Sucks big time - 1 star"></label>
-                                        </div>
-                                        <p class="title-field">Nhận xét của bạn</p>
-                                        <textarea name=""></textarea>
-                                        <div class="bg-gold bg-sharp btn-submit">
-                                            <input type="submit" value="Gửi đánh giá  &#xf1d8;">
-                                        </div>
-                                    </form>
+                                                <input type="radio" id="star1" name="rating" value="1" />
+                                                <label class = "radio-star" for="star1" title="Sucks big time - 1 star"></label>
+                                            </div>
+                                            <p class="title-field">Nhận xét của bạn</p>
+                                            <textarea name="content"></textarea>
+                                            <div class="bg-gold bg-sharp btn-submit">
+                                                <input type="submit" value="Gửi đánh giá  &#xf1d8;">
+                                            </div>
+                                        </form>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>
