@@ -58,4 +58,4 @@
     </div>
     <div class="toast-body">Static Example</div>
 </div>
-<script src="${pageContext.request.contextPath}/js/cart.js?v=02" defer></script>
+<script src="${pageContext.request.contextPath}/js/cart.js?v=03" defer></script>

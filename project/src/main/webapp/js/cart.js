@@ -75,7 +75,7 @@ $(document).ready(function() {
                 <i class="fa-regular fa-trash-can"></i>
             </div>
             <div class="img-wrap border rounded d-flex align-items-center justify-content-center">
-                <img src="${window.contextPath}/files/${product.thumbnail.path}" width="100%">
+                <img src="${window.context}/files/${product.thumbnail.path}" width="100%">
             </div>
             <div class="d-flex flex-column justify-content-center">
                 <div class="product-name">

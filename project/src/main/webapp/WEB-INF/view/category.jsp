@@ -221,10 +221,10 @@
                                                         </div>
                                                         <div class="row m-0 pb-3">
                                                             <div class="col-6 col-md-6 col-lg-6 left">
-                                                                <button class="quick-view mb-0 kgin-sharp-5">
+                                                                <button class="quick-view mb-0 kgin-sharp-5 btn-store-cart" data-cart-product="true" data-cart-action="add" data-cart-id="${product.id}" data-cart-amount="1">
                                                                     <div class="btn-wrap kgin-sharp-5">
                                                                         <i class="fa-regular fa-paper-plane xemicon" ></i>
-                                                                        <span>Xem nhanh</span>
+                                                                        <span>Thêm vào giỏ hàng</span>
                                                                     </div>
                                                                 </button>
                                                             </div>
@@ -313,8 +313,8 @@
     <script async defer crossorigin="anonymous" 
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
     </script>
-    <script src="js/jquery.js"></script>
-    <script src="libs/mdb-bootstrap-5/js/mdb.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
 </body>
 </html>
 </body>
