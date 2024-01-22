@@ -1,5 +1,6 @@
 package com.project.helpers;
 import com.project.dao.IBlogDAO;
+import com.project.dao.IImageDAO;
 import com.project.dao.IProductDAO;
 import com.project.dao.implement.FactoryDAO;
 import com.project.dao.implement.ImageDAO;
@@ -33,7 +34,7 @@ public class SQLScript {
     String DEST_BLOGS;
     String DEST;
     IBlogDAO blogDAO;
-    ImageDAO imageDAO;
+    IImageDAO imageDAO;
     IProductDAO productDAO;
     Handle handle;
     static Properties prop = PropertiesFileHelper.getProperties("external.properties");

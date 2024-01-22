@@ -12,7 +12,7 @@ $('.product-list-body').on('change', '.collapse-toggle', function() {
 (async function() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     $.ajax({
-        url: '/template/products-2.txt',
+        url: `${window.context}/admin/product?action=get`,
         success: function(data) {
             const products = JSON.parse(data).data;
             $('.product-list-body').html('');
@@ -22,7 +22,7 @@ $('.product-list-body').on('change', '.collapse-toggle', function() {
                     <input class="form-check-input justify-self-center collapse-toggle"
                         type="checkbox">
                     <div class="img-product">
-                        <img src="${data.images[0]}" width="100%" alt="">
+                        <img src="${window.context}/files/${data.image}" width="100%" alt="">
                     </div>
                     <span class="id-product">${data.id}</span>
                     <span>${data.name}</span>
@@ -31,7 +31,7 @@ $('.product-list-body').on('change', '.collapse-toggle', function() {
                     <div class="product-more-info collapse">
                         <div class="product-wrap">
                             <div class="img-product">
-                                <img src="${data.images[0]}" width="100%" alt="">
+                                <img src="${window.context}/files/${data.image}" width="100%" alt="">
                             </div>
                             <div class="more-stats">
                                 <div class="stat">

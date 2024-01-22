@@ -4,10 +4,14 @@ import com.project.dao.AbstractDAO;
 import com.project.dao.IUserDAO;
 import com.project.mappers.ImageRowMapper;
 import com.project.mappers.UserRowMapper;
+import com.project.models.Image;
 import com.project.models.User;
 import org.jdbi.v3.core.Handle;
 
+import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     public UserDAO(Handle handle) {
@@ -38,5 +42,49 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         }), new UserRowMapper("u"), new ImageRowMapper("i"));
         if (rs.isEmpty()) return null;
         return rs.get(0);
+    }
+
+    @Override
+    public int insert(User user) {
+        var keys = Arrays.asList(
+                "username",
+                "password",
+                "avatar",
+                "levelAccess",
+                "firstName",
+                "lastName",
+                "gender",
+                "address",
+                "phone",
+                "birth",
+                "status",
+                "email",
+                "verified",
+                "createAt",
+                "updateAt"
+        );
+        var values = Arrays.asList(
+                user.getUsername(),
+                user.getPassword(),
+                Optional.ofNullable(user.getAvatar()).map(Image::getId).orElse(1042),
+                user.getLevelAccess(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.isGender(),
+                user.getAddress(),
+                user.getPhone(),
+                user.getBirthDate(),
+                user.getStatus(),
+                user.getEmail(),
+                user.isVerified(),
+                Optional.ofNullable(user.getCreateAt()).orElse(LocalDateTime.now()),
+                Optional.ofNullable(user.getUpdateAt()).orElse(LocalDateTime.now())
+        );
+        final String INSERT = "INSERT INTO <table> (<columns>) VALUES (<values>)";
+        return insertAndReturnGeneratedKeys(INSERT, "id", (update -> {
+            update.define("table", "users")
+                    .defineList("columns", keys)
+                    .bindList("values", values);
+        })).mapTo(int.class).findOne().orElse(-1);
     }
 }

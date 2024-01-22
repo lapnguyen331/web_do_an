@@ -25,6 +25,10 @@ public class ProductService extends AbstractService {
         return productDAO.selectAll_shortDetails();
     }
 
+    public List<Product> getAll_FullDetails() {
+        return productDAO.selectAll_fullDetails();
+    }
+
     public List<Product> getALlOf(Category c) {
         return productDAO.selectTop3ProductsOf_shortDetails(c);
     }

@@ -9,7 +9,7 @@
     <!-- Thư viện ngoài (Luôn để đầu tiên) -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheet/fontawesome.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/libs/swiper/swiper-bundle-min.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/libs/mdb-bootstrap-5/css/mdb.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/libs/mdb-bootstrap-5-pro/css/mdb.min.css">
 
     <!-- Style của project -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheet/all.min.css">
@@ -30,89 +30,95 @@
     <div class="container">
         <div class="form-box register">
             <h2>Đăng ký tài khoản</h2>
-            <form action ="#">
-                <div class="input-box">
+            <form action ="${pageContext.request.contextPath}/signup" method="post">
+                <c:if test="${empty requestScope.message}">
+                    <div class="input-box">
                     <span class="icon">
                          <i class="fa-solid fa-user fa-sm"></i>
                     </span>
-                    <input type="text" id="username" name="username" required>
-                    <label>Tên tài khoản</label>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-box">
+                        <input type="text" id="username" name="username" required>
+                        <label>Tên tài khoản</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-box">
                             <span class="icon">
                                 <i class="fa-light fa-input-text"></i>
                             </span>
-                            <input type="text" id="first-name" name="first-name" required>
-                            <label for="first-name">Họ</label>
+                                <input type="text" id="first-name" name="firstName" required>
+                                <label for="first-name">Họ</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-box">
+                        <div class="col-md-6">
+                            <div class="input-box">
                             <span class="icon">
                               <i class="fa-solid fa-signature"></i>
                              </span>
-                            <input type="text" id="last-name" name="last-name" required>
-                            <label for="last-name">Tên</label>
-                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="input">
-                            <label for="dob">Ngày sinh</label>
-                            <input type="date" id="dob" name="dob" required>
+                                <input type="text" id="last-name" name="lastName" required>
+                                <label for="last-name">Tên</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="input">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="input">
+                                <label for="dob">Ngày sinh</label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input">
                             <span class="icon">
                                 <i class="fa-solid fa-venus-mars"></i>
                              </span>
-                            <label>Giới tính</label>
-                            <select name="gender" required>
-                                <option value="male">Nam</option>
-                                <option value="female">Nữ</option>
-                                <option value="other">Khác</option>
-                            </select>
+                                <label>Giới tính</label>
+                                <select name="gender" required>
+                                    <option value="false">Nam</option>
+                                    <option value="true">Nữ</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="input-box">
+                    <div class="input-box">
                     <span class="icon">
                        <i class="fa-solid fa-mobile"></i>
                     </span>
-                    <input type="text" id="phone-number" name="phone-number" required>
-                    <label for="phone-number">Số điện thoại</label>
-                </div>
-                <div class="input-box">
+                        <input type="text" id="phone-number" name="phone" required>
+                        <label for="phone-number">Số điện thoại</label>
+                    </div>
+                    <div class="input-box">
                 <span class="icon">
                   <i class="fa-solid fa-envelope fa-sm"></i>
                 </span>
-                    <input type="text" required>
-                    <label>Email</label>
-                </div>
-                <div class="input-box">
+                        <input type="text" name="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
                 <span class="icon" id="toggle-register-password">
                   <i class="fa-solid fa-eye cursor-pointer"></i>
                   <i class="fa-solid fa-lock fa-sm"></i>
                 </span>
-                    <input type="password" id="password" required>
-                    <label>Mật khẩu</label>
-                </div>
-                <div class="input-box">
+                        <input type="password" name="password" id="password" required>
+                        <label>Mật khẩu</label>
+                    </div>
+                    <div class="input-box">
                      <span class="icon" id="toggle-register-confirm-password">
                          <i class="fa-solid fa-eye cursor-pointer"></i>
                          <i class="fa-solid fa-lock fa-sm"></i>
                     </span>
-                    <input type="password" id="password2" required>
-                    <label>Nhập lại mật khẩu</label>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type="checkbox">Tôi đồng ý với các điều khoản sử dụng</label>
-                </div>
-                <button type="submit" class="btn">Đăng ký</button>
+                        <input type="password" name="password2" id="password2" required>
+                        <label>Nhập lại mật khẩu</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Tôi đồng ý với các điều khoản sử dụng</label>
+                    </div>
+                    <button type="submit" class="btn">Đăng ký</button>
+                </c:if>
+                <c:if test="${not empty requestScope.message}">
+                    <div class="fw-semibold txt-info text-center">
+                        ${requestScope.message}
+                    </div>
+                </c:if>
                 <div class="icons">
                     <p>Hoặc đăng ký với:</p>
                     <a href="${pageContext.request.contextPath}/#" class="icons-btn">
@@ -126,7 +132,7 @@
                     </a>
                 </div>
                 <div class = "login-register">
-                    <p>Đã có tài khoản? <a href="${pageContext.request.contextPath}/login.html" class="login-link">Đăng nhập</a>
+                    <p>Đã có tài khoản? <a href="${pageContext.request.contextPath}/login" class="login-link">Đăng nhập</a>
                     </p>
                 </div>
             </form>
@@ -143,6 +149,7 @@
 </script>
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/libs/swiper/swiper-bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
 <script>
     const swiper = new Swiper('.swiper', {
         // Optional parameters

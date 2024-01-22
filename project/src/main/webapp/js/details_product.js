@@ -15,3 +15,7 @@ $(tabsNav).find('.tablinks').on('click', function() {
     $(this).parent().find('.tablinks').removeClass('tablinks-is-active')
     $(this).addClass('tablinks-is-active');
 })
+
+$('.rating-field input[type="radio"]').on('click', (e) => {
+    $(e.target).prop('checked', true);
+})

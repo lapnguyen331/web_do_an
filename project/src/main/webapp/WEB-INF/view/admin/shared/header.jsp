@@ -85,27 +85,6 @@
 
         </div>
     </article>
-    <article id="main-header-bot">
-        <nav class="main-nav">
-            <div class="all-items menu-wrapper">
-                <span>Tất cả sản phẩm</span>
-                <ul class="menu">
-                    <c:if test="${not empty sessionScope.categories}">
-                        <c:forEach var="category" items="${sessionScope.categories}">
-                            <li class="menu-item"><a href="${pageContext.request.contextPath}/categogy-detail?id=${category.id}">${category.name}</a></li>
-                        </c:forEach>
-                    </c:if>
-                </ul>
-            </div>
-            <ul class="nav-items-wrapper">
-                <c:if test="${not empty sessionScope.categories}">
-                    <c:forEach var="category" items="${sessionScope.categories}">
-                        <li class="nav-item menu-wrapper"><a href="${pageContext.request.contextPath}/categogy-detail?id=${category.id}">${category.name}</a></li>
-                    </c:forEach>
-                </c:if>
-            </ul>
-        </nav>
-    </article>
 </header>
 </body>
 </html>

@@ -4,7 +4,7 @@
     left: 0;
     height: 100%;
     width: 260px;
-    background-image: url('/template/image/footer-bg.jpg');
+    background-image: url('../../inventory/images/footer-bg.jpg');
     background-size: cover;
     z-index: 100;
     transition: width 0.3s ease;
@@ -178,7 +178,7 @@
 }
 
 #sidebar-nav .sidebar.close .nav-links li .sub-menu {
-    background: url('/template/image/footer-bg.jpg');
+    background: url('../../inventory/images/footer-bg.jpg');
     display: block;
     overflow: hidden;
     position: relative;
