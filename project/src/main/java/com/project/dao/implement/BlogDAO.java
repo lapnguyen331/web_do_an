@@ -35,7 +35,7 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO {
         var result = query(SELECT, Blog.class, q -> {
             q.define("table1", "blogs")
                     .define("table2", "images")
-                    .defineList("columns", "b.id, b.title, i.path")
+                    .defineList("columns", "b.id, b.title, i.path, b.path")
                     .bind("id", id);
         }, new BlogRowMapper("b"), new ImageRowMapper("i"));
         if (result.isEmpty()) return null;

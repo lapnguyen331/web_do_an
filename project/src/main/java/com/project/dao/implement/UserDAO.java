@@ -144,9 +144,11 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     @Override
     public int validate(int id) {
         final String UPDATE = "UPDATE <table> SET verified = 1 WHERE id = :id";
-        return update(UPDATE, (update ->  {
+        return update(UPDATE, (update -> {
             update.define("table", "users")
                     .bind("id", id);
+        }));
+    };
     public int updateInfor(int id, String username, String fistname,String lastname, String email, String phone,String address, String gender, String birth) {
         var keys = Arrays.asList(
                 "username",
