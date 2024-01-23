@@ -9,6 +9,9 @@ public interface IUserDAO {
     List<User> getAll();
     User getLoginInfo(String username);
     User getInforUserById(int id);
+    User getToken(User user);
     int insert(User user);
+    int validate(int id);
     int updateAccount(int id,String username,String password );
+    int updateToken(int id, String token);
 }

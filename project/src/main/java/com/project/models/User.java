@@ -7,6 +7,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.UUID;
 
 public class User {
     private int id;
@@ -25,6 +26,8 @@ public class User {
     private boolean verified;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
+    private String token;
+    private LocalDateTime tokenCreateAt;
 
     public User(int id, String username, String password, Image avatar, int levelAccess, String firstName, String lastName, boolean gender, String address, String phone, Date birthDate, int status, String email, boolean verified, LocalDateTime createAt, LocalDateTime updateAt) {
         this.id = id;
@@ -43,6 +46,43 @@ public class User {
         this.verified = verified;
         this.createAt = createAt;
         this.updateAt = updateAt;
+    }
+
+    public User(int id, String username, String password, Image avatar, int levelAccess, String firstName, String lastName, boolean gender, String address, String phone, Date birthDate, int status, String email, boolean verified, LocalDateTime createAt, LocalDateTime updateAt, String token, LocalDateTime tokenCreateAt) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.avatar = avatar;
+        this.levelAccess = levelAccess;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.address = address;
+        this.phone = phone;
+        this.birthDate = birthDate;
+        this.status = status;
+        this.email = email;
+        this.verified = verified;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+        this.token = token;
+        this.tokenCreateAt = tokenCreateAt;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public LocalDateTime getTokenCreateAt() {
+        return tokenCreateAt;
+    }
+
+    public void setTokenCreateAt(LocalDateTime tokenCreateAt) {
+        this.tokenCreateAt = tokenCreateAt;
     }
 
     public User() {
@@ -216,6 +256,10 @@ public class User {
         MessageDigest md5 = MessageDigest.getInstance("MD5");
         md5.update(StandardCharsets.UTF_8.encode(str));
         return String.format("%032x", new BigInteger(1, md5.digest()));
+    }
+
+    public static String getUUID() {
+        return UUID.randomUUID().toString();
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException, NoSuchAlgorithmException {

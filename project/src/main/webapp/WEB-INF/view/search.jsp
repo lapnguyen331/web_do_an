@@ -111,15 +111,6 @@
                             </div>
                         </div>
                         <div class="row product-show-content d-flex flex-column gap-3">
-                            <div class="col-md-12 d-flex justify-content-center">
-                                <div class="load-more d-inline-flex" type="button">
-                                    <div class="bg-gold bg-sharp">
-                                        <div class="bg-primary-red-main-color d-flex text-wheat-color py-2 px-3 fw-semibold">
-                                            Load thêm 3 sản phẩm
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <c:forEach var="entry" items="${requestScope.products}">
                                 <c:set var="list" value="${entry.value}"></c:set>
                                 <div class="row">

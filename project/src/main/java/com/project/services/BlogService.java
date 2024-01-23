@@ -5,6 +5,7 @@ import com.project.dao.implement.FactoryDAO;
 import com.project.models.Blog;
 import com.project.models.Image;
 import com.project.models.User;
+import jakarta.servlet.http.HttpServletRequest;
 import org.jdbi.v3.core.Handle;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,6 +14,7 @@ import java.io.*;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Calendar;
+import java.util.List;
 import java.util.UUID;
 
 public class BlogService extends AbstractService {
@@ -54,8 +56,22 @@ public class BlogService extends AbstractService {
         return IOService.getInstance().readTxtFile(file);
     }
 
-    public String readSavedBlog(String url) throws IOException {
-        return IOService.getInstance().readText(url);
+    public String readSavedBlog(String url, String context) throws IOException {
+        String contentBlog = IOService.getInstance().readText(url);
+        var document = Jsoup.parse(contentBlog);
+        document.getElementsByTag("img").stream().forEach(img -> {
+            String path = img.attr("src");
+            img.attr("src", context+"/files/"+path);
+        });
+        return document.body().toString();
+    }
+
+    public List<Blog> getAll() {
+        return blogDAO.selectAll();
+    }
+
+    public Blog findById(int id) {
+        return blogDAO.getBlogById(id);
     }
 
     private File __formatBlogContent__(String blogContent, String hostName, String dest) throws Exception {
@@ -107,18 +123,7 @@ public class BlogService extends AbstractService {
     }
 
     public static void main(String[] args) throws IOException {
-        File file = new File("C:\\Users\\ADMIN\\Desktop\\test\\blogs\\12\\26\\5e1c5db2acab4f83803fe10f61977d8a.txt");
-        var blogService = new BlogService();
-        String blogContent = blogService.readBlog(file);
-        try {
-            blogService.begin();
-            blogService.insertBlog("bla", "C:\\Users\\ADMIN\\Desktop\\test", null, "bla", false, "mô tả", blogContent, null, null, null);
-            throw new Exception("rollback transaction này!");
-        } catch (Exception e) {
-            e.printStackTrace();
-            blogService.rollback();
-        } finally {
-            blogService.close();
-        }
+        var service = new BlogService();
+        System.out.println(service.findById(239));
     }
 }

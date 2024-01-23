@@ -12,10 +12,10 @@ public class FileController extends HttpServlet {
     private static final Properties prop = PropertiesFileHelper.getProperties("external.properties");
     private static final int DEFAULT_BUFFER_SIZE = 102400;
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String requestedFile = request.getPathInfo();
 //        System.out.println("requestedFile = "+requestedFile);
-        File file = new File(request.getServletContext().getRealPath(requestedFile));
+        File file = new File(request.getServletContext().getRealPath("/assests/"+requestedFile));
         if (!file.exists()) {
             String file_folder = prop.getProperty("external.path");
             String path = file_folder+requestedFile;
@@ -45,7 +45,9 @@ public class FileController extends HttpServlet {
             }
             bis.close();
             bos.close();
+            return;
         }
+        request.getRequestDispatcher("/assests/"+requestedFile).forward(request, response);
     }
 
     @Override

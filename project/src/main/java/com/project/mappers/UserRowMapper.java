@@ -35,6 +35,11 @@ public class UserRowMapper extends ARowMapper<User> {
         boolean verified = getValueAt(rs, this.alias+"verified", ctx, boolean.class);
         LocalDateTime createAt = getValueAt(rs, this.alias+"createAt", ctx, LocalDateTime.class);
         LocalDateTime updateAt = getValueAt(rs, this.alias+"updateAt", ctx, LocalDateTime.class);
-        return new User(id, username, password, avatar, levelAccess, firstName, lastname, gender, address, phone, birth, status, email, verified, createAt, updateAt);
+        String token = getValueAt(rs, this.alias+"token", ctx, String.class);
+        LocalDateTime tokenCreateAt = getValueAt(rs, this.alias+"tokenCreateAt", ctx, LocalDateTime.class);
+        var user = new User(id, username, password, avatar, levelAccess, firstName, lastname, gender, address, phone, birth, status, email, verified, createAt, updateAt);
+        user.setToken(token);
+        user.setTokenCreateAt(tokenCreateAt);
+        return user;
     }
 }

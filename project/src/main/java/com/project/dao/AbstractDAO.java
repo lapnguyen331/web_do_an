@@ -61,7 +61,7 @@ public abstract class AbstractDAO<T> implements GenericDAO<T> {
     }
 
     @Override
-    public int insert(String sql, Consumer<Update> callback) throws Exception {
+    public int insert(String sql, Consumer<Update> callback) {
         int result = -1;
         try {
             var update = handle.createUpdate(sql);

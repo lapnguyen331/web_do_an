@@ -33,7 +33,7 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
                 " ON u.avatar = i.id" +
                 " WHERE u.username = :username";
         var rs = query(SELECT, User.class, (query -> {
-            query.define("columns", "u.id, u.username, u.password, i.path, u.levelAccess")
+            query.define("columns", "u.id, u.username, u.password, i.path, u.levelAccess, u.verified")
                     .define("table1", "users")
                     .define("table2", "images")
                     .bind("username", username);
@@ -58,6 +58,19 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     }
 
     @Override
+    public User getToken(User user) {
+        final String SELECT = "SELECT <columns> FROM <table>" +
+                " WHERE id = :user.id";
+        var rs = query(SELECT, User.class, (query -> {
+            query.defineList("columns", "token, tokenCreateAt, verified")
+                    .define("table", "users")
+                    .bindBean("user", user);
+        }), new UserRowMapper());
+        if (rs.isEmpty()) return null;
+        return rs.get(0);
+    }
+
+    @Override
     public int updateAccount(int id,String username,String password ) {
         List<String> values = new ArrayList<>();
         values.add("username='"+username+"'");
@@ -69,6 +82,18 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
                     .define("values", String.join(", ", values));
         }));
     }
+
+    @Override
+    public int updateToken(int id, String token) {
+        final String UPDATE = "UPDATE <table> SET token = :token, tokenCreateAt = :createAt WHERE id = :id";
+        return update(UPDATE, (update ->  {
+            update.define("table", "users")
+                    .bind("token", token)
+                    .bind("createAt", LocalDateTime.now())
+                    .bind("id", id);
+        }));
+    }
+
     public int insert(User user) {
         var keys = Arrays.asList(
                 "username",
@@ -85,7 +110,9 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
                 "email",
                 "verified",
                 "createAt",
-                "updateAt"
+                "updateAt",
+                "token",
+                "tokenCreateAt"
         );
         var values = Arrays.asList(
                 user.getUsername(),
@@ -102,7 +129,9 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
                 user.getEmail(),
                 user.isVerified(),
                 Optional.ofNullable(user.getCreateAt()).orElse(LocalDateTime.now()),
-                Optional.ofNullable(user.getUpdateAt()).orElse(LocalDateTime.now())
+                Optional.ofNullable(user.getUpdateAt()).orElse(LocalDateTime.now()),
+                user.getToken(),
+                user.getTokenCreateAt()
         );
         final String INSERT = "INSERT INTO <table> (<columns>) VALUES (<values>)";
         return insertAndReturnGeneratedKeys(INSERT, "id", (update -> {
@@ -110,5 +139,14 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
                     .defineList("columns", keys)
                     .bindList("values", values);
         })).mapTo(int.class).findOne().orElse(-1);
+    }
+
+    @Override
+    public int validate(int id) {
+        final String UPDATE = "UPDATE <table> SET verified = 1 WHERE id = :id";
+        return update(UPDATE, (update ->  {
+            update.define("table", "users")
+                    .bind("id", id);
+        }));
     }
 }

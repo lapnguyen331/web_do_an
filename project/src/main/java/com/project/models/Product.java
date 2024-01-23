@@ -190,6 +190,12 @@ public class Product implements Serializable {
         return r;
     }
 
+    public String getStringDayCreateAt() {
+        return String.format("%s-%s-%s", this.getCreateAt().getDayOfMonth(),
+                this.getCreateAt().getMonthValue() + 1,
+                this.getCreateAt().getYear());
+    }
+
     public float getDiscountPrice() {
         return this.price / 100 * (100 - this.discount.getDiscountPercent());
     }
