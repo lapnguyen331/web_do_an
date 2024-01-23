@@ -65,7 +65,7 @@
                     </a>
                 </div>
                 <div class = "login-register">
-                    <p>Bạn chưa có tài khoản? <a href="signup.html" class="register-link">Đăng ký ngay!</a>
+                    <p>Bạn chưa có tài khoản? <a href="${pageContext.request.contextPath}/signup" class="register-link">Đăng ký ngay!</a>
                     </p>
                 </div>
             </form>

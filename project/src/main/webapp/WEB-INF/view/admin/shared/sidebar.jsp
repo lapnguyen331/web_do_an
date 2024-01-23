@@ -3,7 +3,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-style.css?a=1">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main-style.css?a=2">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/sidebar.css?v=2">
     <title>Header</title>
 </head>
 <body>

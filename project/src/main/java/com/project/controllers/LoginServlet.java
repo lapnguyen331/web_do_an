@@ -1,4 +1,5 @@
 package com.project.controllers;
+import com.project.exceptions.NotVerifiedException;
 import com.project.models.Cart;
 import com.project.models.User;
 import com.project.services.UserService;
@@ -64,10 +65,15 @@ public class LoginServlet extends HttpServlet {
                     String hashPassword = null;
                     try {
                         hashPassword = User.hashPassword(password);
+                        if (!user.isVerified()) throw new NotVerifiedException();
                     } catch (NoSuchAlgorithmException e) {
                         e.printStackTrace();
                         json.put("status", HttpServletResponse.SC_UNAUTHORIZED);
                         msg = "Xảy ra lỗi, thử lại sau...";
+                        break;
+                    } catch (NotVerifiedException e) {
+                        json.put("status", HttpServletResponse.SC_UNAUTHORIZED);
+                        msg = "Tài khoản này chưa được xác minh, vui lòng kiểm tra lại email!";
                         break;
                     }
                     if (user.getPassword().equals(hashPassword)) {

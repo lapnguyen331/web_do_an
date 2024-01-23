@@ -1,15 +1,28 @@
 'use strict';
-$('#input-images').imageUploader();
+const thumbnail_preload = [
+    {id: 1, src: $('#input-images').find(`input[type='hidden']`).val()},
+]
+const galleries_preload = $('#images_gallery_product').find(`input[type='hidden']`).get().map((input, index) => {
+    return {id: index, src:$(input).val()}
+});
+$('#input-images').imageUploader({
+        preloaded: thumbnail_preload,
+        imagesInputName: 'thumbnail-new-image',
+        preloadedInputName: 'thumbnail-old-image',
+        maxFiles: 1
+    }
+);
+$('#images_gallery_product').imageUploader({
+        preloaded: galleries_preload,
+        imagesInputName: 'gallery-new-image',
+        preloadedInputName: 'gallery-old-image',
+        maxFiles: 6
+    }
+);
 $('#txt_date').daterangepicker({
     "singleDatePicker": true,
 }, function(start, end, label) {
   console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
-});
-$('#images_gallery_product').imageUploader({
-    preloaded: undefined,
-    imagesInputName: 'photos',
-    preloadInputName: 'old-photos',
-    maxFiles: 6
 });
 
 const editor = SUNEDITOR.create((document.getElementById('suneditor')),{
@@ -63,11 +76,12 @@ const editor = SUNEDITOR.create((document.getElementById('suneditor')),{
 });
 
 const async_data_blog = async (value) => {
-    const url = "/template/blog.txt";
+    const url = `${window.context}/admin/blog?action=getAll`;
     const response = await fetch(url);
+    console.log(response)
     let {data} = await response.json();
     return data.filter(blog => {
-        return blog.title.toLowerCase().startsWith(value.toLowerCase());
+        return blog.title.toLowerCase().indexOf(value.toLowerCase()) >= 0;
     });
 }
 
@@ -78,14 +92,14 @@ new mdb.Autocomplete($('#box_blog_filter')[0], {
       const html = `
         <div class="blog-selector-wrap">
             <div class="img-wrap">
-                <img src="${blog.img}" alt="">
+                <img src="${window.context}/files/${blog.image}" alt="">
             </div>
             <div class="blog-info">
                 <div class="fw-semibold blog-title">
                     ${blog.title}
                 </div>
                 <div class="fw-normal blog-id">
-                    Mã: ${blog.id}
+                    ID: ${blog.id}
                 </div>
             </div>
         </div>
@@ -93,14 +107,20 @@ new mdb.Autocomplete($('#box_blog_filter')[0], {
       return html;
     },
 });
-
-$('#box_blog_filter').on('itemSelect.mdb.autocomplete', async function(e) {
+const loadBlog = async function(filePath) {
     await $.ajax({
-        url: e.value.content,
+        url: `${window.context}/admin/blog`,
+        method: 'post',
+        data: {
+            action: 'load',
+            path: filePath
+        },
         success: data => {
-            let html = JSON.parse(data)
-            editor.setContents(html)
+            editor.setContents(data)
             editor.readOnly(true)
         }
     })
+}
+$('#box_blog_filter').on('itemSelect.mdb.autocomplete', async function(e) {
+    await loadBlog(e.value.path);
 })

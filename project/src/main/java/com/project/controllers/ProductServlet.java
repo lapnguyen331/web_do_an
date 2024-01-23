@@ -37,7 +37,7 @@ public class ProductServlet extends HttpServlet {
         String context = getUrl(request);
         String path = product.getBlog().getPath();
         String url = String.format("%s/files/%s", context, path);
-        String blog = blogService.readSavedBlog(url, request);
+        String blog = blogService.readSavedBlog(url, request.getContextPath());
         request.setAttribute("blog", blog);
         request.setAttribute("product", product);
         request.setAttribute("galleries", galleries);

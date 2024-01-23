@@ -4,12 +4,17 @@ import com.project.dao.IUserDAO;
 import com.project.dao.implement.FactoryDAO;
 import com.project.dao.implement.UserDAO;
 import com.project.db.JDBIConnector;
+import com.project.exceptions.AlreadyVerifiedException;
 import com.project.exceptions.DuplicateInfoUserException;
+import com.project.exceptions.NotFoundUserException;
 import com.project.models.User;
 import org.jdbi.v3.core.Handle;
 
 import java.security.NoSuchAlgorithmException;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 public class UserService extends AbstractService {
     private final IUserDAO userDAO;
@@ -36,6 +41,25 @@ public class UserService extends AbstractService {
     }
     public int changePass(int id,String username,String password){
         return userDAO.updateAccount(id,username,password);
+    }
+    public boolean validateToken(int id, String token) throws TimeoutException, NotFoundUserException, AlreadyVerifiedException {
+        var user = getInforById(id);
+        if (user == null) throw new NotFoundUserException("Không tìm thấy user");
+        user = userDAO.getToken(user);
+        if (user.isVerified()) throw new AlreadyVerifiedException("Tài khoản đã được xác minh");
+        if (!user.getToken().equals(token)) return false;
+        if (user.getToken().equals(token)) {
+            LocalDateTime timeout = user.getTokenCreateAt();
+            if (Duration.between(timeout, LocalDateTime.now()).toMinutes() >= 1) {
+                throw new TimeoutException();
+            }
+            else
+                userDAO.validate(id);
+        }
+        return true;
+    }
+    public int updateToken(int id, String token) {
+        return userDAO.updateToken(id, token);
     }
     public int insert(User user) throws DuplicateInfoUserException {
         String username = user.getUsername();

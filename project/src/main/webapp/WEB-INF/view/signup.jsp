@@ -119,6 +119,11 @@
                         ${requestScope.message}
                     </div>
                 </c:if>
+                <c:if test="${requestScope.resend}">
+                    <div class="text-center">
+                        <a href="${pageContext.request.contextPath}/activation?id=${requestScope.userid}&action=resend">Gửi lại mã cho tôi</a>
+                    </div>
+                </c:if>
                 <div class="icons">
                     <p>Hoặc đăng ký với:</p>
                     <a href="${pageContext.request.contextPath}/#" class="icons-btn">

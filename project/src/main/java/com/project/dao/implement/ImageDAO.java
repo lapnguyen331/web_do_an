@@ -71,7 +71,7 @@ public class ImageDAO extends AbstractDAO<Image> implements IImageDAO {
     }
 
     @Override
-    public int insert(Image image) throws Exception {
+    public int insert(Image image) {
         var values = Arrays.asList(image.getPath(), image.getUuid(),
                 image.getCreateAt() == null ? LocalDateTime.now() : image.getCreateAt(),
                 image.getUpdateAt() == null ? LocalDateTime.now() : image.getUpdateAt());
@@ -84,7 +84,7 @@ public class ImageDAO extends AbstractDAO<Image> implements IImageDAO {
     }
 
     @Override
-    public int insertToGalleryOf(Product p, Image i) throws Exception {
+    public int insertToGalleryOf(Product p, Image i) {
         var values = Arrays.asList(p.getId(), i.getId());
         final String INSERT = "INSERT INTO <table> (<columns>) VALUES (<values>)";
         return insert(INSERT, update -> {
@@ -95,13 +95,33 @@ public class ImageDAO extends AbstractDAO<Image> implements IImageDAO {
     }
 
     @Override
-    public int insertToGalleryOf(Blog b, Image image) throws Exception {
+    public int insertToGalleryOf(Blog b, Image image) {
         var values = Arrays.asList(b.getId(), image.getId());
         final String INSERT = "INSERT INTO <table> (<columns>) VALUES (<values>)";
         return insert(INSERT, update -> {
             update.define("table", "blog_galleries")
                     .defineList("columns", "blogId, imageId")
                     .bindList("values", values);
+        });
+    }
+
+    @Override
+    public Image selectByUUID(String uuid) {
+        final String SELECT_IMG_BY_ID = "SELECT * FROM <table> img where img.uuid = :uuid";
+        var result = query(SELECT_IMG_BY_ID, Image.class, (query) -> {
+            query.define("table", "images")
+                    .bind("uuid", uuid);
+        }, new ImageRowMapper("img"));
+        if (result.isEmpty()) return null;
+        return result.get(0);
+    }
+
+    @Override
+    public int removeGalleryOf(Product p) {
+        final String INSERT = "DELETE FROM <table> WHERE productId = :p.id";
+        return insert(INSERT, update -> {
+            update.define("table", "product_galleries")
+                    .bindBean("p", p);
         });
     }
 

@@ -6,8 +6,12 @@ import com.project.mappers.*;
 import com.project.models.Category;
 import com.project.models.Product;
 import org.jdbi.v3.core.Handle;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     public ProductDAO(Handle handle) {
@@ -167,6 +171,35 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
                 new ImageRowMapper("t"));
     }
 
+    @Override
+    public List<Product> searchProduct(@Nullable String name, @NotNull List<Integer> categoryIds, @NotNull List<String> brands) {
+        String filters;
+        var mapCategoryIds = categoryIds.stream().map(c -> "p.categoryId = "+c).toList();
+        var mapBrands = brands.stream().map(b -> "p.brand LIKE '%"+b+"%'").toList();
+        var mapNames = new ArrayList<String>();
+        if (name != null) mapNames.add("p.name LIKE '%"+name+"%'");
+        var maps = Stream.of(mapNames, mapBrands, mapCategoryIds).flatMap(a -> a.stream()).toList();
+        if (!maps.isEmpty()) {
+            filters = "WHERE " + String.join(" OR ", maps);
+        } else {
+            System.out.println(maps);
+            filters = "";
+        }
+        String SELECT = "SELECT <columns> FROM <table1> p" +
+                " LEFT JOIN <table2> t ON p.thumbnail = t.id" +
+                " LEFT JOIN <table3> c ON p.categoryId = c.id" +
+                " <filters>";
+        return query(SELECT, Product.class, query -> {
+                    query.define("table1", "products")
+                            .define("table2", "images")
+                            .define("table3", "categories")
+                            .define("columns", "p.name, p.id, p.price, p.quantity, p.specification, p.brand, c.name, t.path")
+                            .define("filters", filters);
+                }, new ProductRowMapper("p"),
+                new CategoryRowMapper("c"),
+                new DiscountRowMapper("d"),
+                new ImageRowMapper("t"));
+    }
 
     @Override
     public int insert(Product p) {

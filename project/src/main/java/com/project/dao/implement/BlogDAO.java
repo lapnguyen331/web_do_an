@@ -31,14 +31,12 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO {
 
     @Override
     public Blog getBlogById(int id) {
-        final String SELECT = "SELECT * FROM <table1> b LEFT JOIN <table2> i ON <col1> = <col2> WHERE <col3> = <para>";
+        final String SELECT = "SELECT <columns> FROM <table1> b LEFT JOIN <table2> i ON b.thumbnail = i.id WHERE b.id = :id";
         var result = query(SELECT, Blog.class, q -> {
-            q.define("table1", "blogs");
-            q.define("table2", "images");
-            q.define("col1", "b.thumbnail");
-            q.define("col2", "i.id");
-            q.define("col3", "b.id");
-            q.define("para", id);
+            q.define("table1", "blogs")
+                    .define("table2", "images")
+                    .defineList("columns", "b.id, b.title, i.path")
+                    .bind("id", id);
         }, new BlogRowMapper("b"), new ImageRowMapper("i"));
         if (result.isEmpty()) return null;
         return result.get(0);
