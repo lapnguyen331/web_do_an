@@ -27,8 +27,11 @@ public class UserChangePassServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        User user = (User) session.getAttribute("user");
+        User repUser1 = userService.getInforById(user.getId());
 
-
+        request.setAttribute("userifor",user);
         request.getRequestDispatcher("/WEB-INF/view/user/user-profile-changePass.jsp").forward(request, response);
 
     }

@@ -221,10 +221,10 @@
                                                         </div>
                                                         <div class="row m-0 pb-3">
                                                             <div class="col-6 col-md-6 col-lg-6 left">
-                                                                <button class="quick-view mb-0 kgin-sharp-5 btn-store-cart" data-cart-product="true" data-cart-action="add" data-cart-id="${product.id}" data-cart-amount="1">
-                                                                    <div class="btn-wrap kgin-sharp-5">
-                                                                        <i class="fa-regular fa-paper-plane xemicon" ></i>
-                                                                        <span>Thêm vào giỏ hàng</span>
+                                                                <button class="quick-view mb-0 kgin-sharp-5 " data-cart-product="true" data-cart-action="add" data-cart-id="${product.id}" data-cart-amount="1">
+                                                                    <div class="btn-wrap kgin-sharp-5 ">
+                                                                        <i class="fa-solid fa-cart-plus"></i>
+                                                                        <span>  Thêm giỏ hàng</span>
                                                                     </div>
                                                                 </button>
                                                             </div>

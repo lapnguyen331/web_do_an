@@ -28,7 +28,7 @@
         <div class="user-profile-container">
             <div class="left-control">
                 <div class="user-profile">
-                    <a class="user-image" href="user-profile.jsp"></a> <!--NOTE : Link tới hồ sơ user-->
+                    <a class="user-image" href=""></a> <!--NOTE : Link tới hồ sơ user-->
                     <div class="user-avatar">
                         <img class="avrtar-img" src="${pageContext.request.contextPath}/${userifor.avatar.path}" alt="">
                     </div>
@@ -60,7 +60,7 @@
                                 <a class="body-down" href="${pageContext.request.contextPath}/user-profile-changePass">
                                     <span>Đổi mật khẩu</span>
                                 </a> 
-                                <a class="body-down" href="${pageContext.request.contextPath}/user-profile-notification-modify">
+                                <a class="body-down" href="${pageContext.request.contextPath}/user-profile-notification-modify" style="display: none">
                                     <span>Cài đặt thông báo</span>
                                 </a> 
 
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                      <!-- thông báo-->
-                     <div class="startdust-dropdown--open">
+                     <div class="startdust-dropdown--open" style="display: none">
                         <div class="startdust-dropdown-item-header">
                             <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-notification">
                                 <img src="${pageContext.request.contextPath}/inventory/images/user-profile/thongbao-icon.png" alt="">
@@ -155,7 +155,7 @@
                                                 <td class="label">
                                                     <label>Ngày sinh</label>
                                                 </td>
-                                                <td class="content-space">${userifor.birthDate == null ? "":userifor['toDateString'](userifor.birthDate)}</td>
+                                                <td class="content-space">${userifor.birthDate == null ? "":userifor.birthDate}</td>
                                             </tr>
                                             <!-- Nút lưu -->
                                             <tr>

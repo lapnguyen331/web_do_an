@@ -57,11 +57,21 @@ public class OrderService extends AbstractService {
     public List<Order> getAllOrderOfUser(User user){
         return orderDAO.getAllUserOrder(user);
     }
+    public Order getOrderById(int id) {
+        List<Order> em = orderDAO.getAll();
+        for(Order e :em){
+            if(e.getId() == id){
+                return e;
+            }
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
         OrderService t = new OrderService();
         User em = new User();
-        em.setId(1);
-        t.getAllOrderOfUser(em).forEach(System.out::println);
+//        em.setId(1);
+//        t.getAllOrderOfUser(em).forEach(System.out::println);
+        System.out.println(t.getOrderById(30));
     }
 }

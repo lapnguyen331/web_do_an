@@ -97,15 +97,15 @@
                                     <span>-</span>
                                 </div>
                                 <div class="bg-gold">
-                                    <input type="number" data-amount="0">
+                                    <input type="number" data-amount="1" value="1">
                                 </div>
                                 <div class="number-btn btn-right bg-gold bg-sharp-no-left">
                                     <span>+</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="btn-submit bg-gold bg-sharp">
-                            <a href="#">Mua hàng</a>
+                        <div class="btn-submit bg-gold bg-sharp" data-cart-product="true" data-cart-action="add" data-cart-id="${product.id}" onclick="document.querySelector('.btn-submit').setAttribute('data-cart-amount' , $(numberField).find('input')[0].dataset.amount)" data-cart-amount="$(numberField).find('input')[0].dataset.amount">
+                            <a >Mua hàng</a>
                         </div>
                     </div>
                     <div class="col-md-6 pl-0 d-flex flex-column align-items-center">
@@ -135,7 +135,7 @@
                                 <span class="offer-text">Tư vấn nhiệt tình tận tâm</span>
                             </div>
                         </div>
-                        <form action="" class="recall-form bg-gold bg-sharp">
+                        <form action="" class="recall-form bg-gold bg-sharp" style="display: none">
                             <input class="bg-sharp-no-right input-field" type="text" placeholder="SĐT yêu cầu gọi lại">
                             <input class="bg-sharp-no-left btn-submit" type="submit" value="&#xf2a0;  Tư vấn tôi">
                         </form>
@@ -297,7 +297,7 @@
             <c:forEach var="product" items="${requestScope.related}">
                 <div class="col-md-3">
                     <div class="product-card">
-                        <a href="#">
+                        <a href="${pageContext.request.contextPath}/product?id=${product.id}">
                             <div class="product-img">
                                 <img src="${pageContext.request.contextPath}/files/${product.thumbnail.path}" alt="">
                             </div>
@@ -317,7 +317,7 @@
                         </div>
                         <div class="product-button">
                             <div class="bg-gold bg-sharp-5">
-                                <button class="btn-store-cart" data-cart-product="true" data-cart-action="add" data-cart-id="${product.id}">
+                                <button class="btn-store-cart" data-cart-product="true" data-cart-action="add" data-cart-id="${product.id}" data-cart-amount="1">
                                     Thêm vào giỏ
                                 </button>
                             </div>

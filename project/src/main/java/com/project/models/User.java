@@ -48,6 +48,7 @@ public class User {
     public User() {
     }
 
+
     public int getId() {
         return id;
     }
@@ -183,12 +184,13 @@ public class User {
         }
         return String.valueOf(em);
     }
-    public String toDateString(Date date){
-        return String.valueOf(date.getDay()) + String.valueOf(date.getMonth()) + String.valueOf(date.getYear());
-    }
+
     public String getFullName(String last, String first){
         if(last.isEmpty() && first.isEmpty()) return "";
         return last+first;
+    }
+    public String getGender(int gender){
+        return gender == 0?"nữ":"nam";
     }
     @Override
     public String toString() {

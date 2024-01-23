@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -56,6 +57,11 @@ public class SignUpServlet extends HttpServlet {
             e.printStackTrace();
         }
         boolean verified = false;
+        try {
+            password = User.hashPassword(password);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
         var user = new User(-1, username, password, null, levelAccess, firstName, lastName, gender, null, phone,
                 birth, status, email, verified, null, null);
         System.out.println(user);

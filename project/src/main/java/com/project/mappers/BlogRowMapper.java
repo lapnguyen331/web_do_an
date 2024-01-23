@@ -17,14 +17,14 @@ public class BlogRowMapper extends ARowMapper<Blog> {
     public Blog map(ResultSet rs, StatementContext ctx) throws SQLException {
         Blog blog;
         try {
-            int id = rs.getInt(this.alias+"id");
-            String title = rs.getString(this.alias+"title");
-            boolean status = rs.getBoolean(this.alias+"status");
-            String description = rs.getString(this.alias+"description");
-            String path = rs.getString(this.alias+"path");
-            Image thumbnail = ctx.findRowMapperFor(Image.class).get().map(rs, ctx);
-            LocalDateTime createAt = ctx.findColumnMapperFor(LocalDateTime.class).get().map(rs, this.alias+"createAt", ctx);
-            LocalDateTime updateAt = ctx.findColumnMapperFor(LocalDateTime.class).get().map(rs, this.alias+"updateAt", ctx);
+            int id = getValueAt(rs, this.alias+"id", ctx, int.class);
+            String title = getValueAt(rs, this.alias+"title", ctx, String.class);
+            boolean status = getValueAt(rs, this.alias+"status", ctx, boolean.class);
+            String description = getValueAt(rs, this.alias+"description", ctx, String.class);
+            String path = getValueAt(rs, this.alias+"path", ctx, String.class);
+            Image thumbnail = mapToIfPresent(Image.class, rs, ctx);
+            LocalDateTime createAt = getValueAt(rs, this.alias+"createAt", ctx, LocalDateTime.class);
+            LocalDateTime updateAt = getValueAt(rs, this.alias+"updateAt", ctx, LocalDateTime.class);
             blog = new Blog(id, null, title, status, description, path, thumbnail, createAt, updateAt);
         } catch (SQLException e) {
             e.printStackTrace();

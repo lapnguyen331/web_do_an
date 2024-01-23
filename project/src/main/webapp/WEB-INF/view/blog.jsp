@@ -96,23 +96,24 @@
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 row grib-blog">
 
                                         <!--blog 1-->
+                                    <c:forEach var="blog" items="${requestScope.blogList}">
                                         <div class="col-12 col-md-12 col-lg-12 pb-4 blog-item">
                                             <div class="blog-show-wrap horizontal">
-                                                <a rel="nofollow" href="${pageContext.request.contextPath}/blog-detail.html" data-wpel-link="internal"> <!--NOTE link đến chi tiết bài blog này-->
+                                                <a rel="nofollow" href="${pageContext.request.contextPath}/blogDetail?id=${blog.id}" data-wpel-link="internal"> <!--NOTE link đến chi tiết bài blog này-->
                                                 <div class="thumbnail">
-                                                    <img src="./image/show-blog/blog-1.png" alt="Tại Sao Ăn Nhân Sâm Lại Chảy Máu Mũi? Lưu Ý Gì Khi Dùng?">
+                                                    <img src="${pageContext.request.contextPath}/files/${blog.thumbnail.path}" alt="Tại Sao Ăn Nhân Sâm Lại Chảy Máu Mũi? Lưu Ý Gì Khi Dùng?">
                                                 </div>
                                                 </a>
                                                 <div class="row blog-detail-infor">
-                                                    <a rel="nofollow" href="${pageContext.request.contextPath}/">
-                                                        <h4 class="h3">Tại Sao Ăn Nhân Sâm Lại Chảy Máu Mũi? Lưu Ý Gì Khi Dùng?</h4>
+                                                    <a rel="nofollow" href="${pageContext.request.contextPath}/blogDetail?id=${blog.id}">
+                                                        <h4 class="h3">${blog.title}</h4>
                                                     </a>
                                                     <div class="expect-blog" >
-                                                        <p >Tại sao ăn nhân sâm lại chảy máu mũi? Đây là câu hỏi được rất nhiều người thắc mắc. Vậy hiện tượng này có gây nguy hiểm gì không? Cần làm gì khi ăn sâm chảy máu cam? Cách phòng tránh như thế nào? Hãy cùng Nhân Sâm Hàn Quốc KGIN tìm hiểu thêm về...</p>
+                                                        <p >${blog.description}</p>
                                                     </div>
                                                     <div class="row cta m-0 pb-3">
                                                         <div class="col-6 col-md-6 col-lg-6 right">
-                                                            <a rel="nofollow" href="${pageContext.request.contextPath}/blog-detail.html" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
+                                                            <a rel="nofollow" href="${pageContext.request.contextPath}/blogDetail?id=${blog.id}" data-wpel-link="internal"><!--NOTE link tới sp chi tiết-->
                                                                 <div class="detail-blog btn-kgin kgin-sharp-5">
                                                                     <div class="btn-wrap kgin-sharp-5">
                                                                         <span>Xem chi tiết</span>
@@ -125,66 +126,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                         <!--blog 2-->
-                                         <div class="col-12 col-md-12 col-lg-12 pb-4 blog-item">
-                                            <div class="blog-show-wrap horizontal">
-                                                <a rel="nofollow" href="${pageContext.request.contextPath}/blog-detail.html" data-wpel-link="internal"> <!--NOTE chưa thêm link đến chi tiết bài blog này-->
-                                                <div class="thumbnail">
-                                                    <img src="./image/show-blog/blog-1.png" alt="Tại Sao Ăn Nhân Sâm Lại Chảy Máu Mũi? Lưu Ý Gì Khi Dùng?">
-                                                </div>
-                                                </a>
-                                                <div class="row blog-detail-infor">
-                                                    <a rel="nofollow" href="${pageContext.request.contextPath}/blog-detail.html">
-                                                        <h4 class="h3">Tại Sao Ăn Nhân Sâm Lại Chảy Máu Mũi? Lưu Ý Gì Khi Dùng?</h4>
-                                                    </a>
-                                                    <div class="expect-blog">
-                                                        <p>Tại sao ăn nhân sâm lại chảy máu mũi? Đây là câu hỏi được rất nhiều người thắc mắc. Vậy hiện tượng này có gây nguy hiểm gì không? Cần làm gì khi ăn sâm chảy máu cam? Cách phòng tránh như thế nào? Hãy cùng Nhân Sâm Hàn Quốc KGIN tìm hiểu thêm về...</p>
-                                                    </div>
-                                                    <div class="row cta m-0 pb-3">
-                                                        <div class="col-6 col-md-6 col-lg-6 right">
-                                                            <a rel="nofollow" href="${pageContext.request.contextPath}/blog-detail.html" data-wpel-link="internal"><!--NOTE link tới chi tiết blog chi tiết-->
-                                                                <div class="detail-blog btn-kgin kgin-sharp-5">
-                                                                    <div class="btn-wrap kgin-sharp-5">
-                                                                        <span>Xem chi tiết</span>
-                                                                        <i class="fa-solid fa-angles-right xemicon"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--blog 2-->
-                                        <div class="col-12 col-md-12 col-lg-12 pb-4 blog-item">
-                                            <div class="blog-show-wrap horizontal">
-                                                <a rel="nofollow" href="${pageContext.request.contextPath}/blog-detail.html" data-wpel-link="internal"> <!--NOTE chưa thêm link đến chi tiết bài blog này-->
-                                                <div class="thumbnail">
-                                                    <img src="./image/show-blog/blog-1.png" alt="Tại Sao Ăn Nhân Sâm Lại Chảy Máu Mũi? Lưu Ý Gì Khi Dùng?">
-                                                </div>
-                                                </a>
-                                                <div class="row blog-detail-infor">
-                                                    <a rel="nofollow" href="${pageContext.request.contextPath}/blog-detail.html">
-                                                        <h4 class="h3">Tại Sao Ăn Nhân Sâm Lại Chảy Máu Mũi? Lưu Ý Gì Khi Dùng?</h4>
-                                                    </a>
-                                                    <div class="expect-blog">
-                                                        <p>Tại sao ăn nhân sâm lại chảy máu mũi? Đây là câu hỏi được rất nhiều người thắc mắc. Vậy hiện tượng này có gây nguy hiểm gì không? Cần làm gì khi ăn sâm chảy máu cam? Cách phòng tránh như thế nào? Hãy cùng Nhân Sâm Hàn Quốc KGIN tìm hiểu thêm về...</p>
-                                                    </div>
-                                                    <div class="row cta m-0 pb-3">
-                                                        <div class="col-6 col-md-6 col-lg-6 right">
-                                                            <a rel="nofollow" href="${pageContext.request.contextPath}/blog-detail.html" data-wpel-link="internal"><!--NOTE link tới blog chi tiết-->
-                                                                <div class="detail-blog btn-kgin kgin-sharp-5">
-                                                                    <div class="btn-wrap kgin-sharp-5">
-                                                                        <span>Xem chi tiết</span>
-                                                                        <i class="fa-solid fa-angles-right xemicon"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </c:forEach>
                                  </div>
                             </div>
                     </div>
@@ -205,8 +147,8 @@
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
     </script>
     <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
-    <script src="${pageContext.request.contextPath}/libs/mdb-bootstrap-5/js/mdb.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/load_featured_products_home.js"></script>
+    <script src="${pageContext.request.contextPath}/libs/mdb-bootstrap-5-pro/js/mdb.min.js"></script>
+<%--    <script src="${pageContext.request.contextPath}/js/load_featured_products_home.js"></script>--%>
 </body>
 </html>
 </body>

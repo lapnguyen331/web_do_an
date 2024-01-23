@@ -212,6 +212,7 @@
 }
 
 #details-product .btn-submit a {
+    cursor: pointer;
     display: flex;
     padding: 10px 0px;
     background-color: var(--red-color-main);

@@ -60,7 +60,7 @@
                             <img src="${pageContext.request.contextPath}/files/${category.thumbnail.path}" alt="${category.thumbnail.uuid}">
                         </div>
                         <div class="product-name">
-                            <a href="categogy-detail.html">${category.name}</a> <!---Note sửa lại href-->
+                            <a href="${pageContext.request.contextPath}/categogy-detail?id=${category.id}">${category.name}</a> <!---Note sửa lại href-->
                         </div>
                     </div>
                 </c:forEach>

@@ -4,10 +4,7 @@ import com.project.dao.AbstractDAO;
 import com.project.dao.IOrderDAO;
 import com.project.dao.IOrderItemDAO;
 import com.project.exceptions.NotEnoughQuantityException;
-import com.project.mappers.OrderItemRowMapper;
-import com.project.mappers.OrderRowMapper;
-import com.project.mappers.ProductRowMapper;
-import com.project.mappers.UserRowMapper;
+import com.project.mappers.*;
 import com.project.models.Order;
 import com.project.models.OrderItem;
 import com.project.services.ProductService;
@@ -29,13 +26,15 @@ public class OrderItemDAO extends AbstractDAO<OrderItem> implements IOrderItemDA
     public List<OrderItem> getAll() {
         final String SELECT = "SELECT <columns> FROM <table1> odi" +
                 " JOIN <table2> od ON odi.orderId = od.id" +
-                " JOIN <table3> p ON odi.productId = p.id";
+                " JOIN <table3> p ON odi.productId = p.id "+
+                "left join <table4> img on p.thumbnail = img.id"  ;
         return query(SELECT, OrderItem.class, query -> {
             query.define("table1", "order_details")
                     .define("table2", "orders")
                     .define("table3", "products")
-                    .define("columns", "odi.*, od.id, p.name, p.id");
-        }, new OrderItemRowMapper("odi"), new OrderRowMapper("od"), new ProductRowMapper("p"));
+                    .define("table4","images")
+                    .define("columns", "odi.*, od.id, p.*,img.*");
+        }, new OrderItemRowMapper("odi"), new OrderRowMapper("od"), new ProductRowMapper("p"),new ImageRowMapper("img"));
     }
 
     @Override
@@ -63,4 +62,6 @@ public class OrderItemDAO extends AbstractDAO<OrderItem> implements IOrderItemDA
                     .bindList("values", values);
         }).mapTo(int.class).findOne().orElse(0);
     }
+
+
 }

@@ -60,4 +60,10 @@ public class ProductService extends AbstractService {
     public List<Product> getAllProductOffCate(Category c){
         return productDAO.selectALLProductsOfCate_shortDetails(c);
     }
+
+    public static void main(String[] args) {
+        ProductService em = new ProductService();
+         System.out.println(em.getALlOf(new Category(5)).get(1).getCategory().getId());
+
+    }
 }

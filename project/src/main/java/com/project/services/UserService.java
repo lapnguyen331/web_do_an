@@ -43,17 +43,20 @@ public class UserService extends AbstractService {
             throw new DuplicateInfoUserException("Đã tồn tại username này trong hệ thống!");
         return userDAO.insert(user);
     }
+    public int updateInfor(int id, String username, String firstname,String lastname,String email,String phone,String address, String gender, String birth){
+        return userDAO.updateInfor(id,username,firstname,lastname,email,phone,address,gender,birth);
+    }
     public static void main(String[] args) {
         var service = new UserService();
 //        System.out.println(service.getUserByName("root"));
-//        System.out.println(service.getInforById(3));
-        try {
-            String em = User.hashPassword("conga");
-            System.out.println(em);
-            System.out.println(service.changePass(3,"lapusername",em));
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
+        System.out.println(service.updateInfor(3,"up","up","up","up","up","up","0","2023-11-10"));
+//        try {
+//            String em = User.hashPassword("conga");
+//            System.out.println(em);
+//            System.out.println(service.changePass(3,"lapusername",em));
+//        } catch (NoSuchAlgorithmException e) {
+//            throw new RuntimeException(e);
+//        }
 
     }
 }
