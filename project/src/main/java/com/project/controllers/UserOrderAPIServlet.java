@@ -63,8 +63,9 @@ public class UserOrderAPIServlet extends HttpServlet {
             json.put("totalprice",order.getTotalPrice());
 
             json.put("status",order.getStatus());
-            json.put("create",order.getDateOnly(order.getCreateAt()));
+            json.put("create",order.getCreateAt1());
             objectArray.put(json);
+//            order.getDateOnly(order.getCreateAt())
         }
         json = new JSONObject().put("data",objectArray);
         String data = json.toString();

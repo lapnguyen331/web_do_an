@@ -48,7 +48,7 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
                 " ON u.avatar = i.id" +
                 " WHERE u.id = :id";
         var rs = query(SELECT, User.class, (query -> {
-            query.define("columns", "u.id, u.username, u.password, i.id,i.path,u.firstName,u.lastName,u.gender,u.address,u.phone,u.birth,u.status,u.email,u.verified")
+            query.define("columns", " u.*,i.id,i.path")
                     .define("table1", "users")
                     .define("table2", "images")
                     .bind("id", id);
@@ -147,6 +147,38 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
         return update(UPDATE, (update ->  {
             update.define("table", "users")
                     .bind("id", id);
+    public int updateInfor(int id, String username, String fistname,String lastname, String email, String phone,String address, String gender, String birth) {
+        var keys = Arrays.asList(
+                "username",
+                "firstName",
+                "lastName",
+                "gender",
+                "address",
+                "phone",
+                "birth",
+                "email",
+                "updateAt"
+        );
+        var values = Arrays.asList(
+                username,
+                fistname,
+                lastname,
+                gender,
+                address,
+                phone,
+                birth,
+                email,
+                Optional.ofNullable(new User().getUpdateAt()).orElse(LocalDateTime.now())
+        );
+        List<String> con = new ArrayList<>();
+        for (int i = 0; i < keys.size(); i++) {
+            con.add(keys.get(i)+ "='" +values.get(i)+"'");
+        }
+        final String UPDATE = "UPDATE <table> SET <values> WHERE id = <col1>";
+        return update(UPDATE, (update ->  {
+            update.define("table", "users")
+                    .define("col1",id)
+                    .define("values", String.join(", ", con));
         }));
     }
 }

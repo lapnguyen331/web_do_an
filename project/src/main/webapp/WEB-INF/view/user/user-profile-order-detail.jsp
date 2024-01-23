@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,25 +27,26 @@
   </head>
   <body>
 <%--  header--%>
+<jsp:include page="/WEB-INF/view/shared/cart.jsp"/>
   <jsp:include page="/WEB-INF/view/shared/header.jsp" />
 <%--  header end--%>
   <section id="user-profile">
       <div class="user-profile-container">
         <div class="left-control">
           <div class="user-profile">
-            <a class="user-image" href="user-profile.jsp"></a>
+            <a class="user-image" href=""></a>
             <!--NOTE : Link tới hồ sơ user-->
             <div class="user-avatar">
               <img
                 class="avrtar-img"
-                src="${pageContext.request.contextPath}/inventory/images/user-profile/use-avatar-header-default.jpg"
+                src="${pageContext.request.contextPath}/${userifor.avatar.path}"
                 alt=""
               />
             </div>
             <div class="user-account-name">
-              <div class="account-name">User1</div>
+              <div class="account-name">${userifor.username}</div>
               <div>
-                <a class="user-profile-modify" href="user-profile-edit.jsp">
+                <a class="user-profile-modify" href="${pageContext.request.contextPath}/user-profile-edit">
                   <!--NOTE: thiếu link tới profile của user-->
                   <i class="fa-solid fa-pen"></i>
                   Sửa Hồ Sơ
@@ -63,13 +65,13 @@
                 </div>
                 <div class="startdust-dropdown-item-body">
                     <div class="slitter">
-                        <a class="body-down" href="user-profile.jsp">
+                        <a class="body-down" href="${pageContext.request.contextPath}/user-profile">
                             <span>Hồ sơ</span>
                         </a> <!--NOTE : link tới prof-->
-                        <a class="body-down" href="user-profile-changePass.jsp">
+                        <a class="body-down" href="${pageContext.request.contextPath}/user-profile-changePass">
                             <span>Đổi mật khẩu</span>
                         </a> 
-                        <a class="body-down" href="user-profile-notification-modify.jsp">
+                        <a class="body-down" href="user-profile-notification-modify.jsp" style="display: none">
                             <span>Cài đặt thông báo</span>
                         </a> 
 
@@ -80,7 +82,7 @@
              <!-- Đơn mua -->
              <div class="startdust-dropdown--open">
                 <div class="startdust-dropdown-item-header">
-                    <a class="stardust-link" href="user-profile-order.jsp">
+                    <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-order">
                         <img src="${pageContext.request.contextPath}/inventory/images/user-profile/donmua-icon.png" alt="">
                         <span>Đơn Mua</span>
                     </a> <!--NOTE: link tới profile-->
@@ -89,7 +91,7 @@
              <!-- thông báo-->
              <div class="startdust-dropdown--open">
                 <div class="startdust-dropdown-item-header">
-                    <a class="stardust-link" href="user-profile-notification.jsp">
+                    <a class="stardust-link" href="user-profile-notification.jsp" style="display: none">
                         <img src="${pageContext.request.contextPath}/inventory/images/user-profile/thongbao-icon.png" alt="">
                         <span>Thông Báo</span>
                     </a> <!--NOTE: link tới profile-->
@@ -105,39 +107,42 @@
                 <h1>Chi tiết đơn hàng</h1>
               </div>
                <!-- content tab -->
+
                 <div class="tab-content" id="user-profile-tab-content">
                     <div class="tab-pane fade show active" id="user-profile-order-content-all" role="tabpanel" aria-labelledby="user-profile-order-tab-all">
                         <!-- các order -->
+                        <c:forEach var="item" items="${requestScope.resitem}">
                         <div class="user-profile-order-container">
                             <div class="user-profile-order-show">
                               <div class="user-profile-order-item">
                                 <div class="user-profile-order-content">
                                     <section id="user-profile-order-item" class="user-order-item-infor">
-                                        <a href="user-profile-order-detail.jsp"></a> <!--Note dẫn đến chi tiết order-->
+                                        <a href=""></a> <!--Note dẫn đến chi tiết order-->
                                         <div class="order-item" >
                                             <div class="order-item-wrapper">
                                                 <div class="order-item-infor-left">
-                                                    <img src="${pageContext.request.contextPath}/inventory/images/user-profile/user-profile-order/oder-item1.jpg" alt="">
+                                                    <img src="${pageContext.request.contextPath}/files/${item.product.thumbnail.path}" alt="">
                                                     <div class="order-item-detail">
                                                         <div class="order-item-title">
-                                                            <span>CHẤT CHIẾT ĐÔNG TRÙNG HẠ THẢO HÀN QUỐC</span>
+                                                            <span>${item.product.name}</span>
                                                         </div>
                                                         <div class="order-item-specification">
                                                             <div class="order-item-specification-head">
                                                                 <span class="order-item-head">Qui cách: </span>
-                                                                <span>20 ống x 20ml</span>
+                                                                <span>${item.product.specification}</span>
                                                             </div>
                                                         </div>
                                                         <div class="order-item-quantity">
                                                             <span class="order-item-head">Số lượng: </span>
-                                                            <span >x 1</span>
+                                                            <span >${item.quantity}</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="order-item-infor-right">
                                                 <div class="order-item-total">
-                                                    <span>1.200.000</span>
+                                                    <c:set var="proc" value="${item['countTotal'](item.price,item.quantity)}" />
+                                                    <span>${item['getStringPrice'](proc) }</span>
                                                     <span class="curency">đ</span>
                                                 </div>
                                             </div> 
@@ -151,72 +156,76 @@
                                   <div class="user-profile-bu-container">
                                       <button data-mdb-toggle="modal" data-mdb-target="#rating-product-order">Đánh giá</button>
                                       <button  data-mdb-toggle="modal" data-mdb-target="#complaint-product-order">Khiếu nại</button>
-                                      <button href="cart.jsp">Mua lại</button> <!--Note dẫn qua file mua hàng-->
+                                      <button data-cart-product="true" data-cart-action="add" data-cart-id="${item.product.id}" data-cart-amount="1">Mua lại</button> <!--Note dẫn qua file mua hàng-->
                                   </div>
                               </div>
                               </div>
-                                <div class="user-profile-order-detail">
-                                    <div class="user-profile-order-delivery">
-                                       <h5>Thông tin người nhận</h5>
-                                      <div class="user-profile-order-delivery-wrapper">
-                                        <div class="user-profile-order-delivery-left">
-                                          <div class="order-delivery-label">
-                                            <span>Họ tên</span>  
-                                          </div>
-                                          <div class="order-delivery-label">
-                                            <span>Email</span>
-                                          </div>
-                                          <div class="order-delivery-label">
-                                            <span>Địa chỉ</span>
-                                          </div>
-                                          <div class="order-delivery-label">
-                                            <span>Số điện thoại</span>
-                                          </div>
-                                          <div class="order-delivery-label">
-                                            <span>Thông tin bổ sung</span>
-                                          </div>
-                                        </div>
-                                        <div class="user-profile-order-delivery-right">
-                                          <div class="order-delivery-content"> 
-                                            <span>
-                                              Nguyễn Hoàng Lập
-                                            </span>
-                                          </div>
-                                          <div class="order-delivery-content">
-                                            <span>hehe@gmail.com</span>
-                                          </div>
-                                          <div class="order-delivery-content">
-                                            <span>211 Nguyễn văn cừ</span>
-                                          </div>
-                                          <div class="order-delivery-content">
-                                            <span>0233344444</span>
-                                          </div>
-                                          <div class="order-delivery-content">
-                                            <span>Không giao sau 6h tối</span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="user-profile-order-bill">
-                                      <h5>Tổng cộng</h5>
-                                      <div class="user-profile-order-bill-wrapper">
-                                        <div class="order-bill-label-left">
-                                          <i class="fa-solid fa-money-bill"></i>
-                                          <div class="user-profile-order-bill-vat">
-                                            <span>Tổng cộng(bao gồm VAT)</span>                                      
-                                          </div>                                        
-                                        </div>
-                                        <div class="order-bill-content-right">
-                                          <span class="total">1.400.000</span>
-                                          <span class="curency">đ</span>
-                                        </div>
-                                      </div>
-                                    </div>
 
-                                </div>
                                
                             </div>
                         </div>
+                        </c:forEach>
+
+                        <div class="user-profile-order-detail">
+                            <div class="user-profile-order-delivery">
+                                <h5>Thông tin người nhận</h5>
+                                <div class="user-profile-order-delivery-wrapper">
+                                    <div class="user-profile-order-delivery-left">
+                                        <div class="order-delivery-label">
+                                            <span>Tên người nhận</span>
+                                        </div>
+                                        <div class="order-delivery-label">
+                                            <span>Email</span>
+                                        </div>
+                                        <div class="order-delivery-label">
+                                            <span>Địa chỉ</span>
+                                        </div>
+                                        <div class="order-delivery-label">
+                                            <span>Số điện thoại</span>
+                                        </div>
+                                        <div class="order-delivery-label">
+                                            <span>Thông tin bổ sung</span>
+                                        </div>
+                                    </div>
+                                    <div class="user-profile-order-delivery-right">
+                                        <div class="order-delivery-content">
+                                            <span>
+                                              ${currorder.receiverName}
+                                            </span>
+                                        </div>
+                                        <div class="order-delivery-content">
+                                            <span>${currorder.receiverEmail}</span>
+                                        </div>
+                                        <div class="order-delivery-content">
+                                            <span>${currorder.receiverAddress}</span>
+                                        </div>
+                                        <div class="order-delivery-content">
+                                            <span>${currorder.receiverPhone}</span>
+                                        </div>
+                                        <div class="order-delivery-content" style="display: none">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-profile-order-bill">
+                                <h5>Tổng cộng</h5>
+                                <div class="user-profile-order-bill-wrapper">
+                                    <div class="order-bill-label-left">
+                                        <i class="fa-solid fa-money-bill"></i>
+                                        <div class="user-profile-order-bill-vat">
+                                            <span>Tổng cộng(bao gồm VAT)</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-bill-content-right">
+                                        <span class="total">1.400.000</span>
+                                        <span class="curency">đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>    
                 </div>
             </div>

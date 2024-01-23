@@ -70,5 +70,7 @@ public class ProductService extends AbstractService {
     public static void main(String[] args) {
         var service = new ProductService();
         service.search(null, new ArrayList<Integer>(), new ArrayList<String>()).forEach(System.out::println);
+        ProductService em = new ProductService();
+        System.out.println(em.getALlOf(new Category(5)).get(1).getCategory().getId());
     }
 }

@@ -75,6 +75,8 @@ const data_tables = new DataTable('#table_orders', {
     ],
     createdRow: function( row, data, dataIndex ) {
         $(row).addClass('abc');
+        $(row).css("cursor","pointer");
+
     },
 });
 
@@ -93,29 +95,29 @@ const data_tables = new DataTable('#table_orders', {
 
         switch(firstClass) { //show lại
             case 'order-complete':
-                document.querySelector(".statuscom1").parentNode.parentNode.style.display=null;
+                var star = document.querySelector(".statuscom1").closest("tr").removeAttribute("style");
                 break;
             case 'order-pending':
                 console.log(2);
-                document.querySelector(".statuscom2").parentNode.parentNode.style.display=null;
+                document.querySelector(".statuscom2").closest("tr").removeAttribute("style");
 
                 break;
             case 'order-return':
-                document.querySelector(".statuscom3").parentNode.parentNode.style.display=null;
+                document.querySelector(".statuscom3").closest("tr").removeAttribute("style");
                 break;
             case 'order-cancel':
                 console.log(4);
-                document.querySelector(".statuscom0").parentNode.parentNode.style.display=null;
+                document.querySelector(".statuscom0").closest("tr").removeAttribute("style");
                 break;
-            default:
+            case 'order-all1':
                 console.log(0);
-                document.querySelector(".statuscom1").parentNode.parentNode.style.display=null;
-                document.querySelector(".statuscom2").parentNode.parentNode.style.display=null;
-                document.querySelector(".statuscom3").parentNode.parentNode.style.display=null;
-                document.querySelector(".statuscom0").parentNode.parentNode.style.display=null;
+                document.querySelector(".statuscom1").closest("tr").removeAttribute("style");
+                document.querySelector(".statuscom2").closest("tr").removeAttribute("style");
+                document.querySelector(".statuscom3").closest("tr").removeAttribute("style");
+                document.querySelector(".statuscom0").closest("tr").removeAttribute("style");
             break;
-
         }
+
     })
     
     $('#date_picker').daterangepicker({

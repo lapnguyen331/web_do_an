@@ -14,4 +14,6 @@ public interface IUserDAO {
     int validate(int id);
     int updateAccount(int id,String username,String password );
     int updateToken(int id, String token);
+    int updateAccount(int id,String username,String password ) ;
+    int updateInfor(int id, String username, String fistname,String lastname, String email, String phone,String address, String gender, String birth) ;
 }

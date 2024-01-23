@@ -65,7 +65,7 @@
                         <a class="body-down" href="${pageContext.request.contextPath}/user-profile-changePass">
                             <span>Đổi mật khẩu</span>
                         </a> 
-                        <a class="body-down" href="${pageContext.request.contextPath}/user-profile-notification-modify">
+                        <a class="body-down" href="${pageContext.request.contextPath}/user-profile-notification-modify" style="display: none">
                             <span>Cài đặt thông báo</span>
                         </a> 
 
@@ -83,7 +83,7 @@
                 </div>
             </div>
              <!-- thông báo-->
-             <div class="startdust-dropdown--open">
+             <div class="startdust-dropdown--open" style="display: none">
                 <div class="startdust-dropdown-item-header">
                     <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-notification">
                         <img src="${pageContext.request.contextPath}/inventory/images/user-profile/thongbao-icon.png" alt="">

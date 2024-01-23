@@ -17,13 +17,14 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO {
         super(handle);
     }
 
+
     @Override
     public List<Blog> selectAll() {
-        final String SELECT_ALL = "SELECT <columns> FROM <table1> b JOIN <table2> i ON b.thumbnail = i.id";
+        final String SELECT_ALL = "SELECT <columns> FROM <table1> b left JOIN <table2> i ON b.thumbnail = i.id";
         var result = query(SELECT_ALL, Blog.class, q -> {
             q.define("table1", "blogs")
                     .define("table2", "images")
-                    .defineList("columns", "b.id, b.title, b.path, i.path, i.id");
+                    .defineList("columns", "b.*, i.*");
         }, new BlogRowMapper("b"), new ImageRowMapper("i"));
         return result;
     }
@@ -61,7 +62,7 @@ public class BlogDAO extends AbstractDAO<Blog> implements IBlogDAO {
         })).mapTo(int.class).one();
     }
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
     }
 }

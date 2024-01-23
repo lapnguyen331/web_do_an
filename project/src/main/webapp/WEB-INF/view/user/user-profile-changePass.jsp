@@ -31,7 +31,7 @@
                 <div class="user-profile">
                     <a class="user-image" href="user-profile.jsp"></a> <!--NOTE : Link tới hồ sơ user-->
                     <div class="user-avatar">
-                        <img class="avrtar-img" src="${pageContext.request.contextPath}/${userifor.avatar.path}" alt="">
+                        <img class="avrtar-img" src="${pageContext.request.contextPath}/files/${userifor.avatar.path}" alt="">
                     </div>
                     <div class="user-account-name">
                         <div class="account-name">${userifor.username}</div>
@@ -61,7 +61,7 @@
                                 <a class="body-down" href="${pageContext.request.contextPath}/user-profile-changePass">
                                     <span>Đổi mật khẩu</span>
                                 </a> 
-                                <a class="body-down" href="${pageContext.request.contextPath}/user-profile-notification-modify">
+                                <a class="body-down" href="${pageContext.request.contextPath}/user-profile-notification-modify" style="display: none">
                                     <span>Cài đặt thông báo</span>
                                 </a> 
 
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                      <!-- thông báo-->
-                     <div class="startdust-dropdown--open">
+                     <div class="startdust-dropdown--open" style="display: none">
                         <div class="startdust-dropdown-item-header">
                             <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-notification">
                                 <img src="${pageContext.request.contextPath}/inventory/images/user-profile/thongbao-icon.png" alt="">
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                        <!-- Khuyến mãi-->
-                       <div class="startdust-dropdown--open">
+                       <div class="startdust-dropdown--open" style="display: none">
                         <div class="startdust-dropdown-item-header">
                             <a class="stardust-link" href="${pageContext.request.contextPath}/user-profile-discount">
                                 <img src="${pageContext.request.contextPath}/inventory/images/user-profile/voucher-icon.png" alt="">
