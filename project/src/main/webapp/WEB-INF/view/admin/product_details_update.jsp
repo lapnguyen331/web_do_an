@@ -273,7 +273,8 @@
                                         <div class="fw-semibold">Mã bài viết</div>
                                         <div class="input-group mb-3">
                                             <div id="box_blog_filter">
-                                                <input name="blogId" value="${requestScope.product.blog.id}" type="text" id="blog_filter" class="form-control" style="width: 400px;" />
+                                                <input name="blogId" type="hidden" id="txt-blog-id" value="${requestScope.product.blog.id}">
+                                                <input type="text" id="blog_filter" value="${requestScope.product.blog.title}" class="form-control" style="width: 400px;" />
                                             </div>
                                             <button class="btn btn-primary d-flex gap-1 align-items-center text-capitalize" type="button">
                                                 <i class="fa-regular fa-folder-open"></i>

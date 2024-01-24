@@ -1,20 +1,24 @@
+const id = $('#order-item').val();
 (async function() {
     $.ajax({
-        url: '/template/products-2.txt',
-        success: function(data) {
-            const products = JSON.parse(data).data;
-            products.sort(() => 0.5 - Math.random());
-            for (let i = 0; i < 4; i++) {
+        url: `${window.context}/api/order/getOrderItems?id=${id}`,
+        method: 'get',
+        success: function(response) {
+            const items = response.data;
+            let price = 0;
+            for (let i = 0; i < items.length; i++) {
+                price += items[i].price
+                const product = items[i].product;
                 const html = `
                 <div class="product-card">
                     <div class="img-wrap">
-                        <img src="${products[i].images[0]}" width='100%' alt="">
+                        <img src="${window.context}/files/${product.image}" width='100%' alt="">
                     </div>
                     <div class="info-wrap">
-                        <div class="product-title">${products[i].name}</div>
-                        <div class="product-price">Giá bán: ${products[i].price}</div>
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-price">Giá bán: ${product.price}</div>
                         <div class="id-wrap">
-                            <div class="product-id">Mã SP: ${products[i].id}</div>
+                            <div class="product-id">Mã SP: ${product.id}</div>
                             <div class="number-field">
                                 <button class="up">
                                     <span>+</span>
@@ -33,6 +37,7 @@
                 `
                 $('.products-range').append(html);
             }
+            $('#total-price').text(String(price).replace(/(?<=\d)(?=(\d{3})+(?!\d))/g, "."))
         }
     })
 })()
@@ -42,7 +47,7 @@ const dataTable = new DataTable('#products_filter_table', {
     scrollCollapse: true,
     scrollY: '400px',
     width: '100%',
-    ajax: '/template/products-2.txt',
+    ajax: `${window.context}/api/product/getAll`,
     columnDefs: [
         {
             width: 1,
@@ -66,7 +71,7 @@ const dataTable = new DataTable('#products_filter_table', {
                 const html = `
                 <div class="product-wrap">
                     <div class="img-wrap">
-                        <img src="${data.images[0]}" width="100%" alt="">
+                        <img src="${window.context}/files/${data.image}" width="100%" alt="">
                     </div>
                     <div class="info-wrap">
                         <div class="product-title">${data.name}</div>
@@ -83,8 +88,8 @@ const dataTable = new DataTable('#products_filter_table', {
             }
         },
         {
-            target: 2, 
-            defaultContent: '15',
+            data: 'quantity',
+            target: 2,
             className: 'dt-center dt-nowrap',
             width: 1
         },

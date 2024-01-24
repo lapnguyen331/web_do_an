@@ -34,10 +34,11 @@ const badget_status = [
     '<span class="badge badge-warning">Đang trả về</span>',
 ]
 const data_tables = new DataTable('#table_orders', {
-    ajax: '/template/admin/orders.txt',
+    ajax: `${window.context}/api/order/getAll`,
     language: translate,
     dom: 'tip',
     scrollCollapse: true,
+    pageLength: 5,
     width: '100%',
     scrollY: '400px',
     columns: [
@@ -45,7 +46,7 @@ const data_tables = new DataTable('#table_orders', {
             data: 'id'
         },
         {
-            data: 'customer'
+            data: 'name'
         },
         {
             data: 'price',

@@ -7,6 +7,7 @@ import com.project.exceptions.NotEnoughQuantityException;
 import com.project.exceptions.NotFoundProductException;
 import com.project.models.*;
 import org.jdbi.v3.core.Handle;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -65,6 +66,18 @@ public class OrderService extends AbstractService {
             }
         }
         return null;
+    }
+    public JSONObject getOrderJSON(Order order) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id", order.getId());
+        jsonObject.put("customer", order.getUser().getFirstName() + " " + order.getUser().getLastName());
+        jsonObject.put("name", order.getReceiverName());
+        jsonObject.put("price", order.getTotalPrice());
+        jsonObject.put("phone", order.getReceiverPhone());
+        jsonObject.put("email", order.getReceiverEmail());
+        jsonObject.put("status", order.getStatus());
+        jsonObject.put("create", order.getDayCreateAt());
+        return jsonObject;
     }
 
     public static void main(String[] args) {

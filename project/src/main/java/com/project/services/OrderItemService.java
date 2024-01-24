@@ -9,6 +9,8 @@ import com.project.exceptions.NotFoundProductException;
 import com.project.models.Order;
 import com.project.models.OrderItem;
 import org.jdbi.v3.core.Handle;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -37,6 +39,10 @@ public class OrderItemService extends AbstractService {
         product.setQuantity(leftAmount - orderAmount);
         productService.updateProduct(product);
         return orderItemDAO.insert(orderItem);
+    }
+
+    public List<OrderItem> getOrderItemOf(Order order) {
+        return orderItemDAO.getOrderItemOf(order);
     }
 
     public static void main(String[] args) {

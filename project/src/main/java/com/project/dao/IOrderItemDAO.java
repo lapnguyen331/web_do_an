@@ -8,4 +8,5 @@ import java.util.List;
 public interface IOrderItemDAO {
     List<OrderItem> getAll();
     int insert(OrderItem orderItem);
+    List<OrderItem> getOrderItemOf(Order order);
 }

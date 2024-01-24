@@ -39,15 +39,15 @@
             </li>
             <li class="nav-link-page">
                 <div class="icon-link">
-                    <a href="${pageContext.request.contextPath}/admin/products.html">
+                    <a href="${pageContext.request.contextPath}/admin/product">
                         <i class="fa-solid fa-box"></i>
                         <span class="link_name">Sản phẩm</span>
                     </a>
                     <i class="fa-solid fa-angle-down arrow"></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="${pageContext.request.contextPath}/admin/products.html">Sản phẩm</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/products_edit.html">Thêm sản phẩm</a></li>
+                    <li><a class="link_name" href="${pageContext.request.contextPath}/admin/products">Sản phẩm</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/product/detail/new">Thêm sản phẩm</a></li>
                 </ul>
             </li>
             <li class="nav-link-page">

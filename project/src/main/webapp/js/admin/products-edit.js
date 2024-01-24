@@ -90,7 +90,7 @@ const async_data_blog = async (value) => {
 
 new mdb.Autocomplete($('#box_blog_filter')[0], {
     filter: async_data_blog,
-    displayValue: (blog) => blog.id,
+    displayValue: (blog) => blog.title,
     itemContent: (blog) => {
       const html = `
         <div class="blog-selector-wrap">
@@ -125,5 +125,5 @@ const loadBlog = async function(filePath) {
     })
 }
 $('#box_blog_filter').on('itemSelect.mdb.autocomplete', async function(e) {
-    e.value.path && await loadBlog(e.value.path)
+    e.value.path && await loadBlog(e.value.path) && $('#txt-blog-id').val(e.value.id)
 })
