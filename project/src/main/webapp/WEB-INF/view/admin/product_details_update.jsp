@@ -311,7 +311,7 @@
 <script src="${pageContext.request.contextPath}/libs/DataTables/datatables.min.js"></script>
 <script src="${pageContext.request.contextPath}/libs/daterangepicker-master/daterangepicker.js"></script>
 <script src="${pageContext.request.contextPath}/libs/suneditor-master/dist/suneditor.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/admin/products-edit.js?v=7"></script>
+<script src="${pageContext.request.contextPath}/js/admin/products-edit.js?v=10"></script>
 <script>
     loadBlog('${requestScope.product.blog.path}');
 </script>
