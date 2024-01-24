@@ -1,19 +1,13 @@
 'use strict';
-const thumbnail_preload = [
-    {id: 1, src: $('#input-images').find(`input[type='hidden']`).val()},
-]
-const galleries_preload = $('#images_gallery_product').find(`input[type='hidden']`).get().map((input, index) => {
-    return {id: index, src:$(input).val()}
-});
 $('#input-images').imageUploader({
-        preloaded: thumbnail_preload,
+        preloaded: undefined,
         imagesInputName: 'thumbnail-new-image',
         preloadedInputName: 'thumbnail-old-image',
         maxFiles: 1
     }
 );
 $('#images_gallery_product').imageUploader({
-        preloaded: galleries_preload,
+        preloaded: undefined,
         imagesInputName: 'gallery-new-image',
         preloadedInputName: 'gallery-old-image',
         maxFiles: 6
@@ -122,5 +116,5 @@ const loadBlog = async function(filePath) {
     })
 }
 $('#box_blog_filter').on('itemSelect.mdb.autocomplete', async function(e) {
-    e.value.path && await loadBlog(e.value.path)
+    e.value.path && await loadBlog(e.value.path);
 })

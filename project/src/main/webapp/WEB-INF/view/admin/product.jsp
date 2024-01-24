@@ -115,7 +115,9 @@
                         <div class="product-list">
                             <button class="add-btn view-btn" data-product-id = 'new'>
                                 <i class="fa-solid fa-plus"></i>
-                                <span>Thêm sản phẩm</span>
+                                <a href="${pageContext.request.contextPath}/admin/product/detail/new" style="color: white">
+                                    <span>Thêm sản phẩm</span>
+                                </a>
                             </button>
                             <div class="product-grid product-list-head">
                                 <span class="justify-self-center">#</span>

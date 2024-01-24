@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Properties;
 
 @MultipartConfig()
-@WebServlet(name = "AdminProductDetail_edit", urlPatterns = {"/admin/product/detail"})
+@WebServlet(name = "AdminProductDetail", urlPatterns = {"/admin/product/detail/*"})
 public class ProductDetailServlet extends HttpServlet {
     private final ProductService productService;
     private final ImageService imageService;
@@ -44,19 +44,50 @@ public class ProductDetailServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String action = request.getPathInfo();
+        var producers = producerService.getAll();
+        request.setAttribute("producers", producers);
+        switch (action) {
+            case "/update": {
+                showUpdatePage(request, response);
+                return;
+            }
+            case "/new": {
+                showNewPage(request, response);
+                return;
+            }
+        }
+    }
+
+    private void showNewPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/WEB-INF/view/admin/product_details_new.jsp").forward(request, response);
+    }
+
+    private void showUpdatePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = productService.getById(id);
         var galleries = imageService.getGalleriesOf(product);
-        var producers = producerService.getAll();
         request.setAttribute("product", product);
         request.setAttribute("galleries", galleries);
-        request.setAttribute("producers", producers);
-        request.getRequestDispatcher("/WEB-INF/view/admin/product_details.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/view/admin/product_details_update.jsp").forward(request, response);
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doUpdate(request, response);
+        String action = request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/"));
+        switch (action) {
+            case "/update":
+                doUpdate(request, response);
+                break;
+            case "/new":
+                doAdd(request, response);
+                break;
+        }
+    }
+
+    private void doAdd(HttpServletRequest request, HttpServletResponse response) {
+
     }
 
     private void doUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -115,9 +146,12 @@ public class ProductDetailServlet extends HttpServlet {
             }
             int update = sub_productService.updateProduct(product);
             if (update <= 0) throw new OperationCancelledException();
-            imageService.clearGalleries(product);
+            int delete = imageService.clearGalleries(product);
             if (!gallery_new.isEmpty()) {
-                for (Part p : gallery_new) imageService.createAndInsert(p, request.getServletContext().getRealPath("/assests"));
+                for (Part p : gallery_new) {
+                    int insertedKey = imageService.createAndInsert(p, request.getServletContext().getRealPath("/assests"));
+                    imageService.insertToGalleryOf(product, imageService.findOneById(insertedKey));
+                }
             }
             if (gallery_old != null) {
                 for (String s : gallery_old) {
@@ -133,26 +167,8 @@ public class ProductDetailServlet extends HttpServlet {
         } catch (NotFoundProductException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    private String getJSONProducts(List<Product> products) {
-        JSONArray data = new JSONArray();
-        for (var product : products) {
-            JSONObject obj = new JSONObject();
-            obj.put("id", product.getId())
-                    .put("name", product.getName())
-                    .put("specific", product.getSpecification())
-                    .put("discount", product.getDiscount().getDiscountPercent())
-                    .put("image", product.getThumbnail().getPath())
-                    .put("rate", 4.9)
-                    .put("price", product.getStringPrice(product.getPrice()))
-                    .put("category", product.getCategory().getId())
-                    .put("quantity", product.getQuantity());
-            data.put(obj);
-        }
-        JSONObject rs = new JSONObject();
-        rs.put("data", data);
-        return rs.toString();
+        request.setAttribute("message", "Update sản phẩm thành công");
+        response.sendRedirect(request.getContextPath()+"/admin/product/detail/update?id="+id);
     }
     private String getUUID(String link) {
         String fileName = link.substring(link.lastIndexOf('/')+1, link.length());

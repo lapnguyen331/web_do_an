@@ -32,7 +32,7 @@ public class AuthenticationFilter implements Filter {
         String resource = uri.substring(lastIndex + 1);
 //        Lỗi xảy ra ở Google Chrome, chuyển hướng về trang khởi đầu..
 //        if (resource.isEmpty()) {
-//            ((HttpServletResponse) response).sendRedirect("home");
+//            ((HttpServletResponse) r  esponse).sendRedirect("home");
 //            return;
 //        }
 //        Get Authentication Properties
