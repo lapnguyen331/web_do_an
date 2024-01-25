@@ -80,5 +80,14 @@ public class OrderItemDAO extends AbstractDAO<OrderItem> implements IOrderItemDA
         }, new OrderItemRowMapper("odi"), new OrderRowMapper("od"), new ProductRowMapper("p"),new ImageRowMapper("img"));
     }
 
+    @Override
+    public int delete(OrderItem orderItem) {
+        final String DELETE = "DELETE FROM <table> WHERE orderId = :orderItem.order.id AND productId = :orderItem.product.id";
+        return update(DELETE, update -> {
+            update.define("table", "order_details")
+                    .bindBean("orderItem", orderItem);
+        });
+    }
+
 
 }
