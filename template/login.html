@@ -1,387 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Thư viện ngoài (Luôn để đầu tiên) -->
-  <link rel="stylesheet" href="stylesheet/fontawesome.min.css">
-  <link rel="stylesheet" href="libs/swiper/swiper-bundle-min.css"/>
-  <link rel="stylesheet" href="libs/mdb-bootstrap-5/css/mdb.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Thư viện ngoài (Luôn để đầu tiên) -->
+    <link rel="stylesheet" href="stylesheet/fontawesome.min.css">
+    <link rel="stylesheet" href="libs/swiper/swiper-bundle-min.css"/>
+    <link rel="stylesheet" href="libs/mdb-bootstrap-5/css/mdb.min.css">
 
-  <!-- Style của project -->
-  <link rel="stylesheet" href="stylesheet/all.min.css">
-  <link rel="stylesheet" href="css/main-header.css">
-  <link rel="stylesheet" href="css/main-style.css">
-  <link rel="stylesheet" href="css/main-footer.css">
-  <link rel="stylesheet" href="css/home-slider.css">
-  <link rel="stylesheet" href="css/button-title.css">
-  <link rel="stylesheet" href="css/login-style.css">
-  <title>Trang đăng nhập</title>
+    <!-- Style của project -->
+    <link rel="stylesheet" href="stylesheet/all.min.css">
+    <link rel="stylesheet" href="css/main-header.css">
+    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/main-footer.css">
+    <link rel="stylesheet" href="css/home-slider.css">
+    <link rel="stylesheet" href="css/button-title.css">
+    <link rel="stylesheet" href="css/login-style.css">
+    <title>Trang đăng nhập</title>
 </head>
 <body>
 <header id="main-header-section">
-  <article id="main-header-top">
-    <div class="logo-wrapper">
-      <img src="icon/logo2.png" alt="">
-    </div>
-    <div class="main-content-wrapper">
-      <ul class="topbar-menu">
-        <li class="topbar-menu-item">
-          <a class="redirect-link" href="home.html">Trang chủ</a>
-        </li>
-        <li class="topbar-menu-item">
-          <a class="redirect-link" href="introduce.html">Giới thiệu</a>
-        </li>
-        <li class="topbar-menu-item">
-          <a class="redirect-link" href="contact.html">Liên hệ</a>
-        </li>
-        <li class="topbar-menu-item">
-          <a class="redirect-link" href="blog.html">Blog</a>
-      </li>
-        
-        <li class="topbar-menu-item">
-          <a class="redirect-link" href="privacy.html">Quy định & chính sách chung</a>
-        </li>
-        <li class="topbar-menu-item">
-          <a class="redirect-link" href="login.html">Đăng nhập</a>
-        </li>
-      </ul>
-      <div class="search-input">
-        <div class="search-input-wrapper">
-          <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
-          <a class="btn-search" href="search.html">Tìm kiếm</a> <!--Note link tới trang tìm kiếm-->
+    <article id="main-header-top">
+        <div class="logo-wrapper">
+            <img src="icon/logo2.png" alt="">
         </div>
-        <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
-      </div>
-    </div>
-  </article>
+        <div class="main-content-wrapper">
+            <ul class="topbar-menu">
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="home.html">Trang chủ</a>
+                </li>
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="introduce.html">Giới thiệu</a>
+                </li>
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="contact.html">Liên hệ</a>
+                </li>
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="blog.html">Blog</a>
+                </li>
 
-  <article id="main-header-bot">
-    <nav class="main-nav">
-      <div class="all-items menu-wrapper">
-        <span>Tất cả sản phẩm</span>
-        <ul class="menu">
-          <li class="menu-item"><a href="categogy-detail.html">Nước Hồng Sâm Hàn Quốc</a></li>
-          <li class="menu-item"><a href="categogy-detail.html">Cao Hồng Sâm Hàn Quốc</a></li>
-          <li class="menu-item"><a href="categogy-detail.html">Sâm Khô Hàn Quốc</a></li>
-          <li class="menu-item"><a href="categogy-detail.html">Sâm Mật Ong Hàn Quốc</a></li>
-          <li class="menu-item"><a href="categogy-detail.html">Hắc Sâm Hàn Quốc</a></li>
-          <li class="menu-item"><a href="categogy-detail.html">Nhân Sâm Tươi Hàn Quốc</a></li>
-          <li class="menu-item"><a href="categogy-detail.html">Rượu Sâm Linh Chi</a></li>
-          <li class="menu-item"><a href="categogy-detail.html">Trà Hồng Sâm Hàn Quốc Và Bột Sâm</a></li>
-          <li class="menu-item"><a href="categogy-detail.html">Viên Hồng Sâm Hàn Quốc</a></li>
-          <li class="menu-item"><a href="categogy-detail.html">Viên Hồng Sâm Hàn Quốc</a></li>
-        </ul>
-      </div>
-      <ul class="nav-items-wrapper">
-        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Nước Hồng Sâm</a></li>
-        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Cao Hồng Sâm</a></li>
-        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Sâm Khô</a></li>
-        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Sâm Mật Ong</a></li>
-        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Hắc Sâm</a></li>
-        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Nhân Sâm Tươi</a></li>
-        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Rượu Sâm Linh Chi</a></li>
-        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Trà Hồng Sâm</a></li>
-        <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Viên Hồng Sâm</a></li>
-      </ul>
-    </nav>
-  </article>
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="privacy.html">Quy định & chính sách chung</a>
+                </li>
+                <li class="topbar-menu-item">
+                    <a class="redirect-link" href="login.html">Đăng nhập</a>
+                </li>
+            </ul>
+            <div class="search-input">
+                <div class="search-input-wrapper">
+                    <input type="text" placeholder="Nhập tên sản phẩm cần tìm...">
+                    <a class="btn-search" href="search.html">Tìm kiếm</a> <!--Note link tới trang tìm kiếm-->
+                </div>
+                <p>Gợi ý từ khóa: Cao hồng sâm, Sâm tầm mật ong, Trà linh chi,...</p>
+            </div>
+        </div>
+    </article>
+
+    <article id="main-header-bot">
+        <nav class="main-nav">
+            <div class="all-items menu-wrapper">
+                <span>Tất cả sản phẩm</span>
+                <ul class="menu">
+                    <li class="menu-item"><a href="categogy-detail.html">Nước Hồng Sâm Hàn Quốc</a></li>
+                    <li class="menu-item"><a href="categogy-detail.html">Cao Hồng Sâm Hàn Quốc</a></li>
+                    <li class="menu-item"><a href="categogy-detail.html">Sâm Khô Hàn Quốc</a></li>
+                    <li class="menu-item"><a href="categogy-detail.html">Sâm Mật Ong Hàn Quốc</a></li>
+                    <li class="menu-item"><a href="categogy-detail.html">Hắc Sâm Hàn Quốc</a></li>
+                    <li class="menu-item"><a href="categogy-detail.html">Nhân Sâm Tươi Hàn Quốc</a></li>
+                    <li class="menu-item"><a href="categogy-detail.html">Rượu Sâm Linh Chi</a></li>
+                    <li class="menu-item"><a href="categogy-detail.html">Trà Hồng Sâm Hàn Quốc Và Bột Sâm</a></li>
+                    <li class="menu-item"><a href="categogy-detail.html">Viên Hồng Sâm Hàn Quốc</a></li>
+                    <li class="menu-item"><a href="categogy-detail.html">Viên Hồng Sâm Hàn Quốc</a></li>
+                </ul>
+            </div>
+            <ul class="nav-items-wrapper">
+                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Nước Hồng Sâm</a></li>
+                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Cao Hồng Sâm</a></li>
+                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Sâm Khô</a></li>
+                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Sâm Mật Ong</a></li>
+                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Hắc Sâm</a></li>
+                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Nhân Sâm Tươi</a></li>
+                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Rượu Sâm Linh Chi</a></li>
+                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Trà Hồng Sâm</a></li>
+                <li class="nav-item menu-wrapper"><a href="categogy-detail.html">Viên Hồng Sâm</a></li>
+            </ul>
+        </nav>
+    </article>
 </header>
 
-      <section id="login">
-        <div class="container">
-          <div class="form-box login">
+<section id="login">
+    <div class="container">
+        <div class="form-box login">
             <h2>Đăng nhập</h2>
-            <form action ="#">
-              <div class="input-box">
+            <form id="login-form" method="post" onsubmit="return validateForm()" >
+                <div class="input-box">
                 <span class="icon">
                   <i class="fa-solid fa-user fa-sm"></i>
                 </span>
-                <input type="text" id="username" name="username" required>
-                <label>Tài khoản hoặc Email</label>
-              </div>
+                    <input type="text" id="username" name="username">
+                    <label>Tài khoản hoặc Email</label>
+                </div>
 
-              <div class="input-box">
+                <div class="input-box">
                 <span class="icon" id="toggle-login-password">
                   <i class="fa-solid fa-eye cursor-pointer"></i>
                   <i class="fa-solid fa-lock fa-sm"></i>
                 </span>
-                <input type="password" id="password" name="password" required>
-                <label>Mật khẩu</label>
-              </div>
+                    <input type="password" id="password" name="password">
+                    <label>Mật khẩu</label>
+                </div>
 
-              <div class="remember-forgot">
-                <label><input type="checkbox">Lưu mật khẩu</label>
-                <a href="forgot_password.html">Quên mật khẩu?</a>
-              </div>
-              <button type="submit" class="btn">Đăng nhập</button>
-              <div class="icons">
-                <p>Hoặc đăng nhập với:</p>
-              <a href="#" class="icons-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
-                  <g fill="#2f539b" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M12,27v-12h-4v-4h4v-2.148c0,-4.067 1.981,-5.852 5.361,-5.852c1.619,0 2.475,0.12 2.88,0.175v3.825h-2.305c-1.435,0 -1.936,0.757 -1.936,2.291v1.709h4.205l-0.571,4h-3.634v12z"></path></g></g>
-                </svg></a>
-              <a href="#" class="icons-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 48 48">
-                  <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
-                </svg>
-              </a>
-              </div>
-              <div class = "login-register">
-                <p>Bạn chưa có tài khoản? <a href="signup.html" class="register-link">Đăng ký ngay!</a>
-                </p>
-              </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Lưu mật khẩu</label>
+                    <a href="forgot_password.html">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn">Đăng nhập</button>
+                <div class="d-flex justify-content-center" id="login-status">
+                    <div class="text-danger fw-bold"></div>
+                </div>
+                <div class="icons">
+                    <p>Hoặc đăng nhập với:</p>
+                    <a href="#" class="icons-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
+                            <g fill="#2f539b" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M12,27v-12h-4v-4h4v-2.148c0,-4.067 1.981,-5.852 5.361,-5.852c1.619,0 2.475,0.12 2.88,0.175v3.825h-2.305c-1.435,0 -1.936,0.757 -1.936,2.291v1.709h4.205l-0.571,4h-3.634v12z"></path></g></g>
+                        </svg></a>
+                    <a href="#" class="icons-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 48 48">
+                            <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class = "login-register">
+                    <p>Bạn chưa có tài khoản? <a href="signup.html" class="register-link">Đăng ký ngay!</a>
+                    </p>
+                </div>
             </form>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
 
 
-      <footer id="main-footer-section">
-        <div class="footer-guide">
-            <div class="guide-title">thông tin liên hệ</div>
-            <div class="guide-title">hệ thống cửa hàng</div>
-            <div class="guide-title">danh mục sản phẩm</div>
+<footer id="main-footer-section">
+    <div class="footer-guide">
+        <div class="guide-title">thông tin liên hệ</div>
+        <div class="guide-title">hệ thống cửa hàng</div>
+        <div class="guide-title">danh mục sản phẩm</div>
 
-            <div class="guide-content">
-                <div class="contact-wrap">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>Hotline: 1900.1234</span>
-                </div>
-                <div class="contact-wrap">
-                    <i class="fa-regular fa-comment-dots"></i>
-                    <span>Zalo, Sms: 0936.565.257</span>
-                </div>
-                <div class="contact-wrap">
-                    <i class="fa-regular fa-envelope"></i>
-                    <span>Email: nqat0919@gmail.com</span>
-                </div>
-                <strong>Mua hàng trực tiếp tại cửa hàng</strong>
-                <div class="contact-wrap">
-                    <i class="fa-regular fa-clock"></i>
-                    <span>Thời gian mở cửa: 8h - 21h</span>
-                </div>
-                <strong>Phương thức thanh toán</strong>
-                <img src="image/payment.webp" alt="" style="width: 400px;">
+        <div class="guide-content">
+            <div class="contact-wrap">
+                <i class="fa-solid fa-phone"></i>
+                <span>Hotline: 1900.1234</span>
             </div>
-            <div class="guide-content">
-                <strong>Tại Hà Nội:</strong>
-                <ul class="address-list">
-                    <li class="address">Cửa hàng 1: 21 Tây Sơn - Quan Trung- Đống Đa - Hà Nội</li>
-                    <li class="address">Cửa hàng 2: 121A Phố Huế - Hai Bà Trưng - Hà Nội (Ngã tư Phố Huế - Tuệ Tĩnh)</li>
-                    <li class="address">Cửa hàng 3: 149 Cầu Giấy - Quan Hoa - Cầu Giấy - Hà Nội</li>
-                    <li class="address">Cửa hàng 4: 577 Nguyễn Trãi - Thanh Xuân Nam - Thanh Xuân - Hà Nội ( Đối diện Pico Trung Văn)</li>
-                </ul>
-                <strong>Tại Hồ Chí Minh:</strong>
-                <ul class="address-list">
-                    <li class="address">Cửa hàng 5: 51 Võ Thị Sáu - Phường VTS - Quận 3 - Thành phố Hồ Chí Minh</li>
-                </ul>
+            <div class="contact-wrap">
+                <i class="fa-regular fa-comment-dots"></i>
+                <span>Zalo, Sms: 0936.565.257</span>
             </div>
-            <div class="guide-content">
-                <div class="portfolio-product">
-                    <div class="product-img">
-                        <img src="image/nuoc-hong-sam.png" alt="">
-                    </div>
-                    <div class="product-name">
-                        <a href="categogy-detail.html">Nước hồng sâm</a> <!---Note sửa lại href-->
-                    </div>
-                </div>
-                <div class="portfolio-product">
-                    <div class="product-img">
-                        <img src="image/linh-chi-han-quoc.webp" alt="">
-                    </div>
-                    <div class="product-name">
-                        <a href="categogy-detail.html">Cao hồng sâm</a> <!---Note sửa lại href-->
-                    </div>
-                </div>
-                <div class="portfolio-product">
-                    <div class="product-img">
-                        <img src="image/sam-kho.png" alt="">
-                    </div>
-                    <div class="product-name">
-                        <a href="categogy-detail.html">Sâm khô</a> <!---Note sửa lại href-->
-                    </div>
-                </div>
-                <div class="portfolio-product">
-                    <div class="product-img">
-                        <img src="image/sam-mat-ong.png" alt="">
-                    </div>
-                    <div class="product-name">
-                        <a href="categogy-detail.html">Sâm mật ong</a> <!---Note sửa lại href-->
-                    </div>
-                </div>
-                <div class="portfolio-product">
-                    <div class="product-img">
-                        <img src="image/hac-sam-han-quoc.png" alt="">
-                    </div>
-                    <div class="product-name">
-                        <a href="categogy-detail.html">Hắc sâm</a> <!---Note sửa lại href-->
-                    </div>
-                </div>
-                <div class="portfolio-product">
-                    <div class="product-img">
-                        <img src="image/sam-tuoi.png" alt="">
-                    </div>
-                    <div class="product-name">
-                        <a href="categogy-detail.html">nhân sâm tươi</a> <!---Note sửa lại href-->
-                    </div>
-                </div>
-                <div class="portfolio-product">
-                    <div class="product-img">
-                        <img src="image/ruou-sam.png" alt="">
-                    </div>
-                    <div class="product-name">
-                        <a href="categogy-detail.html">Rượu sâm Linh Chi</a> <!---Note sửa lại href-->
-                    </div>
-                </div>
-                <div class="portfolio-product">
-                    <div class="product-img">
-                        <img src="image/tra-sam.webp" alt="">
-                    </div>
-                    <div class="product-name">
-                        <a href="categogy-detail.html">Trà hồng sâm</a> <!---Note sửa lại href-->
-                    </div>
-                </div>
-                <div class="portfolio-product">
-                    <div class="product-img">
-                        <img src="image/vien-hong-sam.webp" alt="">
-                    </div>
-                    <div class="product-name">
-                        <a href="categogy-detail.html">viên hồng sâm</a> <!---Note sửa lại href-->
-                    </div>
-                </div>
+            <div class="contact-wrap">
+                <i class="fa-regular fa-envelope"></i>
+                <span>Email: nqat0919@gmail.com</span>
             </div>
+            <strong>Mua hàng trực tiếp tại cửa hàng</strong>
+            <div class="contact-wrap">
+                <i class="fa-regular fa-clock"></i>
+                <span>Thời gian mở cửa: 8h - 21h</span>
+            </div>
+            <strong>Phương thức thanh toán</strong>
+            <img src="image/payment.webp" alt="" style="width: 400px;">
         </div>
-        <div class="footer-contact">
-            <div class="contact-title">
-                <ul class="title-list">
-                    <li class="title-item">Trang chủ</li>
-                    <li class="title-item">Tin tức</li>
-                    <li class="title-item">Liên hệ</li>
-                </ul>
-            </div>
-
-            <div class="contact-title">
-                <strong>Mua sắm tiện lợi</strong>
-            </div>
-
-            <div class="contact-title">
-                <strong>Fanpage Facebook</strong>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info-wrapper">
-                    <div class="img-logo" >
-                        <img src="icon/logo.png" alt="">
-                    </div>
-                    <div class="contact-info-content">
-                        <p class="info-text">sâm hàn quốc Cheong Kwan Jang</p>
-                        <div class="contact-wrap">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>Hotline: 1900.1234</span>
-                        </div>
-                        <div class="contact-wrap">
-                            <i class="fa-regular fa-comment-dots"></i>
-                            <span>Zalo, Sms: 0936.565.257</span>
-                        </div>
-                        <div class="contact-wrap">
-                            <i class="fa-regular fa-envelope"></i>
-                            <span>Email: nqat0919@gmail.com</span>
-                        </div>
-                    </div>
+        <div class="guide-content">
+            <strong>Tại Hà Nội:</strong>
+            <ul class="address-list">
+                <li class="address">Cửa hàng 1: 21 Tây Sơn - Quan Trung- Đống Đa - Hà Nội</li>
+                <li class="address">Cửa hàng 2: 121A Phố Huế - Hai Bà Trưng - Hà Nội (Ngã tư Phố Huế - Tuệ Tĩnh)</li>
+                <li class="address">Cửa hàng 3: 149 Cầu Giấy - Quan Hoa - Cầu Giấy - Hà Nội</li>
+                <li class="address">Cửa hàng 4: 577 Nguyễn Trãi - Thanh Xuân Nam - Thanh Xuân - Hà Nội ( Đối diện Pico Trung Văn)</li>
+            </ul>
+            <strong>Tại Hồ Chí Minh:</strong>
+            <ul class="address-list">
+                <li class="address">Cửa hàng 5: 51 Võ Thị Sáu - Phường VTS - Quận 3 - Thành phố Hồ Chí Minh</li>
+            </ul>
+        </div>
+        <div class="guide-content">
+            <div class="portfolio-product">
+                <div class="product-img">
+                    <img src="image/nuoc-hong-sam.png" alt="">
+                </div>
+                <div class="product-name">
+                    <a href="categogy-detail.html">Nước hồng sâm</a> <!---Note sửa lại href-->
                 </div>
             </div>
-            <div class="contact-content">
-                <div class="intro-wrapper">
-                    <div class="intro-col">
-                        <div class="contact-wrap">
-                            <i class="fas fa-edit" aria-hidden="true"></i>
-                            <a href="#">Hướng dẫn mua hàng</a>
-                        </div>
-                        <div class="contact-wrap">
-                            <i class="fas fa-map" aria-hidden="true"></i>
-                            <a href="#">Bản đồ đến showroom</a>
-                        </div>
-                        <div class="contact-wrap">
-                            <i class="fab fa-cc-visa" aria-hidden="true"></i>
-                            <a href="details_product.html">Thông tin hàng hóa chi tiết</a>
-                        </div>
-                        <div class="contact-wrap">
-                            <i class="fas fa-calendar-check" aria-hidden="true"></i>
-                            <a href="privacy.html#chinh_sach_bao_hanh_doi_tra_va_hoan_tien">Quy định về việc đổi trả hàng</a>
-                        </div>
-                    </div>
-                    <div class="intro-col">
-                        <div class="contact-wrap">
-                            <i class="fas fa-money-bill" aria-hidden="true"></i>
-                            <a href="privacy.html">Thanh toán khi nhận hàng</a>
-                        </div>
-                        <div class="contact-wrap">
-                            <i class="fas fa-truck" aria-hidden="true"></i>
-                            <a href="#">Giao hàng toàn quốc</a>
-                        </div>
-                        <div class="contact-wrap">
-                            <i class="fas fa-thumbs-up" aria-hidden="true"></i>
-                            <a href="#">Nhân sâm Hàn Quốc uy tín</a>
-                        </div>
-                        <div class="contact-wrap">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i>
-                            <a href="#">Dịch vụ CSKH chu đáo</a>
-                        </div>
-                    </div>
+            <div class="portfolio-product">
+                <div class="product-img">
+                    <img src="image/linh-chi-han-quoc.webp" alt="">
+                </div>
+                <div class="product-name">
+                    <a href="categogy-detail.html">Cao hồng sâm</a> <!---Note sửa lại href-->
                 </div>
             </div>
-            <div class="contact-content">
-                <div class="fb-page" 
-                    data-href="https://www.facebook.com/kcntt.nlu"
-                    data-width="400" 
-                    data-hide-cover="false"
-                    data-show-facepile="false">
+            <div class="portfolio-product">
+                <div class="product-img">
+                    <img src="image/sam-kho.png" alt="">
+                </div>
+                <div class="product-name">
+                    <a href="categogy-detail.html">Sâm khô</a> <!---Note sửa lại href-->
+                </div>
+            </div>
+            <div class="portfolio-product">
+                <div class="product-img">
+                    <img src="image/sam-mat-ong.png" alt="">
+                </div>
+                <div class="product-name">
+                    <a href="categogy-detail.html">Sâm mật ong</a> <!---Note sửa lại href-->
+                </div>
+            </div>
+            <div class="portfolio-product">
+                <div class="product-img">
+                    <img src="image/hac-sam-han-quoc.png" alt="">
+                </div>
+                <div class="product-name">
+                    <a href="categogy-detail.html">Hắc sâm</a> <!---Note sửa lại href-->
+                </div>
+            </div>
+            <div class="portfolio-product">
+                <div class="product-img">
+                    <img src="image/sam-tuoi.png" alt="">
+                </div>
+                <div class="product-name">
+                    <a href="categogy-detail.html">nhân sâm tươi</a> <!---Note sửa lại href-->
+                </div>
+            </div>
+            <div class="portfolio-product">
+                <div class="product-img">
+                    <img src="image/ruou-sam.png" alt="">
+                </div>
+                <div class="product-name">
+                    <a href="categogy-detail.html">Rượu sâm Linh Chi</a> <!---Note sửa lại href-->
+                </div>
+            </div>
+            <div class="portfolio-product">
+                <div class="product-img">
+                    <img src="image/tra-sam.webp" alt="">
+                </div>
+                <div class="product-name">
+                    <a href="categogy-detail.html">Trà hồng sâm</a> <!---Note sửa lại href-->
+                </div>
+            </div>
+            <div class="portfolio-product">
+                <div class="product-img">
+                    <img src="image/vien-hong-sam.webp" alt="">
+                </div>
+                <div class="product-name">
+                    <a href="categogy-detail.html">viên hồng sâm</a> <!---Note sửa lại href-->
                 </div>
             </div>
         </div>
-        <div class="copy-right">
-            <span>Copyright &copy; 2023 Đồ án lập trình web</span>
+    </div>
+    <div class="footer-contact">
+        <div class="contact-title">
+            <ul class="title-list">
+                <li class="title-item">Trang chủ</li>
+                <li class="title-item">Tin tức</li>
+                <li class="title-item">Liên hệ</li>
+            </ul>
         </div>
-    </footer>
+
+        <div class="contact-title">
+            <strong>Mua sắm tiện lợi</strong>
+        </div>
+
+        <div class="contact-title">
+            <strong>Fanpage Facebook</strong>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info-wrapper">
+                <div class="img-logo" >
+                    <img src="icon/logo.png" alt="">
+                </div>
+                <div class="contact-info-content">
+                    <p class="info-text">sâm hàn quốc Cheong Kwan Jang</p>
+                    <div class="contact-wrap">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Hotline: 1900.1234</span>
+                    </div>
+                    <div class="contact-wrap">
+                        <i class="fa-regular fa-comment-dots"></i>
+                        <span>Zalo, Sms: 0936.565.257</span>
+                    </div>
+                    <div class="contact-wrap">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>Email: nqat0919@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-content">
+            <div class="intro-wrapper">
+                <div class="intro-col">
+                    <div class="contact-wrap">
+                        <i class="fas fa-edit" aria-hidden="true"></i>
+                        <a href="#">Hướng dẫn mua hàng</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <i class="fas fa-map" aria-hidden="true"></i>
+                        <a href="#">Bản đồ đến showroom</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                        <a href="details_product.html">Thông tin hàng hóa chi tiết</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                        <a href="privacy.html#chinh_sach_bao_hanh_doi_tra_va_hoan_tien">Quy định về việc đổi trả hàng</a>
+                    </div>
+                </div>
+                <div class="intro-col">
+                    <div class="contact-wrap">
+                        <i class="fas fa-money-bill" aria-hidden="true"></i>
+                        <a href="privacy.html">Thanh toán khi nhận hàng</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <i class="fas fa-truck" aria-hidden="true"></i>
+                        <a href="#">Giao hàng toàn quốc</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <i class="fas fa-thumbs-up" aria-hidden="true"></i>
+                        <a href="#">Nhân sâm Hàn Quốc uy tín</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                        <a href="#">Dịch vụ CSKH chu đáo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-content">
+            <div class="fb-page"
+                 data-href="https://www.facebook.com/kcntt.nlu"
+                 data-width="400"
+                 data-hide-cover="false"
+                 data-show-facepile="false">
+            </div>
+        </div>
+    </div>
+    <div class="copy-right">
+        <span>Copyright &copy; 2023 Đồ án lập trình web</span>
+    </div>
+</footer>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
 </script>
 <script src="js/jquery.js"></script>
+<script src="js/login-validation.js"></script>
 <script src="libs/swiper/swiper-bundle.min.js"></script>
 <script>
-  const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
 
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      bulletActiveClass: 'custom-bullet-active',
-      bulletClass: 'custom-bullet'
-    },
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            bulletActiveClass: 'custom-bullet-active',
+            bulletClass: 'custom-bullet'
+        },
 
-    autoheight: true,
-    grabCursor: true,
-  });
+        autoheight: true,
+        grabCursor: true,
+    });
 
-  document.getElementById('toggle-login-password').addEventListener('click', function() {
-    var passwordField = document.getElementById('password');
-    var eyeIcon = this.querySelector('i');
+    document.getElementById('toggle-login-password').addEventListener('click', function() {
+        var passwordField = document.getElementById('password');
+        var eyeIcon = this.querySelector('i');
 
-    if (passwordField.type === 'password') {
-      passwordField.type = 'text';
-      eyeIcon.classList.remove('fa-eye');
-      eyeIcon.classList.add('fa-eye-slash');
-    } else {
-      passwordField.type = 'password';
-      eyeIcon.classList.remove('fa-eye-slash');
-      eyeIcon.classList.add('fa-eye');
-    }
-  });
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        }
+    });
 
 </script>
 </body>

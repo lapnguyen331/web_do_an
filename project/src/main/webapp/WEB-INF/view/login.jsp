@@ -24,7 +24,7 @@
     <div class="container">
         <div class="form-box login">
             <h2>Đăng nhập</h2>
-            <form id="login-form" method="post">
+            <form id="login-form" method="post" onsubmit="return validateForm()" >
                 <div class="input-box">
                 <span class="icon">
                   <i class="fa-solid fa-user fa-sm"></i>
@@ -79,6 +79,7 @@
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="Qoebijhj">
 </script>
 <script src="${pageContext.request.contextPath}/js/login-page_v06.js"></script>
+<script src="${pageContext.request.contextPath}/js/login-validation.js"></script>
 <script src="${pageContext.request.contextPath}/libs/swiper/swiper-bundle.min.js"></script>
 <script>
     $(document).ready(function() {
