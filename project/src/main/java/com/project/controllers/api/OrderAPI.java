@@ -42,7 +42,22 @@ public class OrderAPI extends HttpServlet {
             case "/getOrderItems":
                 doGetOrderItems(request, response);
                 break;
+            case "/getOrder":
+                doGetOrder(request, response);
+                break;
         }
+    }
+
+    private void doGetOrder(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int orderId = Integer.parseInt(request.getParameter("id"));
+        Order order = orderService.getOrderById(orderId);
+        response.setContentType("application/json");
+        var out = response.getWriter();
+        JSONObject obj = new JSONObject();
+        obj.put("data", new JSONArray());
+        obj.getJSONArray("data").put(getOrderJSON(order));
+        out.print(obj);
+        out.flush();
     }
 
     private void doGetOrderItems(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -84,10 +99,23 @@ public class OrderAPI extends HttpServlet {
         JSONObject obj = new JSONObject();
         obj.put("data", new JSONArray());
         for (var order : orders) {
-            obj.getJSONArray("data").put(orderService.getOrderJSON(order));
+            obj.getJSONArray("data").put(getOrderJSON(order));
         }
         out.print(obj);
         out.flush();
+    }
+
+    private JSONObject getOrderJSON(Order order) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id", order.getId());
+        jsonObject.put("customer", order.getUser().getFirstName() + " " + order.getUser().getLastName());
+        jsonObject.put("name", order.getReceiverName());
+        jsonObject.put("price", order.getTotalPrice());
+        jsonObject.put("phone", order.getReceiverPhone());
+        jsonObject.put("email", order.getReceiverEmail());
+        jsonObject.put("status", order.getStatus());
+        jsonObject.put("create", order.getDayCreateAt());
+        return jsonObject;
     }
 
     @Override

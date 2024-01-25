@@ -37,18 +37,17 @@
                             <section id="order-info">
                                 <h4 class="form-title pb-3">Thông tin đơn hàng</h4>
                                 <h6>Mã đơn hàng</h6>
-                                <h5>#VZ120001</h5>
+                                <h5>#${requestScope.order.id}</h5>
                                 <label for="txt_date" class="d-block py-2 fw-semibold">Ngày tạo đơn *</label>
                                 <div class="form-outline">
-                                    <input type="text" class="form-control" placeholder="Ngày tạo đơn" id="txt_date" value="10/27/2023">
+                                    <input type="text" class="form-control" placeholder="Ngày tạo đơn" id="txt_date" disabled value="${requestScope.order['getDateTimeCreateAt']()}">
                                 </div>
                                 <label for="select_order_date" class="d-block py-2 fw-semibold">Tình trạng đơn hàng</label>
                                 <select class="select" id="select_order_date">
-                                    <option value="1">Đã được giao</option>
-                                    <option value="2">Đang xử lí</option>
+                                    <option value="0">Đã bị hủy</option>
+                                    <option value="1">Đã giao</option>
                                     <option value="2">Đang được giao</option>
                                     <option value="3">Đang trả về</option>
-                                    <option value="4">Đã bị hủy</option>
                                 </select>
                             </section>
 
@@ -56,10 +55,11 @@
                                 <h4 class="form-title pb-3">Thông tin chủ đơn</h4>
                                 <div class="input-group">
                                     <div id="search-autocomplete" class="form-outline">
-                                        <input type="search" id="form1" class="form-control" value="pnHung1709z"/>
-                                        <label class="form-label" for="form1">Tên tài khoản</label>
+                                        <input type="search" id="username" class="form-control" disabled value="${requestScope.user.username}"/>
+                                        <input type="hidden" id="userid" value="${requestScope.user.id}">
+                                        <label class="form-label" for="username">Tên tài khoản</label>
                                     </div>
-                                    <button type="button" class="btn btn-primary d-flex align-items-center gap-2 px-2 text-wheat-color fw-semibold">
+                                    <button type="button" class="btn btn-primary d-flex align-items-center gap-2 px-2 text-wheat-color fw-semibold" disabled>
                                         <i class="fa-solid fa-arrows-rotate"></i>
                                         <span class="text-nowrap">Tải dữ liệu</span>
                                     </button>
@@ -67,10 +67,10 @@
                                 <hr>
                                 <div class="customer-wrapper">
                                     <div class="avatar">
-                                        <img src="${pageContext.request.contextPath}/image/customer-male-demo.png" width="100%" alt="">
+                                        <img id="user-avatar" src="${pageContext.request.contextPath}/image/customer-male-demo.png" width="100%" alt="">
                                     </div>
                                     <div class="customer-info">
-                                        <div class="customer-name fw-semibold">Phạm Nhật Hùng</div>
+                                        <div class="customer-name fw-semibold" id="user-fullname">Tên người dùng...</div>
                                         <div class="customer-role">Khách hàng</div>
                                     </div>
                                 </div>
@@ -78,11 +78,11 @@
                                     <ul>
                                         <li>
                                             <i class="fa-regular fa-envelope"></i>
-                                            <span>pnh21378@yahoo.com</span>
+                                            <span>${requestScope.user.firstName} ${requestScope.user.lastName}</span>
                                         </li>
                                         <li>
                                             <i class="fa-solid fa-phone-volume"></i>
-                                            <span>093-312-1234</span>
+                                            <span>${requestScope.user.phone}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -119,28 +119,28 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="input-field">
-                                                <label for="txt_fullname">Họ và tên *</label>
-                                                <input type="text" placeholder="Họ và tên" value="Phạm Quốc Trị" id="txt_fullname">
+                                                <label for="receiverName">Họ và tên *</label>
+                                                <input type="text" name="receiverName" placeholder="Họ và tên" value="${requestScope.order.receiverName}" id="receiverName">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-field">
-                                                <label for="txt_email">Email *</label>
-                                                <input type="text" placeholder="Email" id="txt_email" value="pnh21378@yahoo.com">
+                                                <label for="receiverEmail">Email *</label>
+                                                <input type="text" name="receiverEmail" placeholder="Email" id="receiverEmail" value="${requestScope.order.receiverEmail}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-6">
                                             <div class="input-field">
-                                                <label for="txt_phone">Số điện thoại *</label>
-                                                <input type="text" placeholder="Số điện thoại" value="0933121234" id="txt_phone">
+                                                <label for="receiverPhone">Số điện thoại *</label>
+                                                <input type="text" name="receiverPhone" placeholder="Số điện thoại" value="${requestScope.order.receiverPhone}" id="receiverPhone">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-field">
-                                                <label for="txt_address">Địa chỉ nhận hàng *</label>
-                                                <input type="text" placeholder="Địa chỉ" value="" id="txt_address">
+                                                <label for="receiverAddress">Địa chỉ nhận hàng *</label>
+                                                <input type="text" name="receiverAddress" placeholder="Địa chỉ" value="${requestScope.order.receiverAddress}" id="receiverAddress">
                                             </div>
                                         </div>
                                     </div>
@@ -174,6 +174,6 @@
 <script src="${pageContext.request.contextPath}/libs/daterangepicker-master/moment.min.js"></script>
 <script src="${pageContext.request.contextPath}/libs/daterangepicker-master/daterangepicker.js"></script>
 <script src="${pageContext.request.contextPath}/libs/DataTables/datatables.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/admin/order-edit.js?v=11"></script>
+<script src="${pageContext.request.contextPath}/js/admin/order-edit.js?v=20"></script>
 </body>
 </html>

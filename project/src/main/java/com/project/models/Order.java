@@ -123,6 +123,11 @@ public class Order {
         return in.format(formatter);
     }
 
+    public String getDateTimeCreateAt() {
+        var format =  DateTimeFormatter.ofPattern("DD/MM/YYYY hh:mm A");
+        return this.createAt.format(format);
+    }
+
     public String getReceiverNameOrUserName() {
         if (this.receiverName == null) return user.getFirstName() + " " + user.getLastName();
         else

@@ -1,15 +1,32 @@
 const id = $('#order-item').val();
-(async function() {
-    $.ajax({
+let orderItems = undefined;
+let order = undefined;
+let customer = undefined;
+const loadCustomerData = async function() {
+    const userid = $('#userid').val();
+    const json = await $.ajax({
+        url: `${window.context}/api/customer/getUser?id=${userid}`,
+        method: 'get',
+        dataType: 'json'
+    })
+    customer = json.data
+};
+const loadOrderItemsData = async function () {
+    const json = await $.ajax({
         url: `${window.context}/api/order/getOrderItems?id=${id}`,
         method: 'get',
-        success: function(response) {
-            const items = response.data;
-            let price = 0;
-            for (let i = 0; i < items.length; i++) {
-                price += items[i].price
-                const product = items[i].product;
-                const html = `
+        dataType: 'json'
+    })
+    orderItems = json.data
+};
+(async function() {
+    await loadOrderItemsData();
+    const items = orderItems;
+    let price = 0;
+    for (let i = 0; i < items.length; i++) {
+        price += items[i].price
+        const product = items[i].product;
+        const html = `
                 <div class="product-card">
                     <div class="img-wrap">
                         <img src="${window.context}/files/${product.image}" width='100%' alt="">
@@ -23,7 +40,7 @@ const id = $('#order-item').val();
                                 <button class="up">
                                     <span>+</span>
                                 </button>
-                                <input type="text" name="" id="">
+                                <input type="text" name="" id="" value=${items[i].quantity}>
                                 <button class="down">
                                     <span>-</span>
                                 </button>
@@ -35,12 +52,16 @@ const id = $('#order-item').val();
                     </div>
                 </div>
                 `
-                $('.products-range').append(html);
-            }
-            $('#total-price').text(String(price).replace(/(?<=\d)(?=(\d{3})+(?!\d))/g, "."))
-        }
-    })
-})()
+        $('.products-range').append(html);
+    }
+    $('#total-price').text(String(price).replace(/(?<=\d)(?=(\d{3})+(?!\d))/g, "."))
+})();
+(async function() {
+    await loadCustomerData();
+    $('#username').val(customer[0].username)
+    $('#user-avatar').attr('src', `${window.context}/files/${customer[0].avatar}`)
+    $('#user-fullname').text(customer[0].name)
+})();
 const dataTable = new DataTable('#products_filter_table', {
     dom: 'ti',
     paging: false,
@@ -103,6 +124,9 @@ const dataTable = new DataTable('#products_filter_table', {
 
 $('#txt_date').daterangepicker({
     "singleDatePicker": true,
+    locale: {
+        format: 'DD/MM/YYYY hh:mm A'
+    }
 }, function(start, end, label) {
   console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
 });
