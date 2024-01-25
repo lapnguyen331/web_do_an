@@ -302,7 +302,7 @@
                         </div>
                         <div class="col-md-9">
                             <div class="right-container">
-                                <form action="" id="products-form">
+                                <form action="" id="products-form" onsubmit="return validateFilterForm()">
                                     <section id="products-list-section">
                                         <h4 class="form-title">Lựa chọn sản phẩm</h4>
                                         <h6 class="form-title">Thêm sản phẩm vào đơn hàng này</h6>
@@ -362,16 +362,17 @@
                                                     <textarea name="" id="txtArea_note" rows="5"></textarea>
                                                 </div>
                                             </div>
+                                            <div id="product-validation-error"></div>
                                         </div>
                                     </section>
+                                    <div class="row">
+                                    <div class="actions-field">
+                                        <button class="cancel-btn">Làm mới</button>
+                                        <button class="update-btn">Cập nhật thông tin</button>
+                                    </div>
+                                </div>
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="actions-field">
-                            <button class="cancel-btn">Làm mới</button>
-                            <button class="update-btn">Cập nhật thông tin</button>
                         </div>
                     </div>
                 </div>
@@ -386,6 +387,7 @@
     <script src="/template/libs/daterangepicker-master/daterangepicker.js"></script>
     <script src="/template/libs/DataTables/datatables.min.js"></script>
     <script src="/template/js/admin/order-edit.js"></script>
+    <script src="/template/js/admin/order-edit-validation.js"></script>
 </body>
 
 </html>
