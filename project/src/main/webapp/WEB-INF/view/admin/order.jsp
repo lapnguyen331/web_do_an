@@ -64,19 +64,18 @@
                         <form id="table_filters">
                             <div class="form-outline input-field">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" class="form-control" id="filter_input" placeholder="Theo mã đơn hàng, tên khách hàng hoặc tương tự...">
+                                <input type="text" class="form-control" id="filter_input" placeholder="Theo tên khách hàng...">
                             </div>
                             <div class="form-outline input-field">
                                 <input type="text" class="form-control" id="date_picker" placeholder="Theo ngày tháng" value="">
                             </div>
                             <div class="select-field">
                                 <select id="status_filter">
-                                    <option value="none" disabled selected>Theo tình trạng</option>
-                                    <option value="pending">Đã được giao</option>
-                                    <option value="success">Đang giao</option>
-                                    <option value="success">Đang xử lí</option>
-                                    <option value="return">Đang trả về</option>
-                                    <option value="cancel">Đã bị hủy</option>
+                                    <option value="" selected>Tất cả tình trạng</option>
+                                    <option value="0">Đã bị hủy</option>
+                                    <option value="1">Đã giao</option>
+                                    <option value="2">Đang giao</option>
+                                    <option value="3">Đang trả về</option>
                                 </select>
                                 <select id="table_length_filter" class="select">
                                     <option value="10">Hiển thị 10 dòng</option>
@@ -94,38 +93,38 @@
                         </form>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav id="table_tabs">
-                            <ul>
-                                <li class="active">
-                                    <i class="fa-solid fa-warehouse"></i>
-                                    <span>Tất cả đơn</span>
-                                </li>
-                                <li>
-                                    <i class="fa-regular fa-circle-check"></i>
-                                    <span>Đã được giao</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-rotate-right"></i>
-                                    <span>Đang xử lí</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-truck-fast"></i>
-                                    <span>Đang giao</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-right-left"></i>
-                                    <span>Đang trả về</span>
-                                </li>
-                                <li>
-                                    <i class="fa-regular fa-circle-xmark"></i>
-                                    <span>Đã bị hủy</span>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+<%--                <div class="row">--%>
+<%--                    <div class="col-md-12">--%>
+<%--                        <nav id="table_tabs">--%>
+<%--                            <ul>--%>
+<%--                                <li class="active">--%>
+<%--                                    <i class="fa-solid fa-warehouse"></i>--%>
+<%--                                    <span>Tất cả đơn</span>--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <i class="fa-regular fa-circle-check"></i>--%>
+<%--                                    <span>Đã được giao</span>--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <i class="fa-solid fa-rotate-right"></i>--%>
+<%--                                    <span>Đang xử lí</span>--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <i class="fa-solid fa-truck-fast"></i>--%>
+<%--                                    <span>Đang giao</span>--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <i class="fa-solid fa-right-left"></i>--%>
+<%--                                    <span>Đang trả về</span>--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <i class="fa-regular fa-circle-xmark"></i>--%>
+<%--                                    <span>Đã bị hủy</span>--%>
+<%--                                </li>--%>
+<%--                            </ul>--%>
+<%--                        </nav>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
                 <div class="row">
                     <div class="col-md-12">
                         <table id="table_orders" style="width: 100%">
@@ -317,7 +316,7 @@
 <script src="${pageContext.request.contextPath}/libs/DataTables/datatables.min.js"></script>
 <script src="${pageContext.request.contextPath}/libs/daterangepicker-master/moment.min.js"></script>
 <script src="${pageContext.request.contextPath}/libs/daterangepicker-master/daterangepicker.js"></script>
-<script src="${pageContext.request.contextPath}/js/admin/order.js?v=1"></script>
+<script src="${pageContext.request.contextPath}/js/admin/order.js?v=3"></script>
 </body>
 
 </html>

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@WebServlet(name = "OrderServlet", value = "/admin/order/*")
+@WebServlet(name = "OrderDetailsServlet", value = "/admin/order/*")
 public class OrderDetailServlet extends HttpServlet {
     private OrderService orderService;
     private UserService userService;
@@ -42,18 +42,15 @@ public class OrderDetailServlet extends HttpServlet {
         String action = request.getPathInfo();
         switch (action) {
             case "/update":
+                int id = Integer.parseInt(request.getParameter("id"));
+                request.setAttribute("id", id);
                 showUpdatePage(request, response);
                 break;
         }
     }
 
     private void showUpdatePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = -1;
-        if (request.getAttribute("id") != null) {
-            id = (int) request.getAttribute("id");
-        } else {
-            id = Integer.parseInt(request.getParameter("id"));
-        }
+        int id = (int) request.getAttribute("id");
         var order = orderService.getOrderById(id);
         int userid = order.getUser().getId();
         var user = userService.getInforById(userid);
@@ -121,21 +118,15 @@ public class OrderDetailServlet extends HttpServlet {
             orderService.update(order);
             orderService.commit();
             request.setAttribute("message", "Update đơn hàng thành công");
-            request.setAttribute("id", id);
-            doGet(request, response);
-            return;
         } catch (NotFoundProductException e) {
             orderService.rollback();
             request.setAttribute("message", "Không tìm thấy sản phẩm");
-            request.setAttribute("id", id);
-            doGet(request, response);
-            return;
+
         } catch (NotEnoughQuantityException e) {
             orderService.rollback();
             request.setAttribute("message", e.getMessage());
-            request.setAttribute("id", id);
-            doGet(request, response);
-            return;
         }
+        request.setAttribute("id", id);
+        showUpdatePage(request, response);
     }
 }

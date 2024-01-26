@@ -95,7 +95,7 @@
                                 <div class="right-container">
                                     <section id="products-list-section">
                                         <c:if test="${not empty requestScope.message}">
-                                            <div class="fw-semibold text-info">
+                                            <div class="fw-semibold text-info text-center">
                                                 ${requestScope.message}
                                             </div>
                                         </c:if>
@@ -180,6 +180,6 @@
 <script src="${pageContext.request.contextPath}/libs/daterangepicker-master/moment.min.js"></script>
 <script src="${pageContext.request.contextPath}/libs/daterangepicker-master/daterangepicker.js"></script>
 <script src="${pageContext.request.contextPath}/libs/DataTables/datatables.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/admin/order-edit.js?v=25"></script>
+<script src="${pageContext.request.contextPath}/js/admin/order-edit.js?v=26"></script>
 </body>
 </html>
