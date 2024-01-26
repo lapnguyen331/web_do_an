@@ -355,9 +355,10 @@
 <script src="${pageContext.request.contextPath}/libs/flickity/flickity.pkgd.min.js"></script>
 <script src="${pageContext.request.contextPath}/libs/suneditor-master/dist/suneditor.min.js"></script>
 <script src="${pageContext.request.contextPath}/libs/image-uploader/image-uploader.js"></script>
-<script src="${pageContext.request.contextPath}/js/admin/sidebar.js"></script>
 <script src="${pageContext.request.contextPath}/js/admin/product.js?v=2"></script>
 <script src="${pageContext.request.contextPath}/js/admin/modal.js"></script>
+<script src="${pageContext.request.contextPath}/js/admin/sidebar.js"></script>
+
 </body>
 
 </html>
