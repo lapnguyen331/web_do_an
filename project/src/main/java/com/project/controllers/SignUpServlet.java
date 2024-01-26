@@ -18,9 +18,10 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
-@WebServlet(name = "SignUpServlet", urlPatterns = {"/signup", "/activation"})
+@WebServlet(name = "SignUpServlet", urlPatterns = {"/signup"})
 public class SignUpServlet extends HttpServlet {
     private UserService userService;
 
@@ -57,19 +58,19 @@ public class SignUpServlet extends HttpServlet {
             e.printStackTrace();
         }
         boolean verified = false;
+        User user = null;
         try {
-            password = User.hashPassword(password);
+            user = new User(-1, username, User.hashPassword(password), null, levelAccess, firstName, lastName, gender, null, phone,
+                    birth, status, email, verified, null, null, User.getUUID(), LocalDateTime.now());
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
-        var user = new User(-1, username, password, null, levelAccess, firstName, lastName, gender, null, phone,
-                birth, status, email, verified, null, null);
-        System.out.println(user);
         userService.begin();
         try {
             int userId = userService.insert(user);
             userService.commit();
-            MailService.sendMail("Xác minh tài khoản", "TEST MESSAGE", email);
+            user.setId(userId);
+            MailService.sendMail("Xác minh tài khoản", getBaseURL(request)+"/activation?id="+user.getId()+"&token="+user.getToken(), email);
             responseMsg = String.format("Đăng kí tài khoản thành công, kiểm tra email %s để lấy mã xác minh", email);
         } catch (DuplicateInfoUserException e) {
             code = 300;
@@ -85,5 +86,13 @@ public class SignUpServlet extends HttpServlet {
         request.setAttribute("code", code);
         request.setAttribute("message", responseMsg);
         request.getRequestDispatcher("/WEB-INF/view/signup.jsp").forward(request, response);
+    }
+    private String getBaseURL(HttpServletRequest request) {
+        String scheme = request.getScheme();
+        String host = request.getHeader("Host");        // includes server name and server port
+        String contextPath = request.getContextPath();  // includes leading forward slash
+
+        String resultPath = scheme + "://" + host + contextPath;
+        return resultPath;
     }
 }

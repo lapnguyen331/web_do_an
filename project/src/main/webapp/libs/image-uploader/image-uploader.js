@@ -47,7 +47,7 @@
                 // Set some bindings
                 $container.on("dragover", fileDragHover.bind($container));
                 $container.on("dragleave", fileDragHover.bind($container));
-                $container.on("drop", fileSelectHandler.bind($container));
+                // $container.on("drop", fileSelectHandler.bind($container));
 
                 // If there are preloaded images
                 if (plugin.settings.preloaded.length) {
@@ -150,7 +150,7 @@
                 let $preloaded = $('<input>', {
                     type: 'hidden',
                     name: plugin.settings.preloadedInputName + '[]',
-                    value: id
+                    value: $img.attr('src')
                 }).appendTo($container)
 
             } else {

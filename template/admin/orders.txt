@@ -2,8 +2,8 @@
   "data": [
   {
     "id": "VZ120001",
-    "customer": "Phạm Nhật Hùng",
     "price": "3080000",
+    "customer": "Phạm Nhật Hùng",
     "name": "Phạm Quốc Trị",
     "phone": "093-312-1234",
     "email": "pnh21378@yahoo.com",

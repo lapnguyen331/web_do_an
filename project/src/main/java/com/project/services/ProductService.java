@@ -6,7 +6,11 @@ import com.project.exceptions.NotFoundProductException;
 import com.project.models.Category;
 import com.project.models.Product;
 import org.jdbi.v3.core.Handle;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ProductService extends AbstractService {
@@ -28,7 +32,6 @@ public class ProductService extends AbstractService {
     public List<Product> getAll_FullDetails() {
         return productDAO.selectAll_fullDetails();
     }
-
     public List<Product> getALlOf(Category c) {
         return productDAO.selectTop3ProductsOf_shortDetails(c);
     }
@@ -52,6 +55,12 @@ public class ProductService extends AbstractService {
     public List<Product> search(String name, int categoryId, String brand, String minPrice, String maxPrice) {
         return productDAO.searchProduct(name, categoryId, brand, minPrice, maxPrice);
     }
+    public int insertProduct(Product p) {
+        return productDAO.insert(p);
+    }
+    public List<Product> search(@Nullable String name, @NotNull List<Integer> categoryIds, @NotNull List<String> brands) {
+        return productDAO.searchProduct(name, categoryIds, brands);
+    }
     public int updateProduct(Product p) throws NotFoundProductException {
         if (productDAO.selectOne_shortDetails(p.getId()) == null) throw new NotFoundProductException("Không tìm thấy sản phẩm có id tương ứng");
         return productDAO.update(p);
@@ -62,8 +71,9 @@ public class ProductService extends AbstractService {
     }
 
     public static void main(String[] args) {
+        var service = new ProductService();
+        service.search(null, new ArrayList<Integer>(), new ArrayList<String>()).forEach(System.out::println);
         ProductService em = new ProductService();
-         System.out.println(em.getALlOf(new Category(5)).get(1).getCategory().getId());
-
+        System.out.println(em.getALlOf(new Category(5)).get(1).getCategory().getId());
     }
 }

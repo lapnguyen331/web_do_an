@@ -9,10 +9,27 @@ $('.product-list-body').on('change', '.collapse-toggle', function() {
     if ($(this).is(':checked')) mdb.Collapse.getInstance(target).show();
     else mdb.Collapse.getInstance(target).hide();
 });
-(async function() {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+$('.filter-form').on('submit', (e) => {
+    e.preventDefault();
+    $('.product-list-body').html(`
+        <div class="w-100 d-flex align-items-center justify-content-center">
+            <img src="${window.context}/inventory/images/loading-gif.gif" width="200px" alt="">
+        </div>
+    `);
+    searchProducts();
+})
+const searchProducts = async function(){
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    let formData = new FormData($('.filter-form')[0]);
     $.ajax({
-        url: `${window.context}/admin/product?action=get`,
+        url: `${window.context}/admin/product`,
+        method: 'post',
+        data: {
+            name: formData.get('name'),
+            brand: formData.get('brand'),
+            category: formData.get('category'),
+            action: 'filter'
+        },
         success: function(data) {
             const products = JSON.parse(data).data;
             $('.product-list-body').html('');
@@ -27,7 +44,7 @@ $('.product-list-body').on('change', '.collapse-toggle', function() {
                     <span class="id-product">${data.id}</span>
                     <span>${data.name}</span>
                     <span>${data.price}</span>
-                    <span>15</span>
+                    <span>${data.quantity}</span>
                     <div class="product-more-info collapse">
                         <div class="product-wrap">
                             <div class="img-product">
@@ -52,7 +69,7 @@ $('.product-list-body').on('change', '.collapse-toggle', function() {
                                 </div>
                                 <div class="stat">
                                     <label>Tồn kho</label>
-                                    <span>15</span>
+                                    <span>${data.quantity}</span>
                                 </div>
                                 <div class="stat">
                                     <label>Thương hiệu</label>
@@ -62,9 +79,9 @@ $('.product-list-body').on('change', '.collapse-toggle', function() {
                         </div>
                     </div>
                     <div class="action-btns">
-                        <i class="fa-regular fa-circle-xmark remove-btn" data-mdb-toggle="tooltip" title="Xóa sản phẩm"></i>
-                        <i class="fa-regular fa-edit view-btn" data-mdb-toggle="tooltip" title="Chỉnh sửa" data-product-id = 'CHS013912'></i>
-                        <a href="/template/details_product.html" data-mdb-toggle="tooltip" title="Xem trang sản phẩm"><i class="fa-regular fa-eye remove-btn"></i></a>
+<!--                        <i class="fa-regular fa-circle-xmark remove-btn" data-mdb-toggle="tooltip" title="Xóa sản phẩm"></i>-->
+                        <a href="${window.context}/admin/product/detail/update?id=${data.id}" data-mdb-toggle="tooltip" title="Xem trang sản phẩm"><i class="fa-regular fa-edit view-btn"></i></a>
+                        <a href="${window.context}/product?id=${data.id}" data-mdb-toggle="tooltip" title="Xem trang sản phẩm"><i class="fa-regular fa-eye remove-btn"></i></a>
                     </div>
                 </div>
                 `
@@ -73,4 +90,5 @@ $('.product-list-body').on('change', '.collapse-toggle', function() {
             })
         }
     })
-})();
+}
+searchProducts();

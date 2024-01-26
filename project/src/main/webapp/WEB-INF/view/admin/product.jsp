@@ -42,121 +42,72 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 px-0">
-                        <form action="" class="filter-form">
+                        <form class="filter-form">
                             <div class="action-field">
                                 <div class="form-title">Bộ lọc</div>
                                 <button type="submit">Tìm kiếm sản phẩm</button>
                             </div>
                             <div class="filter-button-field">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text">
+                                <input type="text" name="name">
                             </div>
                             <div class="filter-radio-field">
                                 <div class="form-title">Danh mục</div>
                                 <ul class="field-show">
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="cate1"
-                                                   id="nuoc-hong-sam" />
-                                            <label class="form-check-label" for="nuoc-hong-sam">Nước hồng
-                                                sâm</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="cate2"
-                                                   id="cao-hong-sam" />
-                                            <label class="form-check-label" for="cao-hong-sam">Cao hồng sâm</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="cate3"
-                                                   id="sam-kho" />
-                                            <label class="form-check-label" for="sam-kho">Sâm khô</label>
-                                        </div>
-                                    </li>
+                                    <c:forEach var="i" begin="0" end="2">
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="category" value="${sessionScope.categories[i].id}"
+                                                       id="cate-${sessionScope.categories[i].id}" />
+                                                <label class="form-check-label" for="cate-${sessionScope.categories[i].id}">${sessionScope.categories[i].name}</label>
+                                            </div>
+                                        </li>
+                                    </c:forEach>
                                 </ul>
-                                <div class="field-others collapse" id="others">
+                                <div class="field-others collapse" id="categories">
                                     <ul>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="cate4"
-                                                       id="sam-mat-ong" />
-                                                <label class="form-check-label" for="sam-mat-ong">Sâm mật
-                                                    ong</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="cate5"
-                                                       id="hac-sam" />
-                                                <label class="form-check-label" for="hac-sam">Hắc sâm</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="cate6"
-                                                       id="nhan-sam-tuoi" />
-                                                <label class="form-check-label" for="nhan-sam-tuoi">Nhân sâm
-                                                    tươi</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="cate7"
-                                                       id="ruou-sam-linh-chi" />
-                                                <label class="form-check-label" for="ruou-sam-linh-chi">Rượu sâm
-                                                    linh chi</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="cate8"
-                                                       id="tra-hong-sam" />
-                                                <label class="form-check-label" for="tra-hong-sam">Trà hồng
-                                                    sâm</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="cate9"
-                                                       id="vien-hong-sam" />
-                                                <label class="form-check-label" for="vien-hong-sam">Viên hồng
-                                                    sâm</label>
-                                            </div>
-                                        </li>
+                                        <c:forEach var="i" begin="3" end="${sessionScope.categories.size() - 1}">
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="category" value="${sessionScope.categories[i].id}"
+                                                           id="cate-${sessionScope.categories[i].id}" />
+                                                    <label class="form-check-label" for="cate-${sessionScope.categories[i].id}">${sessionScope.categories[i].name}</label>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
                                     </ul>
                                 </div>
-                                <a href="#others" data-mdb-toggle="collapse" aria-expanded="false"
+                                <a href="#categories" data-mdb-toggle="collapse" aria-expanded="false"
                                    class="show-all-toggle">Hiện tất cả...</a>
                             </div>
                             <div class="filter-radio-field">
                                 <div class="form-title">Thương hiệu</div>
                                 <ul class="field-show">
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="cheongkwangjang"
-                                                   id="cheong-kwang-jang" />
-                                            <label class="form-check-label" for="cheong-kwang-jang">CHEONG KWANG
-                                                JANG</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="daedong"
-                                                   id="daedong" />
-                                            <label class="form-check-label" for="daedong">DAEDONG</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="kwandaong"
-                                                   id="kwandaong" />
-                                            <label class="form-check-label" for="kwandaong">KWANGDONG</label>
-                                        </div>
-                                    </li>
+                                    <c:forEach var="i" begin="0" end="3">
+                                        <c:set var="brand" value="${requestScope.brands[i]}"/>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="brand" value="${brand}" id="${brand}" />
+                                                <label class="form-check-label" for="${brand}">${brand}</label>
+                                            </div>
+                                        </li>
+                                    </c:forEach>
                                 </ul>
+                                <div class="field-others collapse" id="brands">
+                                    <ul>
+                                        <c:forEach var="i" begin="4" end="${requestScope.brands.size() - 1}">
+                                            <c:set var="brand" value="${requestScope.brands[i]}"/>
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="brand" value="${brand}" id="${brand}" />
+                                                    <label class="form-check-label" for="${brand}">${brand}</label>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </div>
+                                <a href="#brands" data-mdb-toggle="collapse" aria-expanded="false"
+                                   class="show-all-toggle">Hiện tất cả...</a>
                             </div>
                         </form>
                     </div>
@@ -164,7 +115,9 @@
                         <div class="product-list">
                             <button class="add-btn view-btn" data-product-id = 'new'>
                                 <i class="fa-solid fa-plus"></i>
-                                <span>Thêm sản phẩm</span>
+                                <a href="${pageContext.request.contextPath}/admin/product/detail/new" style="color: white">
+                                    <span>Thêm sản phẩm</span>
+                                </a>
                             </button>
                             <div class="product-grid product-list-head">
                                 <span class="justify-self-center">#</span>
@@ -177,7 +130,7 @@
                             <!-- Body -->
                             <div class="product-list-body">
                                 <div class="w-100 d-flex align-items-center justify-content-center">
-                                    <img src="${pageContext.request.contextPath}/image/loading-gif.gif" width="200px" alt="">
+                                    <img src="${pageContext.request.contextPath}/inventory/images/loading-gif.gif" width="200px" alt="">
                                 </div>
                             </div>
                         </div>
@@ -355,9 +308,9 @@
 <script src="${pageContext.request.contextPath}/libs/flickity/flickity.pkgd.min.js"></script>
 <script src="${pageContext.request.contextPath}/libs/suneditor-master/dist/suneditor.min.js"></script>
 <script src="${pageContext.request.contextPath}/libs/image-uploader/image-uploader.js"></script>
-<script src="${pageContext.request.contextPath}/js/admin/product.js?v=2"></script>
-<script src="${pageContext.request.contextPath}/js/admin/modal.js"></script>
 <script src="${pageContext.request.contextPath}/js/admin/sidebar.js"></script>
+<script src="${pageContext.request.contextPath}/js/admin/product.js?v=11"></script>
+<script src="${pageContext.request.contextPath}/js/admin/modal.js"></script>
 
 </body>
 

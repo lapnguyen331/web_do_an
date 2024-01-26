@@ -45,7 +45,7 @@
                     <!-- tài khoản cũa tôi -->
                     <div class="account-height startdust-dropdown">
                         <div class="startdust-dropdown-item-header">
-                            <a class="stardust-link" href="user-profile.jsp">
+                            <a class="stardust-link" href="">
                                 <img src="${pageContext.request.contextPath}/inventory/images/user-profile/account.png" alt="">
                                 <span>Tài khoản của tôi</span>
                             </a> 

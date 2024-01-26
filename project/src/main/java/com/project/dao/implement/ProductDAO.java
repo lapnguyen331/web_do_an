@@ -6,8 +6,12 @@ import com.project.mappers.*;
 import com.project.models.Category;
 import com.project.models.Product;
 import org.jdbi.v3.core.Handle;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
     public ProductDAO(Handle handle) {
@@ -167,6 +171,35 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
                 new ImageRowMapper("t"));
     }
 
+    @Override
+    public List<Product> searchProduct(@Nullable String name, @NotNull List<Integer> categoryIds, @NotNull List<String> brands) {
+        String filters;
+        var mapCategoryIds = categoryIds.stream().map(c -> "p.categoryId = "+c).toList();
+        var mapBrands = brands.stream().map(b -> "p.brand LIKE '%"+b+"%'").toList();
+        var mapNames = new ArrayList<String>();
+        if (name != null) mapNames.add("p.name LIKE '%"+name+"%'");
+        var maps = Stream.of(mapNames, mapBrands, mapCategoryIds).flatMap(a -> a.stream()).toList();
+        if (!maps.isEmpty()) {
+            filters = "WHERE " + String.join(" OR ", maps);
+        } else {
+            System.out.println(maps);
+            filters = "";
+        }
+        String SELECT = "SELECT <columns> FROM <table1> p" +
+                " LEFT JOIN <table2> t ON p.thumbnail = t.id" +
+                " LEFT JOIN <table3> c ON p.categoryId = c.id" +
+                " <filters>";
+        return query(SELECT, Product.class, query -> {
+                    query.define("table1", "products")
+                            .define("table2", "images")
+                            .define("table3", "categories")
+                            .define("columns", "p.name, p.id, p.price, p.quantity, p.specification, p.brand, c.name, t.path")
+                            .define("filters", filters);
+                }, new ProductRowMapper("p"),
+                new CategoryRowMapper("c"),
+                new DiscountRowMapper("d"),
+                new ImageRowMapper("t"));
+    }
 
     @Override
     public int insert(Product p) {
@@ -229,29 +262,31 @@ public class ProductDAO extends AbstractDAO<Product> implements IProductDAO {
                 p.getDescription(),
                 p.getProducer() == null ? null : p.getProducer().getId(),
                 p.getCategory() == null ? null : p.getCategory().getId(),
-                p.getDiscount() == null ? null : p.getDiscount().getId(),
+                p.getDiscount() == null || p.getDiscount().getId() == 0 ? null : p.getDiscount().getId(),
                 p.getBlog() == null ? null : p.getBlog().getId(),
                 p.getCreateAt() == null ? LocalDateTime.now().toString() : p.getCreateAt().toString(),
                 p.getUpdateAt() == null ? LocalDateTime.now().toString() : p.getUpdateAt().toString()
         );
+        values = values.stream().filter(v -> v != null).toList();
         var columns = Arrays.asList(
                 "name",
                 "price",
                 "quantity",
                 "minAge",
-                "thumbnail",
+                p.getThumbnail() == null || p.getThumbnail().getId() == 0 ? null : "thumbnail",
                 "specification",
                 "weight",
                 "status",
                 "brand",
                 "description",
-                "producerId",
-                "categoryId",
-                "discountId",
-                "blogId",
+                p.getProducer() == null || p.getProducer().getId() == 0 ? null : "producerId",
+                p.getCategory() == null || p.getCategory().getId() == 0 ? null : "categoryId",
+                p.getDiscount() == null || p.getDiscount().getId() == 0 ? null : "discountId",
+                p.getBlog() == null || p.getBlog().getId() == 0 ? null : "blogId",
                 "createAt",
                 "updateAt"
         );
+        columns = columns.stream().filter(c -> c != null).toList();
         var updates = new ArrayList<String>();
         for (int i = 0; i < columns.size(); i++) {
             updates.add(String.format("%s = '%s'", columns.get(i), values.get(i)));

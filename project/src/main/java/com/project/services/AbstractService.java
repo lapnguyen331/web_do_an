@@ -29,4 +29,7 @@ public class AbstractService {
     public void close() {
         if (!isPassed) handle.close();
     }
+    public Handle getHandle() {
+        return handle;
+    }
 }
