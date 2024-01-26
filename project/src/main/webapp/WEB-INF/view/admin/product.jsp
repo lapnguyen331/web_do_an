@@ -311,6 +311,7 @@
 <script src="${pageContext.request.contextPath}/js/admin/sidebar.js"></script>
 <script src="${pageContext.request.contextPath}/js/admin/product.js?v=11"></script>
 <script src="${pageContext.request.contextPath}/js/admin/modal.js"></script>
+
 </body>
 
 </html>

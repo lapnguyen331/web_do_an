@@ -30,6 +30,7 @@ public class OrderService extends AbstractService {
     public List<Order> getAll() {
         return orderDAO.getAll();
     }
+
     public int createOrder(List<CartItem> cartItems, Order order) throws NotEnoughQuantityException, NotFoundProductException {
         ProductService productService = new ProductService(this.handle);
         OrderItemService orderItemService = new OrderItemService(this.handle);
@@ -89,12 +90,7 @@ public class OrderService extends AbstractService {
         }
         return null;
     }
-
-    public static void main(String[] args) {
-        OrderService t = new OrderService();
-        User em = new User();
-//        em.setId(1);
-//        t.getAllOrderOfUser(em).forEach(System.out::println);
-        System.out.println(t.getOrderById(32));
+    public List<Order> getAllOrder(){
+        return orderDAO.getAllOrder();
     }
 }
