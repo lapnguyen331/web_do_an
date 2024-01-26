@@ -34,7 +34,6 @@ public class OrderService extends AbstractService {
         ProductService productService = new ProductService(this.handle);
         OrderItemService orderItemService = new OrderItemService(this.handle);
         int orderId = -1;
-        begin();
 //            Tạo order trước
         orderId = orderDAO.insert(order);
         order.setId(orderId);
@@ -48,6 +47,29 @@ public class OrderService extends AbstractService {
             OrderItem orderItem = new OrderItem(order, product, item.getQuantity(), price, null, null);
             orderPrice += price;
             orderItemService.insert(orderItem);
+        }
+//            Update lại thông tin tổng tiền của order
+        order.setTotalPrice(orderPrice);
+        update(order);
+        return orderId;
+    }
+    public int insertOrder(List<OrderItem> orderItems, Order order) throws NotEnoughQuantityException, NotFoundProductException {
+        ProductService productService = new ProductService(this.handle);
+        OrderItemService orderItemService = new OrderItemService(this.handle);
+        int orderId = -1;
+//            Tạo order trước
+        orderId = orderDAO.insert(order);
+        order.setId(orderId);
+//            Thêm orderItem tương ứng với cartItem
+        float orderPrice = 0f;
+        for (var item : orderItems) {
+            int productId = item.getProduct().getId();
+            var product = productService.getById(productId);
+            item.setOrder(order);
+//                Tính giá tiền của orderItem
+            float price = product.getDiscountPrice() * item.getQuantity();
+            orderPrice += price;
+            orderItemService.insert(item);
         }
 //            Update lại thông tin tổng tiền của order
         order.setTotalPrice(orderPrice);

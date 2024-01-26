@@ -53,6 +53,11 @@
                     <div class="text-danger fw-light"></div>
                 </div>
                 <div class="icons">
+                    <c:if test="${not empty requestScope.message}">
+                        <div class="fw-semibold text-danger text-center">
+                            ${requestScope.message}
+                        </div>
+                    </c:if>
                     <p>Hoặc đăng nhập với:</p>
                     <a href="#" class="icons-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">

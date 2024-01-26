@@ -41,12 +41,22 @@ public class OrderDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getPathInfo();
         switch (action) {
-            case "/update":
+            case "/update": {
                 int id = Integer.parseInt(request.getParameter("id"));
                 request.setAttribute("id", id);
                 showUpdatePage(request, response);
                 break;
+            }
+            case "/new": {
+                showNewPage(request, response);
+                break;
+            }
         }
+    }
+
+    private void showNewPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("status", Arrays.asList("Hủy đơn hàng", "Đã giao", "Đang giao", "Đang trả về"));
+        request.getRequestDispatcher("/WEB-INF/view/admin/order_details_new.jsp").forward(request, response);
     }
 
     private void showUpdatePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,7 +70,7 @@ public class OrderDetailServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/view/admin/order_details_update.jsp").forward(request, response);
     }
 
-    private List<OrderItem> mapJSONToList(String JSON) {
+    private List<OrderItem> mapJSONToList_upate(String JSON) {
         JSONArray arr = new JSONArray(JSON);
         List<OrderItem> list = new ArrayList<>();
         for (int i = 0; i < arr.length(); i++) {
@@ -77,6 +87,21 @@ public class OrderDetailServlet extends HttpServlet {
         return list;
     }
 
+    private List<OrderItem> mapJSONToList_new(String JSON) {
+        JSONArray arr = new JSONArray(JSON);
+        List<OrderItem> list = new ArrayList<>();
+        for (int i = 0; i < arr.length(); i++) {
+            JSONObject json = arr.getJSONObject(i);
+            int productId = json.getInt("productId");
+            int quantity = json.getInt("quantity");
+            Product product = productService.getById(productId);
+            float price = product.getDiscountPrice() * quantity;
+            OrderItem orderItem = new OrderItem(null, product, quantity, price, null, null);
+            list.add(orderItem);
+        }
+        return list;
+    }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getPathInfo();
@@ -84,7 +109,51 @@ public class OrderDetailServlet extends HttpServlet {
             case "/update":
                 doUpdate(request, response);
                 break;
+            case "/new":
+                doNew(request, response);
+                break;
         }
+    }
+
+    private void doNew(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int status = Integer.parseInt(request.getParameter("status"));
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        String receiverName = request.getParameter("receiverName");
+        String receiverEmail = request.getParameter("receiverEmail");
+        String receiverPhone = request.getParameter("receiverPhone");
+        String receiverAddress = request.getParameter("receiverAddress");
+        String json = request.getParameter("items");
+        List<OrderItem> items =  mapJSONToList_new(json);
+        var user = userService.getInforById(userId);
+        int id = -1;
+        try {
+            orderService.begin();
+            var order = new Order();
+            order.setStatus(status);
+            float totalPrice = items.stream().map(odi -> odi.getPrice()).reduce(0f, Float::sum);
+            order.setTotalPrice(totalPrice);
+            order.setUpdateAt(LocalDateTime.now());
+            order.setReceiverName(receiverName);
+            order.setReceiverEmail(receiverEmail);
+            order.setReceiverPhone(receiverPhone);
+            order.setReceiverAddress(receiverAddress);
+            order.setUser(user);
+            id = orderService.insertOrder(items, order);
+            orderService.commit();
+        } catch (NotFoundProductException e) {
+            orderService.rollback();
+            request.setAttribute("message", "Không tìm thấy sản phẩm");
+            request.setAttribute("id", id);
+            showUpdatePage(request, response);
+            return;
+        } catch (NotEnoughQuantityException e) {
+            orderService.rollback();
+            request.setAttribute("message", e.getMessage());
+            request.setAttribute("id", id);
+            showUpdatePage(request, response);
+            return;
+        }
+        response.sendRedirect(request.getContextPath()+"/admin/order/update?id="+id);
     }
 
     private void doUpdate(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -95,7 +164,7 @@ public class OrderDetailServlet extends HttpServlet {
         String receiverPhone = request.getParameter("receiverPhone");
         String receiverAddress = request.getParameter("receiverAddress");
         String json = request.getParameter("items");
-        List<OrderItem> items =  mapJSONToList(json);
+        List<OrderItem> items =  mapJSONToList_upate(json);
         var order = orderService.getOrderById(id);
         orderService.begin();
 //        Add lại số lượng product
@@ -121,7 +190,6 @@ public class OrderDetailServlet extends HttpServlet {
         } catch (NotFoundProductException e) {
             orderService.rollback();
             request.setAttribute("message", "Không tìm thấy sản phẩm");
-
         } catch (NotEnoughQuantityException e) {
             orderService.rollback();
             request.setAttribute("message", e.getMessage());

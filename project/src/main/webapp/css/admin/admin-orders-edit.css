@@ -50,9 +50,10 @@
     padding: 20px;
     border: 1px dashed rgba(0,0,0,.5);
     border-radius: 5px;
-    min-height: 236px;
+    min-height: 150px;
     margin-top: 10px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 #product_edit #order-form .products-range .product-card {
